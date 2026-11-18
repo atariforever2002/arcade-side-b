@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Century Electronics Ltd. | Arcade Side B</title>
+<style>
+:root{
+  --bg:#090d12;--paper:#eee7d8;--paper2:#f5efe3;--ink:#232b30;--muted:#667075;
+  --line:#c8beab;--darkline:#303b45;--gold:#c28a32;--gold2:#d8b36b;
+  --green:#557b63;--cyan:#6f99aa;--max:1180px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:
+  radial-gradient(circle at 82% 10%,rgba(111,153,170,.09),transparent 28%),
+  linear-gradient(rgba(255,255,255,.012) 1px,transparent 1px),#090d12;
+  background-size:auto,100% 4px,auto;color:#dce2e5;font-family:Georgia,"Times New Roman",serif;
+}
+a{color:#a96f21}
+.mast{border-bottom:4px solid var(--gold);background:linear-gradient(135deg,#0a0f14,#13202a)}
+.mast-inner{width:min(calc(100% - 32px),var(--max));margin:auto;padding:17px 0;display:flex;justify-content:space-between;gap:20px;align-items:center}
+.brand{font-size:26px;font-weight:700;color:#f0ece4}
+.motto{font:700 10px Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#9ca8af;text-align:right}
+.crumb,.hero,.rule,.shell{width:min(calc(100% - 32px),var(--max));margin-left:auto;margin-right:auto}
+.crumb{padding-top:18px;color:#93a0a8;font:700 11px Arial,sans-serif}
+.crumb a{color:#d4ad67;text-decoration:none}
+.hero{padding:30px 0 26px}
+.eyebrow{color:var(--gold2);font:800 10px Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase}
+.hero h1{margin:7px 0 10px;font-size:clamp(44px,7vw,78px);line-height:.95;color:#f0ece4}
+.deck{max-width:930px;color:#b9c4ca;font-size:20px;line-height:1.5;margin:0}
+.meta{display:flex;gap:12px;flex-wrap:wrap;margin-top:17px;color:#9aa6ad;font:700 11px Arial,sans-serif}
+.badge{padding:6px 9px;border:1px solid currentColor;border-radius:999px;text-transform:uppercase}
+.living{color:#78a6b8}
+.rule{height:1px;background:#29343e}
+.shell{display:grid;grid-template-columns:275px minmax(0,1fr);gap:22px;padding:26px 0 50px;align-items:start}
+.sidebar{position:sticky;top:10px}
+.toc{border:1px solid #34404b;background:#111820;max-height:82vh;overflow:auto}
+.toc-title{padding:13px 15px;color:#d8dfe2;font:800 11px Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase}
+.toc a{display:block;border-top:1px solid #29343e;padding:9px 13px;color:#aebbc2;text-decoration:none;font:13px/1.35 Arial,sans-serif}
+.toc a:hover{color:#f0c57e}
+.sidebar-note{margin-top:12px;border:1px solid #34404b;background:#111820;padding:13px;color:#94a0a7;font:13px/1.45 Arial,sans-serif}
+article{background:var(--paper);color:var(--ink);border:1px solid #b9ae9a;box-shadow:0 18px 42px rgba(0,0,0,.25);padding:26px 34px 40px;min-width:0}
+.backhome{display:inline-block;margin-bottom:18px;padding:8px 10px;border:1px solid #9e927e;color:#745322;text-decoration:none;font:800 10px Arial,sans-serif;text-transform:uppercase;letter-spacing:.08em}
+.company-identity{margin:0 0 28px;border:1px solid #b8ad98;background:linear-gradient(135deg,rgba(194,138,50,.08),transparent 48%),#f3eddf;overflow:hidden}
+.company-mark{padding:24px 26px 20px;border-bottom:1px solid var(--line);position:relative}
+.company-mark:after{content:"COMPANY PROFILE";position:absolute;right:22px;top:18px;color:#8c8272;font:700 9px Arial,sans-serif;letter-spacing:.16em}
+.legal{color:#746b5f;font:700 10px Arial,sans-serif;letter-spacing:.13em;text-transform:uppercase;margin-bottom:7px}
+.wordmark{font-size:clamp(34px,5vw,58px);line-height:.95;color:#122331}
+.wordmark span{display:block;margin-top:7px;color:#8a6429;font:700 13px Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase}
+.company-snapshot{display:grid;grid-template-columns:repeat(4,1fr)}
+.snapshot-cell{padding:17px 18px;border-right:1px solid var(--line)}
+.snapshot-cell:last-child{border-right:0}
+.snapshot-label{display:block;color:#786f63;font:700 9px Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;margin-bottom:5px}
+.snapshot-value{display:block;color:#1c2d37;font-size:19px;line-height:1.2}
+.snapshot-note{display:block;margin-top:5px;color:#6e726f;font:11px/1.35 Arial,sans-serif}
+.overview-box{padding:18px 20px;background:#f8f2e7;border:1px solid #d2c5af;margin:0 0 26px}
+.overview-box h2{margin-top:0!important}
+article h2{margin:38px 0 13px;color:#172a35;font-size:31px;border-bottom:2px solid #b57f31;padding-bottom:7px}
+article h2:first-of-type{margin-top:0}
+article h3{margin:27px 0 9px;color:#2b3a41;font-size:24px}
+article p{font-size:18px;line-height:1.7;margin:14px 0}
+article li{font-size:17px;line-height:1.6;margin:6px 0}
+article blockquote{margin:18px 0;padding:10px 17px;border-left:4px solid var(--gold);background:#f7f0e3;color:#465156}
+article table{width:100%;border-collapse:collapse;margin:18px 0;font:14px/1.45 Arial,sans-serif}
+article th,article td{border:1px solid #c8beab;padding:8px 9px;vertical-align:top}
+article th{background:#ddd3c1;color:#24323a;text-align:left}
+article code{font-size:.88em}
+.src-tag{display:inline-block;color:#76531e;font:700 10px Arial,sans-serif;white-space:nowrap}
+.public-note{margin:0 0 25px;padding:15px 17px;border-left:5px solid var(--green);background:#e7efe8;color:#33433a;font:15px/1.5 Arial,sans-serif}
+.footer{border-top:1px solid #29343e;background:#07090c}
+.footer-inner{width:min(calc(100% - 32px),var(--max));margin:auto;padding:21px 0 27px;display:flex;justify-content:space-between;align-items:flex-end;gap:20px;color:#7f8b92;font:12px Arial,sans-serif}
+.footer-inner strong{color:#d9dfe2;font-family:Georgia,serif;font-size:15px}
+.site-counter{text-align:right;font:800 9px Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#748089}
+.site-counter img{display:block;margin:5px 0 0 auto;border:1px solid #303944}
+@media(max-width:920px){
+ .shell{grid-template-columns:1fr} .sidebar{position:static} .toc{max-height:none}
+ .company-snapshot{grid-template-columns:1fr 1fr}
+ .snapshot-cell:nth-child(2){border-right:0}
+ .snapshot-cell{border-bottom:1px solid var(--line)}
+ .snapshot-cell:nth-child(3),.snapshot-cell:nth-child(4){border-bottom:0}
+}
+@media(max-width:600px){
+ .mast-inner{align-items:flex-start;flex-direction:column} .motto{text-align:left}
+ .company-snapshot{grid-template-columns:1fr} .snapshot-cell{border-right:0;border-bottom:1px solid var(--line)!important}
+ .snapshot-cell:last-child{border-bottom:0!important}
+ article{padding:20px 16px 28px} article p{font-size:17px} article h2{font-size:27px}
+ .footer-inner{align-items:flex-start;flex-direction:column} .site-counter{text-align:left} .site-counter img{margin-left:0}
+}
+
+.elcon-visuals{
+  margin:28px 0 34px;
+}
+.elcon-visuals h2{
+  margin-top:0;
+}
+.flyer-pair{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+  align-items:start;
+}
+.archive-figure{
+  margin:0;
+  padding:10px;
+  border:1px solid #b8ad98;
+  background:#f8f3e8;
+}
+.archive-figure img{
+  width:100%;
+  height:auto;
+  display:block;
+  border:1px solid #c8beab;
+  background:#e9dfce;
+}
+.archive-figure figcaption{
+  padding:9px 4px 2px;
+  color:#5e6668;
+  font:12px/1.5 Arial,Helvetica,sans-serif;
+}
+.rights-hold{
+  margin:24px 0;
+  padding:15px 17px;
+  border:1px dashed #b69d72;
+  background:#f7efe1;
+  color:#5b554c;
+  font:13px/1.55 Arial,Helvetica,sans-serif;
+}
+.rights-hold strong{
+  color:#65471e;
+}
+@media(max-width:700px){
+  .flyer-pair{grid-template-columns:1fr}
+}
+
+
+/* ELCON PUBLICATION VISUALS */
+.visual-section{
+  margin:20px 0 32px;
+}
+.visual-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+  margin:18px 0 24px;
+  align-items:start;
+}
+.visual-grid.brochure{
+  grid-template-columns:1fr 1fr;
+}
+.archive-figure{
+  margin:0;
+  padding:10px;
+  border:1px solid #b8ad98;
+  background:#f8f3e8;
+}
+.archive-figure img{
+  width:100%;
+  height:auto;
+  display:block;
+  border:1px solid #c8beab;
+  background:#e9dfce;
+}
+.archive-figure figcaption{
+  padding:9px 4px 2px;
+  color:#5e6668;
+  font:12px/1.5 Arial,Helvetica,sans-serif;
+}
+.visual-note{
+  margin:18px 0;
+  padding:14px 16px;
+  border-left:4px solid #b57f31;
+  background:#f7efe1;
+  color:#5b554c;
+  font:13px/1.55 Arial,Helvetica,sans-serif;
+}
+@media(max-width:760px){
+  .visual-grid,.visual-grid.brochure{grid-template-columns:1fr}
+}
+
+
+/* CONTEXTUAL ARCHIVAL FIGURES */
+.inline-archive-figure{
+  margin:22px auto 27px;
+  max-width:780px;
+  padding:10px;
+  border:1px solid #b8ad98;
+  background:#f8f3e8;
+  box-shadow:0 8px 18px rgba(64,52,34,.08);
+}
+.inline-archive-figure.narrow{max-width:560px}
+.inline-archive-figure img{
+  width:100%;
+  height:auto;
+  display:block;
+  border:1px solid #c8beab;
+  background:#e9dfce;
+}
+.inline-archive-figure figcaption{
+  padding:9px 4px 2px;
+  color:#5e6668;
+  font:12px/1.55 Arial,Helvetica,sans-serif;
+}
+.inline-archive-figure figcaption strong{color:#334047}
+.derivative-note{
+  display:inline-block;
+  margin-left:5px;
+  padding:2px 5px;
+  border:1px solid #b89a66;
+  color:#76531e;
+  font:700 8px Arial,Helvetica,sans-serif;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.context-note{
+  margin:18px 0 22px;
+  padding:13px 15px;
+  border-left:4px solid #b57f31;
+  background:#f7efe1;
+  color:#5b554c;
+  font:13px/1.55 Arial,Helvetica,sans-serif;
+}
+
+</style>
+<style>
+/* Reader-facing source and table containment */
+article a, .source-list a, .footnotes a { overflow-wrap:anywhere; }
+.research-questions{display:grid;gap:12px;margin:18px 0 24px}.research-question{padding:16px 18px;border:1px solid rgba(181,127,49,.35);background:rgba(181,127,49,.055)}.research-question h4{margin:0 0 7px;color:#2b3a41;font-size:20px}.research-question p{margin:0 0 10px;font-size:16px}.question-action{display:inline-block;color:#76531e;text-decoration:none;font:700 11px Arial,sans-serif;letter-spacing:.06em;text-transform:uppercase}.question-action:hover,.question-action:focus-visible{text-decoration:underline}
+.table-scroll {max-width:100%;overflow-x:auto;}
+.table-scroll:focus-visible {outline:2px solid #d7b56d;outline-offset:3px;}
+</style><style id="ao-company-profile-consistency">
+/* Exact shared company-profile presentation: Elcon is the house pattern. */
+.company-identity.company-profile-standard{
+  margin:0 0 28px!important;
+  padding:0!important;
+  border:1px solid #b8ad98!important;
+  border-radius:0!important;
+  background:linear-gradient(135deg,rgba(194,138,50,.08),transparent 48%),#f3eddf!important;
+  color:#20272c!important;
+  box-shadow:none!important;
+  overflow:hidden!important;
+  font-family:Georgia,"Times New Roman",serif!important;
+  font-size:16px!important;
+  line-height:normal!important;
+}
+.company-profile-standard .company-mark{
+  display:block!important;
+  position:relative!important;
+  padding:24px 26px 20px!important;
+  border:0!important;
+  border-bottom:1px solid #c8beab!important;
+  border-radius:0!important;
+  background:transparent!important;
+  color:#232b30!important;
+  font:400 16px/normal Georgia,"Times New Roman",serif!important;
+}
+.company-profile-standard .company-mark:after{
+  content:"COMPANY PROFILE"!important;
+  position:absolute!important;
+  right:22px!important;
+  top:18px!important;
+  display:block!important;
+  margin:0!important;
+  color:#8c8272!important;
+  font:700 9px/normal Arial,Helvetica,sans-serif!important;
+  letter-spacing:.16em!important;
+  text-transform:uppercase!important;
+}
+.company-profile-standard .legal{
+  display:block!important;
+  margin:0 0 7px!important;
+  padding:0!important;
+  color:#746b5f!important;
+  font:700 10px/11px Arial,Helvetica,sans-serif!important;
+  letter-spacing:.13em!important;
+  text-transform:uppercase!important;
+}
+.company-profile-standard .wordmark{
+  display:block!important;
+  margin:0!important;
+  padding:0!important;
+  color:#122331!important;
+  font:400 clamp(34px,5vw,58px)/.95 Georgia,"Times New Roman",serif!important;
+  letter-spacing:0!important;
+  text-transform:none!important;
+}
+.company-profile-standard .wordmark span{
+  display:block!important;
+  margin:7px 0 0!important;
+  padding:0!important;
+  color:#8a6429!important;
+  font:700 13px/normal Arial,Helvetica,sans-serif!important;
+  letter-spacing:.16em!important;
+  text-transform:uppercase!important;
+}
+.company-profile-standard .company-snapshot{
+  display:grid!important;
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  margin:0!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  color:#232b30!important;
+  font:400 16px/normal Georgia,"Times New Roman",serif!important;
+}
+.company-profile-standard .snapshot-cell{
+  display:block!important;
+  min-width:0!important;
+  margin:0!important;
+  padding:17px 18px!important;
+  border:0!important;
+  border-right:1px solid #c8beab!important;
+  border-radius:0!important;
+  background:transparent!important;
+  color:#232b30!important;
+  font:400 16px/normal Georgia,"Times New Roman",serif!important;
+}
+.company-profile-standard .snapshot-cell:last-child{border-right:0!important}
+.company-profile-standard .snapshot-label{
+  display:block!important;
+  margin:0 0 5px!important;
+  padding:0!important;
+  color:#786f63!important;
+  font:700 9px/10px Arial,Helvetica,sans-serif!important;
+  letter-spacing:.12em!important;
+  text-transform:uppercase!important;
+}
+.company-profile-standard .snapshot-value{
+  display:block!important;
+  margin:0!important;
+  padding:0!important;
+  color:#1c2d37!important;
+  font:400 19px/22.8px Georgia,"Times New Roman",serif!important;
+}
+.company-profile-standard .snapshot-note{
+  display:block!important;
+  margin:5px 0 0!important;
+  padding:0!important;
+  color:#6e726f!important;
+  font:400 11px/14.85px Arial,Helvetica,sans-serif!important;
+}
+.hero .meta{
+  display:flex!important;
+  flex-direction:row!important;
+  flex-wrap:wrap!important;
+  align-items:center!important;
+  gap:10px!important;
+  margin:15px 0 0!important;
+  padding:0!important;
+}
+.hero .meta .badge,
+.hero .meta .updated{
+  display:inline-block!important;
+  position:static!important;
+  margin:0!important;
+  inset:auto!important;
+}
+.hero .meta .badge{
+  padding:6px 9px!important;
+  border:1px solid #78a6b8!important;
+  border-radius:999px!important;
+  background:transparent!important;
+  color:#9fc7d6!important;
+  font:700 11px/normal Arial,Helvetica,sans-serif!important;
+  letter-spacing:0!important;
+  text-transform:uppercase!important;
+}
+.hero .meta .updated{
+  padding:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  color:#9aa6ad!important;
+  font:700 11px/normal Arial,Helvetica,sans-serif!important;
+  letter-spacing:0!important;
+  text-transform:none!important;
+}
+@media(max-width:920px){
+  .company-profile-standard .company-snapshot{grid-template-columns:1fr 1fr!important}
+  .company-profile-standard .snapshot-cell{border-right:1px solid #c8beab!important;border-bottom:1px solid #c8beab!important}
+  .company-profile-standard .snapshot-cell:nth-child(2){border-right:0!important}
+  .company-profile-standard .snapshot-cell:nth-child(3),
+  .company-profile-standard .snapshot-cell:nth-child(4){border-bottom:0!important}
+  .company-profile-standard .snapshot-cell:last-child{border-right:0!important}
+}
+@media(max-width:600px){
+  .company-profile-standard .company-mark{
+    display:flex!important;
+    flex-direction:column!important;
+    padding:20px 18px 17px!important;
+  }
+  .company-profile-standard .company-mark:after{
+    position:static!important;
+    order:-1!important;
+    display:block!important;
+    margin:0 0 9px!important;
+  }
+  .company-profile-standard .wordmark{font-size:34px!important;overflow-wrap:anywhere!important}
+  .company-profile-standard .company-snapshot{grid-template-columns:1fr!important}
+  .company-profile-standard .snapshot-cell{
+    border-right:0!important;
+    border-bottom:1px solid #c8beab!important;
+  }
+  .company-profile-standard .snapshot-cell:nth-child(3){border-bottom:1px solid #c8beab!important}
+  .company-profile-standard .snapshot-cell:last-child{border-bottom:0!important}
+}
+</style><meta name="description" content="Century Electronics Ltd. (1979–1984): full history of the CVS interchangeable arcade system, Hunchback, Tuni, Japan Leisure, Crown Vending and the company’s Oldham origins.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://arcadesideb.com/century.html">
+<meta property="og:title" content="Century Electronics Ltd. | Arcade Side B">
+<meta property="og:description" content="Century Electronics Ltd., the Convertible Video System, Hunchback and the business of interchangeable arcade games.">
+<meta property="og:url" content="https://arcadesideb.com/century.html">
+
+<style id="asb-return-navigation-style">
+.asb-return-navigation{width:min(calc(100% - 32px),1180px);margin:16px auto;display:flex;gap:10px;flex-wrap:wrap;font:700 13px/1.4 Arial,Helvetica,sans-serif}
+.asb-return-navigation a{display:inline-block;padding:10px 14px;border:1px solid #9c7c45;border-radius:4px;background:#17222c;color:#f0c77b;text-decoration:none}
+.asb-return-navigation a:hover{background:#263744;color:#fff}.asb-return-navigation a:focus-visible{outline:3px solid #f0c77b;outline-offset:3px}
+.hero .meta .research-status{display:inline!important;border:0!important;border-radius:0!important;padding:0!important;background:none!important;color:#b9c4ca!important;font:700 12px/1.5 Arial,Helvetica,sans-serif!important;text-transform:none!important;cursor:default!important}
+</style><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Century Electronics Ltd.: Britain’s Convertible Arcade Gamble",
+  "description": "The full history of Century Electronics Ltd., the CVS arcade platform, Hunchback, international licensing and the company's 1984 liquidation.",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://arcadesideb.com/century.html"
+  },
+  "isPartOf": {
+    "@id": "https://arcadesideb.com/#website"
+  },
+  "image": [
+    "https://arcadesideb.com/assets/articles/century/cvs-games-revolution-03232-03.jpg"
+  ],
+  "datePublished": "2026-11-18",
+  "dateModified": "2026-11-18"
+}
+</script>
+<script defer src="/assets/asb-analytics.js"></script>
+<style id="asb-elcon-house-style">
+
+:root{
+  --bg:#090d12;--paper:#eee7d8;--paper2:#f5efe3;--ink:#232b30;--muted:#667075;
+  --line:#c8beab;--darkline:#303b45;--gold:#c28a32;--gold2:#d8b36b;
+  --green:#557b63;--cyan:#6f99aa;--max:1180px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:
+  radial-gradient(circle at 82% 10%,rgba(111,153,170,.09),transparent 28%),
+  linear-gradient(rgba(255,255,255,.012) 1px,transparent 1px),#090d12;
+  background-size:auto,100% 4px,auto;color:#dce2e5;font-family:Georgia,"Times New Roman",serif;
+}
+a{color:#a96f21}
+.mast{border-bottom:4px solid var(--gold);background:linear-gradient(135deg,#0a0f14,#13202a)}
+.mast-inner{width:min(calc(100% - 32px),var(--max));margin:auto;padding:17px 0;display:flex;justify-content:space-between;gap:20px;align-items:center}
+.brand{font-size:26px;font-weight:700;color:#f0ece4}
+.motto{font:700 10px Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#9ca8af;text-align:right}
+.crumb,.hero,.rule,.shell{width:min(calc(100% - 32px),var(--max));margin-left:auto;margin-right:auto}
+.crumb{padding-top:18px;color:#93a0a8;font:700 11px Arial,sans-serif}
+.crumb a{color:#d4ad67;text-decoration:none}
+.hero{padding:30px 0 26px}
+.eyebrow{color:var(--gold2);font:800 10px Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase}
+.hero h1{margin:7px 0 10px;font-size:clamp(44px,7vw,78px);line-height:.95;color:#f0ece4}
+.deck{max-width:930px;color:#b9c4ca;font-size:20px;line-height:1.5;margin:0}
+.meta{display:flex;gap:12px;flex-wrap:wrap;margin-top:17px;color:#9aa6ad;font:700 11px Arial,sans-serif}
+.badge{padding:6px 9px;border:1px solid currentColor;border-radius:999px;text-transform:uppercase}
+.living{color:#78a6b8}
+.rule{height:1px;background:#29343e}
+.shell{display:grid;grid-template-columns:275px minmax(0,1fr);gap:22px;padding:26px 0 50px;align-items:start}
+.sidebar{position:sticky;top:10px}
+.toc{border:1px solid #34404b;background:#111820;max-height:82vh;overflow:auto}
+.toc-title{padding:13px 15px;color:#d8dfe2;font:800 11px Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase}
+.toc a{display:block;border-top:1px solid #29343e;padding:9px 13px;color:#aebbc2;text-decoration:none;font:13px/1.35 Arial,sans-serif}
+.toc a:hover{color:#f0c57e}
+.sidebar-note{margin-top:12px;border:1px solid #34404b;background:#111820;padding:13px;color:#94a0a7;font:13px/1.45 Arial,sans-serif}
+article{background:var(--paper);color:var(--ink);border:1px solid #b9ae9a;box-shadow:0 18px 42px rgba(0,0,0,.25);padding:26px 34px 40px;min-width:0}
+.backhome{display:inline-block;margin-bottom:18px;padding:8px 10px;border:1px solid #9e927e;color:#745322;text-decoration:none;font:800 10px Arial,sans-serif;text-transform:uppercase;letter-spacing:.08em}
+.company-identity{margin:0 0 28px;border:1px solid #b8ad98;background:linear-gradient(135deg,rgba(194,138,50,.08),transparent 48%),#f3eddf;overflow:hidden}
+.company-mark{padding:24px 26px 20px;border-bottom:1px solid var(--line);position:relative}
+.company-mark:after{content:"COMPANY PROFILE";position:absolute;right:22px;top:18px;color:#8c8272;font:700 9px Arial,sans-serif;letter-spacing:.16em}
+.legal{color:#746b5f;font:700 10px Arial,sans-serif;letter-spacing:.13em;text-transform:uppercase;margin-bottom:7px}
+.wordmark{font-size:clamp(34px,5vw,58px);line-height:.95;color:#122331}
+.wordmark span{display:block;margin-top:7px;color:#8a6429;font:700 13px Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase}
+.company-snapshot{display:grid;grid-template-columns:repeat(4,1fr)}
+.snapshot-cell{padding:17px 18px;border-right:1px solid var(--line)}
+.snapshot-cell:last-child{border-right:0}
+.snapshot-label{display:block;color:#786f63;font:700 9px Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;margin-bottom:5px}
+.snapshot-value{display:block;color:#1c2d37;font-size:19px;line-height:1.2}
+.snapshot-note{display:block;margin-top:5px;color:#6e726f;font:11px/1.35 Arial,sans-serif}
+.overview-box{padding:18px 20px;background:#f8f2e7;border:1px solid #d2c5af;margin:0 0 26px}
+.overview-box h2{margin-top:0!important}
+article h2{margin:38px 0 13px;color:#172a35;font-size:31px;border-bottom:2px solid #b57f31;padding-bottom:7px}
+article h2:first-of-type{margin-top:0}
+article h3{margin:27px 0 9px;color:#2b3a41;font-size:24px}
+article p{font-size:18px;line-height:1.7;margin:14px 0}
+article li{font-size:17px;line-height:1.6;margin:6px 0}
+article blockquote{margin:18px 0;padding:10px 17px;border-left:4px solid var(--gold);background:#f7f0e3;color:#465156}
+article table{width:100%;border-collapse:collapse;margin:18px 0;font:14px/1.45 Arial,sans-serif}
+article th,article td{border:1px solid #c8beab;padding:8px 9px;vertical-align:top}
+article th{background:#ddd3c1;color:#24323a;text-align:left}
+article code{font-size:.88em}
+.src-tag{display:inline-block;color:#76531e;font:700 10px Arial,sans-serif;white-space:nowrap}
+.public-note{margin:0 0 25px;padding:15px 17px;border-left:5px solid var(--green);background:#e7efe8;color:#33433a;font:15px/1.5 Arial,sans-serif}
+.footer{border-top:1px solid #29343e;background:#07090c}
+.footer-inner{width:min(calc(100% - 32px),var(--max));margin:auto;padding:21px 0 27px;display:flex;justify-content:space-between;align-items:flex-end;gap:20px;color:#7f8b92;font:12px Arial,sans-serif}
+.footer-inner strong{color:#d9dfe2;font-family:Georgia,serif;font-size:15px}
+.site-counter{text-align:right;font:800 9px Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#748089}
+.site-counter img{display:block;margin:5px 0 0 auto;border:1px solid #303944}
+@media(max-width:920px){
+ .shell{grid-template-columns:1fr} .sidebar{position:static} .toc{max-height:none}
+ .company-snapshot{grid-template-columns:1fr 1fr}
+ .snapshot-cell:nth-child(2){border-right:0}
+ .snapshot-cell{border-bottom:1px solid var(--line)}
+ .snapshot-cell:nth-child(3),.snapshot-cell:nth-child(4){border-bottom:0}
+}
+@media(max-width:600px){
+ .mast-inner{align-items:flex-start;flex-direction:column} .motto{text-align:left}
+ .company-snapshot{grid-template-columns:1fr} .snapshot-cell{border-right:0;border-bottom:1px solid var(--line)!important}
+ .snapshot-cell:last-child{border-bottom:0!important}
+ article{padding:20px 16px 28px} article p{font-size:17px} article h2{font-size:27px}
+ .footer-inner{align-items:flex-start;flex-direction:column} .site-counter{text-align:left} .site-counter img{margin-left:0}
+}
+
+.elcon-visuals{
+  margin:28px 0 34px;
+}
+.elcon-visuals h2{
+  margin-top:0;
+}
+.flyer-pair{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+  align-items:start;
+}
+.archive-figure{
+  margin:0;
+  padding:10px;
+  border:1px solid #b8ad98;
+  background:#f8f3e8;
+}
+.archive-figure img{
+  width:100%;
+  height:auto;
+  display:block;
+  border:1px solid #c8beab;
+  background:#e9dfce;
+}
+.archive-figure figcaption{
+  padding:9px 4px 2px;
+  color:#5e6668;
+  font:12px/1.5 Arial,Helvetica,sans-serif;
+}
+.rights-hold{
+  margin:24px 0;
+  padding:15px 17px;
+  border:1px dashed #b69d72;
+  background:#f7efe1;
+  color:#5b554c;
+  font:13px/1.55 Arial,Helvetica,sans-serif;
+}
+.rights-hold strong{
+  color:#65471e;
+}
+@media(max-width:700px){
+  .flyer-pair{grid-template-columns:1fr}
+}
+
+
+/* ELCON PUBLICATION VISUALS */
+.visual-section{
+  margin:20px 0 32px;
+}
+.visual-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+  margin:18px 0 24px;
+  align-items:start;
+}
+.visual-grid.brochure{
+  grid-template-columns:1fr 1fr;
+}
+.archive-figure{
+  margin:0;
+  padding:10px;
+  border:1px solid #b8ad98;
+  background:#f8f3e8;
+}
+.archive-figure img{
+  width:100%;
+  height:auto;
+  display:block;
+  border:1px solid #c8beab;
+  background:#e9dfce;
+}
+.archive-figure figcaption{
+  padding:9px 4px 2px;
+  color:#5e6668;
+  font:12px/1.5 Arial,Helvetica,sans-serif;
+}
+.visual-note{
+  margin:18px 0;
+  padding:14px 16px;
+  border-left:4px solid #b57f31;
+  background:#f7efe1;
+  color:#5b554c;
+  font:13px/1.55 Arial,Helvetica,sans-serif;
+}
+@media(max-width:760px){
+  .visual-grid,.visual-grid.brochure{grid-template-columns:1fr}
+}
+
+
+/* CONTEXTUAL ARCHIVAL FIGURES */
+.inline-archive-figure{
+  margin:22px auto 27px;
+  max-width:780px;
+  padding:10px;
+  border:1px solid #b8ad98;
+  background:#f8f3e8;
+  box-shadow:0 8px 18px rgba(64,52,34,.08);
+}
+.inline-archive-figure.narrow{max-width:560px}
+.inline-archive-figure img{
+  width:100%;
+  height:auto;
+  display:block;
+  border:1px solid #c8beab;
+  background:#e9dfce;
+}
+.inline-archive-figure figcaption{
+  padding:9px 4px 2px;
+  color:#5e6668;
+  font:12px/1.55 Arial,Helvetica,sans-serif;
+}
+.inline-archive-figure figcaption strong{color:#334047}
+.derivative-note{
+  display:inline-block;
+  margin-left:5px;
+  padding:2px 5px;
+  border:1px solid #b89a66;
+  color:#76531e;
+  font:700 8px Arial,Helvetica,sans-serif;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.context-note{
+  margin:18px 0 22px;
+  padding:13px 15px;
+  border-left:4px solid #b57f31;
+  background:#f7efe1;
+  color:#5b554c;
+  font:13px/1.55 Arial,Helvetica,sans-serif;
+}
+
+
+
+/* Reader-facing source and table containment */
+article a, .source-list a, .footnotes a { overflow-wrap:anywhere; }
+.research-questions{display:grid;gap:12px;margin:18px 0 24px}.research-question{padding:16px 18px;border:1px solid rgba(181,127,49,.35);background:rgba(181,127,49,.055)}.research-question h4{margin:0 0 7px;color:#2b3a41;font-size:20px}.research-question p{margin:0 0 10px;font-size:16px}.question-action{display:inline-block;color:#76531e;text-decoration:none;font:700 11px Arial,sans-serif;letter-spacing:.06em;text-transform:uppercase}.question-action:hover,.question-action:focus-visible{text-decoration:underline}
+.table-scroll {max-width:100%;overflow-x:auto;}
+.table-scroll:focus-visible {outline:2px solid #d7b56d;outline-offset:3px;}
+
+
+/* Exact shared company-profile presentation: Elcon is the house pattern. */
+.company-identity.company-profile-standard{
+  margin:0 0 28px!important;
+  padding:0!important;
+  border:1px solid #b8ad98!important;
+  border-radius:0!important;
+  background:linear-gradient(135deg,rgba(194,138,50,.08),transparent 48%),#f3eddf!important;
+  color:#20272c!important;
+  box-shadow:none!important;
+  overflow:hidden!important;
+  font-family:Georgia,"Times New Roman",serif!important;
+  font-size:16px!important;
+  line-height:normal!important;
+}
+.company-profile-standard .company-mark{
+  display:block!important;
+  position:relative!important;
+  padding:24px 26px 20px!important;
+  border:0!important;
+  border-bottom:1px solid #c8beab!important;
+  border-radius:0!important;
+  background:transparent!important;
+  color:#232b30!important;
+  font:400 16px/normal Georgia,"Times New Roman",serif!important;
+}
+.company-profile-standard .company-mark:after{
+  content:"COMPANY PROFILE"!important;
+  position:absolute!important;
+  right:22px!important;
+  top:18px!important;
+  display:block!important;
+  margin:0!important;
+  color:#8c8272!important;
+  font:700 9px/normal Arial,Helvetica,sans-serif!important;
+  letter-spacing:.16em!important;
+  text-transform:uppercase!important;
+}
+.company-profile-standard .legal{
+  display:block!important;
+  margin:0 0 7px!important;
+  padding:0!important;
+  color:#746b5f!important;
+  font:700 10px/11px Arial,Helvetica,sans-serif!important;
+  letter-spacing:.13em!important;
+  text-transform:uppercase!important;
+}
+.company-profile-standard .wordmark{
+  display:block!important;
+  margin:0!important;
+  padding:0!important;
+  color:#122331!important;
+  font:400 clamp(34px,5vw,58px)/.95 Georgia,"Times New Roman",serif!important;
+  letter-spacing:0!important;
+  text-transform:none!important;
+}
+.company-profile-standard .wordmark span{
+  display:block!important;
+  margin:7px 0 0!important;
+  padding:0!important;
+  color:#8a6429!important;
+  font:700 13px/normal Arial,Helvetica,sans-serif!important;
+  letter-spacing:.16em!important;
+  text-transform:uppercase!important;
+}
+.company-profile-standard .company-snapshot{
+  display:grid!important;
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  margin:0!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  color:#232b30!important;
+  font:400 16px/normal Georgia,"Times New Roman",serif!important;
+}
+.company-profile-standard .snapshot-cell{
+  display:block!important;
+  min-width:0!important;
+  margin:0!important;
+  padding:17px 18px!important;
+  border:0!important;
+  border-right:1px solid #c8beab!important;
+  border-radius:0!important;
+  background:transparent!important;
+  color:#232b30!important;
+  font:400 16px/normal Georgia,"Times New Roman",serif!important;
+}
+.company-profile-standard .snapshot-cell:last-child{border-right:0!important}
+.company-profile-standard .snapshot-label{
+  display:block!important;
+  margin:0 0 5px!important;
+  padding:0!important;
+  color:#786f63!important;
+  font:700 9px/10px Arial,Helvetica,sans-serif!important;
+  letter-spacing:.12em!important;
+  text-transform:uppercase!important;
+}
+.company-profile-standard .snapshot-value{
+  display:block!important;
+  margin:0!important;
+  padding:0!important;
+  color:#1c2d37!important;
+  font:400 19px/22.8px Georgia,"Times New Roman",serif!important;
+}
+.company-profile-standard .snapshot-note{
+  display:block!important;
+  margin:5px 0 0!important;
+  padding:0!important;
+  color:#6e726f!important;
+  font:400 11px/14.85px Arial,Helvetica,sans-serif!important;
+}
+.hero .meta{
+  display:flex!important;
+  flex-direction:row!important;
+  flex-wrap:wrap!important;
+  align-items:center!important;
+  gap:10px!important;
+  margin:15px 0 0!important;
+  padding:0!important;
+}
+.hero .meta .badge,
+.hero .meta .updated{
+  display:inline-block!important;
+  position:static!important;
+  margin:0!important;
+  inset:auto!important;
+}
+.hero .meta .badge{
+  padding:6px 9px!important;
+  border:1px solid #78a6b8!important;
+  border-radius:999px!important;
+  background:transparent!important;
+  color:#9fc7d6!important;
+  font:700 11px/normal Arial,Helvetica,sans-serif!important;
+  letter-spacing:0!important;
+  text-transform:uppercase!important;
+}
+.hero .meta .updated{
+  padding:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  color:#9aa6ad!important;
+  font:700 11px/normal Arial,Helvetica,sans-serif!important;
+  letter-spacing:0!important;
+  text-transform:none!important;
+}
+@media(max-width:920px){
+  .company-profile-standard .company-snapshot{grid-template-columns:1fr 1fr!important}
+  .company-profile-standard .snapshot-cell{border-right:1px solid #c8beab!important;border-bottom:1px solid #c8beab!important}
+  .company-profile-standard .snapshot-cell:nth-child(2){border-right:0!important}
+  .company-profile-standard .snapshot-cell:nth-child(3),
+  .company-profile-standard .snapshot-cell:nth-child(4){border-bottom:0!important}
+  .company-profile-standard .snapshot-cell:last-child{border-right:0!important}
+}
+@media(max-width:600px){
+  .company-profile-standard .company-mark{
+    display:flex!important;
+    flex-direction:column!important;
+    padding:20px 18px 17px!important;
+  }
+  .company-profile-standard .company-mark:after{
+    position:static!important;
+    order:-1!important;
+    display:block!important;
+    margin:0 0 9px!important;
+  }
+  .company-profile-standard .wordmark{font-size:34px!important;overflow-wrap:anywhere!important}
+  .company-profile-standard .company-snapshot{grid-template-columns:1fr!important}
+  .company-profile-standard .snapshot-cell{
+    border-right:0!important;
+    border-bottom:1px solid #c8beab!important;
+  }
+  .company-profile-standard .snapshot-cell:nth-child(3){border-bottom:1px solid #c8beab!important}
+  .company-profile-standard .snapshot-cell:last-child{border-bottom:0!important}
+}
+
+
+.asb-return-navigation{width:min(calc(100% - 32px),1180px);margin:16px auto;display:flex;gap:10px;flex-wrap:wrap;font:700 13px/1.4 Arial,Helvetica,sans-serif}
+.asb-return-navigation a{display:inline-block;padding:10px 14px;border:1px solid #9c7c45;border-radius:4px;background:#17222c;color:#f0c77b;text-decoration:none}
+.asb-return-navigation a:hover{background:#263744;color:#fff}.asb-return-navigation a:focus-visible{outline:3px solid #f0c77b;outline-offset:3px}
+.hero .meta .research-status{display:inline!important;border:0!important;border-radius:0!important;padding:0!important;background:none!important;color:#b9c4ca!important;font:700 12px/1.5 Arial,Helvetica,sans-serif!important;text-transform:none!important;cursor:default!important}
+
+
+/* Explicit donor typography prevents legacy page shorthands leaking into the masthead. */
+.mast .brand{font:700 26px/normal Georgia,"Times New Roman",serif;letter-spacing:normal;text-transform:none}
+.mast .brand a{color:#f0ece4;text-decoration:none;letter-spacing:normal;text-transform:none}
+.hero h1{font-family:Georgia,"Times New Roman",serif;font-weight:700;letter-spacing:normal;text-transform:none}
+
+.article img{max-width:100%;height:auto}
+.mast .motto{display:block}
+</style>
+<script defer src="assets/asb-counts.js"></script>
+<link rel="stylesheet" href="site-search.css?v=nav-3">
+<style id="asb-century-archive-figures">
+.century-figure-images{display:grid;grid-template-columns:minmax(0,1fr);gap:8px;max-width:100%;align-items:start}
+.century-paired .century-figure-images{grid-template-columns:repeat(2,minmax(0,1fr))}
+.century-source-image{display:block;min-width:0;max-width:100%}
+.century-source-image img{display:block;width:100%;height:auto;max-width:100%;object-fit:contain}
+.century-image-credit{display:block;margin-top:7px;font-size:.86em}
+.century-source-list{padding-left:1.6rem;line-height:1.6}
+.century-source-list li{margin:.38em 0;overflow-wrap:anywhere}
+.century-source-note{font-size:.94em}
+@media(max-width:580px){.century-paired .century-figure-images{gap:4px}.century-paired img{height:auto}}
+</style></head>
+<body>
+
+<div class="asb-global-search" aria-label="Arcade Side B site navigation and search">
+  <div class="asb-global-inner">
+    <a class="asb-global-brand" href="index.html">Arcade Side B</a>
+    <nav class="asb-global-links" aria-label="Archive indexes">
+      <a href="companies.html">Companies</a><a href="games.html">Games</a><a href="people.html">People</a>
+    </nav>
+    
+    <form class="asb-global-form" action="search.html" method="get" role="search">
+      <label class="asb-sr-only" for="asb-global-search-input">Search Arcade Side B</label>
+      <input id="asb-global-search-input" name="q" type="search" placeholder="Search Arcade Side B…" autocomplete="off"><button type="submit">Search</button>
+    </form>
+  </div>
+</div><header class="mast">
+<div class="mast-inner">
+<div class="brand"><a href="https://arcadesideb.com/" style="color:inherit;text-decoration:none" target="_parent">Arcade Side B</a></div>
+<div class="motto">Preserve what others overlooked. Follow the evidence. Keep the record open.</div>
+</div>
+</header><nav class="asb-return-navigation" aria-label="Return navigation"><a href="index.html">← Back to Arcade Side B</a><a href="companies.html">← Back to Companies</a></nav>
+<div class="crumb"><a href="https://arcadesideb.com/" target="_parent">Arcade Side B</a> &nbsp;›&nbsp; <a href="companies.html">Companies</a> &nbsp;›&nbsp; Century Electronics Ltd.</div>
+<section class="hero"><div class="eyebrow">Company history</div><h1>Century Electronics Ltd.</h1>
+<p class="deck">Britain’s Convertible Arcade Gamble — Oldham’s pioneering interchangeable CVS system, its international partnerships and disputes, and the enduring history of Hunchback.</p>
+<div class="meta"><span class="research-status">Research status: open to new evidence</span> <span class="updated">Last updated: November 18, 2026</span></div></section>
+<div class="rule"></div><div class="shell">
+<aside class="sidebar">
+<nav aria-label="Century Electronics Ltd. article contents" class="toc"><div class="toc-title">On this page</div>
+<a href="#intro">1. INTRODUCTION — THE COMPANY BEHIND THE CARTRIDGE</a>
+<a href="#origins">2. FOUNDERS, OLDHAM, AND THE MOVE INTO VIDEO GAMES</a>
+<a href="#cvs-hardware">3. BUILDING THE CONVERTIBLE VIDEO SYSTEM</a>
+<a href="#launch-1981">4. THE 1981 LAUNCH AND ITS CHRONOLOGY</a>
+<a href="#tuni-us">5. THE AMERICAN GAMBLE: TUNI AND THE CONVERTIBLE IDEA</a>
+<a href="#tuni-dispute">6. WHEN THE PARTNERS STOPPED AGREEING</a>
+<a href="#tuni-financial">7. TUNI'S TROUBLES WERE NOT CENTURY'S LIQUIDATION</a>
+<a href="#great-neck">8. GREAT NECK: THE SECOND AMERICAN IDENTITY</a>
+<a href="#us-after-tuni">9. THE AMERICAN MARKET AFTER TUNI</a>
+<a href="#japan-leisure">10. JAPAN LEISURE: THE CVS SYSTEM REACHES TOKYO</a>
+<a href="#japan-licence-limits">11. WHAT THE JAPANESE LAUNCH CAN — AND CANNOT — PROVE</a>
+<a href="#japan-reception">12. THE RECEPTION: A BRITISH SYSTEM IN A CROWDED MARKET</a>
+<a href="#game-catalog">13. WHAT COUNTS AS A CENTURY GAME?</a>
+<a href="#game-library-limits">14. THE LIBRARY AND THE LIMITS OF CONVERSION</a>
+<a href="#hunchback">15. HUNCHBACK: THE GAME THAT ESCAPED ITS HARDWARE</a>
+<a href="#hunchback-revision">16. ELEVEN DAYS TO MAKE THE OPENING WORK</a>
+<a href="#playpak">17. FROM CVS GAME TO PLAYPAK</a>
+<a href="#crown">18. CROWN VENDING BEFORE THE COLLAPSE</a>
+<a href="#home-ports">19. THE BELL KEEPS RINGING AT HOME</a>
+<a href="#collapse">20. THE SHORT ROAD TO LIQUIDATION</a>
+<a href="#liquidation">21. FEBRUARY 1984: THE ACTUAL CORPORATE DATES</a>
+<a href="#founders-after">22. THE FOUNDERS DID NOT LEAVE GAME DESIGN BEHIND</a>
+<a href="#afterlife">23. THE PRODUCTS OUTLIVED THE COMPANY</a>
+<a href="#surviving-evidence">24. WHAT REMAINS IN THE RECORD</a>
+<a href="#legacy">25. THE CONVERTIBLE PROMISE, AND ITS PRICE</a>
+<a href="#sources">Sources and surviving records</a><a href="#contribute">Help complete the record</a></nav>
+<div class="sidebar-note">Century created the Convertible Video System and at least fifteen distinct arcade titles. Its best-known game, Hunchback, also appeared on other hardware, while its American and Japanese partnerships followed different commercial paths.</div>
+</aside>
+<article>
+<a class="backhome" href="companies.html">← Back to Companies</a>
+<section aria-label="Century Electronics Ltd. company profile" class="company-identity company-profile-standard">
+<div class="company-mark"><div class="legal">Century Electronics Ltd. · Oldham, England</div>
+<div class="wordmark">Century Electronics Ltd.<span>Oldham, Lancashire, England</span></div></div>
+<div class="company-snapshot">
+<div class="snapshot-cell"><span class="snapshot-label">Start</span><span class="snapshot-value">1979</span><span class="snapshot-note">Incorporated September 28, 1979; work continued through the early 1980s.</span></div>
+<div class="snapshot-cell"><span class="snapshot-label">End</span><span class="snapshot-value">1984</span><span class="snapshot-note">Creditors’ voluntary liquidation began February 6, 1984; legal dissolution followed in 2018.</span></div>
+<div class="snapshot-cell"><span class="snapshot-label">Arcade Output</span><span class="snapshot-value">At least 15 titles</span><span class="snapshot-note">Distinct Century-developed arcade game families; excludes ROM revisions and unverified promotional titles.</span></div>
+<div class="snapshot-cell"><span class="snapshot-label">Company Role</span><span class="snapshot-value">Arcade development + CVS hardware</span><span class="snapshot-note">British game and interchangeable-video-system developer and marketer.</span></div>
+</div></section>
+<div class="public-note"><strong>About the evidence:</strong> Period trade publications, surviving brochures, preservation work and legal documents support the account. Unresolved releases, sales claims, and ownership questions are clearly distinguished from confirmed events.</div>
+<h2 id="intro">INTRODUCTION — THE COMPANY BEHIND THE CARTRIDGE</h2>
+<p>An arcade game is easy to remember by its name and much harder to remember by the company that built it. A player might have met Hunchback in an amusement arcade, known Cosmos from a conversion board, or encountered a cabinet advertising an entire library of games. Far fewer would have stopped to ask how those machines came to exist, which business owned their designs, or why the names printed on the cabinets, cartridges, and promotional leaflets sometimes differed. Century Electronics Ltd., of Oldham in northern England, is a particularly revealing case. Its history crosses hardware engineering, software production, international licensing, distribution disputes, a breakout hit, and a financial collapse. It also raises a question that remains familiar to operators and collectors: what happens to a purpose-built arcade system when the company behind it disappears?</p>
+<p>Century's answer was the Convertible Video System, generally shortened to CVS. Instead of treating every new game as a reason to buy another complete machine, the company proposed a reusable arcade platform with interchangeable game software. This was not merely a convenience for a player. It was a commercial proposition for the operator paying for cabinets, circuit boards, transportation, maintenance, and floor space. A successful game could be replaced by another title without discarding the whole investment. The system's marketing presented this as an opportunity to keep a cabinet earning as fashions and player tastes changed.</p>
+<p>Century Electronics Ltd. was not the American company Centuri. Despite the similar names and overlapping coin-operated amusement era, they were separate businesses. Century Electronics was incorporated in Britain in 1979, operated from Oldham and was associated with the CVS game system and Hunchback. Its trading history runs through 1984. The legal entity survived for decades after the operating business failed, finally being dissolved on October 2, 2018, following a prolonged liquidation. <a class="src-tag" href="#source-1" aria-label="Source 1">[1]</a> <a class="src-tag" href="#source-2" aria-label="Source 2">[2]</a></p>
+<p>At least fifteen distinct Century arcade titles can be established without mistaking revisions, licensed variants or alternate names for separate games. The early lineup included Cosmos, Dark Warrior and Space Fortress; later titles included Gold Bug, Logger, Wall Street and the better-remembered Hunchback. Names in Century advertising, including Horizon, Outlaw and Voyager, are harder to classify. Promotion establishes that a company offered or planned a title, but does not necessarily show that it reached commercial release. The distinction guards against an inflated production count while preserving the promoted games as part of Century's ambitions. <a class="src-tag" href="#source-11" aria-label="Source 11">[11]</a> <a class="src-tag" href="#source-21" aria-label="Source 21">[21]</a></p>
+<p>Beyond Oldham, Century licensed and promoted CVS in America and Japan. Hunchback later reached other arcade boards and home computers, while the founders continued working in coin-operated games. Those connections make its brief corporate life only part of the story.</p>
+<h2 id="origins">FOUNDERS, OLDHAM, AND THE MOVE INTO VIDEO GAMES</h2>
+<p>The two central figures in Century's origin were David Jones and Peter Robinson. Their working relationship predated the company. As Robinson later recalled, they had met during the 1970s while working for Music Hire Group, a firm associated with the operation and servicing of coin-operated equipment. Their experience was not confined to video games. The broader trade included fruit machines, jukeboxes, pool tables, and other machines whose commercial success depended on keeping equipment in working order and earning revenue on location.</p>
+<p>That background matters. Century's interchangeable-game idea was not conceived solely as a technical novelty. It addressed a practical problem that people inside the coin-op trade understood: a cabinet could be mechanically serviceable yet commercially stale because its game had lost popularity. An operator who wanted a new attraction ordinarily faced the cost and inconvenience of obtaining replacement equipment or converting existing hardware. Century's founders wanted a platform designed around that conversion from the outset.</p>
+<p>The definitive incorporation date is September 28, 1979. Some later recollections place the company's beginnings a little earlier, but the Companies House record fixes the legal date. Century's active business history belongs to 1979–1984, even though its place on the company register did not formally end until 2018. <a class="src-tag" href="#source-1" aria-label="Source 1">[1]</a></p>
+<p>By March 1982, the contemporary Play Meter directory placed the business at Franklin Industrial Estate, Franklin Street, Oldham OL1 2AX. It listed Jones and Robinson as joint managing directors and described Century's business as video and convertible games. This firmly locates the company's operating base but does not identify the exact unit or a surviving present-day building. That would require a more specific property, lease or unit record. <a class="src-tag" href="#source-21" aria-label="Source 21">[21]</a></p>
+<p>Robinson's account of their division of labor gives the firm a more human shape. He remembered himself as concentrating primarily on commercial ideas and game concepts, while Jones handled much of the detailed electronic design. This was a partnership with complementary skills, not a story in which the hardware appeared from an outside supplier ready-made. Their backgrounds in the amusement trade gave them the commercial context, while Jones's technical responsibilities helped turn the conversion idea into a working machine.</p>
+<p>The principal evidence for those early years comes from Robinson's later recollections and period trade directories. The recollections illuminate how the work was divided; the directories establish concrete dates, addresses and roles.</p>
+<h2 id="cvs-hardware">BUILDING THE CONVERTIBLE VIDEO SYSTEM</h2>
+<p>At the center of Century's business was a deliberately reusable arcade architecture. A CVS cabinet or installed system provided the common platform, while operators could change games by replacing the relevant program material. The promotional message was straightforward: a game library could keep the underlying hardware useful across multiple releases. This was an answer to a market in which the fortunes of an individual game might change far faster than the physical life of its cabinet.</p>
+<p>Surviving hardware and preservation work place CVS within the Signetics 2650 and 2636 technical family. The processor and video devices are useful identifying characteristics, but a component number does not tell the entire engineering story. The distinction matters because the relationship with Philips has sometimes been described too loosely. Philips had acquired Signetics, and its British subsidiary Mullard was part of the relevant technical and component network. Contemporary evidence shows Century using a Mullard-supplied Signetics development system by October 1980. Robinson's later recollection confirms contact with Philips and Mullard and describes backing associated with that relationship. <a class="src-tag" href="#source-11" aria-label="Source 11">[11]</a></p>
+<p>What does not follow is that Philips designed the complete CVS motherboard for Century. In Robinson's account, Jones was the principal Century figure doing the detailed design work, with assistance, on the company's game, sound, and speech boards. Philips and Mullard supplied an important technical connection; the evidence presently supports Century's internal design responsibility rather than replacing it with an unsupported claim of a turnkey Philips invention.</p>
+<p>An interchangeable board was useful only if there were worthwhile new games to put on it. Century therefore faced a continuing software-development obligation alongside the engineering and manufacturing work.</p>
+<p>The first games helped explain the idea in concrete terms. Cosmos and Dark Warrior were identified in the British trade press around the summer 1981 CVS launch; Space Fortress belonged to the same early generation. Later brochures presented a wider selection, from Gold Bug and Dazzler to titles that have survived more ambiguously as promotional names. The brochures are valuable historical documents. They preserve the company's sales pitch, imagery, and proposed library, even where the commercial status of individual games is uncertain. <a class="src-tag" href="#source-3" aria-label="Source 3">[3]</a></p>
+<p>Century marketed CVS as a British-designed system at a time when it was also negotiating overseas manufacturing and distribution. That created different paths to the same hardware concept: boards made or assembled for British, American and Japanese operators.</p>
+<p>Century's own printed material makes the CVS strategy unusually tangible. The “Having Said All This...” brochure sets out the conversion-system promise and presents the games as a connected family rather than a series of unrelated cabinets. The “CVS Games: Revolution” brochure depicts a woodgrain upright alongside a table-style cabinet. These surviving period documents show how Century chose to present its machinery and its business case; the promotional images establish what the company advertised, not how many of each cabinet were ultimately installed. <a class="src-tag" href="#source-12" aria-label="Source 12">[12]</a> <a class="src-tag" href="#source-13" aria-label="Source 13">[13]</a></p>
+<figure class="inline-archive-figure century-figure" id="figure-f01">
+<div class="century-figure-images"><a class="century-source-image" href="assets/articles/century/cvs-games-revolution-03232-03.jpg" target="_blank" rel="noopener noreferrer" title="View full historical scan"><img loading="lazy" decoding="async" src="assets/articles/century/cvs-games-revolution-03232-03.jpg" alt="Period Century Electronics brochure showing a woodgrain CVS upright and a low table-style arcade cabinet."/></a></div>
+<figcaption><strong>Century's undated British CVS brochure promoted reusable arcade cabinets in upright and table-style forms. These are illustrations in contemporary sales material, not verified photographs of surviving machines.</strong> <span class="century-image-credit"><a href="https://flyers.arcade-museum.com/videogames/show/3236" rel="noopener noreferrer" target="_blank">Original archival source</a></span></figcaption>
+</figure><h2 id="launch-1981">THE 1981 LAUNCH AND ITS CHRONOLOGY</h2>
+<p>Century's public CVS launch cannot be reduced to a single release-year label. A British High Court judgment issued in 2006, in Nova Productions Ltd v Mazooma Games Ltd, preserves specific evidence about the company's early development and publicity. The judgment identifies a July 18, 1981 article in the British weekly Coin Slot trade publication covering the CVS launch and naming Dark Warrior and Cosmos. It also references an August 22, 1981 advertisement for Video Hustler. Those contemporary dates are stronger chronological anchors than assumptions derived from later game databases. <a class="src-tag" href="#source-3" aria-label="Source 3">[3]</a></p>
+<p>One archival trap has already been ruled out: the relevant British weekly Coin Slot is not the American monthly Coin Slot Magazine with similar issue-number references. The original British pages have not yet been recovered as accessible scans. Their contents and dates can nevertheless be attributed carefully to the High Court's account, without pretending that the pages themselves have been independently inspected. <a class="src-tag" href="#source-3" aria-label="Source 3">[3]</a></p>
+<p>Video Eight Ball adds a further complication. The court records testimony that a small number—approximately twenty-five to fifty—of copies had been sold to Japan in March 1981, before the later British launch. This is not evidence of a worldwide commercial release in 1981, nor can the game be treated as first existing in 1982 without confronting the earlier testimony. Early export or sales activity and the formal domestic release are different events. The surviving legal evidence supports that distinction, while the precise Japanese buyer remains unidentified. <a class="src-tag" href="#source-3" aria-label="Source 3">[3]</a></p>
+<p>By the end of 1981, the business had an American promotional presence and a documented Japanese manufacturing licence. Century was already trying to operate internationally while establishing its own domestic game library. <a class="src-tag" href="#source-4" aria-label="Source 4">[4]</a></p>
+<figure class="inline-archive-figure century-figure" id="figure-f02">
+<div class="century-figure-images"><a class="century-source-image" href="assets/articles/century/cvs-games-revolution-03232-02.jpg" target="_blank" rel="noopener noreferrer" title="View full historical scan"><img loading="lazy" decoding="async" src="assets/articles/century/cvs-games-revolution-03232-02.jpg" alt="Century's CVS World Wide advertisement with Oldham address and mentions of overseas manufacturing."/></a></div>
+<figcaption><strong>Century's ‘CVS World Wide’ promotion gave its Oldham contact and claimed manufacturing links with the United States and Japan. Later trade reporting independently documents Tuni and Japan Leisure arrangements, but the flyer alone does not measure production.</strong> <span class="century-image-credit"><a href="https://flyers.arcade-museum.com/videogames/show/3236" rel="noopener noreferrer" target="_blank">Original archival source</a></span></figcaption>
+</figure>
+<figure class="inline-archive-figure century-figure century-paired" id="figure-f03">
+<div class="century-figure-images"><a class="century-source-image" href="assets/articles/century/dark-warrior-00260-01.jpg" target="_blank" rel="noopener noreferrer" title="View full historical scan"><img loading="lazy" decoding="async" src="assets/articles/century/dark-warrior-00260-01.jpg" alt="1981 British Dark Warrior flyer with Century Oldham contact and science-fiction game art."/></a>
+<a class="century-source-image" href="assets/articles/century/cosmos-00219-01.jpg" target="_blank" rel="noopener noreferrer" title="View full historical scan"><img loading="lazy" decoding="async" src="assets/articles/century/cosmos-00219-01.jpg" alt="1981 American Cosmos flyer with Tuni Electro Service's Tempe address and game artwork."/></a></div>
+<figcaption><strong>Two regional 1981 Century promotions: Dark Warrior lists the Oldham business, while the American Cosmos flyer carries Tuni's Tempe, Arizona contact. Their branding records the same game family moving through different markets.</strong> <span class="century-image-credit"><a href="https://flyers.arcade-museum.com/videogames/show/259" rel="noopener noreferrer" target="_blank">Archival source 1</a> · <a href="https://flyers.arcade-museum.com/videogames/show/218" rel="noopener noreferrer" target="_blank">Archival source 2</a></span></figcaption>
+</figure><h2 id="tuni-us">THE AMERICAN GAMBLE: TUNI AND THE CONVERTIBLE IDEA</h2>
+<p>North America offered Century a much larger market than it could reach from Oldham alone. Its partner was Tuni Electro Service of Tempe, Arizona, which undertook American hardware manufacturing and distribution. The relationship brought additional production capacity and a sales network, but also made Century dependent on a separate company's commercial expectations. <a class="src-tag" href="#source-14" aria-label="Source 14">[14]</a></p>
+<p>Century supplied game designs and interchangeable software; Tuni manufactured and marketed American CVS equipment. Preserved American advertisements identify Cosmos, Dark Warrior, Space Fortress, Dazzler, Video Eight Ball and Radar Zone, showing how Tuni presented the changing game library to its operators.</p>
+<p>An earlier American flyer, “The Future Is Here,” made CVS's operating proposition unusually concrete. Cataloged as 1981, it pictured a CVS upright with a Cosmos marquee and advertised game modules measuring 5½ by 8 by 1 inches. Its text promised that new modules could reach buyers within 48 hours of an order, a standard 90-day limited warranty, and at least six new games annually. These are the seller's claims, not independent proof of fulfillment speed, warranty performance, or actual release cadence. The separate Radar Zone brochure offered a twelve-month limited warranty and financing for approved purchasers. The two advertised warranty periods should not be collapsed into a single universal CVS guarantee. <a class="src-tag" href="#source-14" aria-label="Source 14">[14]</a></p>
+<p>The surviving six-page Tuni Radar Zone brochure gives a more concrete view of that sales pitch. Cataloged by the Arcade Flyer Archive as a 1982 American promotional publication, it offered the game at an introductory $1,895, with an October 31 deadline. Tuni advertised financing spread over 24 months for approved buyers and a twelve-month limited warranty. The brochure depicted upright and cocktail-style cabinets, listed distributors across the United States, and described Dazzler and Video Eight Ball as available alternatives for the interchangeable platform. Those are the advertised terms and product claims, not proof of how many machines were built, how many buyers qualified for credit or whether every named distributor actually sold a cabinet. The illustrations also document what Tuni marketed without independently establishing the fate of any particular machine. <a class="src-tag" href="#source-15" aria-label="Source 15">[15]</a></p>
+<p class="century-source-note">Tuni’s original American brochure also contains a <a href="https://flyers.arcade-museum.com/videogames/show/2043" rel="noopener noreferrer" target="_blank">period U.S. distributor directory</a>. Its surviving scan is too small for reliable inline reading.</p>
+<p>The surviving record points to an energetic attempt to establish an American market. Later historical reconstructions describe factory activity in Tempe and a second facility in Vancouver, Washington, together with large spending commitments and orders for thousands of modules. Those figures convey ambition, not audited totals of completed machines. A factory's planned capacity, a module purchase order and a cabinet already earning money at an arcade are three different measures of commercial progress. Announcements, production plans and shipments should not be mistaken for the same event.</p>
+<p>Tuni was not merely a warehouse handling British components. Former Tuni programmer Paul Walters recalled an American operation with software staff, electronics production and cabinet assembly. He said his first assignment there was El Grande, a five-card-draw video-poker game. Preserved MAME records credit that product to Tuni Electro Service, although several flyer catalogs list it under Century Electronics. El Grande should therefore be recorded as Tuni's separate work, not quietly added to Century's fifteen original arcade designs. Other Tuni-side figures included engineering executive Tom Opfer, technical specialist Rick Harris and programmer George Hefner. Their involvement with the American company does not automatically make them employees of Century's Oldham operation.</p>
+<p>The contract dispute exposed a practical weakness of that partnership: Tuni needed a regular flow of fresh game modules to sell its cabinets, while Century needed enough American cabinet sales to make continued software development worthwhile.</p>
+<figure class="inline-archive-figure century-figure century-paired" id="figure-f04">
+<div class="century-figure-images"><a class="century-source-image" href="assets/articles/century/dark-warrior-cosmos-space-fortress-02878-01.jpg" target="_blank" rel="noopener noreferrer" title="View full historical scan"><img loading="lazy" decoding="async" src="assets/articles/century/dark-warrior-cosmos-space-fortress-02878-01.jpg" alt="Contemporary Century/Tuni flyer depicting a CVS upright with Cosmos marquee and early video screens."/></a>
+<a class="century-source-image" href="assets/articles/century/dark-warrior-cosmos-space-fortress-02878-02.jpg" target="_blank" rel="noopener noreferrer" title="View full historical scan"><img loading="lazy" decoding="async" src="assets/articles/century/dark-warrior-cosmos-space-fortress-02878-02.jpg" alt="Illustrated CVS game module and early American sales copy describing service and warranty terms."/></a></div>
+<figcaption><strong>Tuni's early American CVS advertising pictured a Cosmos-marked upright and the interchangeable module. Its proposed module dimensions, short delivery period and 90-day limited warranty were promotional claims.</strong> <span class="century-image-credit"><a href="https://flyers.arcade-museum.com/videogames/show/2880" rel="noopener noreferrer" target="_blank">Original archival source</a></span></figcaption>
+</figure>
+<figure class="inline-archive-figure century-figure century-paired" id="figure-f05">
+<div class="century-figure-images"><a class="century-source-image" href="assets/articles/century/radar-zone-02043-03.jpg" target="_blank" rel="noopener noreferrer" title="View full historical scan"><img loading="lazy" decoding="async" src="assets/articles/century/radar-zone-02043-03.jpg" alt="Left panel of Tuni's Radar Zone sales spread showing the game screen and Tempe contact details."/></a>
+<a class="century-source-image" href="assets/articles/century/radar-zone-02043-04.jpg" target="_blank" rel="noopener noreferrer" title="View full historical scan"><img loading="lazy" decoding="async" src="assets/articles/century/radar-zone-02043-04.jpg" alt="Right panel completing the Tuni Radar Zone heading and advertising the $1,895 introductory offer."/></a></div>
+<figcaption><strong>Tuni's Radar Zone promotional center spread offered an introductory price of $1,895 through October 31 and reproduced game screens. The archive catalogs the brochure as 1982; the printed offer itself does not establish realized sales.</strong> <span class="century-image-credit"><a href="https://flyers.arcade-museum.com/videogames/show/2043" rel="noopener noreferrer" target="_blank">Original archival source</a></span></figcaption>
+</figure>
+<figure class="inline-archive-figure century-figure" id="figure-f06">
+<div class="century-figure-images"><a class="century-source-image" href="assets/articles/century/radar-zone-02043-06.jpg" target="_blank" rel="noopener noreferrer" title="View full historical scan"><img loading="lazy" decoding="async" src="assets/articles/century/radar-zone-02043-06.jpg" alt="Tuni Radar Zone promotional sheet with upright and cocktail cabinet depictions and financing offer."/></a></div>
+<figcaption><strong>Tuni's sales brochure depicted upright and cocktail-style Radar Zone machines while offering qualified buyers two-year financing and a twelve-month limited warranty. These are historical sales depictions, not independently authenticated surviving cabinets.</strong> <span class="century-image-credit"><a href="https://flyers.arcade-museum.com/videogames/show/2043" rel="noopener noreferrer" target="_blank">Original archival source</a></span></figcaption>
+</figure><h2 id="tuni-dispute">WHEN THE PARTNERS STOPPED AGREEING</h2>
+<p>The relationship began to fracture during 1982. In the account reconstructed from period Play Meter reporting, Century said that it had ended Tuni's rights in August and that a new exclusive U.S. arrangement took effect on September 1. Tuni's marketing representative Patrick Reed disputed the premise of a single settled master agreement. His explanation was that the parties had instead proceeded through individual game licences, partly because the proposed overall contract required a continuing flow of new and marketable software. The underlying signed agreements have not been recovered, so these are competing positions, not findings that can responsibly be declared legally resolved. <a class="src-tag" href="#source-21" aria-label="Source 21">[21]</a></p>
+<p>The disagreement became especially visible around Logger and Wall Street. Tuni-related marketing continued to feature these titles after Century believed its arrangements had changed. Century accused the American side of marketing games without the appropriate rights and pursued claims involving copyright and money owed. Reed, in turn, blamed Century for failing to deliver enough new games. A later reconstruction of his remarks in Play Meter quotes a complaint that only seven games had arrived since January, against expectations for a new title every eight to ten weeks. Reed also asserted that Century owed Tuni about $240,000 for electronic parts. These are the parties' allegations, not judicial findings or an independently established final balance sheet. <a class="src-tag" href="#source-21" aria-label="Source 21">[21]</a></p>
+<p>The two companies blamed each other for shortcomings in that exchange. Tuni complained about the delivery rate of new games; Century disputed the American side's licensing and financial conduct. Neither party's accusations alone establish why the partnership failed.</p>
+<p>There is a wider lesson in the claims over Logger and Wall Street. Rights to manufacture cabinets, distribute modules, sell a particular game or sublicense code do not necessarily travel together. A distributor might have physical inventory while a developer disputed its right to market that inventory. The label on a circuit board might refer to an earlier licence, while the companies involved had already fallen out. That is why the surviving Tuni and Enter-Tech revision credits cannot be treated as a tidy map of ownership. They provide clues about actual commercial circulation but do not replace contracts.</p>
+<p>The American sales numbers are difficult to reconcile. A period report has been summarized as indicating roughly 700 complete CVS systems sold under Tuni by early 1983. Later trade estimates described thousands of machines on American locations and larger cumulative sales figures. Those claims may have used different time periods, geographic boundaries, companies or definitions of a “system.” Combining them into one continuous sales series would create false precision. The American system had a demonstrable commercial presence, but its exact installed base and the division of that activity between Tuni and later sellers remain difficult to reconstruct. <a class="src-tag" href="#source-21" aria-label="Source 21">[21]</a></p>
+<h2 id="tuni-financial">TUNI'S TROUBLES WERE NOT CENTURY'S LIQUIDATION</h2>
+<p>As the dispute unfolded, Tuni encountered serious financial problems of its own. Walters later remembered the Tempe operation running short of money in late 1982, including a missed payroll and a temporary shutdown while financing was sought. This is a firsthand recollection of conditions inside Tuni, not evidence of what was happening in Century's Oldham accounts. The two companies were linked by their business arrangement, but they were not one legal enterprise.</p>
+<p>The March 15, 1983 issue of Play Meter reported Tuni's filing for Chapter 11 protection in Arizona and the intervention by Enter-Tech, its principal creditor. A proposed sale to E.T. Marketing did not proceed as intended. Enter-Tech Ltd., described as a major creditor, intervened and assumed management. Patrick Reed, who had served as Tuni's marketing director and was associated with E.T. Marketing, continued in a marketing role through the transition. Preservation records also retain CVS versions credited to Enter-Tech licensing. The chronology matters: Enter-Tech's takeover of management was already being reported in March 1983, not a vague development somewhere near the end of the year. <a class="src-tag" href="#source-6" aria-label="Source 6">[6]</a></p>
+<p>The overlapping American business names are best understood chronologically. Tuni was the original manufacturing and commercial partner. E.T. Marketing was involved in an attempted purchase. Enter-Tech took over management during Tuni's financial restructuring. The later Great Neck company provided another CVS marketing route. The records do not establish that all four were simply one Century-owned subsidiary changing its letterhead.</p>
+<p>Tuni's restructuring did not remove the equipment and game modules already in circulation. Century pursued other American outlets while CVS hardware and software continued to be advertised.</p>
+<h2 id="great-neck">GREAT NECK: THE SECOND AMERICAN IDENTITY</h2>
+<p>By the start of 1983, another name appears in American arcade trade records: Convertible Video Systems Ltd., operating from Great Neck, New York. In February, Play Meter's exhibitor material listed the firm among participants, and the March 19, 1983 Cash Box exhibitor list (p. 45) placed it at 55 Northern Boulevard, Great Neck, with booths 753 and 755. This is not merely an address borrowed from later internet summaries. It is a distinct business identity documented in contemporary trade publications. <a class="src-tag" href="#source-9" aria-label="Source 9">[9]</a></p>
+<p>The name is both informative and potentially misleading. It makes clear which product the American operation was promoting, but it does not establish its exact ownership. Later accounts describe the Great Neck organization as Century's new American marketing operation after the Tuni break. That relationship is commercially plausible, and period trade evidence confirms the organization's activity. Yet no recovered legal record establishes that Convertible Video Systems Ltd. was wholly owned by Century Electronics Ltd. The familiar shorthand “Century's subsidiary” would imply a documented ownership structure that the surviving sources do not provide.</p>
+<p>The contemporary descriptions support a more precise formulation. In a November 1983 report on members of the Amusement Game Manufacturers Association, Play Meter identified CVS as a marketer of convertible games, accepted as an associate member. An associate-marketer classification is not the same as evidence of its own manufacturing plant. It points instead to an American commercial vehicle helping carry the CVS concept through the trade. Whether its formal ownership lay entirely with Century, partly with local investors, or through some different arrangement remains open.</p>
+<p>Convertible Video Systems became visible at a series of trade events. It was included among 1983 expo exhibitors and was accepted into the trade association in September. A later directory placed the company at 31 Watermill Lane, Great Neck, New York, with a listed telephone number. The sequence from Northern Boulevard in early 1983 to Watermill Lane in early 1984 suggests a change of business address; it does not, by itself, explain why the move occurred. These mundane records are nevertheless valuable because they show that CVS was still being promoted through recognizable American business channels after the Tuni rupture.</p>
+<p>The company's reported leader adds another intriguing connection. Later historical reconstruction associates the Great Neck CVS operation with M. S. “Mickey” Greenman, an established figure in the coin-operated amusement business. His long career is independently visible in period trade coverage, but a Great Neck document specifying his precise CVS title has not been recovered. Greenman's reported leadership is therefore distinguishable from a verified formal position, and there is no basis to count him as an employee of Century's British factory. He later appeared in Crown Vending's leadership as CVS-related products continued circulating.</p>
+<p>Even the company's presence in a show directory needs careful interpretation. The February 18, 1984 issue of Cash Box (p. 30) listed Convertible Video Systems in booth 663 at the Amusement Showcase International show of February 17–19, with the Watermill Lane address. That listing was published just after Century's British creditors' voluntary liquidation began on February 6 and a day after the appointed liquidator took office on February 16. A published exhibitor list proves that CVS had a scheduled or advertised presence. It does not prove that a fully staffed booth actually operated or that the Great Neck company's rights were unaffected by the British insolvency. Still, it captures the divergence between a company entering formal liquidation in England and a product line retaining a commercial identity in the United States. <a class="src-tag" href="#source-10" aria-label="Source 10">[10]</a></p>
+<p>A second set of American listings points toward a March 1984 Amusement Operators Expo, again showing planned CVS visibility. Taken alongside later Crown marketing and conversion kits, these listings make it untenable to describe February 1984 as the instant disappearance of all CVS activity. The British company could be winding up while software and hardware derived from its platform remained in business elsewhere. Ownership, service obligations and licences might have been changing, but the paper trail had not stopped.</p>
+<figure class="inline-archive-figure century-figure" id="figure-f08">
+<div class="century-figure-images"><a class="century-source-image" href="assets/articles/century/gold-bug-dazzler-video-8-ball-05139-01.jpg" target="_blank" rel="noopener noreferrer" title="View full historical scan"><img loading="lazy" decoding="async" src="assets/articles/century/gold-bug-dazzler-video-8-ball-05139-01.jpg" alt="American CVS Game Library sales sheet with several game screenshots and a Great Neck address."/></a></div>
+<figcaption><strong>A Great Neck–branded American CVS Game Library sheet promoted Hunchback, Gold Bug, Outline, Dazzler and other interchangeable games. Although the archive indexes the sheet under 1981, it includes 1983's Hunchback; its printing date remains unverified.</strong> <span class="century-image-credit"><a href="https://flyers.arcade-museum.com/videogames/show/5146" rel="noopener noreferrer" target="_blank">Original archival source</a></span></figcaption>
+</figure><h2 id="us-after-tuni">THE AMERICAN MARKET AFTER TUNI</h2>
+<p>After the dispute with Tuni, Century's American story continued through Great Neck Convertible Video Systems and later Crown-related game and conversion marketing. Their precise legal relationships are not established, but their separate trade listings and advertising show more than one commercial channel at work.</p>
+<p>The American brochures also preserve concrete differences from Century's British pitch. Tuni's early “The Future Is Here” flyer pictured a CVS upright and emphasized interchangeable modules; the later Radar Zone campaign used price, financing, warranty coverage and a distributor directory to sell the equipment. Those documents show an operator-focused sales effort rather than merely a game announced abroad. <a class="src-tag" href="#source-14" aria-label="Source 14">[14]</a> <a class="src-tag" href="#source-15" aria-label="Source 15">[15]</a></p>
+<p>What became of the Great Neck operation and its relationship with Crown Vending after Century's collapse remains unresolved. Crown's commercial work with Century is documented before liquidation, as is its later handling of CVS-related products. Neither establishes that Crown purchased Great Neck CVS or inherited all of Century's assets. Such a conclusion would require an ownership or rights-transfer document not yet found. The American record is therefore better understood as a series of commercial relationships around one game platform than as a proven chain of corporate mergers.</p>
+<p>Japan supplied a different test of Century's approach: a local manufacturer licensed to build the CVS board and sell games in a market already crowded with strong domestic arcade competitors.</p>
+<h2 id="japan-leisure">JAPAN LEISURE: THE CVS SYSTEM REACHES TOKYO</h2>
+<p>Century's Japanese partner can be identified from contemporary trade reporting rather than guessed from later company histories. The November 1981 issue of Game Machine names Japan Leisure, describes a manufacturing licence and identifies four Century titles shown in Tokyo. A March 1982 report provides a rare contemporary assessment of how the imported games were received. <a class="src-tag" href="#source-4" aria-label="Source 4">[4]</a></p>
+<p>The partner was Japan Leisure Corporation of Tokyo, commonly abbreviated JLC. Its president, Yoshiaki Kanazawa, was named in the November 15, 1981 issue of Game Machine, an amusement-industry newspaper published in Japan. The English-language report carried the unusually direct headline “Japan Leisure Permitted To Use CVS Of U.K.” It described a signed agreement with Century allowing Japan Leisure to manufacture and sell nine Century CVS video games in Japan. This was considerably more substantial than an arrangement to import a few finished cabinets. <a class="src-tag" href="#source-4" aria-label="Source 4">[4]</a></p>
+<p>Of particular importance was the permission to manufacture the main CVS printed-circuit board using Century's custom chips. Century's architecture could therefore be assembled into Japanese-market hardware through a licensed local operation rather than depending entirely on completed machines shipped from Oldham. That distinction goes straight to the economics of the convertible system. Operators buying into CVS needed access to the base equipment as well as its games; a domestic manufacturing partner could potentially serve that demand more effectively than an importer dealing in scarce finished stock. <a class="src-tag" href="#source-4" aria-label="Source 4">[4]</a></p>
+<p>Japan Leisure's name may be unfamiliar even to many arcade collectors, but the business has a much more recognizable place in Japanese game history. It later took the name Jaleco. In 1981, however, the relevant company name on the contemporary evidence is Japan Leisure. Calling this a “Jaleco licence” without explaining the period name would project a later corporate identity backward into the original agreement. The accurate formulation is that Century licensed its CVS system to Japan Leisure, the company later known as Jaleco. The name change does not imply that Jaleco inherited Century's whole software library or obtained rights beyond those stated in the licence.</p>
+<p>The October 1981 trade-show evidence puts names and machines alongside the contract. The 19th Amusement Machine Show opened in Tokyo on October 16. Japan Leisure's stand displayed four identified Century CVS titles: Cosmos, Dark Warrior, Radar Zone and Space Fortress. Coverage in the November 1 Game Machine issue describes the exhibit as four licensed games using the British-developed CVS system. A follow-up report two weeks later confirms the partnership and specifies the much larger nine-game rights package. <a class="src-tag" href="#source-4" aria-label="Source 4">[4]</a></p>
+<p>The four exhibited games were not the whole nine-game licence. The additional five titles remain unidentified. A right to manufacture or exhibit a title also does not, by itself, establish a substantial run of finished boards. <a class="src-tag" href="#source-4" aria-label="Source 4">[4]</a></p>
+<p>Kanazawa reportedly favored Cosmos as a lead offering because he considered it relatively interesting. His opinion was a sales judgment, not evidence that Cosmos became a Japanese hit. Game Machine also reported that CVS games had not yet gained conspicuous popularity and that Japan Leisure was not strongly emphasizing the system itself. Even in the first surviving account of the partnership, then, the emphasis is not on an unqualified triumph. Century had succeeded in reaching the Japanese trade through a licensed local manufacturer; early enthusiasm for its games was another matter.</p>
+<figure class="inline-archive-figure century-figure" id="figure-f09">
+<div class="century-figure-images"><a class="century-source-image" href="assets/articles/century/cosmos-dark-warrior-05407-01.jpg" target="_blank" rel="noopener noreferrer" title="View full historical scan"><img loading="lazy" decoding="async" src="assets/articles/century/cosmos-dark-warrior-05407-01.jpg" alt="Japanese Century Cosmos and Dark Warrior game flyer with Japanese lettering and arcade imagery."/></a></div>
+<figcaption><strong>A Japanese-language Century promotion presents Cosmos and Dark Warrior for the market served by Japan Leisure, the future Jaleco. The flyer documents promotion, not Japanese sales totals.</strong> <span class="century-image-credit"><a href="https://flyers.arcade-museum.com/videogames/show/5414" rel="noopener noreferrer" target="_blank">Original archival source</a></span></figcaption>
+</figure>
+<figure class="inline-archive-figure century-figure" id="figure-f10">
+<div class="century-figure-images"><a class="century-source-image" href="assets/articles/century/GameMachine_1981-11-15_p30_JapanLeisure_CVS_article_excerpt.png" target="_blank" rel="noopener noreferrer" title="View full historical scan"><img loading="lazy" decoding="async" src="assets/articles/century/GameMachine_1981-11-15_p30_JapanLeisure_CVS_article_excerpt.png" alt="Cropped 1981 Game Machine English trade report headed Japan Leisure Permitted To Use CVS Of U.K."/></a></div>
+<figcaption><strong>Game Machine, November 15, 1981, p. 30, reported Japan Leisure's agreement to manufacture and sell nine Century CVS titles in Japan and use Century custom chips. This is the original English overseas-news article excerpt.</strong> <span class="century-image-credit"><a href="https://onitama.tv/gamemachine/pdf/19811115p.pdf" rel="noopener noreferrer" target="_blank">Original archival source</a></span></figcaption>
+</figure><h2 id="japan-licence-limits">WHAT THE JAPANESE LAUNCH CAN — AND CANNOT — PROVE</h2>
+<p>The chronology contains an unresolved puzzle. In the later British legal dispute considered in Nova Productions Ltd v Mazooma Games Ltd, Peter Robinson testified to a small shipment or sale of Video Eight Ball copies to Japan in March 1981, numbering roughly twenty-five to fifty. The court did not simply dismiss his testimony. Surviving Japanese trade reporting, however, has not identified a March buyer or independently documented that transaction. <a class="src-tag" href="#source-3" aria-label="Source 3">[3]</a></p>
+<p>At first glance, the dates may seem inconsistent. Why would Century have sold Video Eight Ball to Japan in March if a formal Japanese CVS launch was described as upcoming in October? The question assumes the two events were the same kind of event. They may not have been. Limited pre-launch copies, evaluation material, early export business and a later public trade-show launch could all have occurred in one year. But a possibility is not a finding. No document presently identifies what the March units were, how they were distributed, or whether they reached commercial arcade locations.</p>
+<p>The November Game Machine report does not solve the mystery. It refers to nine licensed CVS games but names only four. Video Eight Ball is not among the four identified show titles. It would be tempting to add up familiar early Century titles, fill in the blanks, and claim to have reconstructed the nine-game agreement. That would be an invented list. The identity of the remaining five licensed titles is unknown, and Video Eight Ball's inclusion remains unproven. <a class="src-tag" href="#source-4" aria-label="Source 4">[4]</a></p>
+<p>The timing of the agreement is uncertain as well. Century discussed overseas arrangements early in 1981, and an October Play Meter account described plans to launch CVS in Japan that month. The November Game Machine article says an agreement with Japan Leisure had been signed, but does not provide the signing date. The unidentified January overseas arrangement, the alleged March Video Eight Ball transaction and the later Japan Leisure licence cannot presently be shown to be a single contract. Their possible relationship remains open.</p>
+<p>The Japanese licence establishes real commercial intent and an active local partner. Surviving reports do not establish the number of boards manufactured or revenue earned, and the unfavorable later exhibition notice warns against assuming that a licence translated into a successful Japanese launch.</p>
+<h2 id="japan-reception">THE RECEPTION: A BRITISH SYSTEM IN A CROWDED MARKET</h2>
+<p>By March 1982, the CVS relationship was still visible. Game Machine's March 15 issue reported on the NAO Amusement Expo held at Tokyo's Hotel Pacific on March 1 and 2. Japan Leisure exhibited Naughty Boy, a separately associated title, alongside British-made CVS system games. The newspaper's assessment of the Century-derived games was brief and unfavorable: they “were not favorably accepted.” <a class="src-tag" href="#source-5" aria-label="Source 5">[5]</a></p>
+<p>This is a contemporary trade reporter's assessment of one exhibition, not a sales audit. There is no surviving figure for Japan Leisure's CVS shipments, and the report cannot tell us whether individual games performed better at other locations. <a class="src-tag" href="#source-5" aria-label="Source 5">[5]</a></p>
+<p>The earlier November 1981 report had already said that CVS was not a prominent success and that Japan Leisure was not placing great emphasis on it. Taken together, the two reports suggest the company continued to show licensed Century material into the following spring while increasingly treating the system as a secondary part of its business. Later 1982 trade publicity prominently featured other products, including Naughty Boy, Check Man and Blue Print. That change in emphasis is commercially plausible; it is not evidence of the precise date or legal terms of a terminated CVS licence. <a class="src-tag" href="#source-4" aria-label="Source 4">[4]</a></p>
+<p>Japan Leisure could manufacture Century's licensed CVS equipment locally, but that capability did not ensure the games would compete successfully against Japan's established manufacturers.</p>
+<p>The contrast is instructive: in America, the clearest problems appear in distributor finances and licence disputes; in Japan, the strongest documents show a formal licence followed by a poor exhibition reception. The two markets did not fail—or succeed—in the same way.</p>
+<p>The Japanese Cosmos/Dark Warrior flyer supplies the visual counterpart to the written record: Japan Leisure promoted specific Century games under its own name, while Game Machine reported both the licence and the restrained response it received. <a class="src-tag" href="#source-16" aria-label="Source 16">[16]</a></p>
+<figure class="inline-archive-figure century-figure" id="figure-f11">
+<div class="century-figure-images"><a class="century-source-image" href="assets/articles/century/GameMachine_1982-03-15_p26_JapanLeisure_CVS_reception_excerpt.png" target="_blank" rel="noopener noreferrer" title="View full historical scan"><img loading="lazy" decoding="async" src="assets/articles/century/GameMachine_1982-03-15_p26_JapanLeisure_CVS_reception_excerpt.png" alt="1982 Game Machine trade-news excerpt naming Japan Leisure and saying British-made CVS games were not favorably accepted."/></a></div>
+<figcaption><strong>Game Machine, March 15, 1982, p. 26, noted Japan Leisure's presentation of British-made CVS games at the NAO expo and reported an unfavorable reception. Cropped from the original English-language report.</strong> <span class="century-image-credit"><a href="https://onitama.tv/gamemachine/pdf/19820315p.pdf" rel="noopener noreferrer" target="_blank">Original archival source</a></span></figcaption>
+</figure><h2 id="game-catalog">WHAT COUNTS AS A CENTURY GAME?</h2>
+<p>The Japanese licence raises a broader problem that applies to the entire Century catalog. A CVS game might appear under a Century name, a licensed American distributor, a Japanese partner, or a later conversion identity. Emulator databases can contain multiple revisions, alternate titles, regional variants and hardware conversions, each preserved as a separate set. A list of preserved sets is therefore not automatically a count of distinct games Century created.</p>
+<p>A defensible minimum of fifteen distinct Century arcade titles emerges from the available evidence: one earlier game, Cosmic Invasion, and fourteen associated with CVS. This is a count of identifiable Century-original arcade designs, not fifteen proven commercial hits, fifteen distinct factory cabinets or every product that eventually carried Century-associated code. Those measurements describe different things. <a class="src-tag" href="#source-11" aria-label="Source 11">[11]</a> <a class="src-tag" href="#source-21" aria-label="Source 21">[21]</a></p>
+<p>Cosmic Invasion belongs to the earliest identifiable phase of Century’s arcade work, before the Convertible Video System became its principal calling card. In his later interview with Retro Gamer, cofounder Peter Robinson described it as the company's early imitation of Space Invaders and said it used the Signetics 2650 microprocessor. That firsthand account establishes its broad game type and technical family, but not an exact shipping month, independently verified production total, or complete surviving gameplay record. It belongs in Century's chronology without pretending we can reconstruct every screen or control from an unrecovered machine. <a class="src-tag" href="#source-3" aria-label="Source 3">[3]</a></p>
+<p>Century’s first conspicuous CVS games were not variations on one theme. Cosmos was a fixed-screen space shooter built around managing limited fuel and the temperature of its laser. Its docking and refueling sequences, warning speech, and overheating weapon recall Sega/Gremlin’s Astro Blaster; the close resemblance is apparent in preserved gameplay. The game demonstrated that Century could put more than basic left-to-right shooting onto its interchangeable hardware, even if some of its ideas were familiar from a bigger competitor. <a class="src-tag" href="#source-11" aria-label="Source 11">[11]</a> <a class="src-tag" href="#source-21" aria-label="Source 21">[21]</a></p>
+<p>Dark Warrior turned the space-invasion premise into a defensive struggle. The player’s ground-based gun protected vulnerable fuel depots while alien craft attacked from above and approaching ground enemies threatened the installations themselves. The combination made survival depend on more than the player’s remaining lives: once the depots were destroyed, the defense failed. Contemporary British promotional artwork and an American edition of Century’s early CVS literature establish that Dark Warrior was part of the system’s initial international pitch. <a class="src-tag" href="#source-11" aria-label="Source 11">[11]</a></p>
+<p>Space Fortress took another route through familiar arcade territory. Its spacecraft combat resembles the Asteroids formula, but Century added fuel management, damage and spoken warnings, together with a separate fortress-defense element. All three early titles relied on the same broad hardware family; their different rules, hazards and sound effects mattered to an operator considering whether the machine could genuinely offer variety after a software change. <a class="src-tag" href="#source-11" aria-label="Source 11">[11]</a></p>
+<p>In 1982 Century moved well beyond space combat. Video Eight Ball offered a video-pool game in which players aimed and pocketed balls on a simulated table. Its existence in the catalog is clear, but its first overseas transactions are less straightforward: Peter Robinson later testified to a small quantity going to Japan in March 1981, while much of the preserved release chronology places the better-known British and American commercial activity in 1982. That unresolved early-sale testimony should not be silently converted into a precise worldwide launch date.</p>
+<p>Dazzler was much less conventional than a title or single screenshot suggests. Its action alternated between a top-down maze, where a character opened doors and delivered bananas to a gorilla while avoiding vultures, and a climbing stage with ladders and falling hazards. The first part emphasized evasion and timing; the second borrowed visibly from the climbing-game craze surrounding Donkey Kong. The combination may look ungainly today, but it is useful evidence that Century was experimenting with different kinds of action on CVS, not producing nothing but alien shooters. <a class="src-tag" href="#source-21" aria-label="Source 21">[21]</a></p>
+<p>Radar Zone, preserved in related versions and under the name Outline, turned its arena into a tracing and territory-claiming puzzle. Players moved around lines and enclosed shapes while avoiding pursuing enemies, a style closer to Amidar and Qix than to the company’s shooting games. The original American Tuni flyer made it the subject of a substantial commercial promotion, complete with a proposed cabinet, price, financing terms and distributor network. The preserved MAME lineage groups Outline with Radar Zone rather than treating the two names as independently invented games. <a class="src-tag" href="#source-11" aria-label="Source 11">[11]</a></p>
+<p>The game's names can be deceptively slippery. Radar Zone and Outline belong to the same preserved game family, and Heart Attack is also found under the expanded name The A Maze Zing. These should not be counted twice simply because an operator, distributor or ROM set uses a different label.</p>
+<p>Digger and Gold Bug, on the other hand, appear as distinct games in the preserved CVS catalog despite their close mining-maze relationship. Both involve moving through earth, creating routes and collecting valuables while avoiding creatures. Digger emphasizes clearing enemies, while Gold Bug gives greater importance to excavating the maze itself. Their close visual and mechanical family resemblance is part of Century’s development history, but the separate game objectives make it misleading to collapse them into a single release without explanation. <a class="src-tag" href="#source-11" aria-label="Source 11">[11]</a></p>
+<p>Logger is a much clearer case of borrowing from a rival success. Its lumberjack climbs platforms and dodges rolling logs on the way to a confrontation with a large bird: the relationship to Nintendo’s Donkey Kong is unmistakable. David Jones later acknowledged in court testimony that Logger copied Donkey Kong. The admission is stronger evidence than a modern critic simply noticing similarities, and it places the derivative design within the founders’ own historical account. <a class="src-tag" href="#source-3" aria-label="Source 3">[3]</a> <a class="src-tag" href="#source-21" aria-label="Source 21">[21]</a></p>
+<p>Wall Street shows just how strange Century’s software range could become. Despite its financial title, this was not a simulated stock exchange or a game about buying and selling shares. In one stage, players positioned rescuers to bounce falling stockbrokers toward an ambulance; another shifted to collecting money while avoiding or attacking tanks. The absurd mixture is documented in independent gameplay descriptions and surviving play accounts. It is a more memorable example of Century’s willingness to try odd concepts than another general claim about an expanding software library. <a class="src-tag" href="#source-21" aria-label="Source 21">[21]</a></p>
+<p>The later catalog included Raiders, a vertically oriented shooter in which the player's craft could move through the field while using guns and bombs against successive formations, along with a mothership and docking sequence. It illustrates how Century continued revisiting space combat even as it experimented with maze, climbing, sports and rescue games. <a class="src-tag" href="#source-21" aria-label="Source 21">[21]</a></p>
+<p>Heart Attack / The A Maze Zing set a different objective: covering or filling maze passages while escaping pursuers under a severe time limit. Contemporary trade-chart reporting gives this obscure title a more substantial commercial trace than its crude appearance might suggest, although chart appearances cannot establish lifetime sales. The double name identifies a single game lineage, not two separate 1983 products. <a class="src-tag" href="#source-11" aria-label="Source 11">[11]</a></p>
+<p>Superbike put a motorcycle into an obstacle course with jumps, shooting and ramps, in a form reminiscent of Moon Patrol. Its subsequent life in conversion kits for Nintendo cabinet hardware is particularly important: later 1984 Crown promotions and chart placements relate to distribution and conversions, not the creation of a new Century-original design after liquidation. Hunchback remains the company’s most recognized original, and its development and later licensing warrant their own sections rather than a few lines in a catalog. <a class="src-tag" href="#source-21" aria-label="Source 21">[21]</a></p>
+<p>The production list should not be enlarged to absorb every colorful name printed in Century's brochures. Horizon, Outlaw, Super Shoot and Voyager appear in period promotions, but the surviving advertisements do not establish a completed commercial release for each. Voyager was described in one promotional account as a naval-combat game with an aircraft-carrier theme; that does not establish that operators could buy a finished Voyager kit. A contemporary illustration may preserve an idea or a sales intention even when the machine itself has not been documented. <a class="src-tag" href="#source-13" aria-label="Source 13">[13]</a></p>
+<p>Pharoah is another name found in wider research leads without a sufficiently secure release history, while Space Warp is preserved as a likely reworking or conversion related to Cosmos rather than counted as another original. The situation is different again for Hero and Hunchback Olympic: the stronger surviving developer attribution points to Seatongrove, even though both traveled through the broader CVS and conversion-kit world after Century. A game's appearance on familiar hardware, or under an American sales label, does not by itself move its authorship back to Oldham.</p>
+<p>The resulting minimum is fifteen identifiable Century-original arcade designs, not a claim that all fifteen sold well or were simultaneously available. Separating developed games, alternate versions, advertised concepts and later software adaptations gives a truer picture of what the Oldham company actually contributed. <a class="src-tag" href="#source-11" aria-label="Source 11">[11]</a></p>
+<figure class="inline-archive-figure century-figure century-paired" id="figure-f12">
+<div class="century-figure-images"><a class="century-source-image" href="assets/articles/century/dark-warrior-cosmos-outlaw-space-fortress-radar-zo-03233-03.jpg" target="_blank" rel="noopener noreferrer" title="View full historical scan"><img loading="lazy" decoding="async" src="assets/articles/century/dark-warrior-cosmos-outlaw-space-fortress-radar-zo-03233-03.jpg" alt="Left panel of British Century CVS promotional game montage with early and advertised titles."/></a>
+<a class="century-source-image" href="assets/articles/century/dark-warrior-cosmos-outlaw-space-fortress-radar-zo-03233-04.jpg" target="_blank" rel="noopener noreferrer" title="View full historical scan"><img loading="lazy" decoding="async" src="assets/articles/century/dark-warrior-cosmos-outlaw-space-fortress-radar-zo-03233-04.jpg" alt="Right panel continuing Century game-lineup artwork and a promised new-game schedule."/></a></div>
+<figcaption><strong>Century's British promotional center spread displayed a wide proposed CVS game lineup, including Horizon, Outlaw and Voyager, and spoke of new titles every six to eight weeks. Advertising does not independently establish commercial completion of every named title.</strong> <span class="century-image-credit"><a href="https://flyers.arcade-museum.com/videogames/show/3237" rel="noopener noreferrer" target="_blank">Original archival source</a></span></figcaption>
+</figure><h2 id="game-library-limits">THE LIBRARY AND THE LIMITS OF CONVERSION</h2>
+<p>Every additional CVS release increased the platform's usefulness to an operator, but it also required design, programming, artwork, testing and production. The growing catalog was simultaneously a sales advantage and a continuing expense.</p>
+<p>The same library also had to support customers and partners in different countries. The dispute with Tuni shows what happened when an American distributor expected fresh software faster than it believed Century was delivering. No surviving account can allocate a precise share of the company's costs to those commitments.</p>
+<p>The original brochures visually tied games, interchangeable modules and cabinet forms into one product family. The practical bet was that an operator who already owned CVS hardware would return for future programs instead of replacing the entire cabinet. <a class="src-tag" href="#source-13" aria-label="Source 13">[13]</a></p>
+<p>In 1983, Hunchback supplied an answer to a more basic question: could Century make a game players wanted regardless of its hardware? Its development, the work of lead programmer Harry Convey, and its later conversion and home-computer life make it the company's most important individual title.</p>
+<h2 id="hunchback">HUNCHBACK: THE GAME THAT ESCAPED ITS HARDWARE</h2>
+<p>Century's best-known game was not the first one the company developed, and it was not the most elaborate advertisement for CVS. Hunchback was memorable for a different reason: its central task could be understood at a glance. The player guided a small figure across a perilous castle landscape, timing jumps, avoiding guards and hazards, and reaching the next safe foothold. The changing scenery and increasingly difficult obstacles gave the game a progression that was unusually easy to describe. It was a castle adventure with comic-book energy, presented as a fast, unforgiving arcade challenge rather than an extended story.</p>
+<p>Its path from idea to finished game was not straightforward. In a retrospective interview published in Retro Gamer, Century cofounder Peter Robinson recalled that he and David Jones had discussed new game concepts while visiting Florida. One idea became a platform game set around the escapades of Robin Hood. The developers imagined a character moving across castle walls and towers, swinging from ropes, passing armed opponents and confronting hazards on the way. In this original form, the design's medieval setting mattered more than the identity of a particular literary character. <a class="src-tag" href="#source-3" aria-label="Source 3">[3]</a></p>
+<p>The project was assigned to a team Robinson described as three programmers and one artist. The lead coder was Harry Convey, the only member of that four-person group identified by name in the surviving cofounder account. Convey's credit is therefore better grounded than the anonymous programmer lists sometimes supplied by later summaries. On the other hand, it would be wrong to invent the names of his two programming colleagues or the graphics artist, or to assume that every later developer associated with a Hunchback computer port once worked for Century in Oldham. The original arcade team and the subsequent porting teams are separate historical questions. <a class="src-tag" href="#source-3" aria-label="Source 3">[3]</a></p>
+<p>The change of title and identity arrived late. Robinson remembered the game's graphics already showing castle obstacles and bell-like imagery when the team recognized that the rope and bell motifs offered a more distinctive character: Quasimodo, the hunchback bell-ringer. Robin Hood gave way to Hunchback, but there was too little time or reason to rebuild everything from the ground up. Traces of the earlier concept survived in the medieval platforms, guards, adventurous poses and overall visual vocabulary. This is an important explanation for an oddity that players can still notice: the game presents a character identified with Notre-Dame, yet much of its action looks like a generalized castle escapade. <a class="src-tag" href="#source-3" aria-label="Source 3">[3]</a></p>
+<p>That late thematic adjustment also shows why Hunchback cannot be credited entirely to one individual. Jones and Robinson originated and directed the concept, Convey led the coding, and an unnamed artist helped communicate the action on screen. The surviving evidence lacks a full production diary and contemporary individual design credits. The identifiable contributions are important without replacing the work of the two unnamed programmers and the artist.</p>
+<h2 id="hunchback-revision">ELEVEN DAYS TO MAKE THE OPENING WORK</h2>
+<p>The strongest surviving account of Hunchback's public testing comes from the same Robinson oral history. Century took a near-finished version to the International Music and Amusement exhibition in Frankfurt in January 1983. The developers expected the challenge to be enticing. Watching strangers try the game, however, exposed an immediate problem: players were losing their lives almost as soon as they began. The opening demanded too many skills before visitors had understood the controls, especially the timing of the jump button. <a class="src-tag" href="#source-3" aria-label="Source 3">[3]</a></p>
+<p>An arcade show was a harsh environment for that kind of mistake. A distributor might look at a machine for only a few minutes; an operator might judge it by whether newcomers could understand its appeal. A game that punished its first-time audience on the first screen could appear unwelcoming even if its later stages were clever. Hunchback did not lack distinctive obstacles. It lacked a sufficiently inviting introduction to them.</p>
+<p>Robinson said the Century team returned to Britain with only eleven days before the London Amusement Trades Exhibition. During that brief interval they made the opening less punishing and introduced hazards in a more manageable sequence. The goal was not to remove difficulty. A successful arcade game still needed to offer a challenge that would bring players back for another attempt. The revision changed the order in which the player encountered that challenge, allowing the jump and movement controls to become familiar before the most demanding combinations appeared. <a class="src-tag" href="#source-3" aria-label="Source 3">[3]</a></p>
+<p>The eleven-day revision between Frankfurt and London is especially telling. Century's brochures emphasized circuit boards and affordable updates; the Hunchback team learned that a player needed to understand the first jump before any of that engineering mattered.</p>
+<p>Robinson credited those adjustments with a much improved London reception and with helping to sell machines and CVS game kits. This is a firsthand recollection rather than a surviving ledger of orders placed at the exhibition, but the distinction does not diminish its usefulness. It tells us what Century's management learned from watching real players: the system's technical promise could not substitute for an accessible game. <a class="src-tag" href="#source-3" aria-label="Source 3">[3]</a></p>
+<p>Hunchback subsequently became the title most firmly associated with Century Electronics. The available contemporary and retrospective evidence supports treating it as the company's major hit, although precise worldwide arcade-unit sales figures have not been established from dependable shipping records. The important change is qualitative. Earlier CVS games helped explain why a convertible platform might be valuable; Hunchback gave operators a stronger reason to want a particular piece of Century software.</p>
+<p>Hunchback's recognisable character, castle obstacles and jumping action also survived when the game was adapted for different hardware. Its appeal did not depend on retaining a complete CVS cabinet.</p>
+<h2 id="playpak">FROM CVS GAME TO PLAYPAK</h2>
+<p>Ordinary CVS modules were useful to operators who already owned compatible hardware. PLAYPAK offered another route to market: adaptations of Century games for the much larger population of existing, non-CVS arcade boards.</p>
+<p>PLAYPAK was one answer. Rather than insisting that the operator buy the entire CVS platform, Century promoted converted versions of its games for other commonly installed arcade electronics. Period Star Tech Journal advertisements in 1983 describe PLAYPAK as developed by Century Electronics and sold exclusively in the United States by Crown Vending. The concept extended the appeal of Century's software into a much larger world of existing equipment, especially the hardware families associated with Galaxian and Scramble. <a class="src-tag" href="#source-7" aria-label="Source 7">[7]</a></p>
+<p>This was not the same thing as shipping an ordinary CVS cartridge. A game running on a Galaxian- or Scramble-type board required conversion work appropriate to its target system. Depending on the product, that could involve program material, board changes, wiring or other components and operator instructions. The precise contents of any particular kit must be checked against its own documentation. The broader significance is clear: Century was no longer treating its proprietary hardware as the only permissible home for its game designs.</p>
+<p>PLAYPAK let a game potentially earn on installed cabinets outside the CVS family. That mattered at a time when operators might welcome a new attraction without purchasing another entire machine.</p>
+<p>Hunchback was an obvious title to adapt. Its appeal was bound to recognizable action and progression rather than to an elaborate custom control arrangement. A PLAYPAK presentation could offer an operator a popular new attraction without requiring the purchase of a dedicated Hunchback cabinet. This is an inference about commercial logic supported by the conversion strategy and period advertising, not a claim that every existing cabinet could be converted or that all installations performed identically.</p>
+<p>Surviving Hunchback/PLAYPAK advertising makes this marketing approach visible. It presents the game as commercially portable: an attraction that could outlive the hardware for which it was originally developed. The promotional boards, illustrations and game claims document what was being offered to operators. They are not by themselves photographs of surviving dedicated cabinets, nor proof of how many conversions were actually installed. <a class="src-tag" href="#source-20" aria-label="Source 20">[20]</a></p>
+<figure class="inline-archive-figure century-figure" id="figure-f13">
+<div class="century-figure-images"><a class="century-source-image" href="assets/articles/century/hunch-back-02236-01.jpg" target="_blank" rel="noopener noreferrer" title="View full historical scan"><img loading="lazy" decoding="async" src="assets/articles/century/hunch-back-02236-01.jpg" alt="1983 Century Hunchback and PLAYPAK promotional flyer naming Crown Vending and conversion-compatible arcade hardware."/></a></div>
+<figcaption><strong>A 1983 Hunchback/PLAYPAK sales flyer advertised adaptations of Century's game for established arcade boards and identified Crown Vending as its U.S. supplier. Crown was advertising the product before Century's 1984 liquidation.</strong> <span class="century-image-credit"><a href="https://flyers.arcade-museum.com/videogames/show/2238" rel="noopener noreferrer" target="_blank">Original archival source</a></span></figcaption>
+</figure><h2 id="crown">CROWN VENDING BEFORE THE COLLAPSE</h2>
+<p>Crown Vending's role is sometimes placed entirely after Century's closure, as though an American firm appeared to rescue orphaned games when the British company vanished. That chronology is wrong. The Star Tech Journal advertisements already show Crown as the exclusive U.S. PLAYPAK seller in August through October 1983, several months before Century entered creditors' voluntary liquidation in February 1984. The two businesses had a documented commercial relationship while Century was still operating. <a class="src-tag" href="#source-7" aria-label="Source 7">[7]</a></p>
+<p>Crown therefore belongs within the company's late trading history as well as its aftermath. It provided a route for the games to circulate through American conversion-kit channels at a time when the original Arizona Tuni relationship was no longer stable and Great Neck Convertible Video Systems was separately marketing the CVS concept. These were overlapping avenues of distribution, not a simple sequence in which one fully replaced another on a single date.</p>
+<p>The distinction matters because a company can develop software, another can manufacture or adapt boards, and a third can hold rights to sell particular formats in a particular territory. A seller's name on an advertisement does not make it the original developer of the game. Equally, a developer's name on the game does not prove that it continued to own all its later distribution rights. PLAYPAK's commercial paper trail makes the development-versus-distribution boundary unusually visible.</p>
+<p>By late 1984, after the British company's liquidation had begun, Crown was still actively marketing games in the Century/CVS orbit. Period Play Meter material named Steve Hochman of Crown in connection with Superbike as a conversion for Donkey Kong and Donkey Kong Jr. equipment, including cocktail versions. A December AMOA preview also listed Hero in the Castle of Doom alongside Crown's conversion products. Those appearances document continued activity in the wider software lineage, not a normal new-game launch year for Century Electronics itself. <a class="src-tag" href="#source-8" aria-label="Source 8">[8]</a></p>
+<p>Hero requires particular care. Preservation evidence associates its development with Seatongrove in Britain, while Crown's American marketing and rights claims belong to a different part of the product's history. A subsequent CVS Game Pak or conversion version does not transform a Seatongrove-developed game into a previously unknown original Century release. In the same way, a Superbike conversion sold in 1984 should not be counted as a second distinct Century game separate from the 1983 Century-associated original. <a class="src-tag" href="#source-11" aria-label="Source 11">[11]</a></p>
+<p>A Crown advertisement at the end of 1984 went beyond ordinary sales language. It offered a reward for information leading to conviction of people dealing in infringing Hero in the Castle of Doom boards or components. The notice identified both a Donkey Kong conversion and a HERO Game Pak for CVS, directing inquiries about authorized U.S. distribution to Crown. The notice establishes Crown's assertion of commercial authority over those products. It does not, on its own, establish a transfer of ownership of the entire Century software catalog.</p>
+<p>By late 1984, Century's name had disappeared from active manufacturing, but Crown's advertisements showed that its software could still be offered in CVS-related and other conversion formats.</p>
+<h2 id="home-ports">THE BELL KEEPS RINGING AT HOME</h2>
+<p>Hunchback's afterlife was not confined to the arcade trade. Its simple premise, identifiable character and obstacle-based structure also made it attractive to the expanding British home-computer market. The ownership and licensing story is unusually revealing because the rights did not pass to one company in a single clean event.</p>
+<p>Century initially enforced its rights while it was still trading. Contemporary reporting in Popular Computing Weekly in September 1983 covered a High Court injunction involving Superior Software's unauthorized Hunchback for the BBC Micro. Later accounts, including Robinson's recollection, describe Superior subsequently obtaining a licence and paying royalties. That sequence distinguishes the unauthorized initial conversion from the authorized commercial versions that followed. It also shows that Century's intellectual property had value apart from the machines installed in arcades. <a class="src-tag" href="#source-3" aria-label="Source 3">[3]</a></p>
+<p>Robinson recalled another licensing approach through solicitor Rubin Berg, who introduced Century to Ocean Software figures David Ward and Jon Woods. Ocean entered the story initially as a licensee for home versions, not as a company that possessed Hunchback only after Century failed. That timing is crucial when following the later ownership claims: early permission to convert the game and a later acquisition of the underlying intellectual property are two different transactions. <a class="src-tag" href="#source-3" aria-label="Source 3">[3]</a></p>
+<p>Ocean's home-computer versions helped carry the name to players who had never encountered a CVS cabinet. These ports were developed for different machines with different capabilities; they should not be mistaken for the original Oldham arcade code or used to infer its development team's membership. The game became familiar to a second audience, and the character and basic task survived even when the screen presentation and control feel varied from platform to platform.</p>
+<p>As Century moved into liquidation, Robinson later said Ocean secured the Hunchback intellectual property for itself. He recalled the loss bitterly. That is meaningful first-person evidence, supported by later historical reconstruction, but it is not a substitute for a signed assignment, liquidator sale record or document identifying the price and precise transfer date. The ownership change is strongly supported; the legal mechanism is still unresolved. <a class="src-tag" href="#source-3" aria-label="Source 3">[3]</a></p>
+<p>That unresolved paper trail does not erase the central historical point. By 1983, a game conceived for Century's interchangeable arcade system was valuable enough to license, defend against unlicensed copying, convert for conventional arcade boards, and distribute on home computers. Hunchback had done what the original CVS platform struggled to accomplish in every market: it made the software compelling in its own right.</p>
+<p>The same popularity that made Hunchback valuable also let it move away from the hardware originally built to run it. Its commercial future became increasingly independent of Century's own factory.</p>
+<p>Century entered liquidation less than a year after Hunchback had emerged as its best-known game. That apparent contradiction requires attention to the company's wider finances, its international disagreements and the dates of its formal winding-up, not an assumption that one popular release could sustain the business.</p>
+<h2 id="collapse">THE SHORT ROAD TO LIQUIDATION</h2>
+<p>Less than five years separated Century's incorporation from the start of its liquidation. In that time the company created CVS, sought partners in America and Japan, and produced Hunchback. The difficulty is explaining how a business with those accomplishments reached its end without inventing a simple cause that the accounts do not establish.</p>
+<p>A British trade account from October 1981 already described operators as cautious and video-game takings as substantially weaker than a year earlier. Century was introducing CVS just as its prospective customers were confronting uncertainty about the earning power of new machines. The industry was not standing still. Successful titles could attract attention quickly, and familiar equipment could lose its appeal almost as fast. A platform sold on the promise of affordable updates was potentially well suited to such a market. It was also exposed to its worst characteristics: volatile demand, impatient operators and a constant need to develop something fresh.</p>
+<p>Century carried the costs of specialist hardware and ongoing game production while building a network of buyers and licensees. An installed base large enough to fund that work was the hoped-for result; the available financial evidence cannot show whether Century ever reached it.</p>
+<p>The international ventures add identifiable pressures. Tuni's restructuring and licensing dispute complicated American sales, while the Japanese licence did not produce an enthusiastic response at the March 1982 exhibition. Neither circumstance proves the cause of Century's own insolvency.</p>
+<p>Hunchback demonstrates that the company's problems cannot be reduced to producing only unpopular games. Its home-computer licences and conversions created opportunities, but the available records do not establish that one successful game could support the costs of the whole CVS operation.</p>
+<p>Peter Robinson later recalled that piracy of Hunchback boards, difficulties in the arcade market and the failure to follow the game with another equally strong hit contributed to the company's downfall. These are important observations from a person directly involved, but they are retrospective explanations, not an audited account of Century's liabilities and cash flow. They may identify real pressures without telling us their relative financial weight. No recovered corporate accounts establish a numerical share of the collapse attributable to piracy, the loss of the Tuni relationship, development expenditure, borrowing, or weakening demand.</p>
+<p>The company had a recorded bank charge in 1982, but the existence of a charge is not proof of an unsustainable debt or evidence that a particular lender forced the business to close. Similarly, claims about a dramatic January 1984 bankruptcy date or a last-minute showing of several new machines circulate in later histories without sufficient original documentation. They cannot override the official insolvency record or be used as the foundation of a dramatic final-week narrative. <a class="src-tag" href="#source-1" aria-label="Source 1">[1]</a></p>
+<p>Century's closure can be placed in a market of volatile arcade earnings, difficult partnerships and expensive continuing development. The relative financial importance of each pressure is unknown.</p>
+<h2 id="liquidation">FEBRUARY 1984: THE ACTUAL CORPORATE DATES</h2>
+<p>Official records clarify Century's often-misdated end. Companies House identifies Century Electronics Limited, company number 01451305, as incorporated on September 28, 1979. Its insolvency entry records the start of a creditors' voluntary liquidation on February 6, 1984, and Jeffrey Burton's appointment as liquidator on February 16. Claims that the British company was declared bankrupt on January 18 conflict with this documented corporate chronology. <a class="src-tag" href="#source-1" aria-label="Source 1">[1]</a> <a class="src-tag" href="#source-2" aria-label="Source 2">[2]</a></p>
+<p>The terminology deserves attention. A creditors' voluntary liquidation is a corporate winding-up procedure, not a personal bankruptcy, and the recorded commencement and liquidator appointment are distinct events. The dates do not prove that every employee stopped working on February 6, that every product was removed from sale, or that overseas licensees lost all authority immediately. They mark the formal winding-up of the British legal company. A December 15, 1984 Play Meter year-end review corroborated the practical outcome, describing Century as having been forced to close. <a class="src-tag" href="#source-2" aria-label="Source 2">[2]</a></p>
+<p>For a history of the business, the appropriate operational span is therefore 1979–1984. The fact that its formal legal existence extended much longer has caused confusion. Companies House records the company as dissolved on October 2, 2018, more than three decades after the liquidation began. That is the eventual end of the legal entity on the register, not evidence that Century was manufacturing arcade equipment into the twenty-first century. To describe the company as operating from 1979 to 2018 would be seriously misleading.</p>
+<p>The long administrative tail is visible in filing-history references to liquidator accounts and documents registered years after the arcade business closed. Those records are potentially valuable for understanding how assets were realized and how creditors were treated. The publicly examined filing metadata, however, does not establish the sale price of the games, the destination of the factory equipment or the amount received by creditors. A register showing that a document exists is not the same as having read and verified its contents. <a class="src-tag" href="#source-2" aria-label="Source 2">[2]</a></p>
+<p>The Franklin Industrial Estate address establishes Century's Oldham operating location, but no identified contemporary unit number or period site plan connects it securely to an individual present-day building. A modern street photograph without that link could misidentify the factory.</p>
+<p>Century's factory remains more securely documented through dated trade directories and its own printed letterheads than through a verified photograph of the premises. The surviving hardware and brochures are currently the stronger visual record.</p>
+<h2 id="founders-after">THE FOUNDERS DID NOT LEAVE GAME DESIGN BEHIND</h2>
+<p>The liquidation did not end the professional association of David Jones and Peter Robinson. Their later careers can be traced through an unusually substantial source: a High Court judgment arising from a copyright dispute involving Nova Productions and Mazooma Games. In its account of the background, the court recorded that Jones and Robinson worked in the United States from 1983 until 1989 designing various products. They then returned to Britain and established Nova Productions in 1989. <a class="src-tag" href="#source-3" aria-label="Source 3">[3]</a></p>
+<p>Those dates overlap the final year of Century, the British company's liquidation, and the period when CVS-associated products were still visible in American advertising. The overlap is historically intriguing, but it is not evidence of a specific employment relationship. No recovered record identifies exactly which American company employed the two men during those years. Assigning them to Crown Vending or to Great Neck Convertible Video Systems simply because those businesses were active in the same industry would introduce an unsupported biographical claim.</p>
+<p>The later Nova record is valuable for another reason. It shows continuity in the kind of problem the founders were trying to solve. Century had tried to make game software more reusable across an installed base of coin-operated hardware. Decades later, the Nova litigation concerned a different generation of coin-operated amusement software and questions of game design, code and copyright. The circumstances and technology were not identical, but the founders' continuing work demonstrates that Century was part of a longer career in designing games for the coin-operated trade rather than an isolated episode.</p>
+<p>The High Court decision also preserves statements relevant to Century's earlier catalog. David Jones accepted that Logger copied Nintendo's Donkey Kong, an unusually direct acknowledgment of the game's design lineage. The same judgment examined the disputed chronology and resemblance of Century's Video Eight Ball and Konami's Video Hustler, without conclusively settling which copied which. The record therefore distinguishes an express founder admission about Logger from a copying question that the litigation did not finally resolve. <a class="src-tag" href="#source-3" aria-label="Source 3">[3]</a></p>
+<p>The High Court testimony is unusually valuable, but a witness recollecting a thirty-year-old transaction is not the same as a surviving invoice or signed contract. Where company filings and contemporary reporting provide firmer dates, they take precedence over approximate memories.</p>
+<h2 id="afterlife">THE PRODUCTS OUTLIVED THE COMPANY</h2>
+<p>Ocean continued to exploit Hunchback after Century's collapse. Its earlier home-computer licence is documented separately from the later intellectual-property acquisition recalled by Robinson; the original assignment and price have not been recovered. Ocean was not a corporate successor to all of Century.</p>
+<p>Crown Vending kept Century-related game software in American commercial circulation through PLAYPAK and subsequent conversions, including Superbike and Hero. Its adverts and anti-piracy notices demonstrate a role as seller and rights claimant for particular products—not ownership of every Century asset. <a class="src-tag" href="#source-7" aria-label="Source 7">[7]</a> <a class="src-tag" href="#source-8" aria-label="Source 8">[8]</a></p>
+<p>Great Neck Convertible Video Systems was still being listed as an exhibitor in early 1984. Mickey Greenman's reported association with Great Neck and later visibility at Crown suggests a personnel connection, but no merger, sale or ownership succession has been established.</p>
+<p>Seatongrove's Hero and Hunchback Olympic demonstrate that software for the CVS-related market continued to be developed outside Century. Those later titles belong in the system's afterlife, but they do not enlarge the count of games demonstrably created by the original Oldham company. <a class="src-tag" href="#source-11" aria-label="Source 11">[11]</a></p>
+<p>The different afterlives show why the surviving Century equipment cannot be read from a single logo alone. A Century-designed game might run through a licensed CVS board, a Tuni-era distribution channel, a PLAYPAK conversion or a later third-party adaptation. The cabinet holding that software might never have been a Century factory product. For collectors and preservationists, the correct account needs to distinguish a dedicated cabinet, a period conversion, an original promotional drawing and a modern restoration, rather than using any one of them as interchangeable proof of the others.</p>
+<p>A particularly intriguing trade headline from May 1984 described Century's CVS as getting a “new lease on life.” The issue index confirms the appearance of the Play Meter article shortly after the British liquidation began, but the full page text has not yet been recovered for direct examination. Figures subsequently attributed to that article, including exact system sales, therefore remain unverified. Contemporaneous advertising nevertheless demonstrates the underlying point: CVS-related products remained commercially visible after the Oldham company ceased normal operations.</p>
+<h2 id="surviving-evidence">WHAT REMAINS IN THE RECORD</h2>
+<p>A few questions remain stubbornly open: which five additional games were covered by Japan Leisure's nine-game licence; who bought the early Video Eight Ball copies said to have gone to Japan; which advertised Century titles reached operators; and who were the two unnamed programmers and artist on Hunchback's original team? <a class="src-tag" href="#source-4" aria-label="Source 4">[4]</a> <a class="src-tag" href="#source-5" aria-label="Source 5">[5]</a></p>
+<p>Corporate gaps are just as significant. The ownership of the Great Neck business, Crown's exact acquired rights and the documentary mechanism of Ocean's later Hunchback purchase still require contracts or equivalent original evidence. No precise answer is justified where those records are absent.</p>
+<p>The secure chronology is substantial: incorporation in 1979, a British CVS launch in 1981, American manufacturing and marketing, a Japanese licence, Hunchback and PLAYPAK in 1983, and creditors' voluntary liquidation in February 1984. It is a documented company history even without complete sales accounts or every rights-transfer document. <a class="src-tag" href="#source-1" aria-label="Source 1">[1]</a> <a class="src-tag" href="#source-2" aria-label="Source 2">[2]</a></p>
+<p>The enduring results include a distinctive Signetics-based interchangeable platform, games that moved through several national markets, and the far wider reputation of Hunchback. Jones and Robinson went on designing for the coin-operated industry after Century itself was gone.</p>
+<h2 id="legacy">THE CONVERTIBLE PROMISE, AND ITS PRICE</h2>
+<p>Century built a business around a specific promise: keep arcade hardware in use by replacing the games rather than the whole machine. Its technical design, imported and domestic sales brochures, and multiple distributor relationships show that this was a serious commercial effort, not merely a patent idea or a trade-show mockup.</p>
+<p>The model depended on operators buying modules regularly, on distributors continuing to support them, and on the company affording the next program. Century proved that a small British manufacturer could export such a system; it did not secure the lasting business needed to sustain it.</p>
+<p>Hunchback was the exception that traveled especially far. What began as a CVS game became a recognizable attraction in conversions and home computers. Its success outlived the platform and made its underlying design valuable to companies other than Century. <a class="src-tag" href="#source-7" aria-label="Source 7">[7]</a></p>
+<p>The surviving story is not one of overlooked perfection. Century borrowed from other arcade hits, experimented with some startling concepts of its own, and became entangled in costly international relationships. Its failures are visible, but so are the games and technology that reached beyond Oldham.</p>
+<p>The legal company eventually vanished from the register in 2018, but the meaningful ending had come much earlier, when the Oldham business entered liquidation. What lasted was not Century's corporate identity. It was the hardware it put into arcades, the games that survived on original and converted boards, the printed evidence of its international ambitions, and a crooked little bell-ringer who escaped the fate of the company that created him.</p>
+
+<h2 id="sources">Sources and surviving records</h2>
+<p>Century's record survives in official filings, contemporary arcade trade reporting, the later court judgment, period promotional material, and preservation documentation. A few original British trade issues remain unavailable and are described through the court record rather than represented as directly inspected.</p>
+<ol class="century-source-list"><li id="source-1"><a href="https://find-and-update.company-information.service.gov.uk/company/01451305" rel="noopener noreferrer" target="_blank">Companies House: Century Electronics Ltd., company 01451305</a></li>
+<li id="source-2"><a href="https://find-and-update.company-information.service.gov.uk/company/01451305/insolvency" rel="noopener noreferrer" target="_blank">Companies House: Century insolvency record</a></li>
+<li id="source-3"><a href="https://www.bailii.org/ew/cases/EWHC/Ch/2006/24.html" rel="noopener noreferrer" target="_blank">Nova Productions Ltd v Mazooma Games Ltd, High Court (2006)</a></li>
+<li id="source-4"><a href="https://onitama.tv/gamemachine/pdf/19811115p.pdf" rel="noopener noreferrer" target="_blank">Game Machine, Nov. 15, 1981, printed p.30: Japan Leisure / CVS</a></li>
+<li id="source-5"><a href="https://onitama.tv/gamemachine/pdf/19820315p.pdf" rel="noopener noreferrer" target="_blank">Game Machine, Mar. 15, 1982, printed p.26: NAO expo</a></li>
+<li id="source-6"><a href="https://elibrary.arcade-museum.com/Play-Meter/1983-March-15/37" rel="noopener noreferrer" target="_blank">Play Meter, Mar. 15, 1983: Tuni/Enter-Tech report</a></li>
+<li id="source-7"><a href="https://elibrary.arcade-museum.com/Star-Tech-Journal/1983-October-5-8/2" rel="noopener noreferrer" target="_blank">Star Tech Journal, Oct. 1983, p.2: Crown Hunchback PLAYPAK</a></li>
+<li id="source-8"><a href="https://elibrary.arcade-museum.com/Play-Meter/1984-December-15/28" rel="noopener noreferrer" target="_blank">Play Meter, Dec. 15, 1984: Century retrospective</a></li>
+<li id="source-9"><a href="https://www.worldradiohistory.com/Archive-All-Music/Cash-Box/80s/1983/CB-1983-03-19.pdf" rel="noopener noreferrer" target="_blank">Cash Box, Mar. 19, 1983: Great Neck CVS exhibitor list</a></li>
+<li id="source-10"><a href="https://www.worldradiohistory.com/Archive-All-Music/Cash-Box/80s/1984/CB-1984-02-18.pdf" rel="noopener noreferrer" target="_blank">Cash Box, Feb. 18, 1984: Great Neck CVS exhibitor list</a></li>
+<li id="source-11"><a href="https://arcade.vastheman.com/minimaws/sourcefile/misc/cvs.cpp" rel="noopener noreferrer" target="_blank">MAME CVS preserved hardware/game source</a></li>
+<li id="source-12"><a href="https://flyers.arcade-museum.com/videogames/show/3236" rel="noopener noreferrer" target="_blank">Arcade Flyer Archive: British Century Revolution brochure</a></li>
+<li id="source-13"><a href="https://flyers.arcade-museum.com/videogames/show/3237" rel="noopener noreferrer" target="_blank">Arcade Flyer Archive: Century Having Said All This brochure</a></li>
+<li id="source-14"><a href="https://flyers.arcade-museum.com/videogames/show/2880" rel="noopener noreferrer" target="_blank">Arcade Flyer Archive: early U.S. CVS advertisement</a></li>
+<li id="source-15"><a href="https://flyers.arcade-museum.com/videogames/show/2043" rel="noopener noreferrer" target="_blank">Arcade Flyer Archive: Tuni Radar Zone brochure</a></li>
+<li id="source-16"><a href="https://flyers.arcade-museum.com/videogames/show/5146" rel="noopener noreferrer" target="_blank">Arcade Flyer Archive: Great Neck CVS Game Library sheet</a></li>
+<li id="source-17"><a href="https://flyers.arcade-museum.com/videogames/show/5414" rel="noopener noreferrer" target="_blank">Arcade Flyer Archive: Japanese Cosmos / Dark Warrior flyer</a></li>
+<li id="source-18"><a href="https://flyers.arcade-museum.com/videogames/show/259" rel="noopener noreferrer" target="_blank">Arcade Flyer Archive: UK Dark Warrior and US Cosmos flyers</a></li>
+<li id="source-19"><a href="https://flyers.arcade-museum.com/videogames/show/218" rel="noopener noreferrer" target="_blank">Arcade Flyer Archive: US Cosmos flyer</a></li>
+<li id="source-20"><a href="https://flyers.arcade-museum.com/videogames/show/2238" rel="noopener noreferrer" target="_blank">Arcade Flyer Archive: Hunchback / PLAYPAK</a></li>
+<li id="source-21"><a href="https://allincolorforaquarter.blogspot.com/2014/01/century-electronicscvs.html" rel="noopener noreferrer" target="_blank">Golden Age Arcade Historian: Century/CVS historical game survey</a></li></ol>
+<h2 id="contribute">Help complete the Century record</h2><p>Documents identifying the company's Oldham staff, surviving factory cabinets, the missing British <em>Coin Slot</em> issues, and the legal relationship among Century, CVS and Crown Vending could clarify parts of this history. <a href="mailto:dde.biz@gmail.com?subject=Arcade%20Side%20B%20-%20Century%20Electronics%20historical%20evidence">Send a correction or original source</a>.</p>
+</article>
+</div>
+<footer class="footer">
+<div class="footer-inner">
+<div><strong>Arcade Side B</strong> · The Overlooked Side of Arcade History · Century Electronics Ltd. · Company history</div>
+<div class="site-counter"><div>Site hits</div><img alt="Arcade Side B site hit counter" src="https://hitscounter.dev/api/hit?color=%23c9973a&amp;icon=123&amp;label=SITE%20HITS&amp;url=https%3A%2F%2Farcadesideb.com%2F"/></div>
+</div>
+<p class="last-updated">Last updated November 18, 2026 · Open to new evidence</p></footer>
+</body>
+</html>
