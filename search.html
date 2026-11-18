@@ -7,7 +7,7 @@
 <title>Search | Arcade Side B</title>
 <meta name="description" content="Search the published Arcade Side B archive.">
 <link rel="canonical" href="https://arcadesideb.com/search.html">
-<link rel="stylesheet" href="site-search.css">
+
 <style>
 :root{--bg:#080b10;--ink:#f2eee6;--line:#293543;--gold:#d39a42;--gold2:#f0c57e;--max:1180px}
 *{box-sizing:border-box}
@@ -32,6 +32,7 @@ footer{border-top:1px solid var(--line);padding:22px 0 34px;color:#7d8990;font-s
 .asb-return-navigation a:hover{background:#263744;color:#fff}.asb-return-navigation a:focus-visible{outline:3px solid #f0c77b;outline-offset:3px}
 .hero .meta .research-status{display:inline!important;border:0!important;border-radius:0!important;padding:0!important;background:none!important;color:#b9c4ca!important;font:700 12px/1.5 Arial,Helvetica,sans-serif!important;text-transform:none!important;cursor:default!important}
 </style><script defer src="assets/asb-counts.js"></script>
+<link rel="stylesheet" href="site-search.css?v=nav-2">
 </head>
 <body><nav class="asb-return-navigation" aria-label="Return navigation"><a href="index.html">← Back to Arcade Side B</a></nav>
 
@@ -39,14 +40,12 @@ footer{border-top:1px solid var(--line);padding:22px 0 34px;color:#7d8990;font-s
   <div class="asb-global-inner">
     <a class="asb-global-brand" href="index.html">Arcade Side B</a>
     <nav class="asb-global-links" aria-label="Archive indexes">
-      <a href="companies.html">Companies</a>
-      <a href="games.html">Games</a>
-      <a href="people.html">People</a>
+      <a href="companies.html">Companies</a><a href="games.html">Games</a><a href="people.html">People</a>
     </nav>
+    
     <form class="asb-global-form" action="search.html" method="get" role="search">
       <label class="asb-sr-only" for="asb-global-search-input">Search Arcade Side B</label>
-      <input id="asb-global-search-input" name="q" type="search" placeholder="Search Arcade Side B…" autocomplete="off">
-      <button type="submit">Search</button>
+      <input id="asb-global-search-input" name="q" type="search" placeholder="Search Arcade Side B…" autocomplete="off"><button type="submit">Search</button>
     </form>
   </div>
 </div>
