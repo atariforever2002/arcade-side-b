@@ -1,7 +1,7 @@
 /* Arcade Side B archive totals — derived from the published directory cards. */
 (function () {
   "use strict";
-  var fallback = { companies: 18, games: 13 };
+  var fallback = { companies: 19, games: 13 };
 
   function countCards(html, selector) {
     var doc = new DOMParser().parseFromString(html, "text/html");
