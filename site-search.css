@@ -17,3 +17,9 @@
 .asb-archive-counts span{white-space:nowrap}
 .asb-archive-counts strong{color:#f0c57e;font:700 14px/1 Georgia,"Times New Roman",serif}
 @media(max-width:760px){.asb-archive-counts{order:3;flex:1 0 100%;justify-content:flex-start;gap:12px;padding-top:2px}}
+
+/* Shared controls must not inherit article-specific input/button decoration. */
+.asb-global-search .asb-global-form{margin-top:0;margin-bottom:0;padding:0;border:0;border-radius:0;background:none;box-shadow:none}
+.asb-global-search .asb-global-form input,.asb-global-search .asb-global-form button{box-sizing:border-box;display:block;appearance:none;border-radius:0;box-shadow:none;margin:0;line-height:normal;letter-spacing:normal;text-transform:none;height:auto}
+.asb-global-search .asb-global-form button{flex:0 0 auto;font:800 9px Arial,Helvetica,sans-serif;letter-spacing:.07em;text-transform:uppercase}
+.asb-global-search .asb-global-brand,.asb-global-search .asb-global-links a{line-height:normal;border-radius:0;box-shadow:none}
