@@ -54,7 +54,7 @@
     if (value === 'deny' && loaded) location.reload();
   }
   var style = document.createElement('style');
-  style.textContent = '#asb-privacy-controls{box-sizing:border-box;margin:20px auto;padding:14px 18px;max-width:1160px;color:#e8e5df;background:#121922;border:1px solid #43505b;border-radius:8px;font:15px/1.5 Arial,sans-serif;text-align:left}#asb-privacy-controls p{margin:0 0 10px}#asb-privacy-controls button,#asb-privacy-controls a{font:inherit;color:#f2eee6}#asb-privacy-controls button{display:inline-block;cursor:pointer;background:#263440;border:1px solid #84939d;border-radius:5px;padding:8px 12px;margin:4px 8px 4px 0}#asb-privacy-controls a{text-decoration:underline}#asb-privacy-controls button:focus-visible,#asb-privacy-controls a:focus-visible{outline:3px solid #f0c57e;outline-offset:3px}#asb-privacy-controls [hidden]{display:none!important}';
+  style.textContent = '#asb-privacy-controls{box-sizing:border-box;width:calc(100% - 32px);max-width:1160px;margin:12px auto;padding:8px 0;border-top:1px solid #293543;color:#aeb8be;background:transparent;font:12px/1.5 Arial,sans-serif;text-align:left;display:flex;align-items:center;flex-wrap:wrap;gap:6px 12px}#asb-privacy-controls p{margin:0;flex:1 1 260px;font:inherit;color:inherit}#asb-privacy-controls>div{display:flex;align-items:center;flex-wrap:wrap;gap:6px 8px;width:100%}#asb-privacy-controls button,#asb-privacy-controls a{font:inherit;color:#dce2e5}#asb-privacy-controls button{display:inline-block;cursor:pointer;background:#17222c;border:1px solid #52616b;border-radius:4px;padding:5px 9px;margin:0;min-height:32px}#asb-privacy-controls>a{padding:5px 0}#asb-privacy-controls a{text-decoration:underline}#asb-privacy-controls button:focus-visible,#asb-privacy-controls a:focus-visible{outline:3px solid #f0c57e;outline-offset:3px}#asb-privacy-controls [hidden]{display:none!important}';
   document.head.appendChild(style);
   var wrap = document.createElement('section');
   wrap.id = 'asb-privacy-controls';
@@ -68,7 +68,7 @@
   var panel = document.createElement('div');
   panel.hidden = choice === 'allow' || choice === 'deny';
   var info = document.createElement('p');
-  info.textContent = 'Help us understand which arcade histories people read? Optional Google Analytics uses cookies to measure visits and page use. It stays off unless you choose Allow analytics. You can change your choice here anytime.';
+  info.textContent = 'Optional analytics cookies help us measure visits. Off unless you allow them.';
   var allow = document.createElement('button'), deny = document.createElement('button');
   allow.type = deny.type = 'button';
   allow.textContent = 'Allow analytics';
