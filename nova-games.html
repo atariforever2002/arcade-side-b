@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Nova Games Ltd. | Arcade Side B</title>
+<style>
+:root{
+  --bg:#090d12;--paper:#eee7d8;--paper2:#f5efe3;--ink:#232b30;--muted:#667075;
+  --line:#c8beab;--darkline:#303b45;--gold:#c28a32;--gold2:#d8b36b;
+  --green:#557b63;--cyan:#6f99aa;--max:1180px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:
+  radial-gradient(circle at 82% 10%,rgba(111,153,170,.09),transparent 28%),
+  linear-gradient(rgba(255,255,255,.012) 1px,transparent 1px),#090d12;
+  background-size:auto,100% 4px,auto;color:#dce2e5;font-family:Georgia,"Times New Roman",serif;
+}
+a{color:#a96f21}
+.mast{border-bottom:4px solid var(--gold);background:linear-gradient(135deg,#0a0f14,#13202a)}
+.mast-inner{width:min(calc(100% - 32px),var(--max));margin:auto;padding:17px 0;display:flex;justify-content:space-between;gap:20px;align-items:center}
+.brand{font-size:26px;font-weight:700;color:#f0ece4}
+.motto{font:700 10px Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#9ca8af;text-align:right}
+.crumb,.hero,.rule,.shell{width:min(calc(100% - 32px),var(--max));margin-left:auto;margin-right:auto}
+.crumb{padding-top:18px;color:#93a0a8;font:700 11px Arial,sans-serif}
+.crumb a{color:#d4ad67;text-decoration:none}
+.hero{padding:30px 0 26px}
+.eyebrow{color:var(--gold2);font:800 10px Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase}
+.hero h1{margin:7px 0 10px;font-size:clamp(44px,7vw,78px);line-height:.95;color:#f0ece4}
+.deck{max-width:930px;color:#b9c4ca;font-size:20px;line-height:1.5;margin:0}
+.meta{display:flex;gap:12px;flex-wrap:wrap;margin-top:17px;color:#9aa6ad;font:700 11px Arial,sans-serif}
+.badge{padding:6px 9px;border:1px solid currentColor;border-radius:999px;text-transform:uppercase}
+.living{color:#78a6b8}
+.rule{height:1px;background:#29343e}
+.shell{display:grid;grid-template-columns:275px minmax(0,1fr);gap:22px;padding:26px 0 50px;align-items:start}
+.sidebar{position:sticky;top:10px}
+.toc{border:1px solid #34404b;background:#111820;max-height:82vh;overflow:auto}
+.toc-title{padding:13px 15px;color:#d8dfe2;font:800 11px Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase}
+.toc a{display:block;border-top:1px solid #29343e;padding:9px 13px;color:#aebbc2;text-decoration:none;font:13px/1.35 Arial,sans-serif}
+.toc a:hover{color:#f0c57e}
+.sidebar-note{margin-top:12px;border:1px solid #34404b;background:#111820;padding:13px;color:#94a0a7;font:13px/1.45 Arial,sans-serif}
+article{background:var(--paper);color:var(--ink);border:1px solid #b9ae9a;box-shadow:0 18px 42px rgba(0,0,0,.25);padding:26px 34px 40px;min-width:0}
+.backhome{display:inline-block;margin-bottom:18px;padding:8px 10px;border:1px solid #9e927e;color:#745322;text-decoration:none;font:800 10px Arial,sans-serif;text-transform:uppercase;letter-spacing:.08em}
+.company-identity{margin:0 0 28px;border:1px solid #b8ad98;background:linear-gradient(135deg,rgba(194,138,50,.08),transparent 48%),#f3eddf;overflow:hidden}
+.company-mark{padding:24px 26px 20px;border-bottom:1px solid var(--line);position:relative}
+.company-mark:after{content:"COMPANY PROFILE";position:absolute;right:22px;top:18px;color:#8c8272;font:700 9px Arial,sans-serif;letter-spacing:.16em}
+.legal{color:#746b5f;font:700 10px Arial,sans-serif;letter-spacing:.13em;text-transform:uppercase;margin-bottom:7px}
+.wordmark{font-size:clamp(34px,5vw,58px);line-height:.95;color:#122331}
+.wordmark span{display:block;margin-top:7px;color:#8a6429;font:700 13px Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase}
+.company-snapshot{display:grid;grid-template-columns:repeat(4,1fr)}
+.snapshot-cell{padding:17px 18px;border-right:1px solid var(--line)}
+.snapshot-cell:last-child{border-right:0}
+.snapshot-label{display:block;color:#786f63;font:700 9px Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;margin-bottom:5px}
+.snapshot-value{display:block;color:#1c2d37;font-size:19px;line-height:1.2}
+.snapshot-note{display:block;margin-top:5px;color:#6e726f;font:11px/1.35 Arial,sans-serif}
+.overview-box{padding:18px 20px;background:#f8f2e7;border:1px solid #d2c5af;margin:0 0 26px}
+.overview-box h2{margin-top:0!important}
+article h2{margin:38px 0 13px;color:#172a35;font-size:31px;border-bottom:2px solid #b57f31;padding-bottom:7px}
+article h2:first-of-type{margin-top:0}
+article h3{margin:27px 0 9px;color:#2b3a41;font-size:24px}
+article p{font-size:18px;line-height:1.7;margin:14px 0}
+article li{font-size:17px;line-height:1.6;margin:6px 0}
+article blockquote{margin:18px 0;padding:10px 17px;border-left:4px solid var(--gold);background:#f7f0e3;color:#465156}
+article table{width:100%;border-collapse:collapse;margin:18px 0;font:14px/1.45 Arial,sans-serif}
+article th,article td{border:1px solid #c8beab;padding:8px 9px;vertical-align:top}
+article th{background:#ddd3c1;color:#24323a;text-align:left}
+article code{font-size:.88em}
+.src-tag{display:inline-block;color:#76531e;font:700 10px Arial,sans-serif;white-space:nowrap}
+.public-note{margin:0 0 25px;padding:15px 17px;border-left:5px solid var(--green);background:#e7efe8;color:#33433a;font:15px/1.5 Arial,sans-serif}
+.footer{border-top:1px solid #29343e;background:#07090c}
+.footer-inner{width:min(calc(100% - 32px),var(--max));margin:auto;padding:21px 0 27px;display:flex;justify-content:space-between;align-items:flex-end;gap:20px;color:#7f8b92;font:12px Arial,sans-serif}
+.footer-inner strong{color:#d9dfe2;font-family:Georgia,serif;font-size:15px}
+.site-counter{text-align:right;font:800 9px Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#748089}
+.site-counter img{display:block;margin:5px 0 0 auto;border:1px solid #303944}
+@media(max-width:920px){
+ .shell{grid-template-columns:1fr} .sidebar{position:static} .toc{max-height:none}
+ .company-snapshot{grid-template-columns:1fr 1fr}
+ .snapshot-cell:nth-child(2){border-right:0}
+ .snapshot-cell{border-bottom:1px solid var(--line)}
+ .snapshot-cell:nth-child(3),.snapshot-cell:nth-child(4){border-bottom:0}
+}
+@media(max-width:600px){
+ .mast-inner{align-items:flex-start;flex-direction:column} .motto{text-align:left}
+ .company-snapshot{grid-template-columns:1fr} .snapshot-cell{border-right:0;border-bottom:1px solid var(--line)!important}
+ .snapshot-cell:last-child{border-bottom:0!important}
+ article{padding:20px 16px 28px} article p{font-size:17px} article h2{font-size:27px}
+ .footer-inner{align-items:flex-start;flex-direction:column} .site-counter{text-align:left} .site-counter img{margin-left:0}
+}
+
+
+.elcon-visuals{
+  margin:28px 0 34px;
+}
+.elcon-visuals h2{
+  margin-top:0;
+}
+.flyer-pair{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+  align-items:start;
+}
+.archive-figure{
+  margin:0;
+  padding:10px;
+  border:1px solid #b8ad98;
+  background:#f8f3e8;
+}
+.archive-figure img{
+  width:100%;
+  height:auto;
+  display:block;
+  border:1px solid #c8beab;
+  background:#e9dfce;
+}
+.archive-figure figcaption{
+  padding:9px 4px 2px;
+  color:#5e6668;
+  font:12px/1.5 Arial,Helvetica,sans-serif;
+}
+.rights-hold{
+  margin:24px 0;
+  padding:15px 17px;
+  border:1px dashed #b69d72;
+  background:#f7efe1;
+  color:#5b554c;
+  font:13px/1.55 Arial,Helvetica,sans-serif;
+}
+.rights-hold strong{
+  color:#65471e;
+}
+@media(max-width:700px){
+  .flyer-pair{grid-template-columns:1fr}
+}
+
+
+
+
+/* ELCON PUBLICATION VISUALS */
+.visual-section{
+  margin:20px 0 32px;
+}
+.visual-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+  margin:18px 0 24px;
+  align-items:start;
+}
+.visual-grid.brochure{
+  grid-template-columns:1fr 1fr;
+}
+.archive-figure{
+  margin:0;
+  padding:10px;
+  border:1px solid #b8ad98;
+  background:#f8f3e8;
+}
+.archive-figure img{
+  width:100%;
+  height:auto;
+  display:block;
+  border:1px solid #c8beab;
+  background:#e9dfce;
+}
+.archive-figure figcaption{
+  padding:9px 4px 2px;
+  color:#5e6668;
+  font:12px/1.5 Arial,Helvetica,sans-serif;
+}
+.visual-note{
+  margin:18px 0;
+  padding:14px 16px;
+  border-left:4px solid #b57f31;
+  background:#f7efe1;
+  color:#5b554c;
+  font:13px/1.55 Arial,Helvetica,sans-serif;
+}
+@media(max-width:760px){
+  .visual-grid,.visual-grid.brochure{grid-template-columns:1fr}
+}
+
+
+
+
+/* CONTEXTUAL ARCHIVAL FIGURES */
+.inline-archive-figure{
+  margin:22px auto 27px;
+  max-width:780px;
+  padding:10px;
+  border:1px solid #b8ad98;
+  background:#f8f3e8;
+  box-shadow:0 8px 18px rgba(64,52,34,.08);
+}
+.inline-archive-figure.narrow{max-width:560px}
+.inline-archive-figure img{
+  width:100%;
+  height:auto;
+  display:block;
+  border:1px solid #c8beab;
+  background:#e9dfce;
+}
+.inline-archive-figure figcaption{
+  padding:9px 4px 2px;
+  color:#5e6668;
+  font:12px/1.55 Arial,Helvetica,sans-serif;
+}
+.inline-archive-figure figcaption strong{color:#334047}
+.derivative-note{
+  display:inline-block;
+  margin-left:5px;
+  padding:2px 5px;
+  border:1px solid #b89a66;
+  color:#76531e;
+  font:700 8px Arial,Helvetica,sans-serif;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.context-note{
+  margin:18px 0 22px;
+  padding:13px 15px;
+  border-left:4px solid #b57f31;
+  background:#f7efe1;
+  color:#5b554c;
+  font:13px/1.55 Arial,Helvetica,sans-serif;
+}
+
+
+</style>
+<style>
+/* Reader-facing source and table containment */
+article a, .source-list a, .footnotes a { overflow-wrap:anywhere; }
+.research-questions{display:grid;gap:12px;margin:18px 0 24px}.research-question{padding:16px 18px;border:1px solid rgba(181,127,49,.35);background:rgba(181,127,49,.055)}.research-question h4{margin:0 0 7px;color:#2b3a41;font-size:20px}.research-question p{margin:0 0 10px;font-size:16px}.question-action{display:inline-block;color:#76531e;text-decoration:none;font:700 11px Arial,sans-serif;letter-spacing:.06em;text-transform:uppercase}.question-action:hover,.question-action:focus-visible{text-decoration:underline}
+.table-scroll {max-width:100%;overflow-x:auto;}
+.table-scroll:focus-visible {outline:2px solid #d7b56d;outline-offset:3px;}
+</style><style id="ao-company-profile-consistency">
+/* Exact shared company-profile presentation: Elcon is the house pattern. */
+.company-identity.company-profile-standard{
+  margin:0 0 28px!important;
+  padding:0!important;
+  border:1px solid #b8ad98!important;
+  border-radius:0!important;
+  background:linear-gradient(135deg,rgba(194,138,50,.08),transparent 48%),#f3eddf!important;
+  color:#20272c!important;
+  box-shadow:none!important;
+  overflow:hidden!important;
+  font-family:Georgia,"Times New Roman",serif!important;
+  font-size:16px!important;
+  line-height:normal!important;
+}
+.company-profile-standard .company-mark{
+  display:block!important;
+  position:relative!important;
+  padding:24px 26px 20px!important;
+  border:0!important;
+  border-bottom:1px solid #c8beab!important;
+  border-radius:0!important;
+  background:transparent!important;
+  color:#232b30!important;
+  font:400 16px/normal Georgia,"Times New Roman",serif!important;
+}
+.company-profile-standard .company-mark:after{
+  content:"COMPANY PROFILE"!important;
+  position:absolute!important;
+  right:22px!important;
+  top:18px!important;
+  display:block!important;
+  margin:0!important;
+  color:#8c8272!important;
+  font:700 9px/normal Arial,Helvetica,sans-serif!important;
+  letter-spacing:.16em!important;
+  text-transform:uppercase!important;
+}
+.company-profile-standard .legal{
+  display:block!important;
+  margin:0 0 7px!important;
+  padding:0!important;
+  color:#746b5f!important;
+  font:700 10px/11px Arial,Helvetica,sans-serif!important;
+  letter-spacing:.13em!important;
+  text-transform:uppercase!important;
+}
+.company-profile-standard .wordmark{
+  display:block!important;
+  margin:0!important;
+  padding:0!important;
+  color:#122331!important;
+  font:400 clamp(34px,5vw,58px)/.95 Georgia,"Times New Roman",serif!important;
+  letter-spacing:0!important;
+  text-transform:none!important;
+}
+.company-profile-standard .wordmark span{
+  display:block!important;
+  margin:7px 0 0!important;
+  padding:0!important;
+  color:#8a6429!important;
+  font:700 13px/normal Arial,Helvetica,sans-serif!important;
+  letter-spacing:.16em!important;
+  text-transform:uppercase!important;
+}
+.company-profile-standard .company-snapshot{
+  display:grid!important;
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  margin:0!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  color:#232b30!important;
+  font:400 16px/normal Georgia,"Times New Roman",serif!important;
+}
+.company-profile-standard .snapshot-cell{
+  display:block!important;
+  min-width:0!important;
+  margin:0!important;
+  padding:17px 18px!important;
+  border:0!important;
+  border-right:1px solid #c8beab!important;
+  border-radius:0!important;
+  background:transparent!important;
+  color:#232b30!important;
+  font:400 16px/normal Georgia,"Times New Roman",serif!important;
+}
+.company-profile-standard .snapshot-cell:last-child{border-right:0!important}
+.company-profile-standard .snapshot-label{
+  display:block!important;
+  margin:0 0 5px!important;
+  padding:0!important;
+  color:#786f63!important;
+  font:700 9px/10px Arial,Helvetica,sans-serif!important;
+  letter-spacing:.12em!important;
+  text-transform:uppercase!important;
+}
+.company-profile-standard .snapshot-value{
+  display:block!important;
+  margin:0!important;
+  padding:0!important;
+  color:#1c2d37!important;
+  font:400 19px/22.8px Georgia,"Times New Roman",serif!important;
+}
+.company-profile-standard .snapshot-note{
+  display:block!important;
+  margin:5px 0 0!important;
+  padding:0!important;
+  color:#6e726f!important;
+  font:400 11px/14.85px Arial,Helvetica,sans-serif!important;
+}
+.hero .meta{
+  display:flex!important;
+  flex-direction:row!important;
+  flex-wrap:wrap!important;
+  align-items:center!important;
+  gap:10px!important;
+  margin:15px 0 0!important;
+  padding:0!important;
+}
+.hero .meta .badge,
+.hero .meta .updated{
+  display:inline-block!important;
+  position:static!important;
+  margin:0!important;
+  inset:auto!important;
+}
+.hero .meta .badge{
+  padding:6px 9px!important;
+  border:1px solid #78a6b8!important;
+  border-radius:999px!important;
+  background:transparent!important;
+  color:#9fc7d6!important;
+  font:700 11px/normal Arial,Helvetica,sans-serif!important;
+  letter-spacing:0!important;
+  text-transform:uppercase!important;
+}
+.hero .meta .updated{
+  padding:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  color:#9aa6ad!important;
+  font:700 11px/normal Arial,Helvetica,sans-serif!important;
+  letter-spacing:0!important;
+  text-transform:none!important;
+}
+@media(max-width:920px){
+  .company-profile-standard .company-snapshot{grid-template-columns:1fr 1fr!important}
+  .company-profile-standard .snapshot-cell{border-right:1px solid #c8beab!important;border-bottom:1px solid #c8beab!important}
+  .company-profile-standard .snapshot-cell:nth-child(2){border-right:0!important}
+  .company-profile-standard .snapshot-cell:nth-child(3),
+  .company-profile-standard .snapshot-cell:nth-child(4){border-bottom:0!important}
+  .company-profile-standard .snapshot-cell:last-child{border-right:0!important}
+}
+@media(max-width:600px){
+  .company-profile-standard .company-mark{
+    display:flex!important;
+    flex-direction:column!important;
+    padding:20px 18px 17px!important;
+  }
+  .company-profile-standard .company-mark:after{
+    position:static!important;
+    order:-1!important;
+    display:block!important;
+    margin:0 0 9px!important;
+  }
+  .company-profile-standard .wordmark{font-size:34px!important;overflow-wrap:anywhere!important}
+  .company-profile-standard .company-snapshot{grid-template-columns:1fr!important}
+  .company-profile-standard .snapshot-cell{
+    border-right:0!important;
+    border-bottom:1px solid #c8beab!important;
+  }
+  .company-profile-standard .snapshot-cell:nth-child(3){border-bottom:1px solid #c8beab!important}
+  .company-profile-standard .snapshot-cell:last-child{border-bottom:0!important}
+}
+</style>
+<meta content="index,follow" name="robots"/>
+<style id="asb-return-navigation-style">
+.asb-return-navigation{width:min(calc(100% - 32px),1180px);margin:16px auto;display:flex;gap:10px;flex-wrap:wrap;font:700 13px/1.4 Arial,Helvetica,sans-serif}
+.asb-return-navigation a{display:inline-block;padding:10px 14px;border:1px solid #9c7c45;border-radius:4px;background:#17222c;color:#f0c77b;text-decoration:none}
+.asb-return-navigation a:hover{background:#263744;color:#fff}.asb-return-navigation a:focus-visible{outline:3px solid #f0c77b;outline-offset:3px}
+.hero .meta .research-status{display:inline!important;border:0!important;border-radius:0!important;padding:0!important;background:none!important;color:#b9c4ca!important;font:700 12px/1.5 Arial,Helvetica,sans-serif!important;text-transform:none!important;cursor:default!important}
+</style><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Nova Games Ltd.","description":"The history of Canadian coin-operated arcade manufacturer and publisher Nova Games Ltd.","mainEntityOfPage":{"@type":"WebPage","@id":"https://arcadesideb.com/nova-games.html"},"isPartOf":{"@id":"https://arcadesideb.com/#website"},"dateModified":"2026-11-18"}</script>
+<script defer="" src="/assets/asb-analytics.js"></script>
+<style id="asb-elcon-house-style">
+
+
+:root{
+  --bg:#090d12;--paper:#eee7d8;--paper2:#f5efe3;--ink:#232b30;--muted:#667075;
+  --line:#c8beab;--darkline:#303b45;--gold:#c28a32;--gold2:#d8b36b;
+  --green:#557b63;--cyan:#6f99aa;--max:1180px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:
+  radial-gradient(circle at 82% 10%,rgba(111,153,170,.09),transparent 28%),
+  linear-gradient(rgba(255,255,255,.012) 1px,transparent 1px),#090d12;
+  background-size:auto,100% 4px,auto;color:#dce2e5;font-family:Georgia,"Times New Roman",serif;
+}
+a{color:#a96f21}
+.mast{border-bottom:4px solid var(--gold);background:linear-gradient(135deg,#0a0f14,#13202a)}
+.mast-inner{width:min(calc(100% - 32px),var(--max));margin:auto;padding:17px 0;display:flex;justify-content:space-between;gap:20px;align-items:center}
+.brand{font-size:26px;font-weight:700;color:#f0ece4}
+.motto{font:700 10px Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#9ca8af;text-align:right}
+.crumb,.hero,.rule,.shell{width:min(calc(100% - 32px),var(--max));margin-left:auto;margin-right:auto}
+.crumb{padding-top:18px;color:#93a0a8;font:700 11px Arial,sans-serif}
+.crumb a{color:#d4ad67;text-decoration:none}
+.hero{padding:30px 0 26px}
+.eyebrow{color:var(--gold2);font:800 10px Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase}
+.hero h1{margin:7px 0 10px;font-size:clamp(44px,7vw,78px);line-height:.95;color:#f0ece4}
+.deck{max-width:930px;color:#b9c4ca;font-size:20px;line-height:1.5;margin:0}
+.meta{display:flex;gap:12px;flex-wrap:wrap;margin-top:17px;color:#9aa6ad;font:700 11px Arial,sans-serif}
+.badge{padding:6px 9px;border:1px solid currentColor;border-radius:999px;text-transform:uppercase}
+.living{color:#78a6b8}
+.rule{height:1px;background:#29343e}
+.shell{display:grid;grid-template-columns:275px minmax(0,1fr);gap:22px;padding:26px 0 50px;align-items:start}
+.sidebar{position:sticky;top:10px}
+.toc{border:1px solid #34404b;background:#111820;max-height:82vh;overflow:auto}
+.toc-title{padding:13px 15px;color:#d8dfe2;font:800 11px Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase}
+.toc a{display:block;border-top:1px solid #29343e;padding:9px 13px;color:#aebbc2;text-decoration:none;font:13px/1.35 Arial,sans-serif}
+.toc a:hover{color:#f0c57e}
+.sidebar-note{margin-top:12px;border:1px solid #34404b;background:#111820;padding:13px;color:#94a0a7;font:13px/1.45 Arial,sans-serif}
+article{background:var(--paper);color:var(--ink);border:1px solid #b9ae9a;box-shadow:0 18px 42px rgba(0,0,0,.25);padding:26px 34px 40px;min-width:0}
+.backhome{display:inline-block;margin-bottom:18px;padding:8px 10px;border:1px solid #9e927e;color:#745322;text-decoration:none;font:800 10px Arial,sans-serif;text-transform:uppercase;letter-spacing:.08em}
+.company-identity{margin:0 0 28px;border:1px solid #b8ad98;background:linear-gradient(135deg,rgba(194,138,50,.08),transparent 48%),#f3eddf;overflow:hidden}
+.company-mark{padding:24px 26px 20px;border-bottom:1px solid var(--line);position:relative}
+.company-mark:after{content:"COMPANY PROFILE";position:absolute;right:22px;top:18px;color:#8c8272;font:700 9px Arial,sans-serif;letter-spacing:.16em}
+.legal{color:#746b5f;font:700 10px Arial,sans-serif;letter-spacing:.13em;text-transform:uppercase;margin-bottom:7px}
+.wordmark{font-size:clamp(34px,5vw,58px);line-height:.95;color:#122331}
+.wordmark span{display:block;margin-top:7px;color:#8a6429;font:700 13px Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase}
+.company-snapshot{display:grid;grid-template-columns:repeat(4,1fr)}
+.snapshot-cell{padding:17px 18px;border-right:1px solid var(--line)}
+.snapshot-cell:last-child{border-right:0}
+.snapshot-label{display:block;color:#786f63;font:700 9px Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;margin-bottom:5px}
+.snapshot-value{display:block;color:#1c2d37;font-size:19px;line-height:1.2}
+.snapshot-note{display:block;margin-top:5px;color:#6e726f;font:11px/1.35 Arial,sans-serif}
+.overview-box{padding:18px 20px;background:#f8f2e7;border:1px solid #d2c5af;margin:0 0 26px}
+.overview-box h2{margin-top:0!important}
+article h2{margin:38px 0 13px;color:#172a35;font-size:31px;border-bottom:2px solid #b57f31;padding-bottom:7px}
+article h2:first-of-type{margin-top:0}
+article h3{margin:27px 0 9px;color:#2b3a41;font-size:24px}
+article p{font-size:18px;line-height:1.7;margin:14px 0}
+article li{font-size:17px;line-height:1.6;margin:6px 0}
+article blockquote{margin:18px 0;padding:10px 17px;border-left:4px solid var(--gold);background:#f7f0e3;color:#465156}
+article table{width:100%;border-collapse:collapse;margin:18px 0;font:14px/1.45 Arial,sans-serif}
+article th,article td{border:1px solid #c8beab;padding:8px 9px;vertical-align:top}
+article th{background:#ddd3c1;color:#24323a;text-align:left}
+article code{font-size:.88em}
+.src-tag{display:inline-block;color:#76531e;font:700 10px Arial,sans-serif;white-space:nowrap}
+.public-note{margin:0 0 25px;padding:15px 17px;border-left:5px solid var(--green);background:#e7efe8;color:#33433a;font:15px/1.5 Arial,sans-serif}
+.footer{border-top:1px solid #29343e;background:#07090c}
+.footer-inner{width:min(calc(100% - 32px),var(--max));margin:auto;padding:21px 0 27px;display:flex;justify-content:space-between;align-items:flex-end;gap:20px;color:#7f8b92;font:12px Arial,sans-serif}
+.footer-inner strong{color:#d9dfe2;font-family:Georgia,serif;font-size:15px}
+.site-counter{text-align:right;font:800 9px Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#748089}
+.site-counter img{display:block;margin:5px 0 0 auto;border:1px solid #303944}
+@media(max-width:920px){
+ .shell{grid-template-columns:1fr} .sidebar{position:static} .toc{max-height:none}
+ .company-snapshot{grid-template-columns:1fr 1fr}
+ .snapshot-cell:nth-child(2){border-right:0}
+ .snapshot-cell{border-bottom:1px solid var(--line)}
+ .snapshot-cell:nth-child(3),.snapshot-cell:nth-child(4){border-bottom:0}
+}
+@media(max-width:600px){
+ .mast-inner{align-items:flex-start;flex-direction:column} .motto{text-align:left}
+ .company-snapshot{grid-template-columns:1fr} .snapshot-cell{border-right:0;border-bottom:1px solid var(--line)!important}
+ .snapshot-cell:last-child{border-bottom:0!important}
+ article{padding:20px 16px 28px} article p{font-size:17px} article h2{font-size:27px}
+ .footer-inner{align-items:flex-start;flex-direction:column} .site-counter{text-align:left} .site-counter img{margin-left:0}
+}
+
+
+.elcon-visuals{
+  margin:28px 0 34px;
+}
+.elcon-visuals h2{
+  margin-top:0;
+}
+.flyer-pair{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+  align-items:start;
+}
+.archive-figure{
+  margin:0;
+  padding:10px;
+  border:1px solid #b8ad98;
+  background:#f8f3e8;
+}
+.archive-figure img{
+  width:100%;
+  height:auto;
+  display:block;
+  border:1px solid #c8beab;
+  background:#e9dfce;
+}
+.archive-figure figcaption{
+  padding:9px 4px 2px;
+  color:#5e6668;
+  font:12px/1.5 Arial,Helvetica,sans-serif;
+}
+.rights-hold{
+  margin:24px 0;
+  padding:15px 17px;
+  border:1px dashed #b69d72;
+  background:#f7efe1;
+  color:#5b554c;
+  font:13px/1.55 Arial,Helvetica,sans-serif;
+}
+.rights-hold strong{
+  color:#65471e;
+}
+@media(max-width:700px){
+  .flyer-pair{grid-template-columns:1fr}
+}
+
+
+
+
+/* ELCON PUBLICATION VISUALS */
+.visual-section{
+  margin:20px 0 32px;
+}
+.visual-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+  margin:18px 0 24px;
+  align-items:start;
+}
+.visual-grid.brochure{
+  grid-template-columns:1fr 1fr;
+}
+.archive-figure{
+  margin:0;
+  padding:10px;
+  border:1px solid #b8ad98;
+  background:#f8f3e8;
+}
+.archive-figure img{
+  width:100%;
+  height:auto;
+  display:block;
+  border:1px solid #c8beab;
+  background:#e9dfce;
+}
+.archive-figure figcaption{
+  padding:9px 4px 2px;
+  color:#5e6668;
+  font:12px/1.5 Arial,Helvetica,sans-serif;
+}
+.visual-note{
+  margin:18px 0;
+  padding:14px 16px;
+  border-left:4px solid #b57f31;
+  background:#f7efe1;
+  color:#5b554c;
+  font:13px/1.55 Arial,Helvetica,sans-serif;
+}
+@media(max-width:760px){
+  .visual-grid,.visual-grid.brochure{grid-template-columns:1fr}
+}
+
+
+
+
+/* CONTEXTUAL ARCHIVAL FIGURES */
+.inline-archive-figure{
+  margin:22px auto 27px;
+  max-width:780px;
+  padding:10px;
+  border:1px solid #b8ad98;
+  background:#f8f3e8;
+  box-shadow:0 8px 18px rgba(64,52,34,.08);
+}
+.inline-archive-figure.narrow{max-width:560px}
+.inline-archive-figure img{
+  width:100%;
+  height:auto;
+  display:block;
+  border:1px solid #c8beab;
+  background:#e9dfce;
+}
+.inline-archive-figure figcaption{
+  padding:9px 4px 2px;
+  color:#5e6668;
+  font:12px/1.55 Arial,Helvetica,sans-serif;
+}
+.inline-archive-figure figcaption strong{color:#334047}
+.derivative-note{
+  display:inline-block;
+  margin-left:5px;
+  padding:2px 5px;
+  border:1px solid #b89a66;
+  color:#76531e;
+  font:700 8px Arial,Helvetica,sans-serif;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.context-note{
+  margin:18px 0 22px;
+  padding:13px 15px;
+  border-left:4px solid #b57f31;
+  background:#f7efe1;
+  color:#5b554c;
+  font:13px/1.55 Arial,Helvetica,sans-serif;
+}
+
+
+
+
+
+
+/* Reader-facing source and table containment */
+article a, .source-list a, .footnotes a { overflow-wrap:anywhere; }
+.research-questions{display:grid;gap:12px;margin:18px 0 24px}.research-question{padding:16px 18px;border:1px solid rgba(181,127,49,.35);background:rgba(181,127,49,.055)}.research-question h4{margin:0 0 7px;color:#2b3a41;font-size:20px}.research-question p{margin:0 0 10px;font-size:16px}.question-action{display:inline-block;color:#76531e;text-decoration:none;font:700 11px Arial,sans-serif;letter-spacing:.06em;text-transform:uppercase}.question-action:hover,.question-action:focus-visible{text-decoration:underline}
+.table-scroll {max-width:100%;overflow-x:auto;}
+.table-scroll:focus-visible {outline:2px solid #d7b56d;outline-offset:3px;}
+
+
+
+
+/* Exact shared company-profile presentation: Elcon is the house pattern. */
+.company-identity.company-profile-standard{
+  margin:0 0 28px!important;
+  padding:0!important;
+  border:1px solid #b8ad98!important;
+  border-radius:0!important;
+  background:linear-gradient(135deg,rgba(194,138,50,.08),transparent 48%),#f3eddf!important;
+  color:#20272c!important;
+  box-shadow:none!important;
+  overflow:hidden!important;
+  font-family:Georgia,"Times New Roman",serif!important;
+  font-size:16px!important;
+  line-height:normal!important;
+}
+.company-profile-standard .company-mark{
+  display:block!important;
+  position:relative!important;
+  padding:24px 26px 20px!important;
+  border:0!important;
+  border-bottom:1px solid #c8beab!important;
+  border-radius:0!important;
+  background:transparent!important;
+  color:#232b30!important;
+  font:400 16px/normal Georgia,"Times New Roman",serif!important;
+}
+.company-profile-standard .company-mark:after{
+  content:"COMPANY PROFILE"!important;
+  position:absolute!important;
+  right:22px!important;
+  top:18px!important;
+  display:block!important;
+  margin:0!important;
+  color:#8c8272!important;
+  font:700 9px/normal Arial,Helvetica,sans-serif!important;
+  letter-spacing:.16em!important;
+  text-transform:uppercase!important;
+}
+.company-profile-standard .legal{
+  display:block!important;
+  margin:0 0 7px!important;
+  padding:0!important;
+  color:#746b5f!important;
+  font:700 10px/11px Arial,Helvetica,sans-serif!important;
+  letter-spacing:.13em!important;
+  text-transform:uppercase!important;
+}
+.company-profile-standard .wordmark{
+  display:block!important;
+  margin:0!important;
+  padding:0!important;
+  color:#122331!important;
+  font:400 clamp(34px,5vw,58px)/.95 Georgia,"Times New Roman",serif!important;
+  letter-spacing:0!important;
+  text-transform:none!important;
+}
+.company-profile-standard .wordmark span{
+  display:block!important;
+  margin:7px 0 0!important;
+  padding:0!important;
+  color:#8a6429!important;
+  font:700 13px/normal Arial,Helvetica,sans-serif!important;
+  letter-spacing:.16em!important;
+  text-transform:uppercase!important;
+}
+.company-profile-standard .company-snapshot{
+  display:grid!important;
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  margin:0!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  color:#232b30!important;
+  font:400 16px/normal Georgia,"Times New Roman",serif!important;
+}
+.company-profile-standard .snapshot-cell{
+  display:block!important;
+  min-width:0!important;
+  margin:0!important;
+  padding:17px 18px!important;
+  border:0!important;
+  border-right:1px solid #c8beab!important;
+  border-radius:0!important;
+  background:transparent!important;
+  color:#232b30!important;
+  font:400 16px/normal Georgia,"Times New Roman",serif!important;
+}
+.company-profile-standard .snapshot-cell:last-child{border-right:0!important}
+.company-profile-standard .snapshot-label{
+  display:block!important;
+  margin:0 0 5px!important;
+  padding:0!important;
+  color:#786f63!important;
+  font:700 9px/10px Arial,Helvetica,sans-serif!important;
+  letter-spacing:.12em!important;
+  text-transform:uppercase!important;
+}
+.company-profile-standard .snapshot-value{
+  display:block!important;
+  margin:0!important;
+  padding:0!important;
+  color:#1c2d37!important;
+  font:400 19px/22.8px Georgia,"Times New Roman",serif!important;
+}
+.company-profile-standard .snapshot-note{
+  display:block!important;
+  margin:5px 0 0!important;
+  padding:0!important;
+  color:#6e726f!important;
+  font:400 11px/14.85px Arial,Helvetica,sans-serif!important;
+}
+.hero .meta{
+  display:flex!important;
+  flex-direction:row!important;
+  flex-wrap:wrap!important;
+  align-items:center!important;
+  gap:10px!important;
+  margin:15px 0 0!important;
+  padding:0!important;
+}
+.hero .meta .badge,
+.hero .meta .updated{
+  display:inline-block!important;
+  position:static!important;
+  margin:0!important;
+  inset:auto!important;
+}
+.hero .meta .badge{
+  padding:6px 9px!important;
+  border:1px solid #78a6b8!important;
+  border-radius:999px!important;
+  background:transparent!important;
+  color:#9fc7d6!important;
+  font:700 11px/normal Arial,Helvetica,sans-serif!important;
+  letter-spacing:0!important;
+  text-transform:uppercase!important;
+}
+.hero .meta .updated{
+  padding:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  color:#9aa6ad!important;
+  font:700 11px/normal Arial,Helvetica,sans-serif!important;
+  letter-spacing:0!important;
+  text-transform:none!important;
+}
+@media(max-width:920px){
+  .company-profile-standard .company-snapshot{grid-template-columns:1fr 1fr!important}
+  .company-profile-standard .snapshot-cell{border-right:1px solid #c8beab!important;border-bottom:1px solid #c8beab!important}
+  .company-profile-standard .snapshot-cell:nth-child(2){border-right:0!important}
+  .company-profile-standard .snapshot-cell:nth-child(3),
+  .company-profile-standard .snapshot-cell:nth-child(4){border-bottom:0!important}
+  .company-profile-standard .snapshot-cell:last-child{border-right:0!important}
+}
+@media(max-width:600px){
+  .company-profile-standard .company-mark{
+    display:flex!important;
+    flex-direction:column!important;
+    padding:20px 18px 17px!important;
+  }
+  .company-profile-standard .company-mark:after{
+    position:static!important;
+    order:-1!important;
+    display:block!important;
+    margin:0 0 9px!important;
+  }
+  .company-profile-standard .wordmark{font-size:34px!important;overflow-wrap:anywhere!important}
+  .company-profile-standard .company-snapshot{grid-template-columns:1fr!important}
+  .company-profile-standard .snapshot-cell{
+    border-right:0!important;
+    border-bottom:1px solid #c8beab!important;
+  }
+  .company-profile-standard .snapshot-cell:nth-child(3){border-bottom:1px solid #c8beab!important}
+  .company-profile-standard .snapshot-cell:last-child{border-bottom:0!important}
+}
+
+
+
+
+.asb-return-navigation{width:min(calc(100% - 32px),1180px);margin:16px auto;display:flex;gap:10px;flex-wrap:wrap;font:700 13px/1.4 Arial,Helvetica,sans-serif}
+.asb-return-navigation a{display:inline-block;padding:10px 14px;border:1px solid #9c7c45;border-radius:4px;background:#17222c;color:#f0c77b;text-decoration:none}
+.asb-return-navigation a:hover{background:#263744;color:#fff}.asb-return-navigation a:focus-visible{outline:3px solid #f0c77b;outline-offset:3px}
+.hero .meta .research-status{display:inline!important;border:0!important;border-radius:0!important;padding:0!important;background:none!important;color:#b9c4ca!important;font:700 12px/1.5 Arial,Helvetica,sans-serif!important;text-transform:none!important;cursor:default!important}
+
+
+
+
+/* Explicit donor typography prevents legacy page shorthands leaking into the masthead. */
+.mast .brand{font:700 26px/normal Georgia,"Times New Roman",serif;letter-spacing:normal;text-transform:none}
+.mast .brand a{color:#f0ece4;text-decoration:none;letter-spacing:normal;text-transform:none}
+.hero h1{font-family:Georgia,"Times New Roman",serif;font-weight:700;letter-spacing:normal;text-transform:none}
+
+
+.article img{max-width:100%;height:auto}
+.mast .motto{display:block}
+</style>
+<script defer="" src="assets/asb-counts.js"></script>
+<link href="site-search.css?v=nav-3" rel="stylesheet"/>
+<link href="https://arcadesideb.com/nova-games.html" rel="canonical"/><meta content="An archival history of Canadian arcade maker Nova Games Ltd.: Port Man, Intrepid, Zarya Vostoka, Super Triv and its role in North American coin-op distribution." name="description"/><meta content="Nova Games Ltd. | Arcade Side B" property="og:title"/><meta content="Nova Games Ltd. of Quebec: its original games, licenses, arcade cabinets, systems and surviving historical evidence." property="og:description"/><meta content="https://arcadesideb.com/nova-games.html" property="og:url"/><style>.inline-archive-figure img{object-fit:contain}.inline-archive-figure a{display:block}.inline-archive-figure img:hover{cursor:zoom-in}</style><style id="meadows-mobile-wrap">article p,article li,article figcaption{overflow-wrap:anywhere;word-break:normal}article img{max-width:100%;height:auto}article .source-notes li{margin:10px 0}</style>
+</head>
+<body>
+<div aria-label="Arcade Side B site navigation and search" class="asb-global-search">
+<div class="asb-global-inner">
+<a class="asb-global-brand" href="index.html">Arcade Side B</a>
+<nav aria-label="Archive indexes" class="asb-global-links">
+<a href="companies.html">Companies</a><a href="games.html">Games</a><a href="people.html">People</a>
+</nav>
+<form action="search.html" class="asb-global-form" method="get" role="search">
+<label class="asb-sr-only" for="asb-global-search-input">Search Arcade Side B</label>
+<input autocomplete="off" id="asb-global-search-input" name="q" placeholder="Search Arcade Side B…" type="search"/><button type="submit">Search</button>
+</form>
+</div>
+</div><header class="mast">
+<div class="mast-inner">
+<div class="brand"><a href="https://arcadesideb.com/" style="color:inherit;text-decoration:none" target="_parent">Arcade Side B</a></div>
+<div class="motto">Preserve what others overlooked. Follow the evidence. Keep the record open.</div>
+</div>
+</header><nav aria-label="Return navigation" class="asb-return-navigation"><a href="index.html">← Back to Arcade Side B</a><a href="companies.html">← Back to Companies</a></nav>
+<div class="crumb"><a href="https://arcadesideb.com/">Arcade Side B</a>  ›  <a href="companies.html">Companies</a>  ›  Nova Games Ltd.</div>
+<section class="hero">
+<div class="eyebrow">Company history</div>
+<h1>Nova Games Ltd.</h1>
+<p class="deck">A Canadian arcade manufacturer, licensee and publisher whose 1981–1987 coin-op record includes Port Man, Intrepid, Zarya Vostoka and Super Triv—with a corporate history extending to 1995.</p>
+<div class="meta"><span class="research-status">Research status: open to new evidence</span> <span class="updated">Last updated: November 18, 2026</span></div>
+</section>
+<div class="rule"></div><div class="shell">
+<aside class="sidebar"><nav aria-label="Nova Games Ltd. article contents" class="toc"><div class="toc-title">On this page</div><a href="#1-before-nova-neil-rubin-and-the-fountainhead-background">1. Before Nova: Neil Rubin and the Fountainhead background</a><a href="#2-march-1981-nova-becomes-a-corporation">2. March 1981: Nova becomes a corporation</a><a href="#3-amenip-and-nova-a-real-connection-but-not-a-proven-merger">3. Amenip and Nova: a real connection, but not a proven merger</a><a href="#4-snatcher-naughty-mouse-the-cabinet-that-refuses-to-simplify-the-story">4. SNATCHER / Naughty Mouse: the cabinet that refuses to simplify the story</a><a href="#5-port-man-nova-as-licensee-and-north-american-commercial-partner">5. Port Man: Nova as licensee and North American commercial partner</a><a href="#6-intrepid-when-nova-becomes-the-product-maker">6. Intrepid: when Nova becomes the product maker</a><a href="#7-zarya-vostoka-the-sequel-that-nearly-disappeared">7. Zarya Vostoka: the sequel that nearly disappeared</a><a href="#8-what-the-first-half-of-the-catalog-already-tells-us">8. What the first half of the catalog already tells us</a><a href="#9-super-triv-a-voice-from-inside-nova">9. Super Triv: a voice from inside Nova</a><a href="#10-miner-2049er-the-nova-arcade-game-that-never-escaped">10. Miner 2049er: the Nova arcade game that never escaped</a><a href="#11-infinity-1-the-partnership-problem">11. Infinity 1: the partnership problem</a><a href="#12-the-terminators-87-nova-moves-into-system-hardware">12. The Terminators ’87: Nova moves into system hardware</a><a href="#13-gilchrist-vending-representation-not-ownership">13. Gilchrist Vending: representation, not ownership</a><a href="#14-1987-the-public-arcade-trail-fades">14. 1987: the public arcade trail fades</a><a href="#15-four-released-games-and-much-more-than-four-pieces-of-arcade-history">15. Four released games — and much more than four pieces of arcade history</a><a href="#16-the-other-novas-how-a-small-company-became-several-companies-in-databases">16. The other Novas: how a small company became several companies in databases</a><a href="#17-the-two-catalog-ghosts-touch-down-football-and-starex">17. The two catalog ghosts: Touch Down Football and Starex</a><a href="#18-nova-games-role-matrix-what-the-company-actually-did">18. Nova Games role matrix: what the company actually did</a><a href="#19-people-addresses-and-a-company-timeline">19. People, addresses and a company timeline</a><a href="#20-what-remains-unresolved">20. What remains unresolved</a><a href="#21-why-nova-games-matters">21. Why Nova Games matters</a><a href="#source-and-evidence-note">Source and evidence note</a></nav><div class="sidebar-note">Quebec-based coin-op company: original and licensed games, arcade system hardware, imported software and complicated commercial credits.</div></aside>
+<article><a class="backhome" href="companies.html">← Back to Companies</a><section aria-label="Nova Games company profile" class="company-identity company-profile-standard"><div class="company-mark"><div class="legal">Les Jeux Nova Ltée / Nova Games Ltd.</div><div class="wordmark">Nova Games Ltd.<span>Québec, Canada</span></div></div><div class="company-snapshot"><div class="snapshot-cell"><span class="snapshot-label">Start</span><span class="snapshot-value">1981</span><span class="snapshot-note">Incorporated March 13, 1981.</span></div><div class="snapshot-cell"><span class="snapshot-label">End</span><span class="snapshot-value">1995</span><span class="snapshot-note">Legal dissolution December 11, 1995; visible arcade trade activity through 1987.</span></div><div class="snapshot-cell"><span class="snapshot-label">Arcade Output</span><span class="snapshot-value">4 confirmed</span><span class="snapshot-note">Port Man, Intrepid, Zarya Vostoka and Super Triv; distinct from licensed variants, prototypes and systems.</span></div><div class="snapshot-cell"><span class="snapshot-label">Company Role</span><span class="snapshot-value">Games + licensing</span><span class="snapshot-note">Developer/publisher in some titles, licensee, cabinet brand, system supplier, partner and distributor.</span></div></div></section><div class="public-note"><strong>About the evidence:</strong> Commercial roles, legal records, original game development and surviving cabinet documentation are distinguished. Some associations and prototypes remain unconfirmed.</div><p>Nova Games of Canada is a good example of why an arcade-company history cannot be reconstructed by copying a manufacturer field from a database. Depending on which surviving artifact is opened first, Nova can look like a publisher, a cabinet manufacturer, a software developer, a licensee, a conversion-kit supplier, a trade-show partner, or a company attached to somebody else’s program. All of those descriptions can be true in particular cases. None describes the entire business.</p>
+<p>Its conventional released-game catalog is small. Four videogames can be defended with enough evidence for a conservative website-facing count. But even that number requires explanation. Port Man was a Taito design that Nova handled under license in North America. Intrepid is much more strongly supported as a Nova product and likely Nova development. Zarya Vostoka survives as a Nova-attributed sequel to Intrepid but with a thinner physical and commercial record. Super Triv has firsthand testimony tying development directly to Nova. Beyond those four are a Nova-branded version of an Amenip-associated game family, a completed but cancelled Miner 2049er arcade conversion, late system hardware called The Terminators ’87, and several disputed or misattributed products that have accumulated around the Nova name.</p>
+<p>That complicated footprint is the point of the story. Nova was not simply a four-game software house. It was a small Canadian amusement-game company working inside the early-1980s network of licenses, conversions, imported programs, local cabinet manufacture, distributor relationships and trade-show experimentation.</p>
+<h2 id="1-before-nova-neil-rubin-and-the-fountainhead-background">1. Before Nova: Neil Rubin and the Fountainhead background</h2><figure class="inline-archive-figure"><a aria-label="Enlarge editorial diagram" href="images/nova/02_corporate_timeline.png" rel="noopener" target="_blank"><img alt="Corporate timeline separates the Fountainhead background, Nova incorporation, arcade activity and legal dissolution. Editorial research graphic." decoding="async" loading="lazy" src="images/nova/02_corporate_timeline.png"/></a><figcaption>Corporate timeline separates the Fountainhead background, Nova incorporation, arcade activity and legal dissolution. Editorial research graphic.</figcaption></figure>
+<p>Nova did not emerge from nowhere in 1981. Neil Rubin, one of its founding directors, had already been active in the Canadian amusement trade during the 1970s. Period trade evidence places Rubin as managing director of Fountainhead Amusement Corporation, and the earlier Fountainhead business used 3150 Sartelon Street in St-Laurent.</p>
+<p>That address later becomes unusually important. Nova’s own articles of incorporation place its original registered office at the same 3150 Sartelon Street. The shared Rubin connection and shared address establish a real business-network continuity between Fountainhead and the new Nova corporation. Federal records reviewed during the project also connect Rubin to Fountainhead Fun Centers and a Maritimes arm, reinforcing that Nova emerged from a pre-existing amusement-business network rather than from an isolated software startup.</p>
+<p>They do <strong>not</strong> establish a legal succession.</p>
+<p>That distinction matters because the corporate trail points away from the simple version of the story. Fountainhead companies continued to exist during the 1980–81 transition instead of disappearing neatly into Nova. The evidence therefore supports a more cautious reconstruction: Rubin entered Nova with experience, contacts and a pre-existing amusement-business network that included Fountainhead, while Nova itself was incorporated as a separate company.</p>
+<p>For an arcade history, that is already meaningful. Small coin-op firms often grew out of operator, route, distribution and service networks rather than appearing as isolated software startups. Nova’s roots fit that pattern better than the image of a brand-new videogame studio beginning from zero.</p>
+<h2 id="2-march-1981-nova-becomes-a-corporation">2. March 1981: Nova becomes a corporation</h2><figure class="inline-archive-figure"><a aria-label="Enlarge editorial diagram" href="images/nova/03_address_chronology.png" rel="noopener" target="_blank"><img alt="The recorded 3150 Sartelon, 190 Graveline and 180 Graveline addresses come from different corporate and trade sources. Editorial research graphic." decoding="async" loading="lazy" src="images/nova/03_address_chronology.png"/></a><figcaption>The recorded 3150 Sartelon, 190 Graveline and 180 Graveline addresses come from different corporate and trade sources. Editorial research graphic.</figcaption></figure>
+<p>The strongest fixed point in Nova’s history is March 13, 1981. The federal certificate of incorporation records <strong>Les Jeux Nova Ltée / Nova Games Ltd.</strong> under the Canada Business Corporations Act on that date. Its articles place the registered office at <strong>3150 Sartelon Street, St-Laurent, Quebec</strong>.</p>
+<p>The early director record identifies <strong>Neil Rubin</strong> and <strong>Courtney Lai-Hing</strong> as directors. <strong>Andrée Bertrand</strong> appears in formation/incorporator material and signed an early corporate filing as president. In September 1982, <strong>Ed Prest</strong> joined the board while Rubin and Lai-Hing remained directors.</p>
+<p>A surviving annual return is wonderfully direct about what the company considered itself to be doing. Under “Main Types of Business,” Nova wrote: <strong>AMUSEMENT GAMES</strong>.</p>
+<p>On September 14, 1982, the registered office moved from 3150 Sartelon to <strong>190 Graveline</strong> in Ville St-Laurent. Later arcade-industry directories and exhibitor listings frequently use <strong>180 Graveline</strong> instead. The surviving evidence does not yet explain that ten-number difference. It is safer to preserve both facts than to invent a property-layout explanation: 190 Graveline is the registered-office address shown on the federal filing; 180 Graveline is the business/contact address that appears repeatedly in later trade material.</p>
+<p>This early corporate chronology also establishes something important about another company often tied to Nova: Amenip.</p>
+<h2 id="3-amenip-and-nova-a-real-connection-but-not-a-proven-merger">3. Amenip and Nova: a real connection, but not a proven merger</h2><figure class="inline-archive-figure"><a aria-label="Enlarge editorial diagram" href="images/nova/04_relationship_map.png" rel="noopener" target="_blank"><img alt="Nova, Amenip and Fountainhead had distinguishable historical roles; no unsupported legal merger is implied. Editorial research graphic." decoding="async" loading="lazy" src="images/nova/04_relationship_map.png"/></a><figcaption>Nova, Amenip and Fountainhead had distinguishable historical roles; no unsupported legal merger is implied. Editorial research graphic.</figcaption></figure>
+<p>Later arcade databases have made it tempting to summarize the early story as “Amenip became Nova Games.” The surviving chronology does not support that sentence.</p>
+<p>Amenip-associated arcade software was already in circulation in 1981 and remained visible into 1982. Nova, meanwhile, was legally incorporated in March 1981. The two histories overlap. Nova cannot be explained as a company that suddenly came into existence after Amenip disappeared if Nova already existed while Amenip credits were still appearing. The 1981 date is not based only on later database metadata: direct game-facing evidence survives on <strong>Mariner</strong> and <strong>Round-Up</strong>, where Amenip is visible in the contemporary software record. Those screens are useful chronological anchors for the company’s activity before and during Nova’s first year.</p>
+<p>Yet the relationship between them is not imaginary. The game evidence is too strong for that.</p>
+<p>Amenip’s surviving arcade record includes five distinct game families whose programs, licenses and regional presentations involve companies such as U.S. Billiards, Centuri, Taito, Roller Tron, Techstar, Game Plan, ESG and Nova. That pattern is useful because Amenip often survives inside software or rights documentation while another company dominates the cabinet or sales material.</p>
+<p>The clearest Nova connection is the Naughty Mouse / Snatcher family.</p>
+<p>Current MAME preservation identifies one Naughty Mouse set as <strong>Amenip (Palcom Queen River)</strong> and another as <strong>Amenip Nova Games Ltd.</strong> A surviving cabinet photographed for the International Arcade Museum makes the commercial connection physical: the marquee reads <strong>SNATCHER</strong>, with <strong>NOVA</strong> directly beneath the title. Yet the running game screen shows <strong>PALCOM QUEEN RIVER</strong>.</p>
+<p>Three layers therefore survive in one machine family:</p>
+<ul>
+<li>Amenip in the preserved software lineage;</li>
+<li>Nova on the cabinet presentation;</li>
+<li>Palcom Queen River in the running program credit.</li>
+</ul>
+<p>That is exactly the kind of case where a single “manufacturer” field destroys more history than it preserves.</p>
+<p>What remains missing is the agreement that explains the relationship. No recovered corporate document shows Amenip changing its name to Nova, merging into Nova, owning Nova, being owned by Nova, sharing Nova’s officers, or functioning as a formal Nova alias. Amenip could have been a developer supplying Nova, a rights holder, a contracted software operation, or a commercial partner connected through an agreement that has not survived.</p>
+<p>Arcade Side B therefore treats the connection as strong at the <strong>game and commercial-presentation level</strong> but unresolved at the <strong>legal-corporate level</strong>.</p>
+<p>That decision also affects counting. Snatcher / Naughty Mouse belongs in Nova’s broader arcade story because a Nova-branded cabinet survives. It is not folded into the four-game core as though Nova unquestionably originated the underlying program.</p>
+<h2 id="4-snatcher-naughty-mouse-the-cabinet-that-refuses-to-simplify-the-story">4. SNATCHER / Naughty Mouse: the cabinet that refuses to simplify the story</h2>
+<p>The surviving Snatcher machine is one of the most useful physical artifacts in the entire Nova project because it captures the messiness of early arcade commerce in a single photograph.</p>
+<p>The cabinet tells the operator and player one thing: <strong>SNATCHER — NOVA</strong>.</p>
+<p>The software tells the preservation historian something else: the game belongs to the Naughty Mouse program family, with Amenip appearing in its preserved attribution and Palcom Queen River appearing in program credit.</p>
+<p>Even the preserved ROM names retain the Snatcher identity in part of the alternate set. The result is not evidence of confusion so much as evidence of how games moved. A software author or rights holder could sit underneath a different regional title. A local amusement company could package or manufacture the machine. A program credit could preserve another organization involved in the software lineage. The cabinet and the code answered different commercial questions.</p>
+<p>For Nova, the safest conclusion is narrow but substantial: <strong>Nova had a direct commercial and physical role in at least one Snatcher presentation of the Naughty Mouse family.</strong> The evidence is stronger than a later database attribution because the Nova name survives on the machine itself.</p>
+<p>What it does not prove is that Nova wrote the original game, owned Amenip, or should receive sole authorship of the family.</p>
+<p>This early case sets the pattern for the rest of Nova’s history. The company repeatedly appears at different points in the product chain, and the role must be established title by title.</p>
+<h2 id="5-port-man-nova-as-licensee-and-north-american-commercial-partner">5. Port Man: Nova as licensee and North American commercial partner</h2><figure class="inline-archive-figure"><a aria-label="Enlarge editorial diagram" href="images/nova/05_four_game_core.png" rel="noopener" target="_blank"><img alt="The four cautiously confirmed Nova commercial arcade releases and their distinct roles. Editorial research graphic." decoding="async" loading="lazy" src="images/nova/05_four_game_core.png"/></a><figcaption>The four cautiously confirmed Nova commercial arcade releases and their distinct roles. Editorial research graphic.</figcaption></figure>
+<p>If Snatcher shows Nova participating in a complicated multi-company lineage, <strong>Port Man</strong> shows a cleaner and more familiar role: licensed regional handling of somebody else’s game.</p>
+<p>Port Man originated with <strong>Taito</strong> and was being shown publicly in Japan by early 1982. The game casts the player as a dock worker trying to catch cargo, carry it across a dangerous multi-level waterfront, and throw it into the moving bays of a ship while trolleys and a rock-throwing saboteur interfere. A second warehouse phase replaces the ship with falling explosives and a playfield that can literally deteriorate when the player misses a catch.</p>
+<p>The game is mechanically odd enough to be memorable. Its basic catch/throw action requires deliberate timing, carried cargo affects mobility, the moving ship demands target prediction, and the warehouse turns falling objects into a positional scoring system. It is a modest early-1980s game with more overlapping systems than its screenshots suggest.</p>
+<p>For Nova’s history, however, the important fact is commercial rather than mechanical. The surviving research consistently identifies <strong>Taito as the developer</strong> and <strong>Nova Games Ltd. as the North American license/distribution partner</strong>. Other legitimate and illegitimate versions of the game survive under Port Man, Dock Man and related regional or bootleg forms, including a Computran-branded North American machine and European variants.</p>
+<p>That complicated afterlife is exactly why Port Man must not be used as evidence that Nova developed all the games it sold. In Nova’s four-game core count, Port Man counts as a released Nova arcade product because Nova commercially handled its licensed North American version. It does <strong>not</strong> count as an original Nova software design.</p>
+<p>That difference becomes especially important when the story reaches Intrepid.</p>
+<h2 id="6-intrepid-when-nova-becomes-the-product-maker">6. Intrepid: when Nova becomes the product maker</h2>
+<p><strong>Intrepid</strong>, released in 1983, is the first Nova title in this history for which the surviving commercial evidence looks like a house product rather than a regional license.</p>
+<p>Nova’s own sales material offered Intrepid both as a <strong>complete game</strong> and as a <strong>conversion kit</strong>. The kit included the printed circuit board, main harness, marquee/screen plexi, control-panel overlay and side decals. That is direct evidence of Nova supplying the product to operators in a form that could create either a complete machine or a converted one. It also helps explain why surviving examples are difficult to classify neatly as dedicated versus conversion cabinets.</p>
+<p>The game itself is far more ambitious than its tiny sprites suggest. The player controls <strong>Spy 001</strong>, entering a five-story embassy to recover stolen secret plans and escape. The building is shown as a cutaway, with stairs, doors and a central elevator. Entering rooms opens smaller maze-like spaces containing equipment. Four items are mission-critical: a key, disguise, identification card and safe combination. Other objects alter how the mission can be approached: jet boots increase movement speed, a map reveals information, a wrench can disable the elevator, and an umbrella enables a rooftop escape.</p>
+<p>Those objects are not merely point bonuses. They perform different functions—access, security bypass, information, movement, environmental control and escape. Experienced play therefore becomes route planning rather than simple collection. The first attempt feels like wandering through a dollhouse embassy. Later attempts become operations.</p>
+<p>The opposition escalates without requiring an entirely new map. Guards become more aggressive, later missions increase pressure, and a fast-moving lightning cloud eventually joins the pursuit. Time-based scoring rewards both infiltration and extraction. The player can leave through the building or, with the umbrella, leap from the roof and float back to the waiting getaway car.</p>
+<p>This is why Intrepid matters to the Nova story. Its design suggests a company doing more than repackaging a licensed board. The surviving commercial material places Nova at the center of the product, and preservation sources consistently credit Nova as developer/publisher. A surviving repaired PCB has also been documented with Nova Games copyright-marked ROM labels.</p>
+<p>The individual programmer, designer and artist credits have not yet surfaced. Arcade Side B therefore avoids inventing a named development team. The publication-safe conclusion is: <strong>Nova unquestionably manufactured and marketed Intrepid as its own 1983 product, and Nova development is strongly supported even though the individual creators remain unidentified.</strong></p>
+<p>In practical terms, Intrepid is the clearest early point where Nova stops looking merely like one participant in somebody else’s chain and starts looking like an arcade game maker in its own right.</p>
+<h2 id="7-zarya-vostoka-the-sequel-that-nearly-disappeared">7. Zarya Vostoka: the sequel that nearly disappeared</h2>
+<p>The next title, <strong>Zarya Vostoka</strong>, is one of the strangest pieces of the Nova catalog because its identity is stronger than its surviving commercial footprint.</p>
+<p>Current preservation records identify Zarya Vostoka as a <strong>1984 Nova Games of Canada</strong> game and place it on the same basic machine configuration as Intrepid. It is consistently described as Intrepid’s sequel. The surviving program set includes its own <code>zv</code>-identified main-program ROMs, while important graphics and sound ROMs remain undumped.</p>
+<p>That incomplete preservation helps explain why the game has remained obscure. Unlike Intrepid, no equally strong period sales flyer, service manual or clearly documented production cabinet has yet surfaced in the project. The game survives more through code and preservation history than through a rich commercial artifact trail.</p>
+<p>There is also a date problem worth preserving rather than hiding. Current and historical MAME declarations support <strong>1984</strong>, but an older auxiliary comment described the game as a <strong>1983 Nova Games of Canada prototype</strong>. Those statements should not be averaged into a fake compromise date. The stronger current catalog declaration supports 1984; the older prototype wording remains a legacy annotation whose evidentiary basis has not been recovered.</p>
+<p>The same caution applies to release scale. Zarya Vostoka belongs in the four-game confirmed released catalog because the surviving preservation record is strong and consistent enough to treat it as a Nova title. But its physical and period-commercial evidence is materially weaker than Intrepid’s. Arcade Side B should therefore say exactly that instead of pretending all four Nova releases survive equally well.</p>
+<p>Publication-safe wording: <strong>Zarya Vostoka is a strongly documented Nova Games of Canada sequel to Intrepid, generally dated 1984. Its exact commercial-release scale, surviving cabinet history and individual authorship remain unresolved. An older MAME-family annotation called it a 1983 prototype and is retained as conflicting legacy metadata.</strong></p>
+<h2 id="8-what-the-first-half-of-the-catalog-already-tells-us">8. What the first half of the catalog already tells us</h2><figure class="inline-archive-figure"><a aria-label="Enlarge editorial diagram" href="images/nova/06_role_spectrum.png" rel="noopener" target="_blank"><img alt="Nova’s documented roles varied between development, licensing, manufacturing and distribution. Editorial research graphic." decoding="async" loading="lazy" src="images/nova/06_role_spectrum.png"/></a><figcaption>Nova’s documented roles varied between development, licensing, manufacturing and distribution. Editorial research graphic.</figcaption></figure>
+<p>By the end of Zarya Vostoka, Nova’s role has already changed several times.</p>
+<p>With Snatcher / Naughty Mouse, Nova is a physically documented commercial participant in a game family whose software lineage also names Amenip and Palcom Queen River. With Port Man, Nova is a regional licensee and distributor for a Taito design. With Intrepid, Nova becomes the clearest product maker and strongly supported developer in its catalog. With Zarya Vostoka, Nova appears to extend that original line with a sequel whose software survives better than its paper trail.</p>
+<p>Those differences are not editorial complications to be removed. They are the history.</p>
+<p>The second half of the company’s story makes the pattern even clearer. Super Triv gives us firsthand evidence of development inside Nova. Miner 2049er reveals a completed internal project killed by licensing failure. Infinity 1 raises a trade-show partnership problem. The Terminators ’87 moves Nova into system hardware. Gilchrist Vending shows a distribution relationship. Then the public arcade trail fades in 1987 even though the corporation itself survives on paper until 1995.</p>
+<p>That later story is where Nova stops looking like a tiny four-title database entry and starts looking like what it actually was: a small amusement-game company trying several ways to survive in a rapidly changing arcade business.</p>
+<h2 id="9-super-triv-a-voice-from-inside-nova">9. Super Triv: a voice from inside Nova</h2>
+<p>If Intrepid is the strongest surviving physical case for Nova as a product maker, <strong>Super Triv</strong> gives us something even rarer: a surviving human voice from inside the company.</p>
+<p>Modern preservation records identify <strong>Super Triv</strong> as a 1985 release from <strong>Nova du Canada</strong>, with both English- and French-question versions preserved. The surviving hardware is itself slightly complicated. At least one French set is associated in MAME with a Hara Industries PCB, and collector documentation has shown Nova-labelled Super Triv material on surviving boards. That is exactly the kind of mixed hardware lineage that can confuse a database if the cabinet, board supplier and software developer are treated as one role.</p>
+<p>The more important evidence comes from former Nova employee <strong>Bruno Fontaine</strong>. In a 2021 exchange preserved by the Miner 2049er Museum, Fontaine identified Super Triv as a game developed at Nova. That testimony matters because it moves the company beyond inference. With Intrepid, we can reconstruct Nova’s commercial role from its own flyer and surviving product material. With Super Triv, an employee who worked inside the operation remembers development taking place there.</p>
+<p>The game itself is a trivia format rather than the more adventurous design of Intrepid, but that should not diminish its historical value. Trivia machines were a practical part of the mid-1980s coin-op market. They could be refreshed through question sets, appealed to bars and general amusement locations, and did not depend on the graphical escalation that was rapidly making conventional videogame development more expensive.</p>
+<p>Super Triv also shows Nova adapting rather than simply repeating itself. The company had already licensed a Japanese game, sold an espionage title as both a complete machine and a kit, and attempted a sequel. A bilingual trivia product fits a Canadian manufacturer trying to find a durable niche in an increasingly difficult market.</p>
+<p>Publication-safe wording: <strong>Super Triv was developed at Nova Games of Canada and survives in English- and French-question versions. Surviving boards show a more complicated manufacturing lineage, including Hara Industries hardware, but that does not override the firsthand evidence placing development at Nova.</strong></p>
+<h2 id="10-miner-2049er-the-nova-arcade-game-that-never-escaped">10. Miner 2049er: the Nova arcade game that never escaped</h2>
+<p>The most revealing Nova project may be the one operators never got to buy.</p>
+<p>For years, an arcade version of <strong>Miner 2049er</strong> was little more than a tantalizing possibility. Then a surviving marquee turned up carrying the words <strong>Nova Games of Canada</strong>. The artifact was interesting, but a marquee by itself could not prove that a finished arcade game had ever existed.</p>
+<p>Bruno Fontaine changed that.</p>
+<p>Fontaine recalled that he personally completed Nova’s arcade adaptation in <strong>Z80 assembly language</strong>. His final version contained <strong>10 levels</strong>, including horizontally extended stages with smooth scrolling, and he specifically remembered that the layouts were not simply the same stages as the original home-computer game. Staff at Nova played the finished version. In other words, this was not a logo mock-up or an abandoned concept sheet. It reached the stage of a playable final prototype.</p>
+<p>Then the business side killed it.</p>
+<p>According to Fontaine, Nova’s agreement with the original game’s rights holder collapsed at the last moment. The company abandoned release. He was never able to recover his final prototype, and years later his former boss told him that it had been thrown away.</p>
+<p>That story changes how Nova should be understood. A company that merely imported or repackaged other firms’ boards would not need an employee completing a ten-level Z80 conversion with new level design and scrolling behavior. Miner 2049er is direct evidence that Nova possessed genuine internal software-development capability.</p>
+<p>It is also a painful example of why arcade history cannot be reconstructed only from release lists. A conventional database sees no released Nova Miner 2049er and therefore has nothing to count. The historical record sees a programmer, a surviving marquee, a completed prototype, internal playtesting and a licensing collapse. The product failed to reach the market, but the work absolutely happened.</p>
+<p>For Arcade Side B, Miner 2049er therefore belongs prominently in Nova’s story while remaining outside the confirmed released-game count.</p>
+<p>Publication-safe wording: <strong>Nova completed an unreleased arcade adaptation of Miner 2049er. Programmer Bruno Fontaine recalled finishing the game in Z80 assembly with ten levels, including scrolling stages and layouts different from the home-computer original. A licensing failure cancelled release at the last moment, and the final prototype is believed lost.</strong></p>
+<h2 id="11-infinity-1-the-partnership-problem">11. Infinity 1: the partnership problem</h2>
+<p><strong>Infinity 1</strong> is where Nova’s history again resists a simple manufacturer label.</p>
+<p>A 1984 AMOA photograph recovered by arcade historian Keith Smith shows the unusual Infinity 1 cabinet in a context involving people from <strong>Nova Games of Canada</strong> and <strong>Hoffman International</strong>. Smith originally captioned the machine as “Infinity 1 from Nova Games of Canada,” and later research established that Nova was indeed associated with the product at the show.</p>
+<p>But the stronger commercial paper trail belongs to Hoffman.</p>
+<p>Hoffman International advertised Infinity 1 repeatedly in Play Meter under the slogan <strong>“The Game of a Thousand Faces.”</strong> The advertising described a generic cabinet concept able to accept different game boards, and Hoffman continued promoting the system through 1984. More decisively, Hoffman International owned the <strong>INFINITY 1</strong> U.S. trademark for coin-operated videogame machines and parts.</p>
+<p>Smith himself later cautioned that the 1984 show photograph does not establish whether Nova or Hoffman was actually the manufacturer. The safest reconstruction is therefore not to award the product to whichever company happens to stand closest to the cabinet in one photograph.</p>
+<p>Infinity 1 is still useful to the Nova story because it places Nova inside a trade-show relationship around a generic, changeable cabinet concept at a time when operators were increasingly interested in extending cabinet life through board swaps and conversion kits. What it does not provide is enough evidence to count Infinity 1 as a confirmed Nova-manufactured product.</p>
+<p>Publication-safe wording: <strong>Nova Games was demonstrably associated with Infinity 1 at the 1984 AMOA show, but Hoffman International has the stronger ownership and advertising record, including the Infinity 1 trademark. Nova’s exact role remains unresolved, so Infinity 1 is not counted as a confirmed Nova product.</strong></p>
+<h2 id="12-the-terminators-87-nova-moves-into-system-hardware">12. The Terminators ’87: Nova moves into system hardware</h2><figure class="inline-archive-figure"><a aria-label="Enlarge editorial diagram" href="images/nova/07_late_period_timeline.png" rel="noopener" target="_blank"><img alt="Late trade activity and system hardware preceded the eventual legal dissolution. Editorial research graphic." decoding="async" loading="lazy" src="images/nova/07_late_period_timeline.png"/></a><figcaption>Late trade activity and system hardware preceded the eventual legal dissolution. Editorial research graphic.</figcaption></figure>
+<p>Three years after Infinity 1, Nova appears beside another cabinet-oriented product — this time with much clearer attribution.</p>
+<p>The <strong>April 1987 Play Meter Spring Buyer’s Guide</strong> lists <strong>The Terminators ’87</strong> directly under <strong>Nova Games</strong>. Crucially, it does not place the product among ordinary videogame titles. It appears under <strong>SYSTEM HARDWARE</strong>, alongside products such as Nintendo’s UniSystem, DualSystem and PlayChoice-10, the Bally Sente Super System, Dynamo’s video hardware system and other configurable cabinet platforms.</p>
+<p>The surviving page photograph shows a conventional upright cabinet with <strong>THE TERMINATORS</strong> on the marquee. What the surviving evidence does not yet explain is exactly how Nova intended operators to use it. No manual, brochure or technical description has surfaced in this project explaining the board interface, conversion method or game-changing architecture.</p>
+<p>That uncertainty should stay visible. The category tells us what kind of product Nova was selling; it does not tell us every internal detail.</p>
+<p>The Terminators ’87 is nevertheless important because it is the latest specifically identified Nova product in the surviving trade record. By 1987, Nova was not simply trying to release another Intrepid-style videogame. It was marketing coin-op system hardware — a different answer to the same industry problem that Infinity 1 had raised earlier: how to keep a cabinet commercially useful when individual videogame titles aged quickly.</p>
+<p>Publication-safe wording: <strong>The Terminators ’87 was a documented Nova Games system-hardware product advertised in 1987. Its exact architecture remains unresolved, and it should not be counted as a conventional released videogame.</strong></p>
+<h2 id="13-gilchrist-vending-representation-not-ownership">13. Gilchrist Vending: representation, not ownership</h2>
+<p>Another piece of Nova’s mid-1980s survival strategy was distribution.</p>
+<p>The name <strong>Gilchrist</strong> appears beside Nova in 1986 trade-show material, and without further context it would be easy to misread that pairing as a corporate merger, shared ownership or an individual Nova executive.</p>
+<p>Contemporary distributor records make the relationship much clearer.</p>
+<p><strong>T.W. Gilchrist Vending Ltd.</strong> of Toronto was a long-established Canadian coin-op distributor and operator led by Tom Gilchrist. A 1986 Cash Box distributor directory explicitly lists the lines Gilchrist represented: <strong>NSM, Dynamo, Nova, Bally and U.S. Billiards</strong>. Play Meter’s Expo ’86 exhibitor material likewise combines the names as <strong>Nova Games of Canada / Gilchrist Vending</strong> while still using Nova’s St-Laurent contact information. The same Expo ’86 material places the combined Nova/Gilchrist presentation at <strong>booths 906–908</strong>. An older booth-420 attribution encountered during the project is therefore rejected as incorrect.</p>
+<p>That is strong evidence for a distribution and representation relationship, not a hidden corporate identity.</p>
+<p>The timing supports the same interpretation. Gilchrist’s earlier directory entries did not consistently list Nova, and later listings no longer do. Nova also appears on its own again at AMOA Expo ’87. Nothing in the recovered corporate record shows Gilchrist owning Nova or Nova becoming part of Gilchrist.</p>
+<p>This distinction matters because small arcade companies often reached operators through distributors whose names later became entangled with the manufacturer. In Nova’s case, the evidence lets us separate the roles cleanly: <strong>Nova made or supplied the product; Gilchrist represented the line.</strong></p>
+<h2 id="14-1987-the-public-arcade-trail-fades">14. 1987: the public arcade trail fades</h2>
+<p>Nova’s last currently documented public arcade-industry appearance comes at <strong>AMOA Expo ’87</strong>.</p>
+<p>The final exhibitor list places <strong>Nova Games of Canada, Ltd. at booth 505</strong>. That appearance is historically important even though surviving show coverage has not yet identified exactly what Nova displayed there. The Terminators ’87 had been documented earlier that year, so it is tempting to assume that the system remained the company’s featured product in November. No recovered source currently proves that, and Arcade Side B should not turn chronology into evidence.</p>
+<p>What can be said is stronger than it first appears: Nova was still maintaining a visible trade-show presence in late 1987. After that, the Canadian company largely disappears from the arcade-industry record recovered so far.</p>
+<p>That disappearance must not be confused with the later companies whose names happen to contain Nova. British Nova Productions, Quebec’s Nova Industries, Germany’s Nova Apparate and other unrelated or ambiguously catalogued entities create abundant false hits after 1987. Once those are removed, the real Canadian Nova trail becomes quiet.</p>
+<p>The legal corporation, however, did not vanish at the same moment. Surviving federal records show <strong>Les Jeux Nova Ltée / Nova Games Ltd. was formally dissolved on December 11, 1995</strong>. The responsible chronology therefore has three different endpoints: the last currently documented arcade-trade presence in 1987, the subsequent period in which the business disappears from the visible coin-op record, and the corporation’s legal dissolution eight years later.</p>
+<p>That is less tidy than writing “Nova closed in 1987,” but it is much more accurate.</p>
+<h2 id="15-four-released-games-and-much-more-than-four-pieces-of-arcade-history">15. Four released games — and much more than four pieces of arcade history</h2><figure class="inline-archive-figure"><a aria-label="Enlarge editorial diagram" href="images/nova/09_count_scope.png" rel="noopener" target="_blank"><img alt="What is and is not counted as one of four confirmed arcade game releases. Editorial research graphic." decoding="async" loading="lazy" src="images/nova/09_count_scope.png"/></a><figcaption>What is and is not counted as one of four confirmed arcade game releases. Editorial research graphic.</figcaption></figure>
+<p>By conventional released-videogame counting, Nova Games of Canada has a small catalog.</p>
+<p>Arcade Side B’s conservative core is <strong>four confirmed released arcade videogames</strong>:</p>
+<ul>
+<li><strong>Port Man</strong> — a Taito-developed game handled by Nova under license in North America.</li>
+<li><strong>Intrepid</strong> — Nova’s strongest physically documented complete-game/kit product and a strongly supported Nova development.</li>
+<li><strong>Zarya Vostoka</strong> — the elusive Intrepid sequel, preserved more strongly in software than in surviving commercial artifacts.</li>
+<li><strong>Super Triv</strong> — a Nova-developed trivia game supported by firsthand employee testimony and surviving English/French versions.</li>
+</ul>
+<p>That number is useful only if its definition remains visible.</p>
+<p>It does <strong>not</strong> include Snatcher / Naughty Mouse as a fifth conventional Nova release because Nova’s role there is layered with Amenip and Palcom Queen River. It does <strong>not</strong> include Miner 2049er because the completed Nova version was never commercially released. It does <strong>not</strong> include The Terminators ’87 because the surviving trade source identifies it as system hardware rather than a videogame title. Infinity 1 remains outside the count because Nova’s exact role is unresolved and Hoffman International has the stronger ownership record. Touch Down Football and Starex remain catalog leads without the physical or primary evidence required for promotion into the confirmed list.</p>
+<p>The point of the count is therefore not to make Nova look larger or smaller. It is to keep unlike evidence from being forced into one number.</p>
+<p>Nova’s historical footprint is broader than four games because the company participated in several different layers of the arcade business: licensing, local manufacture, kit sales, original development, prototype work, hardware systems, trade-show partnerships and distributor representation. That diversity is exactly what a conventional manufacturer field tends to erase.</p>
+<h2 id="16-the-other-novas-how-a-small-company-became-several-companies-in-databases">16. The other Novas: how a small company became several companies in databases</h2><figure class="inline-archive-figure"><a aria-label="Enlarge editorial diagram" href="images/nova/08_false_nova_identity_map.png" rel="noopener" target="_blank"><img alt="Other companies using the Nova name are not automatically the Canadian Nova Games. Editorial research graphic." decoding="async" loading="lazy" src="images/nova/08_false_nova_identity_map.png"/></a><figcaption>Other companies using the Nova name are not automatically the Canadian Nova Games. Editorial research graphic.</figcaption></figure>
+<p>Researching Nova Games of Canada creates a problem that has very little to do with Nova itself: <strong>the word “Nova” is common enough that later archives and databases sometimes collapse unrelated manufacturers into one company record.</strong> Once that happens, a Canadian firm whose visible arcade life belongs mainly to the 1980s can suddenly appear to have produced British shock machines, German air hockey, generic Quebec cabinets and 1990s laserdisc games.</p>
+<p>Those extra products look impressive until the original artifacts are opened.</p>
+<p>One of the clearest examples is <strong>Nova Industries</strong> of Lachine, Quebec. Several generic cabinet sheets have circulated under metadata associating them with Nova Games Ltd. The flyers themselves say something different. They identify <strong>NOVA INDUSTRIES</strong> at <strong>2075, 23ième avenue, Lachine, Québec</strong> and advertise cabinet forms such as an upright video model, bar-top model and casino model. The logo, company name and address do not match Les Jeux Nova Ltée / Nova Games Ltd. Contemporary Cash Box material reinforces the distinction: at a 1988 trade show, Nova Industries is listed separately as a Lachine company dealing in <strong>video game cabinets</strong>.</p>
+<p>Because Nova Games of Canada had already used generic cabinets, conversion kits and system hardware, the mistake is understandable. The products look as though they could fit its history. Geography makes the confusion even more tempting: St-Laurent and Lachine are both in the Montreal industrial orbit. But resemblance is not identity. No recovered filing, officer list, trade announcement or address bridge presently connects Nova Industries to Nova Games Ltd. Arcade Side B therefore treats Nova Industries as a separate company unless future primary evidence proves otherwise.</p>
+<p>The German <strong>NOVA APPARATE GmbH &amp; Co.</strong> is even easier to separate. Flyers and manuals identify the firm at <strong>Lademannbogen 134, Hamburg</strong>, and period German documentation repeatedly uses the Nova Apparate name. Products associated with that company include the <strong>Indianapolis Super 400</strong> and <strong>TAIFUN Air Hockey</strong>, along with German-market amusement and pinball distribution material. They belong to a German coin-op company, not to Neil Rubin’s Canadian Nova.</p>
+<p>The British <strong>Nova Productions Ltd.</strong> creates the most serious contamination because it genuinely was an arcade and amusement-game developer and because some later database entries place its products beside Intrepid or Port Man. British court records remove the ambiguity. In a 2006 High Court judgment, Nova Productions is described as a United Kingdom company established in <strong>1990</strong>, led by <strong>Peter Robinson and David Jones</strong>, and engaged in the design, manufacture and sale of gaming machines. That company developed products such as <strong>Street Viper</strong>, later skill-with-prize and amusement machines, and other 1990s/2000s equipment. It is not the Canadian corporation incorporated in 1981 under Neil Rubin and Courtney Lai-Hing.</p>
+<p>This also disposes of <strong>Platoon</strong> and other later British-attributed Nova titles that periodically appear in broad database searches. They should not be pulled backward into the Canadian Nova catalog simply because a manufacturer field contains the word Nova.</p>
+<p>The lesson is larger than a list of exclusions. <strong>Company-name matching is not company history.</strong> A database can accidentally create a fictional multinational corporation by joining records that share a name fragment. The cure is to return to addresses, directors, trademarks, legal filings, surviving flyers and period trade listings.</p>
+<p>For Nova Games of Canada, that identity control is not a side issue. It is one of the central findings of the research.</p>
+<p>Publication-safe wording: <strong>Later arcade databases and flyer indexes sometimes mingle Nova Games of Canada with unrelated companies sharing the Nova name. Nova Industries of Lachine, Nova Apparate of Hamburg and British Nova Productions are treated here as separate entities because their surviving artifacts, addresses and corporate histories do not match Les Jeux Nova Ltée / Nova Games Ltd.</strong></p>
+<h2 id="17-the-two-catalog-ghosts-touch-down-football-and-starex">17. The two catalog ghosts: Touch Down Football and Starex</h2>
+<p>Not every questionable title can be rejected as a false Nova. Two names remain more interesting because they come from a specialist arcade-catalog tradition that specifically attributes them to Nova Games of Canada.</p>
+<p>Those names are <strong>Touch Down Football</strong> and <strong>Starex</strong>.</p>
+<p>The surviving specialist catalog trail places Touch Down Football at approximately <strong>84/03</strong> and Starex at <strong>84/04</strong>. Modern undumped-game references have repeated both attributions under Nova Games of Canada. That is enough to preserve them as research leads. It is not enough to promote them into the confirmed released-game count.</p>
+<p>Repeated targeted searches have so far failed to locate a surviving cabinet, PCB, ROM dump, title screen, flyer, manual, price sheet, operator advertisement, photograph or contemporary game description for either title. Current mainstream preservation databases that otherwise list Nova’s known games do not independently establish either one. No period trade-show article recovered in this project names them as the products Nova displayed in 1984.</p>
+<p>That leaves an awkward but useful category: <strong>credible catalog-only leads</strong>.</p>
+<p>There are several possibilities. The titles may represent games that were announced but scarcely distributed. They may be regional names for games known elsewhere under different titles. They may have existed only in pre-release catalogs. They may reflect an error in a source that was subsequently copied. The evidence available today does not choose among those explanations.</p>
+<p>Arcade Side B should therefore preserve the names rather than silently deleting them, because deletion would make future recovery harder. But they should be visually separated from the confirmed list. A reader should be able to tell immediately that these are not equivalent to Intrepid, Super Triv or Port Man.</p>
+<p>Recommended website treatment:</p>
+<ul>
+<li><strong>Touch Down Football — catalog-only Nova attribution; unverified physical release.</strong></li>
+<li><strong>Starex — catalog-only Nova attribution; unverified physical release.</strong></li>
+</ul>
+<p>Neither is included in the four-game headline count.</p>
+<p>This is another place where an honest “unknown” carries more historical value than a confident guess. A future collector may eventually turn up a board, flyer or photograph that resolves one of these names. Until then, their proper home is the open file, not the confirmed catalog.</p>
+<h2 id="18-nova-games-role-matrix-what-the-company-actually-did">18. Nova Games role matrix: what the company actually did</h2>
+<p>The easiest way to misunderstand Nova is to ask for one word—developer, manufacturer, publisher or distributor—and expect it to describe every product. It cannot. Nova changed roles from project to project.</p>
+<p>The Arcade Side B publication role matrix is therefore:</p>
+<div aria-label="Scrollable company research table" class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>Product / family</th>
+<th style="text-align:right">Year</th>
+<th>Nova role</th>
+<th>Status</th>
+<th>Counted in 4 released games?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SNATCHER / Naughty Mouse family</td>
+<td style="text-align:right">1981</td>
+<td>Direct cabinet/commercial association; exact Amenip/Palcom/Nova division unresolved</td>
+<td>Strong Nova association, layered authorship</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Port Man</td>
+<td style="text-align:right">1982</td>
+<td>North American licensee / commercial supplier for a Taito-developed game</td>
+<td>Confirmed released game</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Intrepid</td>
+<td style="text-align:right">1983</td>
+<td>Manufacturer/marketer; strong Nova development attribution; sold complete and as kit</td>
+<td>Confirmed released game</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Zarya Vostoka</td>
+<td style="text-align:right">1984</td>
+<td>Nova-attributed sequel to Intrepid; thinner physical/commercial trail</td>
+<td>Confirmed released game, release scale uncertain</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Infinity 1</td>
+<td style="text-align:right">1984</td>
+<td>Trade-show/partner association with Hoffman International</td>
+<td>Nova role unresolved</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Touch Down Football</td>
+<td style="text-align:right">1984 catalog</td>
+<td>Specialist-catalog attribution</td>
+<td>Unverified</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Starex</td>
+<td style="text-align:right">1984 catalog</td>
+<td>Specialist-catalog attribution</td>
+<td>Unverified</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Super Triv</td>
+<td style="text-align:right">1985</td>
+<td>In-house development strongly supported by Bruno Fontaine; English/French versions</td>
+<td>Confirmed released game</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Miner 2049er arcade</td>
+<td style="text-align:right">mid-1980s</td>
+<td>In-house arcade adaptation programmed by Bruno Fontaine</td>
+<td>Completed but unreleased</td>
+<td>No</td>
+</tr>
+<tr>
+<td>The Terminators ’87</td>
+<td style="text-align:right">1987</td>
+<td>Nova system-hardware product</td>
+<td>Confirmed hardware, exact architecture unresolved</td>
+<td>No</td>
+</tr>
+</tbody>
+</table></div>
+<p>That table shows why the final count has to be conservative. If every appearance of the Nova name were treated as an original Nova videogame, the catalog would be inflated with licenses, prototypes, partner products and hardware systems. If the count were restricted only to software demonstrably programmed by a named Nova employee, it would understate Nova’s actual commercial output.</p>
+<p>The four-game headline is therefore not a claim that Nova created exactly four original programs from scratch. It is a <strong>released-videogame count</strong> based on the products that can be responsibly placed in Nova’s commercial arcade catalog.</p>
+<p>Within those four, the roles remain different:</p>
+<p><strong>Port Man</strong> proves Nova could license and package an outside game. <strong>Intrepid</strong> proves it could offer its own complete machine and conversion kit. <strong>Zarya Vostoka</strong> shows continuation of that game line even though the physical record has nearly vanished. <strong>Super Triv</strong> gives us the strongest direct testimony for internal software development.</p>
+<p>The non-counted material is equally informative. <strong>Miner 2049er</strong> proves development work that never became a commercial release. <strong>The Terminators ’87</strong> proves Nova sold system hardware outside the ordinary one-game/one-cabinet model. <strong>SNATCHER</strong> proves that cabinet branding could attach Nova to software carrying different corporate credits. <strong>Infinity 1</strong> illustrates a trade-show partnership whose exact division of responsibility remains unresolved.</p>
+<p>This is not statistical untidiness. It is the shape of a small arcade company trying several business models in a volatile market.</p>
+<h2 id="19-people-addresses-and-a-company-timeline">19. People, addresses and a company timeline</h2>
+<p>The game catalog makes more sense when placed beside the corporate chronology.</p>
+<p><strong>1974 — Neil Rubin and Fountainhead.</strong> Period Canadian coin-op material places <strong>Neil Rubin</strong> as managing director of Fountainhead Amusement Corporation at <strong>3150 Sartelon Street</strong> in St-Laurent. That does not make Fountainhead the legal parent of Nova, but it establishes Rubin in the amusement business years before Nova and ties him to an address that later becomes crucial.</p>
+<p><strong>March 13, 1981 — Nova incorporated.</strong> Federal records establish <strong>Les Jeux Nova Ltée / Nova Games Ltd.</strong> as a Canadian corporation. Its articles give <strong>3150 Sartelon Street, St-Laurent, Quebec</strong> as the registered office. Founding directors include <strong>Neil Rubin</strong> and <strong>Courtney Lai-Hing</strong>. Formation paperwork also identifies <strong>Andrée Bertrand</strong>, who appears in the incorporation process and signed the initial director filing as president.</p>
+<p>The reuse of 3150 Sartelon is one of the strongest pieces of continuity between Rubin’s earlier amusement-company network and Nova. It supports a business lineage. It does not, by itself, establish that Fountainhead was renamed, merged or legally converted into Nova.</p>
+<p><strong>1981–82 — Amenip-era overlap.</strong> Amenip-bearing games were already circulating while Nova legally existed. The surviving SNATCHER cabinet places NOVA beneath the marquee title while the running program credits PALCOM QUEEN RIVER, and current preservation material preserves an Amenip/Nova version of Naughty Mouse. This overlap is why the familiar “Amenip became Nova in 1982” story is too simple.</p>
+<p><strong>September 14, 1982 — move to Graveline and board expansion.</strong> An original registered-office filing moves Nova from <strong>3150 Sartelon to 190 Graveline, Ville St-Laurent</strong>. On the same effective date, <strong>Ed Prest</strong> joins the board while Rubin and Lai-Hing remain directors. The surviving filing is unusually valuable because it anchors a corporate transition that later commercial sources blur.</p>
+<p><strong>1983–86 — 180 Graveline in the trade.</strong> Contemporary arcade-industry directories and show listings repeatedly give <strong>180 Graveline</strong> rather than 190. Cash Box uses 180 Graveline for Nova’s 1984 trade-show listing, and Play Meter still uses it in its 1986 international directory. The project has not recovered a primary document explaining the ten-number difference. The safest presentation is therefore to preserve both facts rather than invent a building-number explanation: <strong>190 Graveline is the registered-office address in the September 1982 federal filing; 180 Graveline is the later commercial address used in the arcade trade.</strong></p>
+<p><strong>1983 — Intrepid.</strong> Nova advertises Intrepid as both a complete game and a conversion kit, demonstrating a commercial operation able to sell far more than software alone.</p>
+<p><strong>1984 — Zarya Vostoka and Infinity 1 context.</strong> Nova remains visible at major trade shows. Zarya Vostoka extends the Intrepid line. Infinity 1 places Nova alongside Hoffman International in an experimental generic-cabinet context, though Hoffman has the stronger ownership trail.</p>
+<p><strong>1985 — Super Triv.</strong> The game survives in English and French versions and is tied directly to development at Nova by Bruno Fontaine. This is the clearest surviving window into Nova as an internal software shop.</p>
+<p><strong>Mid-1980s — Miner 2049er.</strong> Fontaine completes a ten-level arcade adaptation, but licensing failure kills the release. The finished prototype later disappears.</p>
+<p><strong>1986 — Gilchrist representation.</strong> T.W. Gilchrist Vending of Toronto explicitly lists Nova among the manufacturers it represented. Expo material pairs the two names, demonstrating a distribution relationship rather than common ownership.</p>
+<p><strong>April 1987 — The Terminators ’87.</strong> Play Meter lists Nova’s latest identified product under system hardware.</p>
+<p><strong>Late 1987 — AMOA booth 505.</strong> Nova still appears independently on the final AMOA Expo ’87 exhibitor list. No recovered show report yet identifies the actual booth product.</p>
+<p><strong>After 1987 — the arcade trail quiets.</strong> Once unrelated Nova companies are removed, no later Canadian Nova coin-op appearance of comparable confidence has surfaced in this project.</p>
+<p><strong>December 11, 1995 — legal dissolution.</strong> Industry Canada’s surviving certificate establishes the formal dissolution date of Les Jeux Nova Ltée / Nova Games Ltd.</p>
+<p>That timeline gives Nova two different lifespans that should not be confused. Its <strong>documented visible arcade career</strong> runs roughly from 1981 through 1987. Its <strong>legal corporate existence</strong> continued until 1995.</p>
+<h2 id="20-what-remains-unresolved">20. What remains unresolved</h2><figure class="inline-archive-figure"><a aria-label="Enlarge editorial diagram" href="images/nova/11_open_questions.png" rel="noopener" target="_blank"><img alt="A visual reference to unresolved questions in the source record. Editorial research graphic." decoding="async" loading="lazy" src="images/nova/11_open_questions.png"/></a><figcaption>A visual reference to unresolved questions in the source record. Editorial research graphic.</figcaption></figure>
+<p>Nova is publication-ready without pretending every question has been answered. The unresolved list is now short enough to be meaningful.</p>
+<p><strong>What exactly connected Amenip and Nova?</strong> The relationship is real at the game and commercial-presentation level, but no recovered document yet defines the legal or contractual mechanism. A development agreement, publishing arrangement, shared investors, regional manufacturing deal or another structure could explain it. The evidence does not currently select one.</p>
+<p><strong>What were Touch Down Football and Starex?</strong> They remain credible catalog leads without physical confirmation. A single contemporary flyer, board photograph or operator notice could materially change the catalog.</p>
+<p><strong>What was Nova’s exact role in Infinity 1?</strong> The company was associated with the machine at the 1984 AMOA show, but Hoffman International has the stronger advertising and trademark record. A Nova/Hoffman contract, sales sheet or show report would resolve the division of responsibility.</p>
+<p><strong>How did The Terminators ’87 work?</strong> We know the product existed and that Play Meter categorized it as system hardware. We do not yet have the manual or technical brochure that would tell us how games were installed, swapped or configured.</p>
+<p><strong>Why do the records use both 190 and 180 Graveline?</strong> The 1982 federal filing gives 190; later trade sources give 180. The difference may be mundane, but it should remain unresolved until a document explains it.</p>
+<p><strong>What happened operationally after AMOA Expo ’87?</strong> Nova’s legal shell survived until 1995, but the recovered arcade-industry trail largely stops in 1987. Whether the company continued quietly in another business form, maintained only corporate existence, or attempted products that left no surviving trade record remains unknown.</p>
+<p><strong>Who actually designed Intrepid and Zarya Vostoka?</strong> Nova’s corporate role is well supported, but the individual programmers, artists and designers remain unidentified in the sources reviewed so far. Bruno Fontaine gives us a human name for Super Triv and Miner 2049er; the earlier original titles still lack equivalent creator credits.</p>
+<p>These are not reasons to delay publication. They are the places where publication can help. A clear list of missing evidence gives collectors, former employees and archivists specific things to recognize if material surfaces later.</p>
+<h2 id="21-why-nova-games-matters">21. Why Nova Games matters</h2>
+<p>Nova Games of Canada was not a giant. That is precisely why its history is useful.</p>
+<p>Large arcade companies often leave enough surviving paperwork that historians can reconstruct them from catalogs, annual reports, manuals, advertisements and interviews. A company like Nova survives differently. One part of the story lives in a federal filing. Another survives on a marquee. Another is preserved in ROM metadata. Another depends on a former programmer remembering work that never shipped. One trade-show photograph raises a question that a trademark record partially answers. One distributor directory explains why two company names appeared side by side. One incorrectly catalogued flyer can add an entirely different corporation to the story unless somebody reads the address block.</p>
+<p>Nova therefore demonstrates how arcade history actually behaves at the small-company level.</p>
+<p>The company could be a licensee on one product and a manufacturer on the next. It could sell a complete machine or a kit. It could develop software internally while using outside-origin hardware. It could finish a game that never escaped the office. It could stand beside another company’s experimental cabinet at a trade show and leave historians decades later trying to reconstruct who owned what. It could market system hardware in 1987 even as its conventional videogame catalog remained tiny.</p>
+<p>That variety explains why the simple question “How many games did Nova make?” produces a misleading answer unless “make” is defined.</p>
+<p>If the question means <strong>confirmed released arcade videogames sold under Nova’s commercial responsibility</strong>, the answer is four.</p>
+<p>If the question means <strong>original programs demonstrably developed entirely inside Nova</strong>, the evidence becomes narrower and less complete because individual creator records are missing for some titles and Port Man was licensed from Taito.</p>
+<p>If the question means <strong>every arcade product, prototype, cabinet association, hardware system and credible catalog lead connected to Nova</strong>, the number becomes larger—but also less uniform and less useful as a single statistic.</p>
+<p>Arcade Side B therefore keeps the four-game count prominent while refusing to let that number become the whole history.</p>
+<p>Nova’s importance is not that it secretly possessed a giant lost catalog. The importance is that its small surviving catalog exposes almost every complication that can hide inside one manufacturer field: <strong>licensing, regional manufacture, development, publishing, conversion kits, prototypes, hardware platforms, distributors, shared trade-show presentations, aliases and false corporate identity merges.</strong></p>
+<p>And there is one final reason to preserve the company carefully. Nova sits in the part of arcade history most vulnerable to disappearance: the layer between the famous Japanese or American developer and the local cabinet that actually reached an operator. Companies in that layer translated games across territories, built or supplied machines, sold kits, negotiated licenses and sometimes created games of their own. Their names could be physically prominent on a cabinet and nearly absent from later historical writing.</p>
+<p>Nova Games Ltd. was one of those companies.</p>
+<p>Its story begins not with a famous hit but with an amusement-business network and a Montreal address. It passes through an Amenip cabinet whose credits refuse to agree with one another, a licensed dockworker game, a surprisingly ambitious spy adventure, an almost-lost sequel, a bilingual trivia machine, a completed Miner 2049er conversion that was thrown away, and a system-hardware product whose manual has vanished. It ends not with a dramatic bankruptcy announcement but with the quieter pattern common to many small operators and manufacturers: the trade-show appearances stop, the public trail fades, and years later the legal corporation is dissolved.</p>
+<p>That is exactly the kind of history Arcade Side B exists to keep from disappearing.</p>
+<h2 id="source-and-evidence-note">Source and evidence note</h2><figure class="inline-archive-figure"><a aria-label="Enlarge editorial diagram" href="images/nova/10_evidence_hierarchy.png" rel="noopener" target="_blank"><img alt="Source categories used to separate period documentation from later attribution. Editorial research graphic." decoding="async" loading="lazy" src="images/nova/10_evidence_hierarchy.png"/></a><figcaption>Source categories used to separate period documentation from later attribution. Editorial research graphic.</figcaption></figure>
+<p>This publication master is paired with <strong>NOVA_ARCADE_SIDE_B_SOURCE_REGISTER.md</strong>, which maps the major claims and sections to original corporate filings, contemporary trade material, surviving physical artifacts, preservation code, firsthand testimony and secondary corroboration. When sources conflict, the research privileges original corporate filings and contemporary trade records, then surviving physical artifacts and original sales material, then preservation code/technical databases, with later databases and community recollection used as leads or corroboration rather than allowed to override stronger primary evidence.</p>
+<p>The companion <strong>NOVA_ARCADE_SIDE_B_IMAGE_INVENTORY.md</strong> distinguishes actual publication-ready graphics included in the handoff from historical images that remain reference-only, source-restricted, or not physically recoverable in this session.</p>
+</article>
+</div>
+<footer class="footer">
+<div class="footer-inner">
+<div><strong>Arcade Side B</strong> · The Overlooked Side of Arcade History · Nova Games Ltd. · Company history</div>
+<div class="site-counter"><div>Site hits</div><img alt="Arcade Side B site hit counter" src="https://hitscounter.dev/api/hit?color=%23c9973a&amp;icon=123&amp;label=SITE%20HITS&amp;url=https%3A%2F%2Farcadesideb.com%2F"/></div>
+</div>
+<p class="last-updated">Last updated November 18, 2026 · Open to new evidence</p></footer>
+</body>
+</html>
