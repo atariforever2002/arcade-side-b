@@ -1,0 +1,1150 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Seatongrove | Arcade Side B</title>
+<style>
+:root{
+  --bg:#090d12;--paper:#eee7d8;--paper2:#f5efe3;--ink:#232b30;--muted:#667075;
+  --line:#c8beab;--darkline:#303b45;--gold:#c28a32;--gold2:#d8b36b;
+  --green:#557b63;--cyan:#6f99aa;--max:1180px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:
+  radial-gradient(circle at 82% 10%,rgba(111,153,170,.09),transparent 28%),
+  linear-gradient(rgba(255,255,255,.012) 1px,transparent 1px),#090d12;
+  background-size:auto,100% 4px,auto;color:#dce2e5;font-family:Georgia,"Times New Roman",serif;
+}
+a{color:#a96f21}
+.mast{border-bottom:4px solid var(--gold);background:linear-gradient(135deg,#0a0f14,#13202a)}
+.mast-inner{width:min(calc(100% - 32px),var(--max));margin:auto;padding:17px 0;display:flex;justify-content:space-between;gap:20px;align-items:center}
+.brand{font-size:26px;font-weight:700;color:#f0ece4}
+.motto{font:700 10px Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#9ca8af;text-align:right}
+.crumb,.hero,.rule,.shell{width:min(calc(100% - 32px),var(--max));margin-left:auto;margin-right:auto}
+.crumb{padding-top:18px;color:#93a0a8;font:700 11px Arial,sans-serif}
+.crumb a{color:#d4ad67;text-decoration:none}
+.hero{padding:30px 0 26px}
+.eyebrow{color:var(--gold2);font:800 10px Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase}
+.hero h1{margin:7px 0 10px;font-size:clamp(44px,7vw,78px);line-height:.95;color:#f0ece4}
+.deck{max-width:930px;color:#b9c4ca;font-size:20px;line-height:1.5;margin:0}
+.meta{display:flex;gap:12px;flex-wrap:wrap;margin-top:17px;color:#9aa6ad;font:700 11px Arial,sans-serif}
+.badge{padding:6px 9px;border:1px solid currentColor;border-radius:999px;text-transform:uppercase}
+.living{color:#78a6b8}
+.rule{height:1px;background:#29343e}
+.shell{display:grid;grid-template-columns:275px minmax(0,1fr);gap:22px;padding:26px 0 50px;align-items:start}
+.sidebar{position:sticky;top:10px}
+.toc{border:1px solid #34404b;background:#111820;max-height:82vh;overflow:auto}
+.toc-title{padding:13px 15px;color:#d8dfe2;font:800 11px Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase}
+.toc a{display:block;border-top:1px solid #29343e;padding:9px 13px;color:#aebbc2;text-decoration:none;font:13px/1.35 Arial,sans-serif}
+.toc a:hover{color:#f0c57e}
+.sidebar-note{margin-top:12px;border:1px solid #34404b;background:#111820;padding:13px;color:#94a0a7;font:13px/1.45 Arial,sans-serif}
+article{background:var(--paper);color:var(--ink);border:1px solid #b9ae9a;box-shadow:0 18px 42px rgba(0,0,0,.25);padding:26px 34px 40px;min-width:0}
+.backhome{display:inline-block;margin-bottom:18px;padding:8px 10px;border:1px solid #9e927e;color:#745322;text-decoration:none;font:800 10px Arial,sans-serif;text-transform:uppercase;letter-spacing:.08em}
+.company-identity{margin:0 0 28px;border:1px solid #b8ad98;background:linear-gradient(135deg,rgba(194,138,50,.08),transparent 48%),#f3eddf;overflow:hidden}
+.company-mark{padding:24px 26px 20px;border-bottom:1px solid var(--line);position:relative}
+.company-mark:after{content:"COMPANY PROFILE";position:absolute;right:22px;top:18px;color:#8c8272;font:700 9px Arial,sans-serif;letter-spacing:.16em}
+.legal{color:#746b5f;font:700 10px Arial,sans-serif;letter-spacing:.13em;text-transform:uppercase;margin-bottom:7px}
+.wordmark{font-size:clamp(34px,5vw,58px);line-height:.95;color:#122331}
+.wordmark span{display:block;margin-top:7px;color:#8a6429;font:700 13px Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase}
+.company-snapshot{display:grid;grid-template-columns:repeat(4,1fr)}
+.snapshot-cell{padding:17px 18px;border-right:1px solid var(--line)}
+.snapshot-cell:last-child{border-right:0}
+.snapshot-label{display:block;color:#786f63;font:700 9px Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;margin-bottom:5px}
+.snapshot-value{display:block;color:#1c2d37;font-size:19px;line-height:1.2}
+.snapshot-note{display:block;margin-top:5px;color:#6e726f;font:11px/1.35 Arial,sans-serif}
+.overview-box{padding:18px 20px;background:#f8f2e7;border:1px solid #d2c5af;margin:0 0 26px}
+.overview-box h2{margin-top:0!important}
+article h2{margin:38px 0 13px;color:#172a35;font-size:31px;border-bottom:2px solid #b57f31;padding-bottom:7px}
+article h2:first-of-type{margin-top:0}
+article h3{margin:27px 0 9px;color:#2b3a41;font-size:24px}
+article p{font-size:18px;line-height:1.7;margin:14px 0}
+article li{font-size:17px;line-height:1.6;margin:6px 0}
+article blockquote{margin:18px 0;padding:10px 17px;border-left:4px solid var(--gold);background:#f7f0e3;color:#465156}
+article table{width:100%;border-collapse:collapse;margin:18px 0;font:14px/1.45 Arial,sans-serif}
+article th,article td{border:1px solid #c8beab;padding:8px 9px;vertical-align:top}
+article th{background:#ddd3c1;color:#24323a;text-align:left}
+article code{font-size:.88em}
+.src-tag{display:inline-block;color:#76531e;font:700 10px Arial,sans-serif;white-space:nowrap}
+.public-note{margin:0 0 25px;padding:15px 17px;border-left:5px solid var(--green);background:#e7efe8;color:#33433a;font:15px/1.5 Arial,sans-serif}
+.footer{border-top:1px solid #29343e;background:#07090c}
+.footer-inner{width:min(calc(100% - 32px),var(--max));margin:auto;padding:21px 0 27px;display:flex;justify-content:space-between;align-items:flex-end;gap:20px;color:#7f8b92;font:12px Arial,sans-serif}
+.footer-inner strong{color:#d9dfe2;font-family:Georgia,serif;font-size:15px}
+.site-counter{text-align:right;font:800 9px Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#748089}
+.site-counter img{display:block;margin:5px 0 0 auto;border:1px solid #303944}
+@media(max-width:920px){
+ .shell{grid-template-columns:1fr} .sidebar{position:static} .toc{max-height:none}
+ .company-snapshot{grid-template-columns:1fr 1fr}
+ .snapshot-cell:nth-child(2){border-right:0}
+ .snapshot-cell{border-bottom:1px solid var(--line)}
+ .snapshot-cell:nth-child(3),.snapshot-cell:nth-child(4){border-bottom:0}
+}
+@media(max-width:600px){
+ .mast-inner{align-items:flex-start;flex-direction:column} .motto{text-align:left}
+ .company-snapshot{grid-template-columns:1fr} .snapshot-cell{border-right:0;border-bottom:1px solid var(--line)!important}
+ .snapshot-cell:last-child{border-bottom:0!important}
+ article{padding:20px 16px 28px} article p{font-size:17px} article h2{font-size:27px}
+ .footer-inner{align-items:flex-start;flex-direction:column} .site-counter{text-align:left} .site-counter img{margin-left:0}
+}
+
+
+.elcon-visuals{
+  margin:28px 0 34px;
+}
+.elcon-visuals h2{
+  margin-top:0;
+}
+.flyer-pair{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+  align-items:start;
+}
+.archive-figure{
+  margin:0;
+  padding:10px;
+  border:1px solid #b8ad98;
+  background:#f8f3e8;
+}
+.archive-figure img{
+  width:100%;
+  height:auto;
+  display:block;
+  border:1px solid #c8beab;
+  background:#e9dfce;
+}
+.archive-figure figcaption{
+  padding:9px 4px 2px;
+  color:#5e6668;
+  font:12px/1.5 Arial,Helvetica,sans-serif;
+}
+.rights-hold{
+  margin:24px 0;
+  padding:15px 17px;
+  border:1px dashed #b69d72;
+  background:#f7efe1;
+  color:#5b554c;
+  font:13px/1.55 Arial,Helvetica,sans-serif;
+}
+.rights-hold strong{
+  color:#65471e;
+}
+@media(max-width:700px){
+  .flyer-pair{grid-template-columns:1fr}
+}
+
+
+
+
+/* ELCON PUBLICATION VISUALS */
+.visual-section{
+  margin:20px 0 32px;
+}
+.visual-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+  margin:18px 0 24px;
+  align-items:start;
+}
+.visual-grid.brochure{
+  grid-template-columns:1fr 1fr;
+}
+.archive-figure{
+  margin:0;
+  padding:10px;
+  border:1px solid #b8ad98;
+  background:#f8f3e8;
+}
+.archive-figure img{
+  width:100%;
+  height:auto;
+  display:block;
+  border:1px solid #c8beab;
+  background:#e9dfce;
+}
+.archive-figure figcaption{
+  padding:9px 4px 2px;
+  color:#5e6668;
+  font:12px/1.5 Arial,Helvetica,sans-serif;
+}
+.visual-note{
+  margin:18px 0;
+  padding:14px 16px;
+  border-left:4px solid #b57f31;
+  background:#f7efe1;
+  color:#5b554c;
+  font:13px/1.55 Arial,Helvetica,sans-serif;
+}
+@media(max-width:760px){
+  .visual-grid,.visual-grid.brochure{grid-template-columns:1fr}
+}
+
+
+
+
+/* CONTEXTUAL ARCHIVAL FIGURES */
+.inline-archive-figure{
+  margin:22px auto 27px;
+  max-width:780px;
+  padding:10px;
+  border:1px solid #b8ad98;
+  background:#f8f3e8;
+  box-shadow:0 8px 18px rgba(64,52,34,.08);
+}
+.inline-archive-figure.narrow{max-width:560px}
+.inline-archive-figure img{
+  width:100%;
+  height:auto;
+  display:block;
+  border:1px solid #c8beab;
+  background:#e9dfce;
+}
+.inline-archive-figure figcaption{
+  padding:9px 4px 2px;
+  color:#5e6668;
+  font:12px/1.55 Arial,Helvetica,sans-serif;
+}
+.inline-archive-figure figcaption strong{color:#334047}
+.derivative-note{
+  display:inline-block;
+  margin-left:5px;
+  padding:2px 5px;
+  border:1px solid #b89a66;
+  color:#76531e;
+  font:700 8px Arial,Helvetica,sans-serif;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.context-note{
+  margin:18px 0 22px;
+  padding:13px 15px;
+  border-left:4px solid #b57f31;
+  background:#f7efe1;
+  color:#5b554c;
+  font:13px/1.55 Arial,Helvetica,sans-serif;
+}
+
+
+</style>
+<style>
+/* Reader-facing source and table containment */
+article a, .source-list a, .footnotes a { overflow-wrap:anywhere; }
+.research-questions{display:grid;gap:12px;margin:18px 0 24px}.research-question{padding:16px 18px;border:1px solid rgba(181,127,49,.35);background:rgba(181,127,49,.055)}.research-question h4{margin:0 0 7px;color:#2b3a41;font-size:20px}.research-question p{margin:0 0 10px;font-size:16px}.question-action{display:inline-block;color:#76531e;text-decoration:none;font:700 11px Arial,sans-serif;letter-spacing:.06em;text-transform:uppercase}.question-action:hover,.question-action:focus-visible{text-decoration:underline}
+.table-scroll {max-width:100%;overflow-x:auto;}
+.table-scroll:focus-visible {outline:2px solid #d7b56d;outline-offset:3px;}
+</style><style id="ao-company-profile-consistency">
+/* Exact shared company-profile presentation: Elcon is the house pattern. */
+.company-identity.company-profile-standard{
+  margin:0 0 28px!important;
+  padding:0!important;
+  border:1px solid #b8ad98!important;
+  border-radius:0!important;
+  background:linear-gradient(135deg,rgba(194,138,50,.08),transparent 48%),#f3eddf!important;
+  color:#20272c!important;
+  box-shadow:none!important;
+  overflow:hidden!important;
+  font-family:Georgia,"Times New Roman",serif!important;
+  font-size:16px!important;
+  line-height:normal!important;
+}
+.company-profile-standard .company-mark{
+  display:block!important;
+  position:relative!important;
+  padding:24px 26px 20px!important;
+  border:0!important;
+  border-bottom:1px solid #c8beab!important;
+  border-radius:0!important;
+  background:transparent!important;
+  color:#232b30!important;
+  font:400 16px/normal Georgia,"Times New Roman",serif!important;
+}
+.company-profile-standard .company-mark:after{
+  content:"COMPANY PROFILE"!important;
+  position:absolute!important;
+  right:22px!important;
+  top:18px!important;
+  display:block!important;
+  margin:0!important;
+  color:#8c8272!important;
+  font:700 9px/normal Arial,Helvetica,sans-serif!important;
+  letter-spacing:.16em!important;
+  text-transform:uppercase!important;
+}
+.company-profile-standard .legal{
+  display:block!important;
+  margin:0 0 7px!important;
+  padding:0!important;
+  color:#746b5f!important;
+  font:700 10px/11px Arial,Helvetica,sans-serif!important;
+  letter-spacing:.13em!important;
+  text-transform:uppercase!important;
+}
+.company-profile-standard .wordmark{
+  display:block!important;
+  margin:0!important;
+  padding:0!important;
+  color:#122331!important;
+  font:400 clamp(34px,5vw,58px)/.95 Georgia,"Times New Roman",serif!important;
+  letter-spacing:0!important;
+  text-transform:none!important;
+}
+.company-profile-standard .wordmark span{
+  display:block!important;
+  margin:7px 0 0!important;
+  padding:0!important;
+  color:#8a6429!important;
+  font:700 13px/normal Arial,Helvetica,sans-serif!important;
+  letter-spacing:.16em!important;
+  text-transform:uppercase!important;
+}
+.company-profile-standard .company-snapshot{
+  display:grid!important;
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  margin:0!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  color:#232b30!important;
+  font:400 16px/normal Georgia,"Times New Roman",serif!important;
+}
+.company-profile-standard .snapshot-cell{
+  display:block!important;
+  min-width:0!important;
+  margin:0!important;
+  padding:17px 18px!important;
+  border:0!important;
+  border-right:1px solid #c8beab!important;
+  border-radius:0!important;
+  background:transparent!important;
+  color:#232b30!important;
+  font:400 16px/normal Georgia,"Times New Roman",serif!important;
+}
+.company-profile-standard .snapshot-cell:last-child{border-right:0!important}
+.company-profile-standard .snapshot-label{
+  display:block!important;
+  margin:0 0 5px!important;
+  padding:0!important;
+  color:#786f63!important;
+  font:700 9px/10px Arial,Helvetica,sans-serif!important;
+  letter-spacing:.12em!important;
+  text-transform:uppercase!important;
+}
+.company-profile-standard .snapshot-value{
+  display:block!important;
+  margin:0!important;
+  padding:0!important;
+  color:#1c2d37!important;
+  font:400 19px/22.8px Georgia,"Times New Roman",serif!important;
+}
+.company-profile-standard .snapshot-note{
+  display:block!important;
+  margin:5px 0 0!important;
+  padding:0!important;
+  color:#6e726f!important;
+  font:400 11px/14.85px Arial,Helvetica,sans-serif!important;
+}
+.hero .meta{
+  display:flex!important;
+  flex-direction:row!important;
+  flex-wrap:wrap!important;
+  align-items:center!important;
+  gap:10px!important;
+  margin:15px 0 0!important;
+  padding:0!important;
+}
+.hero .meta .badge,
+.hero .meta .updated{
+  display:inline-block!important;
+  position:static!important;
+  margin:0!important;
+  inset:auto!important;
+}
+.hero .meta .badge{
+  padding:6px 9px!important;
+  border:1px solid #78a6b8!important;
+  border-radius:999px!important;
+  background:transparent!important;
+  color:#9fc7d6!important;
+  font:700 11px/normal Arial,Helvetica,sans-serif!important;
+  letter-spacing:0!important;
+  text-transform:uppercase!important;
+}
+.hero .meta .updated{
+  padding:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  color:#9aa6ad!important;
+  font:700 11px/normal Arial,Helvetica,sans-serif!important;
+  letter-spacing:0!important;
+  text-transform:none!important;
+}
+@media(max-width:920px){
+  .company-profile-standard .company-snapshot{grid-template-columns:1fr 1fr!important}
+  .company-profile-standard .snapshot-cell{border-right:1px solid #c8beab!important;border-bottom:1px solid #c8beab!important}
+  .company-profile-standard .snapshot-cell:nth-child(2){border-right:0!important}
+  .company-profile-standard .snapshot-cell:nth-child(3),
+  .company-profile-standard .snapshot-cell:nth-child(4){border-bottom:0!important}
+  .company-profile-standard .snapshot-cell:last-child{border-right:0!important}
+}
+@media(max-width:600px){
+  .company-profile-standard .company-mark{
+    display:flex!important;
+    flex-direction:column!important;
+    padding:20px 18px 17px!important;
+  }
+  .company-profile-standard .company-mark:after{
+    position:static!important;
+    order:-1!important;
+    display:block!important;
+    margin:0 0 9px!important;
+  }
+  .company-profile-standard .wordmark{font-size:34px!important;overflow-wrap:anywhere!important}
+  .company-profile-standard .company-snapshot{grid-template-columns:1fr!important}
+  .company-profile-standard .snapshot-cell{
+    border-right:0!important;
+    border-bottom:1px solid #c8beab!important;
+  }
+  .company-profile-standard .snapshot-cell:nth-child(3){border-bottom:1px solid #c8beab!important}
+  .company-profile-standard .snapshot-cell:last-child{border-bottom:0!important}
+}
+</style>
+<meta content="index,follow" name="robots"/>
+
+
+
+
+<style id="asb-return-navigation-style">
+.asb-return-navigation{width:min(calc(100% - 32px),1180px);margin:16px auto;display:flex;gap:10px;flex-wrap:wrap;font:700 13px/1.4 Arial,Helvetica,sans-serif}
+.asb-return-navigation a{display:inline-block;padding:10px 14px;border:1px solid #9c7c45;border-radius:4px;background:#17222c;color:#f0c77b;text-decoration:none}
+.asb-return-navigation a:hover{background:#263744;color:#fff}.asb-return-navigation a:focus-visible{outline:3px solid #f0c77b;outline-offset:3px}
+.hero .meta .research-status{display:inline!important;border:0!important;border-radius:0!important;padding:0!important;background:none!important;color:#b9c4ca!important;font:700 12px/1.5 Arial,Helvetica,sans-serif!important;text-transform:none!important;cursor:default!important}
+</style>
+<script defer="" src="/assets/asb-analytics.js"></script>
+<style id="asb-elcon-house-style">
+
+
+:root{
+  --bg:#090d12;--paper:#eee7d8;--paper2:#f5efe3;--ink:#232b30;--muted:#667075;
+  --line:#c8beab;--darkline:#303b45;--gold:#c28a32;--gold2:#d8b36b;
+  --green:#557b63;--cyan:#6f99aa;--max:1180px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:
+  radial-gradient(circle at 82% 10%,rgba(111,153,170,.09),transparent 28%),
+  linear-gradient(rgba(255,255,255,.012) 1px,transparent 1px),#090d12;
+  background-size:auto,100% 4px,auto;color:#dce2e5;font-family:Georgia,"Times New Roman",serif;
+}
+a{color:#a96f21}
+.mast{border-bottom:4px solid var(--gold);background:linear-gradient(135deg,#0a0f14,#13202a)}
+.mast-inner{width:min(calc(100% - 32px),var(--max));margin:auto;padding:17px 0;display:flex;justify-content:space-between;gap:20px;align-items:center}
+.brand{font-size:26px;font-weight:700;color:#f0ece4}
+.motto{font:700 10px Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#9ca8af;text-align:right}
+.crumb,.hero,.rule,.shell{width:min(calc(100% - 32px),var(--max));margin-left:auto;margin-right:auto}
+.crumb{padding-top:18px;color:#93a0a8;font:700 11px Arial,sans-serif}
+.crumb a{color:#d4ad67;text-decoration:none}
+.hero{padding:30px 0 26px}
+.eyebrow{color:var(--gold2);font:800 10px Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase}
+.hero h1{margin:7px 0 10px;font-size:clamp(44px,7vw,78px);line-height:.95;color:#f0ece4}
+.deck{max-width:930px;color:#b9c4ca;font-size:20px;line-height:1.5;margin:0}
+.meta{display:flex;gap:12px;flex-wrap:wrap;margin-top:17px;color:#9aa6ad;font:700 11px Arial,sans-serif}
+.badge{padding:6px 9px;border:1px solid currentColor;border-radius:999px;text-transform:uppercase}
+.living{color:#78a6b8}
+.rule{height:1px;background:#29343e}
+.shell{display:grid;grid-template-columns:275px minmax(0,1fr);gap:22px;padding:26px 0 50px;align-items:start}
+.sidebar{position:sticky;top:10px}
+.toc{border:1px solid #34404b;background:#111820;max-height:82vh;overflow:auto}
+.toc-title{padding:13px 15px;color:#d8dfe2;font:800 11px Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase}
+.toc a{display:block;border-top:1px solid #29343e;padding:9px 13px;color:#aebbc2;text-decoration:none;font:13px/1.35 Arial,sans-serif}
+.toc a:hover{color:#f0c57e}
+.sidebar-note{margin-top:12px;border:1px solid #34404b;background:#111820;padding:13px;color:#94a0a7;font:13px/1.45 Arial,sans-serif}
+article{background:var(--paper);color:var(--ink);border:1px solid #b9ae9a;box-shadow:0 18px 42px rgba(0,0,0,.25);padding:26px 34px 40px;min-width:0}
+.backhome{display:inline-block;margin-bottom:18px;padding:8px 10px;border:1px solid #9e927e;color:#745322;text-decoration:none;font:800 10px Arial,sans-serif;text-transform:uppercase;letter-spacing:.08em}
+.company-identity{margin:0 0 28px;border:1px solid #b8ad98;background:linear-gradient(135deg,rgba(194,138,50,.08),transparent 48%),#f3eddf;overflow:hidden}
+.company-mark{padding:24px 26px 20px;border-bottom:1px solid var(--line);position:relative}
+.company-mark:after{content:"COMPANY PROFILE";position:absolute;right:22px;top:18px;color:#8c8272;font:700 9px Arial,sans-serif;letter-spacing:.16em}
+.legal{color:#746b5f;font:700 10px Arial,sans-serif;letter-spacing:.13em;text-transform:uppercase;margin-bottom:7px}
+.wordmark{font-size:clamp(34px,5vw,58px);line-height:.95;color:#122331}
+.wordmark span{display:block;margin-top:7px;color:#8a6429;font:700 13px Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase}
+.company-snapshot{display:grid;grid-template-columns:repeat(4,1fr)}
+.snapshot-cell{padding:17px 18px;border-right:1px solid var(--line)}
+.snapshot-cell:last-child{border-right:0}
+.snapshot-label{display:block;color:#786f63;font:700 9px Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;margin-bottom:5px}
+.snapshot-value{display:block;color:#1c2d37;font-size:19px;line-height:1.2}
+.snapshot-note{display:block;margin-top:5px;color:#6e726f;font:11px/1.35 Arial,sans-serif}
+.overview-box{padding:18px 20px;background:#f8f2e7;border:1px solid #d2c5af;margin:0 0 26px}
+.overview-box h2{margin-top:0!important}
+article h2{margin:38px 0 13px;color:#172a35;font-size:31px;border-bottom:2px solid #b57f31;padding-bottom:7px}
+article h2:first-of-type{margin-top:0}
+article h3{margin:27px 0 9px;color:#2b3a41;font-size:24px}
+article p{font-size:18px;line-height:1.7;margin:14px 0}
+article li{font-size:17px;line-height:1.6;margin:6px 0}
+article blockquote{margin:18px 0;padding:10px 17px;border-left:4px solid var(--gold);background:#f7f0e3;color:#465156}
+article table{width:100%;border-collapse:collapse;margin:18px 0;font:14px/1.45 Arial,sans-serif}
+article th,article td{border:1px solid #c8beab;padding:8px 9px;vertical-align:top}
+article th{background:#ddd3c1;color:#24323a;text-align:left}
+article code{font-size:.88em}
+.src-tag{display:inline-block;color:#76531e;font:700 10px Arial,sans-serif;white-space:nowrap}
+.public-note{margin:0 0 25px;padding:15px 17px;border-left:5px solid var(--green);background:#e7efe8;color:#33433a;font:15px/1.5 Arial,sans-serif}
+.footer{border-top:1px solid #29343e;background:#07090c}
+.footer-inner{width:min(calc(100% - 32px),var(--max));margin:auto;padding:21px 0 27px;display:flex;justify-content:space-between;align-items:flex-end;gap:20px;color:#7f8b92;font:12px Arial,sans-serif}
+.footer-inner strong{color:#d9dfe2;font-family:Georgia,serif;font-size:15px}
+.site-counter{text-align:right;font:800 9px Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#748089}
+.site-counter img{display:block;margin:5px 0 0 auto;border:1px solid #303944}
+@media(max-width:920px){
+ .shell{grid-template-columns:1fr} .sidebar{position:static} .toc{max-height:none}
+ .company-snapshot{grid-template-columns:1fr 1fr}
+ .snapshot-cell:nth-child(2){border-right:0}
+ .snapshot-cell{border-bottom:1px solid var(--line)}
+ .snapshot-cell:nth-child(3),.snapshot-cell:nth-child(4){border-bottom:0}
+}
+@media(max-width:600px){
+ .mast-inner{align-items:flex-start;flex-direction:column} .motto{text-align:left}
+ .company-snapshot{grid-template-columns:1fr} .snapshot-cell{border-right:0;border-bottom:1px solid var(--line)!important}
+ .snapshot-cell:last-child{border-bottom:0!important}
+ article{padding:20px 16px 28px} article p{font-size:17px} article h2{font-size:27px}
+ .footer-inner{align-items:flex-start;flex-direction:column} .site-counter{text-align:left} .site-counter img{margin-left:0}
+}
+
+
+.elcon-visuals{
+  margin:28px 0 34px;
+}
+.elcon-visuals h2{
+  margin-top:0;
+}
+.flyer-pair{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+  align-items:start;
+}
+.archive-figure{
+  margin:0;
+  padding:10px;
+  border:1px solid #b8ad98;
+  background:#f8f3e8;
+}
+.archive-figure img{
+  width:100%;
+  height:auto;
+  display:block;
+  border:1px solid #c8beab;
+  background:#e9dfce;
+}
+.archive-figure figcaption{
+  padding:9px 4px 2px;
+  color:#5e6668;
+  font:12px/1.5 Arial,Helvetica,sans-serif;
+}
+.rights-hold{
+  margin:24px 0;
+  padding:15px 17px;
+  border:1px dashed #b69d72;
+  background:#f7efe1;
+  color:#5b554c;
+  font:13px/1.55 Arial,Helvetica,sans-serif;
+}
+.rights-hold strong{
+  color:#65471e;
+}
+@media(max-width:700px){
+  .flyer-pair{grid-template-columns:1fr}
+}
+
+
+
+
+/* ELCON PUBLICATION VISUALS */
+.visual-section{
+  margin:20px 0 32px;
+}
+.visual-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+  margin:18px 0 24px;
+  align-items:start;
+}
+.visual-grid.brochure{
+  grid-template-columns:1fr 1fr;
+}
+.archive-figure{
+  margin:0;
+  padding:10px;
+  border:1px solid #b8ad98;
+  background:#f8f3e8;
+}
+.archive-figure img{
+  width:100%;
+  height:auto;
+  display:block;
+  border:1px solid #c8beab;
+  background:#e9dfce;
+}
+.archive-figure figcaption{
+  padding:9px 4px 2px;
+  color:#5e6668;
+  font:12px/1.5 Arial,Helvetica,sans-serif;
+}
+.visual-note{
+  margin:18px 0;
+  padding:14px 16px;
+  border-left:4px solid #b57f31;
+  background:#f7efe1;
+  color:#5b554c;
+  font:13px/1.55 Arial,Helvetica,sans-serif;
+}
+@media(max-width:760px){
+  .visual-grid,.visual-grid.brochure{grid-template-columns:1fr}
+}
+
+
+
+
+/* CONTEXTUAL ARCHIVAL FIGURES */
+.inline-archive-figure{
+  margin:22px auto 27px;
+  max-width:780px;
+  padding:10px;
+  border:1px solid #b8ad98;
+  background:#f8f3e8;
+  box-shadow:0 8px 18px rgba(64,52,34,.08);
+}
+.inline-archive-figure.narrow{max-width:560px}
+.inline-archive-figure img{
+  width:100%;
+  height:auto;
+  display:block;
+  border:1px solid #c8beab;
+  background:#e9dfce;
+}
+.inline-archive-figure figcaption{
+  padding:9px 4px 2px;
+  color:#5e6668;
+  font:12px/1.55 Arial,Helvetica,sans-serif;
+}
+.inline-archive-figure figcaption strong{color:#334047}
+.derivative-note{
+  display:inline-block;
+  margin-left:5px;
+  padding:2px 5px;
+  border:1px solid #b89a66;
+  color:#76531e;
+  font:700 8px Arial,Helvetica,sans-serif;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.context-note{
+  margin:18px 0 22px;
+  padding:13px 15px;
+  border-left:4px solid #b57f31;
+  background:#f7efe1;
+  color:#5b554c;
+  font:13px/1.55 Arial,Helvetica,sans-serif;
+}
+
+
+
+
+
+
+/* Reader-facing source and table containment */
+article a, .source-list a, .footnotes a { overflow-wrap:anywhere; }
+.research-questions{display:grid;gap:12px;margin:18px 0 24px}.research-question{padding:16px 18px;border:1px solid rgba(181,127,49,.35);background:rgba(181,127,49,.055)}.research-question h4{margin:0 0 7px;color:#2b3a41;font-size:20px}.research-question p{margin:0 0 10px;font-size:16px}.question-action{display:inline-block;color:#76531e;text-decoration:none;font:700 11px Arial,sans-serif;letter-spacing:.06em;text-transform:uppercase}.question-action:hover,.question-action:focus-visible{text-decoration:underline}
+.table-scroll {max-width:100%;overflow-x:auto;}
+.table-scroll:focus-visible {outline:2px solid #d7b56d;outline-offset:3px;}
+
+
+
+
+/* Exact shared company-profile presentation: Elcon is the house pattern. */
+.company-identity.company-profile-standard{
+  margin:0 0 28px!important;
+  padding:0!important;
+  border:1px solid #b8ad98!important;
+  border-radius:0!important;
+  background:linear-gradient(135deg,rgba(194,138,50,.08),transparent 48%),#f3eddf!important;
+  color:#20272c!important;
+  box-shadow:none!important;
+  overflow:hidden!important;
+  font-family:Georgia,"Times New Roman",serif!important;
+  font-size:16px!important;
+  line-height:normal!important;
+}
+.company-profile-standard .company-mark{
+  display:block!important;
+  position:relative!important;
+  padding:24px 26px 20px!important;
+  border:0!important;
+  border-bottom:1px solid #c8beab!important;
+  border-radius:0!important;
+  background:transparent!important;
+  color:#232b30!important;
+  font:400 16px/normal Georgia,"Times New Roman",serif!important;
+}
+.company-profile-standard .company-mark:after{
+  content:"COMPANY PROFILE"!important;
+  position:absolute!important;
+  right:22px!important;
+  top:18px!important;
+  display:block!important;
+  margin:0!important;
+  color:#8c8272!important;
+  font:700 9px/normal Arial,Helvetica,sans-serif!important;
+  letter-spacing:.16em!important;
+  text-transform:uppercase!important;
+}
+.company-profile-standard .legal{
+  display:block!important;
+  margin:0 0 7px!important;
+  padding:0!important;
+  color:#746b5f!important;
+  font:700 10px/11px Arial,Helvetica,sans-serif!important;
+  letter-spacing:.13em!important;
+  text-transform:uppercase!important;
+}
+.company-profile-standard .wordmark{
+  display:block!important;
+  margin:0!important;
+  padding:0!important;
+  color:#122331!important;
+  font:400 clamp(34px,5vw,58px)/.95 Georgia,"Times New Roman",serif!important;
+  letter-spacing:0!important;
+  text-transform:none!important;
+}
+.company-profile-standard .wordmark span{
+  display:block!important;
+  margin:7px 0 0!important;
+  padding:0!important;
+  color:#8a6429!important;
+  font:700 13px/normal Arial,Helvetica,sans-serif!important;
+  letter-spacing:.16em!important;
+  text-transform:uppercase!important;
+}
+.company-profile-standard .company-snapshot{
+  display:grid!important;
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  margin:0!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  color:#232b30!important;
+  font:400 16px/normal Georgia,"Times New Roman",serif!important;
+}
+.company-profile-standard .snapshot-cell{
+  display:block!important;
+  min-width:0!important;
+  margin:0!important;
+  padding:17px 18px!important;
+  border:0!important;
+  border-right:1px solid #c8beab!important;
+  border-radius:0!important;
+  background:transparent!important;
+  color:#232b30!important;
+  font:400 16px/normal Georgia,"Times New Roman",serif!important;
+}
+.company-profile-standard .snapshot-cell:last-child{border-right:0!important}
+.company-profile-standard .snapshot-label{
+  display:block!important;
+  margin:0 0 5px!important;
+  padding:0!important;
+  color:#786f63!important;
+  font:700 9px/10px Arial,Helvetica,sans-serif!important;
+  letter-spacing:.12em!important;
+  text-transform:uppercase!important;
+}
+.company-profile-standard .snapshot-value{
+  display:block!important;
+  margin:0!important;
+  padding:0!important;
+  color:#1c2d37!important;
+  font:400 19px/22.8px Georgia,"Times New Roman",serif!important;
+}
+.company-profile-standard .snapshot-note{
+  display:block!important;
+  margin:5px 0 0!important;
+  padding:0!important;
+  color:#6e726f!important;
+  font:400 11px/14.85px Arial,Helvetica,sans-serif!important;
+}
+.hero .meta{
+  display:flex!important;
+  flex-direction:row!important;
+  flex-wrap:wrap!important;
+  align-items:center!important;
+  gap:10px!important;
+  margin:15px 0 0!important;
+  padding:0!important;
+}
+.hero .meta .badge,
+.hero .meta .updated{
+  display:inline-block!important;
+  position:static!important;
+  margin:0!important;
+  inset:auto!important;
+}
+.hero .meta .badge{
+  padding:6px 9px!important;
+  border:1px solid #78a6b8!important;
+  border-radius:999px!important;
+  background:transparent!important;
+  color:#9fc7d6!important;
+  font:700 11px/normal Arial,Helvetica,sans-serif!important;
+  letter-spacing:0!important;
+  text-transform:uppercase!important;
+}
+.hero .meta .updated{
+  padding:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  color:#9aa6ad!important;
+  font:700 11px/normal Arial,Helvetica,sans-serif!important;
+  letter-spacing:0!important;
+  text-transform:none!important;
+}
+@media(max-width:920px){
+  .company-profile-standard .company-snapshot{grid-template-columns:1fr 1fr!important}
+  .company-profile-standard .snapshot-cell{border-right:1px solid #c8beab!important;border-bottom:1px solid #c8beab!important}
+  .company-profile-standard .snapshot-cell:nth-child(2){border-right:0!important}
+  .company-profile-standard .snapshot-cell:nth-child(3),
+  .company-profile-standard .snapshot-cell:nth-child(4){border-bottom:0!important}
+  .company-profile-standard .snapshot-cell:last-child{border-right:0!important}
+}
+@media(max-width:600px){
+  .company-profile-standard .company-mark{
+    display:flex!important;
+    flex-direction:column!important;
+    padding:20px 18px 17px!important;
+  }
+  .company-profile-standard .company-mark:after{
+    position:static!important;
+    order:-1!important;
+    display:block!important;
+    margin:0 0 9px!important;
+  }
+  .company-profile-standard .wordmark{font-size:34px!important;overflow-wrap:anywhere!important}
+  .company-profile-standard .company-snapshot{grid-template-columns:1fr!important}
+  .company-profile-standard .snapshot-cell{
+    border-right:0!important;
+    border-bottom:1px solid #c8beab!important;
+  }
+  .company-profile-standard .snapshot-cell:nth-child(3){border-bottom:1px solid #c8beab!important}
+  .company-profile-standard .snapshot-cell:last-child{border-bottom:0!important}
+}
+
+
+
+
+.asb-return-navigation{width:min(calc(100% - 32px),1180px);margin:16px auto;display:flex;gap:10px;flex-wrap:wrap;font:700 13px/1.4 Arial,Helvetica,sans-serif}
+.asb-return-navigation a{display:inline-block;padding:10px 14px;border:1px solid #9c7c45;border-radius:4px;background:#17222c;color:#f0c77b;text-decoration:none}
+.asb-return-navigation a:hover{background:#263744;color:#fff}.asb-return-navigation a:focus-visible{outline:3px solid #f0c77b;outline-offset:3px}
+.hero .meta .research-status{display:inline!important;border:0!important;border-radius:0!important;padding:0!important;background:none!important;color:#b9c4ca!important;font:700 12px/1.5 Arial,Helvetica,sans-serif!important;text-transform:none!important;cursor:default!important}
+
+
+
+
+/* Explicit donor typography prevents legacy page shorthands leaking into the masthead. */
+.mast .brand{font:700 26px/normal Georgia,"Times New Roman",serif;letter-spacing:normal;text-transform:none}
+.mast .brand a{color:#f0ece4;text-decoration:none;letter-spacing:normal;text-transform:none}
+.hero h1{font-family:Georgia,"Times New Roman",serif;font-weight:700;letter-spacing:normal;text-transform:none}
+
+
+.article img{max-width:100%;height:auto}
+.mast .motto{display:block}
+</style>
+<script defer="" src="assets/asb-counts.js"></script>
+<link href="site-search.css?v=nav-3" rel="stylesheet"/>
+<meta content="A source-based history of Seatongrove, the British conversion-game developer behind Hero in the Castle of Doom, Hunchback Olympic, Eight Ball Action and Shooting Gallery." name="description"/><link href="https://arcadesideb.com/seatongrove.html" rel="canonical"/><meta content="Seatongrove | Arcade Side B" property="og:title"/><meta content="Seatongrove and the British-American arcade conversion market of 1984–1985." property="og:description"/><meta content="https://arcadesideb.com/seatongrove.html" property="og:url"/><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Seatongrove: The Company Hidden Inside the Conversion Market","mainEntityOfPage":"https://arcadesideb.com/seatongrove.html","dateModified":"2026-11-19"}</script><style id="seatongrove-article-guards">article p,article li,article figcaption{overflow-wrap:anywhere}article figure img{max-width:100%;height:auto}.seat-figure{margin:22px auto 27px;max-width:780px;padding:10px;border:1px solid #b8ad98;background:#f8f3e8}.seat-figure img{display:block;width:100%;height:auto;object-fit:contain;border:1px solid #c8beab}.seat-figure figcaption{font:12px/1.55 Arial,sans-serif;color:#5e6668;margin-top:9px}.seat-figure a{display:block}.table-scroll{max-width:100%;overflow-x:auto}</style></head>
+<body>
+<div aria-label="Arcade Side B site navigation and search" class="asb-global-search">
+<div class="asb-global-inner">
+<a class="asb-global-brand" href="index.html">Arcade Side B</a>
+<nav aria-label="Archive indexes" class="asb-global-links">
+<a href="companies.html">Companies</a><a href="games.html">Games</a><a href="people.html">People</a>
+</nav>
+<form action="search.html" class="asb-global-form" method="get" role="search">
+<label class="asb-sr-only" for="asb-global-search-input">Search Arcade Side B</label>
+<input autocomplete="off" id="asb-global-search-input" name="q" placeholder="Search Arcade Side B…" type="search"/><button type="submit">Search</button>
+</form>
+</div>
+</div><header class="mast">
+<div class="mast-inner">
+<div class="brand"><a href="https://arcadesideb.com/" style="color:inherit;text-decoration:none" target="_parent">Arcade Side B</a></div>
+<div class="motto">Preserve what others overlooked. Follow the evidence. Keep the record open.</div>
+</div>
+</header><nav aria-label="Return navigation" class="asb-return-navigation"><a href="index.html">← Back to Arcade Side B</a><a href="companies.html">← Back to Companies</a></nav>
+<div class="crumb">Arcade Side B › Companies › Seatongrove</div>
+<section class="hero">
+<div class="eyebrow">Company history</div>
+<h1>Seatongrove</h1>
+<p class="deck">The British developer hidden inside the 1984–1985 arcade conversion market: four original/development game families, a licensed fifth, and a web of commercial relationships from Crown Vending to Zaccaria, Magic and Shinkai.</p>
+<div class="meta"><span class="research-status">Research status: open to new evidence</span> <span class="updated">Last updated: November 19, 2026</span></div>
+</section>
+<div class="rule"></div><div class="shell">
+<aside class="sidebar">
+<nav aria-label="Elcon Industries article contents" class="toc"><div class="toc-title">On this page</div><a href="#a-company-that-survived-more-clearly-in-its-games-than-in-its-paperwork">A company that survived more clearly in its games than in its paperwork</a><a href="#century-electronics-cvs-and-the-technical-world-seatongrove-inherited">Century Electronics, CVS, and the technical world Seatongrove inherited</a><a href="#1984-seatongrove-becomes-visible-as-its-own-game-identity">1984: Seatongrove becomes visible as its own game identity</a><a href="#hero-in-the-castle-of-doom-crown-and-the-old-century-route">Hero in the Castle of Doom: Crown and the old Century route</a><a href="#shooting-gallery-the-clearest-physical-evidence-that-seatongrove-engineered-hardware">Shooting Gallery: the clearest physical evidence that Seatongrove engineered hardware</a><a href="#hunchback-olympic-and-h-b-s-olympics-from-century-game-family-to-rhode-island-conver">Hunchback Olympic and H.B.'s Olympics: from Century game family to Rhode Island conversion business</a><a href="#eight-ball-action-seatongrove-s-best-documented-conversion-campaign">Eight Ball Action: Seatongrove's best-documented conversion campaign</a><a href="#why-these-conversion-kits-made-economic-sense-in-1984-1985">Why these conversion kits made economic sense in 1984–1985</a><a href="#driving-force-seatongrove-as-a-licensee-rather-than-the-originator">Driving Force: Seatongrove as a licensee rather than the originator</a><a href="#beyond-coin-op-hunchback-at-the-olympics-reaches-the-commodore-64">Beyond coin-op: Hunchback at the Olympics reaches the Commodore 64</a><a href="#commercial-performance-without-mythology">Commercial performance without mythology</a><a href="#what-seatongrove-was">What Seatongrove was</a><a href="#what-the-evidence-still-does-not-permit-us-to-say">What the evidence still does not permit us to say</a><a href="#why-seatongrove-disappeared-from-the-usual-arcade-narrative">Why Seatongrove disappeared from the usual arcade narrative</a><a href="#complete-arcade-family-register">Complete arcade-family register</a><a href="#1-hero-in-the-castle-of-doom">1. Hero in the Castle of Doom</a><a href="#2-hunchback-olympic-herbie-at-the-olympics-h-b-s-olympics">2. Hunchback Olympic / Herbie at the Olympics / H.B.'s Olympics</a><a href="#3-eight-ball-action">3. Eight Ball Action</a><a href="#4-shooting-gallery">4. Shooting Gallery</a><a href="#5-driving-force">5. Driving Force</a><a href="#unresolved-and-controlled-findings">Unresolved and controlled findings</a><a href="#source-anchors-used-in-this-working-master">Source anchors used in this working master</a><a href="#project-held-artifact-anchors">Project-held artifact anchors</a></nav>
+<div class="sidebar-note">British arcade game development, licensing and conversion partnerships in the mid-1980s; not a conventional dedicated-cabinet manufacturer.</div>
+</aside>
+<article><a class="backhome" href="companies.html">← Back to Companies</a><section aria-label="Seatongrove company profile" class="company-identity company-profile-standard"><div class="company-mark"><div class="legal">Seatongrove Ltd. / Seatongrove UK, Ltd.</div><div class="wordmark">Seatongrove<span>United Kingdom</span></div></div><div class="company-snapshot"><div class="snapshot-cell"><span class="snapshot-label">Start</span><span class="snapshot-value">1984</span><span class="snapshot-note">Earliest safely confirmed arcade activity; legal incorporation unresolved.</span></div><div class="snapshot-cell"><span class="snapshot-label">End</span><span class="snapshot-value">1985</span><span class="snapshot-note">Latest safely confirmed arcade activity; legal dissolution unresolved.</span></div><div class="snapshot-cell"><span class="snapshot-label">Arcade Output</span><span class="snapshot-value">4 original families</span><span class="snapshot-note">5 associated families including Shinkai-origin licensed/regional Driving Force.</span></div><div class="snapshot-cell"><span class="snapshot-label">Company Role</span><span class="snapshot-value">Development + licensing</span><span class="snapshot-note">Engineering, conversion software, commercial and territorial licensing.</span></div></div></section><div class="public-note"><strong>About the evidence:</strong> The historical record distinguishes Seatongrove engineering from the distributors, licensees and cabinet makers that sold its games. Company formation, dissolution and exact Century relationship remain unresolved.</div><h2 id="a-company-that-survived-more-clearly-in-its-games-than-in-its-paperwork">A company that survived more clearly in its games than in its paperwork</h2>
+<p>Seatongrove is one of those arcade companies that becomes harder to see the closer one looks for a conventional corporate history. Its name survives in software copyright screens, preservation records, conversion hardware, licensing notices, and a small number of period advertisements, yet the games were rarely sold to operators through a single obvious Seatongrove-branded channel. Instead, different titles moved through different manufacturers, licensees, distributors, and regional partners. Crown Vending appears with <em>Hero in the Castle of Doom</em>. Zaccaria and its American channel Bhuzac appear with <em>Shooting Gallery</em>. Magic Electronics and Montgomery Vending dominate the United States story of <em>H.B.'s Olympics</em> and <em>Eight Ball Action</em>. Shinkai appears on the other side of the licensing equation with <em>Driving Force</em>.</p>
+<p>That fragmented commercial record explains why later summaries have so often blurred the roles together. A modern database may call one company the manufacturer, another the publisher, and another the developer without making clear whether those labels come from a title screen, a flyer, a board marking, or a later preservation convention. Seatongrove cannot be understood accurately by flattening all of those roles into one corporate identity. The evidence is strongest when the roles are separated: development and engineering, copyright and licensing, manufacturing, distribution, installation, and regional sales.</p>
+<p>The surviving record points to a small British operation that was technically close to the Century Electronics/CVS world, capable of creating or adapting games for conversion hardware and then moving those games through better-positioned commercial partners. It was not Atari or Williams. It did not leave a large branded cabinet line or an easily reconstructed corporate paper trail. Its historical importance lies instead in the connective work: adapting games, reusing existing hardware, moving intellectual property across territories, and helping operators squeeze new earning life from cabinets that had already begun to age.</p>
+<p>That is also why Seatongrove belongs in arcade history. The company sits inside a transitional economy that mattered enormously in 1984 and 1985, when new dedicated machines could be expensive and operators were sitting on large installed bases of <em>Donkey Kong</em>, <em>Donkey Kong Jr.</em>, <em>Pac-Man</em>, <em>Galaxian</em>, <em>Scramble</em>, and related cabinets. Conversion kits let smaller developers and distributors sell a new earning proposition without asking the operator to buy an entirely new machine. Seatongrove's games are a particularly clear window into that business.</p>
+<h2 id="century-electronics-cvs-and-the-technical-world-seatongrove-inherited">Century Electronics, CVS, and the technical world Seatongrove inherited</h2>
+<p>The Seatongrove story does not begin cleanly with a corporate announcement or a launch advertisement. Its technical background is the Century Electronics Convertible Video System, or CVS, and the wider conversion culture that grew around Century's games. CVS was designed around the idea that an operator could reuse a common hardware platform and swap game material rather than purchase a dedicated cabinet every time. That philosophy became increasingly valuable as the early-1980s video boom cooled and operators became more cautious about capital spending.</p>
+<p>A particularly important bridge appears in Crown Vending's 1983 advertising for PLAYPAK. The advertisement described the success of <em>Hunchback</em> on Century's CVS and said demand had developed for a version that would work on Galaxian/Scramble-type boards. The wording is unusually direct: Century Electronics had developed PLAYPAK, while Crown Vending was selling it in the United States. [S01] That establishes a real Century-to-Crown conversion channel before Seatongrove's <em>Hero in the Castle of Doom</em> appeared in Crown's 1984 lineup.</p>
+<p>That earlier arrangement matters because it changes how Crown's later involvement should be read. Crown was not simply a random distributor that happened to pick up one obscure Seatongrove title. It had already been selling Century-derived conversion technology. When <em>Hero</em> appeared through Crown, it entered a route to market that was already familiar with Century hardware and the idea of turning existing boards and cabinets into new games.</p>
+<p>Modern MAME documentation adds an important technical layer, though it must be used carefully. The current Donkey Kong driver groups the S2650-based conversions for <em>Herbie at the Olympics</em>, <em>Hero in the Castle of Doom</em>, <em>Eight Ball Action</em>, and <em>Shooting Gallery</em> in a coherent family with shared protection and conversion logic. [S02] This does not prove a legal relationship between Century and Seatongrove, but it does show that the surviving software and hardware are not merely four unrelated games that later historians happened to associate with the same company.</p>
+<p>The technical continuity is strongest where physical hardware survives. <em>Shooting Gallery</em>, discussed below, contains a Seatongrove-marked gun-interface board while retaining a Century speech/sound board. That is about as literal a picture of technological inheritance as one could ask for: new Seatongrove engineering operating alongside older Century technology in the same machine.</p>
+<p>What the evidence does <strong>not</strong> establish is just as important. No recovered contract or corporate filing currently proves that Seatongrove was a Century subsidiary, a successor company, a purchased development group, a trade name, or Century under another legal identity. The exact mechanism is still unresolved. In this project it remains UQ-008, and publication should not hide that uncertainty merely because a clean corporate lineage would make a simpler story.</p>
+<h2 id="1984-seatongrove-becomes-visible-as-its-own-game-identity">1984: Seatongrove becomes visible as its own game identity</h2>
+<p>By 1984, Seatongrove is no longer merely an inference from a technical lineage. The name is attached directly to game families and licensing arrangements. The strongest publication-safe interpretation is that Seatongrove occupied the development, engineering, copyright, and licensing layer, while other companies often handled manufacturing, sales, and territory-specific distribution.</p>
+<p>Four arcade families presently qualify as Seatongrove original/development families. They are <em>Hero in the Castle of Doom</em>, the <em>Hunchback Olympic / Herbie at the Olympics</em> family, <em>Eight Ball Action</em>, and <em>Shooting Gallery</em>. A fifth family, Shinkai's <em>Driving Force</em>, is materially associated with Seatongrove because 1985 regional variants carry Seatongrove licensing/copyright evidence, but it should not be counted as a Seatongrove original.</p>
+<p>The four core games are also revealing because they are not variations on one business arrangement. Each title illuminates a different part of Seatongrove's network.</p>
+<h2 id="hero-in-the-castle-of-doom-crown-and-the-old-century-route">Hero in the Castle of Doom: Crown and the old Century route</h2>
+<p><em>Hero in the Castle of Doom</em> is a maze/adventure conversion in which the player moves through dangerous screens collecting card-suit symbols and later a letter needed for progression while avoiding hazards such as fireballs and arrows on the way toward rescuing Esmeralda. Preservation records describe the underlying <em>Hero</em> as a Century CVS title and the Castle of Doom version as the Crown conversion form, with Seatongrove credited in the development lineage. [S03]</p>
+<p>The game's commercial route makes sense in light of the PLAYPAK relationship already established between Century and Crown. In the run-up to the 1984 AMOA show, <em>Play Meter</em> reported that Crown would exhibit <em>Superbike</em> and a new Donkey Kong/Donkey Kong Jr. conversion called <em>Hero in the Castle of Doom</em>, identifying it as an adventure game. [S04] This is important because it places <em>Hero</em> in Crown's active show lineup, not merely in later preservation data.</p>
+<p>Crown's December 1984 copyright-enforcement notice provides even stronger evidence that the product had moved beyond prototype status. Crown offered a $2,500 reward for information leading to conviction of people dealing in unauthorized <em>Hero in the Castle of Doom</em> boards or components, and it directed operators to Crown for information about authorized distributors. [S05] The prosecution and enforcement language should be reported as Crown's own contemporary assertion unless independently corroborated, but the notice itself leaves little doubt that Crown regarded <em>Hero</em> as a commercial property worth protecting.</p>
+<p>Dealer advertising shows a continuing market into 1985. On March 1, Alpha-Omega Sales listed the <em>Hero</em> conversion kit at $319 alongside other current kits. [S06] A month later, Video Connection listed <em>Hero in the Castle of Doom</em> at $245. [S07] Falling dealer prices do not tell us unit sales, but they do demonstrate an ongoing commercial tail: operators could still buy the kit months after its AMOA-era introduction.</p>
+<p>The strongest direct national-performance evidence comes later. In the July 1, 1985 consolidated National Play Meter poll, <em>Hero in the Castle of Doom</em> appears at number 48 under Crown. [S08] A number-48 ranking is not evidence of a major hit. It is evidence that the game remained visible enough to register nationally well into 1985.</p>
+<p>One correction is important enough to preserve explicitly. A later secondary history claimed that <em>Hero</em> debuted at number one on <em>Play Meter</em>'s February 15, 1985 conversion/street chart. Direct inspection of that issue contradicts the claim: Pole Position II is number one, and <em>Hero</em> is not listed on that conversion/street chart. The number-one claim is therefore withdrawn unless a different primary chart or date is eventually found that explains the discrepancy. This is not a minor editorial change. It is exactly the kind of inherited arcade-history claim that becomes “fact” through repetition unless the underlying trade page is checked.</p>
+<p>The publication-safe conclusion is modest but solid: <em>Hero in the Castle of Doom</em> was a real Seatongrove-associated conversion product commercialized through Crown's already-established Century conversion channel, actively promoted and protected in late 1984, still sold by dealers in 1985, and nationally visible later that summer.</p>
+<h2 id="shooting-gallery-the-clearest-physical-evidence-that-seatongrove-engineered-hardware">Shooting Gallery: the clearest physical evidence that Seatongrove engineered hardware</h2>
+<p>If <em>Hero</em> is the clearest bridge into Crown's commercial network, <em>Shooting Gallery</em> is the strongest surviving proof that Seatongrove's role was not limited to attaching a name to software.</p>
+<p>The game itself is a one-player light-gun shooter built around an amusement-gallery concept. Modern preservation records identify the horizontal-screen machine as a 1984 Zaccaria release and credit Seatongrove with the design. [S09] Its significance for this project, however, lies less in the genre description than in the documented board inventory of surviving hardware.</p>
+<p>MAME's current source notes describe an original machine as “Shooting Gallery by SEATON GROVE/ZACCARIA (1984).” More importantly, the inventory identifies a dedicated <strong>Gun Interface PCB</strong> marked “(C) Seatongrove (1984).” In the same hardware stack is a <strong>Century Speech/Sound PCB, model 500-38 Issue 3</strong>, dated 1981. [S02]</p>
+<p>That combination is unusually powerful evidence. The Seatongrove copyright marking is on a functional interface board specific to the gun game. It materially strengthens the conclusion that Seatongrove did genuine engineering work on <em>Shooting Gallery</em>. At the same time, the presence of a Century audio board shows the project reusing an earlier Century technology base. The two boards together are evidence of continuity in engineering practice, not proof of legal corporate succession.</p>
+<p>The commercial path is also better documented than it first appeared. <em>Cash Box</em> equipment lists place <em>Shooting Gallery (6/84)</em> under Zaccaria/Bhuzac during 1984, giving the game a June 1984 dating in the U.S. trade record. [S10] A July 1984 <em>Cash Box</em> report described <em>Shooting Gallery</em> as the latest addition to the Zaccaria/Bhuzac video-game roster and said it was nearly ready for delivery. Later AMOA coverage photographed Bhuzac president Satish Bhutani with Zaccaria's newly introduced <em>Shooting Gallery</em>. [S11]</p>
+<p>This allows the roles to be stated with considerably more precision than a generic “published by Zaccaria” label. Seatongrove is supported as the development/engineering identity. Zaccaria is the licensing/manufacturing identity attached to the game. Bhuzac is the verified American commercial channel for Zaccaria's product in the United States. Nothing in that chain proves that any of those companies owned Seatongrove.</p>
+<p>For the larger Seatongrove history, <em>Shooting Gallery</em> matters because it gives the company a physical engineering fingerprint. The tiny British name that can otherwise seem almost ghostlike in the corporate record is literally printed on a piece of hardware that had to translate the player's gun input into the game system. It is difficult to reconcile that artifact with an interpretation of Seatongrove as a mere paper licensor.</p>
+<h2 id="hunchback-olympic-and-h-b-s-olympics-from-century-game-family-to-rhode-island-conver">Hunchback Olympic and H.B.'s Olympics: from Century game family to Rhode Island conversion business</h2>
+<p>The <em>Hunchback Olympic</em> family connects Seatongrove most directly to Century's game lineage while also showing how the American commercial structure changed.</p>
+<p>The Century CVS version is an athletics game built around the Hunchback character. Preservation records describe events including high jump, javelin, discus, hurdles, and shot put, while the surviving hardware configurations use joystick/button controls. [S12] The game was also adapted into conversion forms, including the Donkey Kong conversion known as <em>Herbie at the Olympics</em> or marketed in the United States as <em>H.B.'s Olympics</em>.</p>
+<p>This title is where Magic Electronics and Montgomery Vending become central. The distinction between the two companies matters. Contemporary material identifies <strong>Magic Electronics</strong> as the manufacturer, while <strong>Montgomery Vending</strong> handled much of the sales-facing operation: promotion, distribution, installation, dealer support, guarantees, and direct contact with operators. Trade-show directories list Magic and Montgomery separately even when they share the same Providence-area address and telephone details. That is very strong evidence of close operational linkage, but not proof that they were legally one company.</p>
+<p>A November 1984 <em>Play Meter</em> report identified Magic Electronics as the U.S. manufacturer of <em>H.B.'s Olympics</em> and described Montgomery's sales/support program, including a seven-day cash guarantee, dealer network, free installation/testing, and direct installer dispatch. The kit was priced at $375. The article quoted Montgomery general manager Peter Grant. The surviving December 1 advertisement reinforces that commercial model. It offered <em>H.B.'s Olympics</em> at $375 and described versions for Donkey Kong, Donkey Kong Jr., Scramble, and the CVS system, while also mentioning table and cabaret forms. The kit pitch emphasized that no soldering or wiring was required. [S13]</p>
+<p>The chart record is stronger than one might expect for such an obscure title. <em>H.B.'s Olympics</em> first appears in the project's directly verified <em>Play Meter</em> street-conversion sequence at number 18 on October 15, 1984. It rose to number 12 on December 1, slipped to number 16 on December 31, moved to number 14 on January 15, returned to number 12 on February 15, and then reached <strong>number 5</strong> on March 1, 1985. [S14]</p>
+<p>That sequence is important because it argues against two opposite exaggerations. The game was not a forgotten failure that vanished on contact with the market. Six chart appearances and a late peak at number five show real operator traction. But the evidence also does not justify calling it a national blockbuster. It was a minor commercial success in the conversion category, precisely the kind of product that could matter to small operators without becoming a famous arcade landmark.</p>
+<p>The route also shows why Seatongrove has been difficult to trace historically. An operator reading American trade press could easily have understood <em>H.B.'s Olympics</em> primarily as a Magic/Montgomery product. Seatongrove's role lived deeper in the development and licensing layer, behind the companies that actually answered the phone, shipped the kit, installed it, and promised the refund.</p>
+<h2 id="eight-ball-action-seatongrove-s-best-documented-conversion-campaign">Eight Ball Action: Seatongrove's best-documented conversion campaign</h2><figure class="seat-figure"><a href="images/seatongrove/IMG004_EIGHT_BALL_ACTION_MONTGOMERY_DISTRIBUTOR_FLYER_USER.webp" rel="noopener" target="_blank"><img alt="Period Eight Ball Action sales sheet showing Magic as manufacturer and Montgomery Vending as distributor; the Atlas Music testimonial is a claim in the ad, not independently audited." decoding="async" loading="lazy" src="images/seatongrove/IMG004_EIGHT_BALL_ACTION_MONTGOMERY_DISTRIBUTOR_FLYER_USER.webp"/></a><figcaption>Period Eight Ball Action sales sheet showing Magic as manufacturer and Montgomery Vending as distributor; the Atlas Music testimonial is a claim in the ad, not independently audited. Source: project-held user-supplied Seatongrove handoff; provenance in image inventory.</figcaption></figure>
+<p>No Seatongrove-associated title is documented as richly as <em>Eight Ball Action</em>. It survives through software copyright wording, multiple conversion sets, sales flyers, installation material, dealer listings, operator testimony, chart appearances, and a visible manufacturer/distributor network.</p>
+<h3 id="the-game-and-its-conversion-forms">The game and its conversion forms</h3>
+<p><em>Eight Ball Action</em> is an arcade pool game. The preserved conversion family includes Donkey Kong, Donkey Kong Jr., and later Pac-Man forms. Modern MAME records the Donkey Kong and Donkey Kong Jr. conversions as 1984 sets and the Pac-Man conversion as a 1985 set. [S15] The game is played as a quick coin-op interpretation of billiards rather than a slow simulation, with the commercial advertising emphasizing aggressive, competitive play and direct comparison with dedicated pool-themed machines.</p>
+<p>The most important attribution evidence is not modern. A surviving title screen directly reads <strong>“© SEATONGROVE 1984”</strong> and <strong>“LICENCED TO MAGIC ELECTRONICS USA.”</strong> That means the U.S. Magic license no longer needs to rest solely on a MAME manufacturer field. The software artifact itself preserves the relationship.</p>
+<p>The sales flyer likewise names <strong>Magic Electronics</strong> as <strong>MANUFACTURER</strong>, giving its address as 1391 Park Avenue, Cranston, Rhode Island 02920. [A01] That is unusually clear role evidence: Seatongrove appears in the copyright/license layer; Magic appears as the American manufacturer.</p>
+<h3 id="the-flyer-that-turns-a-repeated-database-anecdote-into-an-actual-artifact">The flyer that turns a repeated database anecdote into an actual artifact</h3><figure class="seat-figure"><a href="images/seatongrove/IMG002_EIGHT_BALL_ACTION_MAGIC_FLYER_ATLAS_TESTIMONY_USER.png" rel="noopener" target="_blank"><img alt="Modern 3D presentation incorporating the Eight Ball Action flyer. The surrounding cabinet-style mockup is not an original 1984 photograph." decoding="async" loading="lazy" src="images/seatongrove/IMG002_EIGHT_BALL_ACTION_MAGIC_FLYER_ATLAS_TESTIMONY_USER.png"/></a><figcaption>Modern 3D presentation incorporating the Eight Ball Action flyer. The surrounding cabinet-style mockup is not an original 1984 photograph. Source: project-held user-supplied Seatongrove handoff; provenance in image inventory.</figcaption></figure>
+<p>The same flyer is one of the most useful objects recovered during this project. Preservation databases had long repeated a claim that Atlas Music Company of Providence tested two <em>Eight Ball Action</em> machines and then expanded to 25 on location. Because that story was usually encountered through later database text, it initially had to be treated as a strong lead rather than a primary source.</p>
+<p>The user-supplied flyer resolves that problem. The “PROOF” box states that Atlas Music Company of Providence tested two games of <em>8-Ball Action</em> and “now have 25 on location.” It attributes a favorable comment to “Louie, the buyer at Atlas,” praising the game's performance, realism, ability to compete with regular pool tables, and apparent longevity. [A01]</p>
+<p>The claim remains advertising testimony. There is no independent route book or Atlas accounting record proving exactly 25 placements. But the historical status has changed: we can now say with confidence that <strong>Magic's contemporary advertising made the 2-to-25 Atlas claim</strong>, rather than saying only that later preservation sites repeated it.</p>
+<p>The flyer also captures the economics of the pitch. Operators were urged to “save” old Donkey Kong and Donkey Kong Jr. games and make them earn again. The conversion was advertised as requiring no wiring or soldering, Pac-Man conversions were said to be available, and the product was compared against the much more expensive <em>Birdie King</em>. In the supplied flyer, <em>Eight Ball Action</em> is advertised under $550 against a <em>Birdie King</em> price of $2,300. Other later reproductions of the campaign show slightly different comparison prices, which is a reminder that sales material changed over time and should not be normalized into one universal number.</p>
+<h3 id="a-real-conversion-product-not-merely-roms-in-a-database">A real conversion product, not merely ROMs in a database</h3><figure class="seat-figure"><a href="images/seatongrove/IMG001_EIGHT_BALL_ACTION_DK_CONVERSION_INSTRUCTIONS_USER.webp" rel="noopener" target="_blank"><img alt="Eight Ball Action Donkey Kong conversion instruction sheet, showing field-installation documentation; small text should be checked against the original." decoding="async" loading="lazy" src="images/seatongrove/IMG001_EIGHT_BALL_ACTION_DK_CONVERSION_INSTRUCTIONS_USER.webp"/></a><figcaption>Eight Ball Action Donkey Kong conversion instruction sheet, showing field-installation documentation; small text should be checked against the original. Source: project-held user-supplied Seatongrove handoff; provenance in image inventory.</figcaption></figure>
+<p>A surviving <em>Eight Ball Action</em> Donkey Kong conversion instruction sheet confirms that this was a formal installation product. The copy available to this project is blurry, and individual component designations should not be over-transcribed, but the document clearly lays out board-level conversion steps involving the CPU/ROM configuration. [A02]</p>
+<p>The field product continued to evolve. By March 1, 1985, Montgomery Vending advertised Donkey Kong/Donkey Kong Jr. <em>Eight-Ball Action</em> kits for <strong>$355</strong> with a seven-day money-back guarantee. The same <em>Play Meter</em> page contains a separate Alpha-Omega Sales listing at the same $355 price, showing that the kit was available outside Montgomery's own direct channel. [S06] One source-control correction is worth making explicit: <strong>Montgomery's March 1 advertisement lists <em>Driving Force</em> and <em>Eight-Ball Action</em>, not <em>Hero in the Castle of Doom</em>. <em>Hero</em> appears in Alpha-Omega's separate dealer listing on the same issue/page.</strong> Other dealer advertising followed, including Video Ware, while Coin Machine Distributors later described itself as an authorized Magic distributor. This matters because it prevents the Rhode Island campaign from being mistaken for a strictly local operation.</p>
+<p>AOE '85 coverage shows Montgomery exhibiting <em>Eight-Ball Action</em> with <em>Bullseye Darts</em> among its then-current products. Peter Grant described the show as reasonably good, while Ken Vezina said the company had made “a lot of sales”; no unit count was supplied. Again the distinction between evidence types matters: the show coverage proves active promotion and reported sales enthusiasm, not an audited shipment total.</p>
+<h3 id="frank-seninsky-s-field-report-one-cabinet-one-route-unusually-concrete-results">Frank Seninsky's field report: one cabinet, one route, unusually concrete results</h3>
+<p>The control option did not first appear in Seninsky's July report. A March 15, 1985 Magic manufacturer advertisement already said <strong>“track ball play available all models,”</strong> proving that a trackball option was being marketed months earlier. [S24]</p>
+<p>The strongest operator-level evidence comes from Frank Seninsky's July 1, 1985 <em>Play Meter</em> column. Seninsky described Magic Electronics' strategy as converting “deadwood” cabinets. Magic president Kevin McIntyre told him the company was targeting the huge installed base of Donkey Kong, Donkey Kong Jr., Pac-Man, and Galaxian machines and intended to keep producing kits in roughly the <strong>$300–$500</strong> range. [S16]</p>
+<p>Seninsky then supplied his own location result. A Donkey Kong machine earning about <strong>$15 per week</strong> was converted to <em>Eight Ball Action</em> and began grossing roughly <strong>$80–$90 per week</strong>. Some customers, however, found the joystick response too difficult for the pool action. Magic sent a replacement control panel with a premounted trackball, overlay, precut holes, and installation instructions. Seninsky said the panel took about twenty minutes to install and that revenue increased further afterward. [S16]</p>
+<p>That is valuable evidence precisely because it is specific. It is one operator reporting one converted machine. It shows what Magic hoped the product could do when the conversion worked on a location. It does <strong>not</strong> establish that every <em>Eight Ball Action</em> machine multiplied earnings by the same amount.</p>
+<p>Magic's own testing claim was more modest: the company told Seninsky that the trackball panel had produced at least a 15-percent revenue increase in tests. That is a manufacturer claim and should remain identified as such.</p>
+<p>The control-panel price is an unresolved anomaly. Seninsky's printed column says the complete panel cost <strong>$15</strong>. A contemporary Alpha-Omega dealer advertisement, however, lists the <em>Eight Ball Action</em> trackball at <strong>$130</strong>. Given the nature of the panel—a precut plywood assembly with a premounted trackball, hardware, overlay, and instructions—the $15 print figure is probably a dropped zero, but the project does not silently “correct” a primary source. The publication record therefore preserves both figures and labels the discrepancy unresolved.</p>
+<h3 id="national-performance-visible-persistent-but-not-a-blockbuster">National performance: visible, persistent, but not a blockbuster</h3><figure class="seat-figure"><a href="images/seatongrove/IMG004A_EIGHT_BALL_ACTION_DISTRIBUTOR_BLOCK_CROP_DERIVATIVE.png" rel="noopener" target="_blank"><img alt="Source-preserving crop of the contemporary distributor identification on the Eight Ball Action sales material." decoding="async" loading="lazy" src="images/seatongrove/IMG004A_EIGHT_BALL_ACTION_DISTRIBUTOR_BLOCK_CROP_DERIVATIVE.png"/></a><figcaption>Source-preserving crop of the contemporary distributor identification on the Eight Ball Action sales material. Source: project-held user-supplied Seatongrove handoff; provenance in image inventory.</figcaption></figure>
+<p><em>Eight Ball Action</em> entered <em>Play Meter</em>'s street-location conversion chart at <strong>number 9</strong> on March 15, 1985, with a rating of 67.7. [S17] On April 15 it appears at <strong>number 14</strong> in the separate arcade-location conversion chart with a 30.4 rating. [S18] When <em>Play Meter</em> later consolidated categories into a national top 50, the game spent much of the summer and early fall below the cutoff. It eventually re-entered at <strong>number 49</strong> on October 15, 1985; that page also preserves below-cutoff indices of 40, 49, and 31 for September 1, September 15, and October 1. [S19]</p>
+<p>That record fits the operator evidence well. <em>Eight Ball Action</em> could be a strong earner on a particular location, and it had enough national life to reappear months later, but there is no basis for turning it into a major nationwide hit. Its importance is better understood through persistence, flexibility, and the economics of reusing cabinets.</p>
+<p>Two RePlay ranking claims remain secondary-only: <em>H.B.'s Olympics</em> at number 14 and <em>Eight Ball Action</em> at number 6. The underlying RePlay chart pages are not available through the public online archive used in this project. Until the physical or scanned pages are recovered, those rankings may be mentioned only with explicit attribution to the secondary compilation that reported them.</p>
+<h2 id="why-these-conversion-kits-made-economic-sense-in-1984-1985">Why these conversion kits made economic sense in 1984–1985</h2>
+<p>The Seatongrove network becomes much easier to understand when the prices are placed beside the installed hardware base.</p>
+<p>By mid-1985, Magic president Kevin McIntyre openly described operators as being “loaded” with older Donkey Kong, Donkey Kong Jr., Pac-Man, and Galaxian games that needed upgrading. [S16] A conversion kit in the $300–$500 range offered a fundamentally different risk profile from buying a new dedicated machine. The operator could reuse a cabinet, power supply, monitor, coin door, and much of the existing wiring and controls. The expensive sunk investment remained on the route; the conversion attempted to change what the customer saw and played.</p>
+<p>The advertisements repeatedly sold speed and simplicity. <em>H.B.'s Olympics</em> was promoted as requiring no soldering or wiring. <em>Eight Ball Action</em> used the same language. Montgomery added money-back guarantees. Installation support and field dispatch reduced the risk for operators who did not want to perform complicated board work themselves. The later trackball panel for <em>Eight Ball Action</em> was not merely a new control idea; it was supplied as a preassembled field fix to improve how an installed conversion performed.</p>
+<p>Price comparisons were intentionally dramatic. The <em>Eight Ball Action</em> flyer set a sub-$550 conversion against a $2,300 <em>Birdie King</em>. The December 1984 Montgomery advertisement grouped several “winning conversions under $500,” including <em>H.B.'s Olympics</em> at $375 and <em>Atlantic City Action</em> at $325, while <em>Driving Force</em> was advertised as coming soon. [S13] By March 1985 Montgomery's <em>Eight Ball Action</em> kit was $355. [S06]</p>
+<p>This was not just a Seatongrove strategy. Contemporary <em>Play Meter</em> editorial coverage observed that smaller firms such as Crown and Magic were making inroads with reasonably priced products while larger manufacturers struggled with overhead and a weaker market. That wider industry context helps explain why a tiny developer/licensor could matter. Seatongrove did not need the factory scale of a major cabinet manufacturer if it could create software or hardware that another company could package into a few-hundred-dollar conversion.</p>
+<p>Conversion economics also explain the diversity of partners. Crown already knew how to sell Century-derived conversions. Magic could manufacture kits in Rhode Island. Montgomery could sell, install, guarantee, and support them. Zaccaria could take a Seatongrove-designed gun game into its own product line, with Bhuzac handling the American commercial side. Each partner supplied part of a chain that Seatongrove itself did not need to vertically integrate.</p>
+<h2 id="driving-force-seatongrove-as-a-licensee-rather-than-the-originator">Driving Force: Seatongrove as a licensee rather than the originator</h2>
+<p><em>Driving Force</em> is important because it prevents the Seatongrove story from becoming too one-directional.</p>
+<p>The game itself is a chase-view racing title developed by Shinkai. Preservation records show both Pac-Man and Galaxian conversion forms, using a two-way horizontal control and two buttons. [S20] In the United States, the 1984 title screen and contemporary notice identify Shinkai as the copyright owner and Magic Electronics as the U.S. license/commercial partner.</p>
+<p>A separate locked source-control point comes from a December 15, 1984 <em>Driving Force</em> advertisement. That advertisement identifies Magic Electronics Inc. as <strong>MANUFACTURER</strong>, while the separately printed <strong>DISTRIBUTOR</strong> field is blank. It therefore cannot be used to name Montgomery Vending—or any other firm—as the distributor for that specific advertisement. This matters because Magic and Montgomery were extremely closely linked in other campaigns, but their roles still have to be established title by title. [S23]</p>
+<p>Shinkai's January 15, 1985 <em>Play Meter</em> warning is especially useful. It states that <em>Driving Force</em> “in any form” was manufactured and copyrighted by Shinkai Industries and sold <strong>exclusively by Magic Electronics</strong> in the United States, Canada, Central America, and South America. [S21] That is a geographically bounded grant. It says a great deal about the American arrangement and, just as importantly, says nothing about exclusive Magic control of the United Kingdom.</p>
+<p>Current MAME preserves three 1985 Galaxian-conversion sets attributed to Shinkai under Seatongrove UK, Ltd. license. A surviving Seatongrove variant title screen reads <strong>“COPYRIGHT SEATONGROVE UK LTD.”</strong> while the corresponding 1984 U.S. version reads <strong>“COPYRIGHT SHINKAI INC.”</strong> and <strong>“LICENCED TO MAGIC ELEC USA.”</strong> [S22]</p>
+<p>That is enough to treat <em>Driving Force</em> as a Seatongrove-associated arcade family, but not as a Seatongrove original. The originating game identity is Shinkai. Seatongrove appears on the receiving side of the licensing relationship in a UK/regional variant.</p>
+<p>One preservation comment must be kept out of the fact column. MAME's source notes suggest that Seatongrove may have obtained permission through Magic rather than directly from Shinkai, but the comment itself is explicitly labeled as an assumption. Given Shinkai's own notice limiting Magic's exclusive sales territory to the Americas, the exact legal route from Shinkai to Seatongrove remains unresolved. It may have been direct; it may have involved Magic; the surviving evidence does not settle it.</p>
+<p>A bounded preservation sweep found no second Seatongrove-associated family with a similarly clear outside originating copyright. That is useful negative evidence but must remain bounded: <strong>none presently found</strong> is not the same claim as <strong>none ever existed</strong>.</p>
+<p>The interpretive value of <em>Driving Force</em> is substantial. It shows that Seatongrove was not simply a developer sending its own games outward. It could also participate in the same conversion economy as a regional licensee, adapting or carrying someone else's property within its own market.</p>
+<h2 id="beyond-coin-op-hunchback-at-the-olympics-reaches-the-commodore-64">Beyond coin-op: Hunchback at the Olympics reaches the Commodore 64</h2>
+<p>Seatongrove's licensing activity did not stop at the arcade door.</p>
+<p>Surviving Software Projects packaging for the Commodore 64 version of <em>Hunchback at the Olympics</em> carries the notice <strong>“© Seatongrove Ltd. 1984 under licence to Software Projects Ltd.”</strong> [A03] That is direct packaging evidence that Seatongrove licensed the property into the British home-computer market.</p>
+<p>This does not change the arcade-output count. The C64 release is a home-computer product and belongs here as context for the commercial afterlife of a Seatongrove property. It does, however, strengthen the broader interpretation of the company as a rights-licensing operation rather than merely a maker of conversion ROMs.</p>
+<p>The dating should remain careful. Modern databases often assign the Commodore 64 release to 1985, while the surviving packaging carries a 1984 Seatongrove copyright/license notice. The safe distinction is that 1984 is directly evidenced as a copyright/license year; retail release is commonly dated 1985 unless a contemporaneous release notice proves otherwise.</p>
+<p>Likewise, modern home-computer credits should not be used to invent a Seatongrove employee roster. Names associated with programming, graphics, or conversion work on the C64 version belong to the Software Projects/home-conversion ecosystem unless direct employment evidence ties them to Seatongrove itself.</p>
+<h2 id="commercial-performance-without-mythology">Commercial performance without mythology</h2>
+<p>Seatongrove's games illustrate why obscure-company history needs more than one kind of evidence.</p>
+<p>National chart data are the best available measure of relative market visibility, but even those charts have category changes and polling limitations. <em>H.B.'s Olympics</em> has a six-appearance street-conversion run ending in a number-five peak. <em>Eight Ball Action</em> appears in both street and arcade conversion charts and later returns to the consolidated top 50. <em>Hero</em> is directly visible at number 48 in July 1985. Those facts tell us that the games reached real operators and remained visible beyond a launch advertisement.</p>
+<p>Manufacturer and dealer advertising answer different questions. They prove that a product was offered, how it was positioned, how much it cost on a particular date, what cabinets it was supposed to convert, and who claimed to manufacture or distribute it. They can also preserve testimonials. But they do not provide audited sales totals merely because the copy says a game is a winner.</p>
+<p>Operator testimony is more concrete but narrower. Seninsky's <em>Eight Ball Action</em> report is unusually useful because he provides before-and-after weekly grosses and describes the control problem and the field modification that followed. The Atlas Music testimonial is valuable because it describes a test that allegedly expanded from two machines to 25 placements. Neither can automatically be generalized to the national market.</p>
+<p>The project therefore rejects a simple “hit/flop” binary. <em>H.B.'s Olympics</em> was a genuine conversion-category success without becoming a famous blockbuster. <em>Eight Ball Action</em> had limited but persistent national chart life and could perform strongly on individual routes. <em>Hero</em> remained commercially visible into mid-1985. <em>Shooting Gallery</em> had an international Zaccaria/Bhuzac route and distinctive dedicated gun hardware, but the presently assembled project record does not support a precise sales total.</p>
+<p>The false <em>Hero</em> number-one claim is especially instructive. Secondary history had supplied a pleasingly simple headline: an obscure Seatongrove game had debuted at the top of the chart. The primary issue did not support it. Correcting that claim makes the story less sensational and more trustworthy.</p>
+<h2 id="what-seatongrove-was">What Seatongrove was</h2>
+<p>The strongest synthesis is that Seatongrove was a <strong>British development, engineering, and licensing identity working inside the late Century/CVS conversion ecosystem</strong>.</p>
+<p>Several independent lines of evidence support that interpretation:</p>
+<ul>
+<li>The core Seatongrove game families occupy related conversion hardware and protection lineages in current preservation documentation. [S02]</li>
+<li><em>Shooting Gallery</em> contains a Seatongrove-marked gun-interface PCB, demonstrating direct engineering involvement. [S02]</li>
+<li>The same <em>Shooting Gallery</em> hardware retains a Century speech/sound board, showing technical continuity with Century technology. [S02]</li>
+<li><em>Hero</em> moved through Crown, a company already documented selling Century-developed PLAYPAK conversions in 1983. [S01]</li>
+<li><em>H.B.'s Olympics</em> and <em>Eight Ball Action</em> moved through Magic Electronics and Montgomery Vending in a closely coordinated Rhode Island manufacturing/distribution/service operation. [S13][S16]</li>
+<li><em>Eight Ball Action</em>'s own title screen identifies Seatongrove as copyright holder and Magic Electronics USA as licensee. [A04]</li>
+<li><em>Shooting Gallery</em> moved through Zaccaria and Bhuzac rather than the Rhode Island channel. [S10][S11]</li>
+<li><em>Driving Force</em> places Seatongrove on the receiving side of a Shinkai-originated license. [S21][S22]</li>
+<li><em>Hunchback at the Olympics</em> was licensed onward to Software Projects for the Commodore 64. [A03]</li>
+</ul>
+<p>That pattern is more coherent than treating Seatongrove as a traditional manufacturer that somehow kept changing its corporate identity from title to title. Seatongrove's stable role is deeper in the stack: game development, adaptation, engineering, and rights. The visible seller changes because the route to market changes.</p>
+<h2 id="what-the-evidence-still-does-not-permit-us-to-say">What the evidence still does not permit us to say</h2>
+<p>A responsible history must stop where the surviving evidence stops.</p>
+<p>The project does <strong>not</strong> currently have enough authoritative corporate documentation in the active publication record to state Seatongrove's exact incorporation date, company number, registered office, directors, secretary, shareholders, liquidator, or dissolution date. Modern exact-name searches of the ordinary Companies House interface and the Gazette did not recover the historical company. That absence is not evidence that Seatongrove was fictitious or merely a trade name; it is compatible with known gaps in ordinary public access to pre-1995 dissolved-company material.</p>
+<p>The exact legal relationship with Century Electronics remains unresolved. Technical inheritance is strong. Shared product lineage is strong. Crown's pre-Seatongrove Century connection is direct. A Century board physically survives inside <em>Shooting Gallery</em>. None of those facts, individually or collectively, proves that Seatongrove was a subsidiary, successor, acquisition, renamed Century operation, or alter ego.</p>
+<p>Likewise, Magic Electronics and Montgomery Vending should remain separate companies in the narrative. Shared address and telephone information, coordinated advertising, linked trade-show activity, and clearly complementary roles demonstrate a very close operating relationship. They do not, by themselves, prove legal identity or common ownership.</p>
+<p>The exact terms of the Seatongrove agreements with Crown, Zaccaria, Magic, Shinkai, and Software Projects are not recovered. Where title screens or advertisements prove a license, the existence of the relationship can be stated. Contract duration, royalty structure, exclusivity, territorial scope beyond explicitly printed wording, and ownership implications cannot be invented.</p>
+<p>These limits are not failures of the research. They are part of the historical result. Seatongrove is precisely the kind of small company for which the games have survived better than the corporate file.</p>
+<h2 id="why-seatongrove-disappeared-from-the-usual-arcade-narrative">Why Seatongrove disappeared from the usual arcade narrative</h2>
+<p>Seatongrove's obscurity was built into its business model.</p>
+<p>A dedicated manufacturer could put the same logo on a cabinet, manual, flyer, service bulletin, trade-show booth, distributor list, and years of magazine advertising. Seatongrove's identity was dispersed. A title might be known to American operators through Crown, another through Magic and Montgomery, another through Zaccaria and Bhuzac. The software could preserve Seatongrove's copyright while the cabinet or sales sheet emphasized the company that actually sold the kit.</p>
+<p>Conversion games were also physically vulnerable to disappearance. Their purpose was to transform something else. An operator could install new ROMs, overlays, controls, or interface boards into a cabinet that still looked partly like Donkey Kong, Pac-Man, or another older game. Years later, the cabinet might be converted again. The conversion board might be discarded. The control panel might be replaced. Unlike a famous dedicated cabinet, there was no guarantee that a complete “Seatongrove machine” would remain recognizable as a single artifact.</p>
+<p>The timing did not help. Seatongrove's clearest activity sits in 1984–1985, when the U.S. video-game market was adjusting to lower demand, tighter operator spending, and a shift toward conversions, kits, and lower-cost products. That environment created Seatongrove's opportunity, but it also meant that the company was operating in a less glamorous layer of the market just as the industry's early-1980s mythology was being written around larger manufacturers and blockbuster dedicated games.</p>
+<p>What survives today is enough to reconstruct a much richer picture. Seatongrove was a connective layer in the conversion economy. It drew on Century's technical world, worked through Crown's established conversion route, engineered a distinctive Zaccaria gun game, supplied games licensed to Magic in Rhode Island, allowed its Hunchback property into the home-computer market, and appears to have handled a Shinkai title in the opposite licensing direction.</p>
+<p>Its significance is not scale. It is adaptability.</p>
+<p>Seatongrove demonstrates how a small developer could remain commercially relevant by separating the creation of a game from the expensive business of manufacturing and selling complete machines. It also shows how old cabinets could acquire second or third lives through a network of developers, licensees, manufacturers, distributors, installers, and dealers. Those arrangements are easy to flatten in later databases because several company names can legitimately be attached to one title. The historical work is to explain <strong>why</strong> each name is there.</p>
+<p>For Seatongrove, that explanation finally produces a coherent company history: a small British development and engineering identity, technically rooted in the Century/CVS conversion world, commercially distributed through multiple international partners, and visible for only a short period before the paper trail thins out. The company almost disappeared because it lived between the labels. Its games are what allow the labels to be put back in order.</p>
+<hr/>
+<h2 id="complete-arcade-family-register">Complete arcade-family register</h2>
+<h2 id="1-hero-in-the-castle-of-doom">1. Hero in the Castle of Doom</h2>
+<p><strong>Date:</strong> 1984; documented commercial tail through 1985.<br/>
+<strong>Type:</strong> Maze/adventure conversion.<br/>
+<strong>Gameplay:</strong> Navigate hazardous screens, collect required symbols, avoid projectiles/hazards, and advance toward the rescue objective.<br/>
+<strong>Seatongrove role:</strong> Development/game identity within Century-derived lineage.<br/>
+<strong>Commercial route:</strong> Crown Vending in the United States.<br/>
+<strong>Key evidence:</strong> Crown AMOA-era show reporting; Crown 1984 infringement/reward notice; 1985 dealer listings; July 1985 National Play Meter placement.<br/>
+<strong>Count treatment:</strong> Seatongrove original/development family.<br/>
+<strong>Control note:</strong> The often-repeated February 15, 1985 number-one chart claim is contradicted by the primary issue and remains withdrawn.</p>
+<h2 id="2-hunchback-olympic-herbie-at-the-olympics-h-b-s-olympics">2. Hunchback Olympic / Herbie at the Olympics / H.B.'s Olympics</h2>
+<p><strong>Date:</strong> 1984; commercial performance documented into 1985.<br/>
+<strong>Type:</strong> Multi-event athletics game.<br/>
+<strong>Gameplay:</strong> Hunchback-themed track-and-field events including high jump, javelin, discus, hurdles, and shot put in preserved versions.<br/>
+<strong>Seatongrove role:</strong> Seatongrove/Century-associated design/development identity; conversion variants form part of the Seatongrove family.<br/>
+<strong>Commercial route:</strong> Magic Electronics manufacturer; Montgomery Vending sales/distribution/installation/support in the United States.<br/>
+<strong>Key evidence:</strong> $375 contemporary pricing; multiple cabinet/system configurations; six verified Play Meter street-conversion chart appearances culminating at number 5 on March 1, 1985.<br/>
+<strong>Count treatment:</strong> Seatongrove original/development family.<br/>
+<strong>Context:</strong> Property later licensed to Software Projects for Commodore 64; home version is not an additional arcade title.</p>
+<h2 id="3-eight-ball-action">3. Eight Ball Action</h2>
+<p><strong>Date:</strong> 1984 Donkey Kong/Donkey Kong Jr. conversions; 1985 Pac-Man conversion preserved.<br/>
+<strong>Type:</strong> Pool/billiards sports conversion.<br/>
+<strong>Gameplay:</strong> Fast coin-op billiards interpretation designed around quick competitive play; later trackball panel improved control response on at least one documented route.<br/>
+<strong>Seatongrove role:</strong> Copyright/game identity; surviving screen says licensed to Magic Electronics USA.<br/>
+<strong>Commercial route:</strong> Magic Electronics manufacturer; Montgomery Vending direct seller/distributor; later outside dealers.<br/>
+<strong>Key evidence:</strong> Seatongrove/Magic title screen; user-supplied Magic sales flyer; Atlas Music promotional testimony; formal conversion instruction sheet; $355 March 1985 advertising; Seninsky field report; Play Meter chart record through October 1985.<br/>
+<strong>Count treatment:</strong> Seatongrove original/development family.<br/>
+<strong>Control note:</strong> $15 printed trackball-panel price conflicts with $130 contemporary dealer listing and remains unresolved/probably typographical.</p>
+<h2 id="4-shooting-gallery">4. Shooting Gallery</h2>
+<p><strong>Date:</strong> 1984.<br/>
+<strong>Type:</strong> Light-gun shooter.<br/>
+<strong>Gameplay:</strong> One-player shooting-gallery format using a light gun.<br/>
+<strong>Seatongrove role:</strong> Development/engineering identity.<br/>
+<strong>Commercial route:</strong> Zaccaria license/manufacturing identity; Bhuzac verified U.S. commercial channel.<br/>
+<strong>Key evidence:</strong> Seatongrove-marked 1984 gun-interface PCB; Century 500-38 Issue 3 speech/sound PCB in same hardware; Cash Box Zaccaria/Bhuzac equipment records; AMOA-era Bhuzac coverage.<br/>
+<strong>Count treatment:</strong> Seatongrove original/development family.</p>
+<h2 id="5-driving-force">5. Driving Force</h2>
+<p><strong>Date:</strong> Shinkai/Magic U.S. form 1984; Seatongrove-associated Galaxian variants dated 1985 in current preservation records.<br/>
+<strong>Type:</strong> Chase-view racing conversion.<br/>
+<strong>Gameplay:</strong> One-player racing game with two-way horizontal steering and two buttons in preserved conversion forms.<br/>
+<strong>Seatongrove role:</strong> UK/regional licensee on preserved variants, not original developer.<br/>
+<strong>Commercial route:</strong> Shinkai origin; Magic exclusive sales license for the United States, Canada, Central America, and South America; exact route of UK rights to Seatongrove unresolved.<br/>
+<strong>Key evidence:</strong> Shinkai January 1985 territorial notice; title-screen differences; MAME-preserved Seatongrove variants.<br/>
+<strong>Count treatment:</strong> Associated family only; excluded from the four-title original/development count.</p>
+<hr/>
+<h2 id="unresolved-and-controlled-findings">Unresolved and controlled findings</h2>
+<ol>
+<li><strong>UQ-008 — Century/Seatongrove legal mechanism:</strong> unresolved. Technical and product continuity are strong; legal succession/ownership is not established.</li>
+<li><strong>Corporate particulars:</strong> exact incorporation/dissolution data, officers, shareholders, registered office, and liquidator are not to be reconstructed from memory or weak databases. Restore only from authoritative closed Q-04–Q-06 records or pre-1995 company documents.</li>
+<li><strong>RePlay chart pages:</strong> secondary claims for <em>H.B.'s Olympics</em> (#14) and <em>Eight Ball Action</em> (#6) remain unverified until underlying chart pages are acquired.</li>
+<li><strong>Eight Ball trackball price:</strong> $15 in Seninsky column versus $130 in contemporary dealer advertising. Probable dropped zero, not settled fact.</li>
+<li><strong>Driving Force permission path:</strong> MAME's suggestion that Seatongrove obtained rights through Magic is explicitly an assumption. Exact Shinkai-to-Seatongrove contract path unresolved.</li>
+<li><strong>Licensed-in census:</strong> <em>Driving Force</em> is the only presently found licensed-in/regional Seatongrove arcade family in the bounded preservation sweep. This is a negative finding limited to sources examined, not proof that no other title ever existed.</li>
+<li><strong>C64 release dating:</strong> packaging proves a 1984 Seatongrove-to-Software Projects license/copyright notice; modern databases often place retail release in 1985. Keep the distinction.</li>
+</ol>
+<hr/>
+<h2 id="source-anchors-used-in-this-working-master">Source anchors used in this working master</h2>
+<p><strong>S01.</strong> Crown Vending / Century PLAYPAK advertisement, <em>Star Tech Journal</em>, Aug.–Oct. 1983. International Arcade Museum eLibrary.<br/>
+<a href="https://elibrary.arcade-museum.com/Star-Tech-Journal/1983-August-5-6/1">https://elibrary.arcade-museum.com/Star-Tech-Journal/1983-August-5-6/1</a><br/>
+<a href="https://elibrary.arcade-museum.com/Star-Tech-Journal/1983-October-5-8/2">https://elibrary.arcade-museum.com/Star-Tech-Journal/1983-October-5-8/2</a></p>
+<p><strong>S02.</strong> MAME current <code>nintendo/dkong.cpp</code>, S2650 conversion group, <em>Shooting Gallery</em> board inventory, and Seatongrove title declarations.<br/>
+<a href="https://raw.githubusercontent.com/mamedev/mame/master/src/mame/nintendo/dkong.cpp">https://raw.githubusercontent.com/mamedev/mame/master/src/mame/nintendo/dkong.cpp</a></p>
+<p><strong>S03.</strong> Arcade History / preservation record for <em>Hero</em> and <em>Hero in the Castle of Doom</em> lineage.<br/>
+<a href="https://www.arcade-history.com/?id=1116&amp;n=hero&amp;page=detail">https://www.arcade-history.com/?id=1116&amp;n=hero&amp;page=detail</a></p>
+<p><strong>S04.</strong> <em>Play Meter</em>, Dec. 1, 1984, AMOA preview, p. 24: Crown to show <em>Hero in the Castle of Doom</em>.<br/>
+<a href="https://elibrary.arcade-museum.com/Play-Meter/1984-December-01/24">https://elibrary.arcade-museum.com/Play-Meter/1984-December-01/24</a></p>
+<p><strong>S05.</strong> Crown Vending <em>Hero in the Castle of Doom</em> copyright-infringement / $2,500 reward notice, <em>Play Meter</em>, Dec. 31, 1984. Surviving scan on Wikimedia Commons.<br/>
+<a href="https://commons.wikimedia.org/wiki/File:Hero_In_The_Castle_Of_Doom_-_Copyright_Infringement_-_$2500_Reward_-_December_31st_1984_Play_Meter.jpg">https://commons.wikimedia.org/wiki/File:Hero_In_The_Castle_Of_Doom_-_Copyright_Infringement_-_$2500_Reward_-_December_31st_1984_Play_Meter.jpg</a></p>
+<p><strong>S06.</strong> <em>Play Meter</em>, Mar. 1, 1985, p. 80: Montgomery <em>Eight-Ball Action</em> $355 advertisement and Alpha-Omega conversion-kit listing including <em>Hero</em> $319.<br/>
+<a href="https://elibrary.arcade-museum.com/Play-Meter/1985-March-01/80">https://elibrary.arcade-museum.com/Play-Meter/1985-March-01/80</a></p>
+<p><strong>S07.</strong> <em>Play Meter</em>, Apr. 1, 1985, p. 95: Video Connection dealer list, <em>Hero in the Castle of Doom</em> $245.<br/>
+<a href="https://elibrary.arcade-museum.com/Play-Meter/1985-April-01/95">https://elibrary.arcade-museum.com/Play-Meter/1985-April-01/95</a></p>
+<p><strong>S08.</strong> <em>Play Meter</em>, Jul. 1, 1985, National Play Meter, <em>Hero in the Castle of Doom</em> #48.<br/>
+<a href="https://elibrary.arcade-museum.com/classic/Play-Meter/1985-July-01/22">https://elibrary.arcade-museum.com/classic/Play-Meter/1985-July-01/22</a></p>
+<p><strong>S09.</strong> Arcade History / Arcade Italia <em>Shooting Gallery</em> technical record: light gun, Zaccaria release, Seatongrove design credit.<br/>
+<a href="https://www.arcade-history.com/game/2427">https://www.arcade-history.com/game/2427</a><br/>
+<a href="https://adb.arcadeitalia.net/dettaglio_mame.php?game_name=shootgal&amp;lang=en">https://adb.arcadeitalia.net/dettaglio_mame.php?game_name=shootgal&amp;lang=en</a></p>
+<p><strong>S10.</strong> <em>Cash Box</em> manufacturers' equipment lists, 1984: Zaccaria/Bhuzac <em>Shooting Gallery (6/84)</em>.<br/>
+<a href="https://www.worldradiohistory.com/Archive-All-Music/Cash-Box/Cash-Box/80s/1984/CB-1984-10-13.pdf">https://www.worldradiohistory.com/Archive-All-Music/Cash-Box/Cash-Box/80s/1984/CB-1984-10-13.pdf</a></p>
+<p><strong>S11.</strong> <em>Cash Box</em>, Nov. 17, 1984, AMOA coverage: Bhuzac president Satish Bhutani with Zaccaria <em>Shooting Gallery</em>.<br/>
+<a href="https://www.worldradiohistory.com/Archive-All-Music/Cash-Box/80s/1984/CB-1984-11-17.pdf">https://www.worldradiohistory.com/Archive-All-Music/Cash-Box/80s/1984/CB-1984-11-17.pdf</a></p>
+<p><strong>S12.</strong> Preservation records for <em>Hunchback Olympic</em> / <em>Herbie at the Olympics</em>, including event/genre and conversion relationships.<br/>
+<a href="https://www.arcade-history.com/game/1155/hunchback-olympic">https://www.arcade-history.com/game/1155/hunchback-olympic</a><br/>
+<a href="https://adb.arcadeitalia.net/dettaglio_mame.php?game_name=herbiedk">https://adb.arcadeitalia.net/dettaglio_mame.php?game_name=herbiedk</a></p>
+<p><strong>S13.</strong> Montgomery Vending advertisement, <em>Play Meter</em>, Dec. 1, 1984, p. 109: <em>H.B.'s Olympics</em> $375, conversion configurations, <em>Eight-Ball Action</em>, <em>Atlantic City Action</em>, <em>Driving Force</em> coming soon.<br/>
+<a href="https://elibrary.arcade-museum.com/Play-Meter/1984-December-01/108">https://elibrary.arcade-museum.com/Play-Meter/1984-December-01/108</a></p>
+<p><strong>S14.</strong> Directly verified <em>Play Meter</em> chart sequence for <em>H.B.'s Olympics</em>, culminating #5 on Mar. 1, 1985. Representative direct page:<br/>
+<a href="https://elibrary.arcade-museum.com/Play-Meter/1985-March-01/38">https://elibrary.arcade-museum.com/Play-Meter/1985-March-01/38</a><br/>
+Earlier directly checked issues preserved in authoritative project handoff.</p>
+<p><strong>S15.</strong> Current MAME/Arcade Italia family record for <em>Eight Ball Action</em> conversions.<br/>
+<a href="https://arcade.vastheman.com/minimaws/machine/8ballact">https://arcade.vastheman.com/minimaws/machine/8ballact</a><br/>
+<a href="https://adb.arcadeitalia.net/dettaglio_mame.php?game_name=8bpm">https://adb.arcadeitalia.net/dettaglio_mame.php?game_name=8bpm</a></p>
+<p><strong>S16.</strong> Frank Seninsky, <em>Play Meter</em>, Jul. 1, 1985, p. 34: Magic kits, Kevin McIntyre, <em>Eight Ball Action</em> route result and trackball panel.<br/>
+<a href="https://elibrary.arcade-museum.com/Play-Meter/1985-July-01/34">https://elibrary.arcade-museum.com/Play-Meter/1985-July-01/34</a></p>
+<p><strong>S17.</strong> <em>Play Meter</em>, Mar. 15, 1985, p. 40: <em>8-Ball Action</em> #9 street-location conversions.<br/>
+<a href="https://elibrary.arcade-museum.com/Play-Meter/1985-March-15/40">https://elibrary.arcade-museum.com/Play-Meter/1985-March-15/40</a></p>
+<p><strong>S18.</strong> <em>Play Meter</em>, Apr. 15, 1985, p. 38: <em>8-Ball Action</em> #14 arcade-location conversions.<br/>
+<a href="https://elibrary.arcade-museum.com/Play-Meter/1985-April-15/38">https://elibrary.arcade-museum.com/Play-Meter/1985-April-15/38</a></p>
+<p><strong>S19.</strong> <em>Play Meter</em>, Oct. 15, 1985, pp. 92–93: <em>Eight-Ball Action</em> #49 and prior below-cutoff indices.<br/>
+<a href="https://elibrary.arcade-museum.com/Play-Meter/1985-October-15/92">https://elibrary.arcade-museum.com/Play-Meter/1985-October-15/92</a></p>
+<p><strong>S20.</strong> Preservation record for Shinkai <em>Driving Force</em>: chase-view racing, Pac-Man/Galaxian conversion forms.<br/>
+<a href="https://www.arcade-history.com/game/715/driving-force">https://www.arcade-history.com/game/715/driving-force</a><br/>
+<a href="https://adb.arcadeitalia.net/dettaglio_mame.php?game_name=drivfrcp">https://adb.arcadeitalia.net/dettaglio_mame.php?game_name=drivfrcp</a></p>
+<p><strong>S21.</strong> Shinkai Industries warning, <em>Play Meter</em>, Jan. 15, 1985, p. 15: Magic's exclusive territory in U.S./Canada/Central and South America.<br/>
+<a href="https://elibrary.arcade-museum.com/Play-Meter/1985-January-15/15">https://elibrary.arcade-museum.com/Play-Meter/1985-January-15/15</a></p>
+<p><strong>S22.</strong> MAME current <code>galaxian/galaxold.cpp</code>, Seatongrove <em>Driving Force</em> variants and explicit permission-path assumption.<br/>
+<a href="https://raw.githubusercontent.com/mamedev/mame/master/src/mame/galaxian/galaxold.cpp">https://raw.githubusercontent.com/mamedev/mame/master/src/mame/galaxian/galaxold.cpp</a></p>
+<p><strong>S23.</strong> <em>Play Meter</em>, Dec. 15, 1984, <em>Driving Force</em> advertisement, as preserved in the authoritative Seatongrove handoff: Magic Electronics Inc. is identified as <strong>MANUFACTURER</strong> and the separate <strong>DISTRIBUTOR</strong> field is blank.</p>
+<p><strong>S24.</strong> Magic Electronics manufacturer advertisement, <em>Play Meter</em>, Mar. 15, 1985, as preserved in the authoritative Seatongrove handoff: “track ball play available all models,” establishing that the <em>Eight Ball Action</em> trackball option predated Seninsky's July field report.</p>
+<h2 id="project-held-artifact-anchors">Project-held artifact anchors</h2>
+<p><strong>A01.</strong> User-supplied readable <em>Eight Ball Action</em> sales flyer (<code>1000010602.png</code>), showing Atlas Music testimony, Magic manufacturer block, conversion pitch, and price comparison.<br/>
+<strong>A02.</strong> User-supplied <em>Eight Ball Action</em> Donkey Kong conversion instruction sheet (<code>1000010598.webp</code>).<br/>
+<strong>A03.</strong> Surviving Software Projects Commodore 64 <em>Hunchback at the Olympics</em> packaging with “© Seatongrove Ltd. 1984 under licence to Software Projects Ltd.” (reference artifact; local redistributable asset status to be determined in image inventory).<br/>
+<strong>A04.</strong> Surviving <em>Eight Ball Action</em> game-screen artifact reading “© SEATONGROVE 1984” and “LICENCED TO MAGIC ELECTRONICS USA” (reference artifact; local asset status to be determined).</p>
+<hr/>
+</article>
+</div>
+<footer class="footer">
+<div class="footer-inner">
+<div>Arcade Side B · The Overlooked Side of Arcade History · Seatongrove · Company history</div>
+<div class="site-counter"><div>Site hits</div><img alt="Arcade Side B site hit counter" src="https://hitscounter.dev/api/hit?color=%23c9973a&amp;icon=123&amp;label=SITE%20HITS&amp;url=https%3A%2F%2Farcadesideb.com%2F"/></div>
+</div>
+<p class="last-updated">Last updated November 19, 2026 · Open to new evidence</p></footer>
+</body>
+</html>
