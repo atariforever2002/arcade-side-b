@@ -746,7 +746,19 @@ footer strong{color:#dce2e5;font-family:Georgia,serif;font-size:16px}
 </script>
 <script defer src="/assets/asb-analytics.js"></script>
 <script defer src="assets/asb-counts.js"></script>
-<style>.archive-progress{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:28px 0 36px}.archive-progress a{display:flex;align-items:center;gap:18px;padding:24px;border:1px solid #65502f;background:linear-gradient(135deg,#1d252b,#111820);text-decoration:none;color:#eee7d8}.archive-progress strong{font:700 48px Georgia,serif;color:#f0c57e}.archive-progress span{font:700 16px Arial,sans-serif}@media(max-width:600px){.archive-progress{grid-template-columns:1fr}}</style></head>
+<style>.archive-progress{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:28px 0 36px}.archive-progress a{display:flex;align-items:center;gap:18px;padding:24px;border:1px solid #65502f;background:linear-gradient(135deg,#1d252b,#111820);text-decoration:none;color:#eee7d8}.archive-progress strong{font:700 48px Georgia,serif;color:#f0c57e}.archive-progress span{font:700 16px Arial,sans-serif}@media(max-width:600px){.archive-progress{grid-template-columns:1fr}}</style><style id="asb-latest-three-column-layout">
+/* Only latest company highlights: three across desktop, two tablet, one phone. */
+#latest-company-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;align-items:stretch}
+#latest-company-cards .collection-card{min-width:0;min-height:206px;padding:16px;display:flex;flex-direction:column}
+#latest-company-cards .collection-card .kind{font-size:8px;line-height:1.5;letter-spacing:.1em}
+#latest-company-cards .collection-card h3{font-size:22px;line-height:1.15;margin:9px 0 8px}
+#latest-company-cards .collection-card p{font-size:12px;line-height:1.55;overflow-wrap:anywhere}
+#latest-company-cards .collection-card .card-meta{margin-top:12px}
+#latest-company-cards .collection-card .arrow{margin-top:auto;padding-top:15px;font-size:10px}
+@media(max-width:839px){#latest-company-cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:599px){#latest-company-cards{grid-template-columns:1fr}#latest-company-cards .collection-card{min-height:0}}
+</style>
+</head>
 <body id="home">
 <header>
 <div class="wrap toprail">
