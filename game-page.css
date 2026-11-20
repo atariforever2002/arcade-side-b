@@ -407,3 +407,5 @@ footer .footer-inner p{font:14px/1.6 Arial}footer .footer-inner .wrap{width:100%
 @media(max-width:650px){.pair{grid-template-columns:1fr}}
 
 .meta>*+*{margin-left:10px}
+
+.asb-game-story .marquee-photo figcaption{color:#566167}
