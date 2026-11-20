@@ -1,386 +1,13 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Intrepid (1983 Arcade Game) | Arcade Side B</title>
-<meta name="description" content="Arcade Side B’s researched history of Intrepid, Nova Games’ 1983 embassy-infiltration arcade game."/>
-<meta name="robots" content="index,follow"/>
-<link rel="canonical" href="https://arcadesideb.com/intrepid.html"/>
-<meta property="og:title" content="Intrepid (1983 Arcade Game) | Arcade Side B"/>
-<meta property="og:description" content="Nova Games’ 1983 spy adventure turns a five-story embassy, eight useful tools and one button into a surprisingly sophisticated arcade mission."/>
-<meta property="og:url" content="https://arcadesideb.com/intrepid.html"/>
-<style>
-:root{
-  --bg:#090d12;
-  --bg2:#0f1720;
-  --card:#eee7d8;
-  --card2:#f4ede1;
-  --ink:#222a2f;
-  --muted:#687174;
-  --line:#c8beab;
-  --navy:#13202a;
-  --navy2:#1b2b36;
-  --bronze:#c28a32;
-  --bronze2:#d8b36b;
-  --green:#486756;
-  --green-soft:#e3eee6;
-  --amber:#8a6532;
-  --amber-soft:#f5ead3;
-  --red:#86504b;
-  --red-soft:#f2e3e0;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  margin:0;
-  font-family:Georgia,"Times New Roman",serif;
-  background:
-    radial-gradient(circle at 80% 8%,rgba(112,164,184,.08),transparent 24%),
-    linear-gradient(rgba(255,255,255,.012) 1px,transparent 1px),
-    var(--bg);
-  background-size:auto,100% 4px,auto;
-  color:#dfe4e6;
-}
-a{color:#d9b46f}
-.mast{
-  background:linear-gradient(135deg,#0a0f14,#13202a);
-  border-bottom:4px solid var(--bronze);
-}
-.wrap{width:min(1120px,calc(100% - 32px));margin:0 auto}
-.topline{
-  display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
-  padding:18px 0 6px;
-  color:#bac3c8;
-  font:700 11px Arial,Helvetica,sans-serif;
-  letter-spacing:.18em;
-  text-transform:uppercase;
-}
-.hero{
-  padding:10px 0 28px;
-}
-.crumb{
-  color:#93a0a8;
-  font:700 12px Arial,Helvetica,sans-serif;
-  margin:0 0 14px;
-}
-.crumb a{color:#d9b46f;text-decoration:none}
-.hero h1{
-  margin:0;
-  color:#f1ede5;
-  font-size:clamp(40px,8vw,74px);
-  line-height:.95;
-}
-.deck{
-  max-width:850px;
-  margin:16px 0 0;
-  color:#bdc7cc;
-  font-size:21px;
-  line-height:1.45;
-}
-.meta{
-  margin-top:12px;
-  color:#9facb4;
-  font:700 12px Arial,Helvetica,sans-serif;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-}
-.page{
-  width:min(1120px,calc(100% - 32px));
-  margin:24px auto 44px;
-}
-.backlinks{
-  display:flex;gap:10px;flex-wrap:wrap;
-  margin-bottom:18px;
-}
-.backhome{
-  display:inline-block;
-  padding:9px 11px;
-  border:1px solid #46525c;
-  color:#d7b774;
-  text-decoration:none;
-  font:700 11px Arial,Helvetica,sans-serif;
-  letter-spacing:.06em;
-  text-transform:uppercase;
-}
-.backhome:hover{color:white;border-color:#687680}
-.game-identity{
-  margin:0 0 24px;
-  border:1px solid #b8ad98;
-  background:linear-gradient(135deg,rgba(194,138,50,.08),transparent 48%),#f3eddf;
-  color:#20272c;
-  box-shadow:0 16px 34px rgba(0,0,0,.18);
-  overflow:hidden;
-}
-.marquee-wrap{
-  padding:22px 24px 20px;
-  border-bottom:1px solid var(--line);
-  display:grid;
-  grid-template-columns:minmax(0,1fr) 230px;
-  gap:18px;
-  align-items:center;
-}
-.marquee{
-  padding:20px 20px 18px;
-  background:
-    linear-gradient(180deg,rgba(255,255,255,.06),transparent 45%),
-    linear-gradient(135deg,#11181f,#162733);
-  border:4px solid var(--bronze);
-  box-shadow:inset 0 0 0 1px rgba(255,255,255,.08);
-}
-.marquee-small{
-  color:#cab48a;
-  font:700 11px Arial,Helvetica,sans-serif;
-  letter-spacing:.2em;
-  text-transform:uppercase;
-  margin-bottom:8px;
-}
-.marquee-title{
-  color:#f2efe8;
-  font-family:Georgia,"Times New Roman",serif;
-  font-size:clamp(40px,6vw,72px);
-  line-height:.9;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  text-shadow:0 1px 0 rgba(255,255,255,.1);
-}
-.marquee-sub{
-  margin-top:10px;
-  color:#b7c3ca;
-  font:700 11px Arial,Helvetica,sans-serif;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-}
-.marquee-note{
-  color:#675f54;
-  font:12px/1.45 Arial,Helvetica,sans-serif;
-}
-.marquee-note strong{
-  display:block;
-  color:#1d2b35;
-  margin-bottom:6px;
-  font:700 11px Arial,Helvetica,sans-serif;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-}
-.game-snapshot{
-  display:grid;
-  grid-template-columns:repeat(5,1fr);
-}
-.snapshot-cell{
-  padding:17px 18px 18px;
-  border-right:1px solid var(--line);
-  min-width:0;
-}
-.snapshot-cell:last-child{border-right:0}
-.snapshot-label{
-  display:block;
-  color:#786f63;
-  font:700 9px Arial,Helvetica,sans-serif;
-  letter-spacing:.12em;
-  text-transform:uppercase;
-  margin-bottom:5px;
-}
-.snapshot-value{
-  display:block;
-  color:#1c2d37;
-  font-family:Georgia,"Times New Roman",serif;
-  font-size:19px;
-  line-height:1.2;
-}
-.snapshot-note{
-  display:block;
-  margin-top:5px;
-  color:#6e726f;
-  font:11px/1.35 Arial,Helvetica,sans-serif;
-}
-.shell{
-  display:grid;
-  grid-template-columns:280px minmax(0,1fr);
-  gap:22px;
-  align-items:start;
-}
-.sidebar .toc{
-  position:sticky;top:14px;
-  background:#121922;
-  border:1px solid #33404b;
-  box-shadow:0 12px 28px rgba(0,0,0,.22);
-}
-.toc-title{
-  padding:14px 16px 10px;
-  color:#c7d0d5;
-  font:700 13px Arial,Helvetica,sans-serif;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-}
-.toc a{
-  display:block;
-  padding:11px 16px;
-  color:#b8c3c9;
-  border-top:1px solid #28343d;
-  text-decoration:none;
-  font:15px/1.35 Arial,Helvetica,sans-serif;
-}
-.toc a:hover{color:#f0c57e}
-.sidebar-note{
-  margin-top:12px;
-  background:#151c23;
-  color:#9da8ae;
-  border:1px solid #303c46;
-  padding:13px 14px;
-  font:14px/1.45 Arial,Helvetica,sans-serif;
-}
-article{
-  background:var(--card);
-  color:var(--ink);
-  border:1px solid #bdb29e;
-  box-shadow:0 20px 44px rgba(0,0,0,.26);
-  padding:30px 34px 38px;
-}
-.section + .section{margin-top:34px}
-.section h2{
-  margin:0 0 12px;
-  color:#162631;
-  font-size:34px;
-  border-bottom:2px solid #b57f31;
-  padding-bottom:8px;
-}
-.section h3{
-  margin:24px 0 10px;
-  color:#26353c;
-  font-size:26px;
-}
-.lead{
-  font-size:22px;
-  line-height:1.55;
-  color:#35444a;
-}
-p{font-size:20px;line-height:1.72;margin:16px 0}
-.quick{display:flex;gap:8px;flex-wrap:wrap}
-.quick span{
-  background:#ddd4c5;
-  color:#394950;
-  padding:6px 10px;
-  border-radius:999px;
-  font:700 11px Arial,Helvetica,sans-serif;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-}
-.figure{margin:22px 0}
-.figure img{
-  width:100%;
-  height:auto;
-  display:block;
-  border:1px solid #b7ab96;
-  background:#ddd6c8;
-}
-.caption{
-  font:14px/1.55 Arial,Helvetica,sans-serif;
-  color:#5c6568;
-  margin-top:8px;
-}
-.imgfallback{
-  display:none;
-  border:1px dashed #ae9f85;
-  background:#f7f1e4;
-  color:#6f695f;
-  padding:16px;
-  font:14px/1.5 Arial,Helvetica,sans-serif;
-}
-.callout{
-  margin:22px 0;
-  padding:16px 18px;
-  border-left:5px solid;
-  background:#faf7ef;
-}
-.callout p{margin:10px 0 0;font-size:19px}
-.label{
-  font:700 11px Arial,Helvetica,sans-serif;
-  letter-spacing:.12em;
-  text-transform:uppercase;
-}
-.confirmed{border-color:var(--green);background:var(--green-soft)}
-.confirmed .label{color:var(--green)}
-.open{border-color:var(--amber);background:var(--amber-soft)}
-.open .label{color:var(--amber)}
-.pull{
-  margin:22px 0;
-  padding:16px 18px;
-  background:#f6efe2;
-  border:1px solid #d9cab1;
-  color:#35444a;
-  font-size:23px;
-  line-height:1.5;
-}
-footer{
-  margin-top:34px;
-  border-top:1px solid #28343d;
-  color:#7f8b92;
-  background:#070a0d;
-}
-.footer-inner{
-  width:min(1120px,calc(100% - 32px));
-  margin:0 auto;
-  padding:20px 0 26px;
-  font:14px/1.55 Arial,Helvetica,sans-serif;
-}
-.footer-inner strong{color:#d9dfe2}
-@media(max-width:980px){
-  .marquee-wrap{grid-template-columns:1fr}
-  .game-snapshot{grid-template-columns:1fr 1fr}
-  .snapshot-cell{border-bottom:1px solid var(--line)}
-  .snapshot-cell:nth-child(2),
-  .snapshot-cell:nth-child(4){border-right:0}
-  .snapshot-cell:nth-child(5){grid-column:1 / -1;border-bottom:0}
-  .shell{grid-template-columns:1fr}
-  .sidebar .toc{position:static}
-}
-@media(max-width:600px){
-  .wrap,.page,.footer-inner{width:min(calc(100% - 20px),1120px)}
-  .hero{padding-bottom:22px}
-  .deck{font-size:18px}
-  article{padding:20px 16px 26px}
-  .section h2{font-size:28px}
-  .section h3{font-size:23px}
-  p,.lead{font-size:18px}
-  .game-snapshot{grid-template-columns:1fr}
-  .snapshot-cell{border-right:0 !important;border-bottom:1px solid var(--line)}
-  .snapshot-cell:last-child{border-bottom:0}
-  .marquee-wrap{padding:18px}
-}
-
-.footer-inner.footer-row{display:flex;align-items:flex-end;justify-content:space-between;gap:22px}
-.site-counter{flex:0 0 auto;text-align:right;font:800 9px Arial,Helvetica,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#748089}
-.site-counter .counter-label{margin-bottom:5px}
-.site-counter img{display:block;margin-left:auto;border:1px solid #303944;box-shadow:0 4px 12px rgba(0,0,0,.28)}
-@media(max-width:620px){
-  .footer-inner.footer-row{align-items:flex-start;flex-direction:column}
-  .site-counter{text-align:left}
-  .site-counter img{margin-left:0}
-}
-
-
-
-/* Reader-facing source and table containment */
-article a, .source-list a, .footnotes a { overflow-wrap:anywhere; }
-.table-scroll {max-width:100%;overflow-x:auto;}
-.table-scroll:focus-visible {outline:2px solid #d7b56d;outline-offset:3px;}
-
-article{min-width:0}article a{color:#79511c}h2{overflow-wrap:anywhere}.technical{background:#dceaf0;border:1px solid #95b0bf;border-radius:14px;padding:20px}.technical li{font:16px/1.65 Arial,sans-serif}.archive-figure{margin:26px auto;max-width:100%;padding:10px;background:#faf6ed;border:1px solid #bbae96}.enlarge{padding:0;border:0;background:transparent;display:block;margin:auto;max-width:100%;cursor:zoom-in}.archive-figure img{display:block;max-width:100%;width:auto;height:auto;max-height:none;margin:auto}.archive-figure.pixel img{width:512px;image-rendering:pixelated}.archive-figure.pixel{max-width:536px}figcaption{font:13px/1.6 Arial,sans-serif;color:#515c61;margin:10px 2px}figcaption span{font-weight:bold}.translation{padding:12px;border-left:3px solid #ae7c34;background:#ede4d4}.translation strong{font:700 11px Arial,sans-serif;color:#79571f;text-transform:uppercase}.translation p{font:14px/1.6 Arial,sans-serif;margin:7px 0}.section{margin-bottom:38px}li{font-size:18px;line-height:1.65}.sources{overflow-wrap:anywhere}.sources p,.sources li{font:14px/1.65 Arial,sans-serif}.sources h3{font-size:23px}details{margin:22px 0;padding:14px;background:#f8f1e5;border:1px solid #c8bba1}summary{cursor:pointer;font:700 16px/1.5 Arial,sans-serif}.rights{font:12px/1.65 Arial,sans-serif}.supplement img{max-width:100%}.image-dialog{width:min(96vw,1400px);max-width:96vw;max-height:95vh;background:#101820;color:white;border:1px solid #ab8040;padding:14px}.image-dialog::backdrop{background:#000d}.image-dialog img{display:block;max-width:100%;height:auto;margin:auto}.image-dialog button{position:sticky;top:0;float:right;background:#f0c57e;border:0;padding:12px;cursor:pointer}.image-dialog p{font:14px Arial,sans-serif}a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #ba802f;outline-offset:4px}.top-return{text-align:center;margin:18px 0}.hero .deck{max-width:850px}.toc{max-height:none}.sidebar{min-width:0}.source-table{overflow:auto}table{border-collapse:collapse;max-width:100%}td,th{border:1px solid #c8beab;padding:8px;font:13px/1.5 Arial,sans-serif}@media(max-width:600px){.archive-figure.pixel img{width:256px}.technical{padding:14px}.section h2{font-size:27px}.topline{font-size:9px}.image-dialog{padding:8px}.page{width:calc(100% - 16px)}}
-
-article{min-width:0}article a{color:#74501e}figure{margin:24px 0}figure img{display:block;width:100%;height:auto;max-height:640px;object-fit:contain;background:#10171d}figure button{display:block;padding:0;border:0;background:transparent;width:100%;cursor:zoom-in}figcaption{font:14px/1.55 Arial,sans-serif;color:#566167;margin-top:8px}.pair{display:grid;grid-template-columns:1fr 1fr;gap:18px}.pair figure{min-width:0}.marquee-photo{max-width:1030px;margin:22px auto 0}.marquee-photo img{max-height:320px;object-fit:contain}.marquee-photo figcaption{color:#a8b4bb}li{font-size:19px;line-height:1.65;margin:8px 0}blockquote{border-left:4px solid #bd8d3c;margin:24px 0;padding:2px 20px;background:#f7f0e1}.technical{background:#deebf5;border:1px solid #aac1d2;border-radius:16px;padding:22px;margin:26px 0}.technical dl{display:grid;grid-template-columns:1fr 1fr;gap:18px}.technical dt{font:700 11px Arial;text-transform:uppercase;color:#405e73;letter-spacing:.08em}.technical dd{margin:5px 0 0;font:17px/1.45 Arial}.translation{border-left:4px solid #bd8d3c;padding-left:18px}.review-note{text-align:center;padding:9px;background:#3b2e17;color:#f4dbac;font:12px Arial}.toc summary{cursor:pointer;padding:14px 16px;font:700 14px Arial;color:#d9b46f}dialog{width:min(1200px,96vw);max-height:94vh;padding:16px;background:#10171d;color:white;border:1px solid #aa803b}dialog::backdrop{background:rgba(0,0,0,.88)}dialog img{max-width:100%;height:auto;display:block;margin:auto}dialog button{position:sticky;top:0;float:right;padding:10px 14px;cursor:pointer}dialog p{font:14px/1.5 Arial}.lightbox-link{color:#e0bc7e}h1,h2,h3{overflow-wrap:anywhere}table{width:100%;border-collapse:collapse}td,th{border-bottom:1px solid #bcb09c;padding:10px;text-align:left}.backlinks{justify-content:center}.sources li{overflow-wrap:anywhere}@media(max-width:650px){.pair,.technical dl{grid-template-columns:1fr}.section h2{font-size:27px}.hero h1{font-size:43px;line-height:1.05}figure img{max-height:520px}.technical{padding:16px}li{font-size:18px}}
-.archive-figure.wide{max-width:900px}
-.archive-figure.pixel img{image-rendering:pixelated;image-rendering:crisp-edges;max-width:896px}
-.section table{width:100%;border-collapse:collapse}.section th,.section td{border:1px solid #c8beab;padding:8px;text-align:left}
-.section ul,.section ol{padding-left:24px}
-.section li{font-size:18px;line-height:1.65;margin:7px 0}
-.snapshot-caution{grid-column:1/-1;margin:18px 0 0;font:14px/1.55 Arial,sans-serif;color:#42535a}
-@media(max-width:650px){.archive-figure.pixel img{max-width:100%}}
-
-.detailed-evidence{margin-top:24px}.detailed-evidence h2{font-size:24px;margin-top:28px}.detailed-evidence h3{font-size:19px}.detailed-evidence p,.detailed-evidence li{font-size:14px;line-height:1.6}.detailed-evidence table{width:100%;display:block;overflow-x:auto}
-</style>
-<style id="asb-return-navigation-style">
-.asb-return-navigation{width:min(calc(100% - 32px),1180px);margin:16px auto;display:flex;gap:10px;flex-wrap:wrap;font:700 13px/1.4 Arial,Helvetica,sans-serif}
-.asb-return-navigation a{display:inline-block;padding:10px 14px;border:1px solid #9c7c45;border-radius:4px;background:#17222c;color:#f0c77b;text-decoration:none}
-.asb-return-navigation a:hover{background:#263744;color:#fff}.asb-return-navigation a:focus-visible{outline:3px solid #f0c77b;outline-offset:3px}
-.hero .meta .research-status{display:inline!important;border:0!important;border-radius:0!important;padding:0!important;background:none!important;color:#b9c4ca!important;font:700 12px/1.5 Arial,Helvetica,sans-serif!important;text-transform:none!important;cursor:default!important}
-</style><script type="application/ld+json">
+<meta name="description" content="Arcade Side B’s researched history of Intrepid, Nova Games’ 1983 embassy-infiltration arcade game.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://arcadesideb.com/intrepid.html">
+<meta property="og:title" content="Intrepid (1983 Arcade Game) | Arcade Side B">
+<meta property="og:description" content="Nova Games’ 1983 spy adventure turns a five-story embassy, eight useful tools and one button into a surprisingly sophisticated arcade mission.">
+<meta property="og:url" content="https://arcadesideb.com/intrepid.html">
+<script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Article",
@@ -402,18 +29,7 @@ article{min-width:0}article a{color:#74501e}figure{margin:24px 0}figure img{disp
 <script defer src="/assets/asb-analytics.js"></script>
 <script defer src="assets/asb-counts.js"></script>
 <link rel="stylesheet" href="site-search.css?v=nav-3">
-<style id="asb-game-reference-style">
-/* Approved game reference: marquee, navigation, identity, snapshot, story. */
-.mast .marquee-photo{max-width:100%;margin:18px auto 0}
-.mast .marquee-photo .archive-figure{margin:0;background:#101820;border-color:#46525c}
-.mast .asb-game-navigation{width:100%;margin:16px 0 24px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;font-size:14px}
-.asb-game-navigation a{display:flex;align-items:center;justify-content:center;text-align:center;min-height:48px;padding:10px 12px}
-@media(max-width:700px){.mast .asb-game-navigation{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:360px){.mast .asb-game-navigation{grid-template-columns:1fr}}
-</style>
-</head><body>
-
-<div class="asb-global-search" aria-label="Arcade Side B site navigation and search">
+<link rel="stylesheet" href="game-page.css?v=20261119"></head><body><div class="asb-global-search" aria-label="Arcade Side B site navigation and search">
   <div class="asb-global-inner">
     <a class="asb-global-brand" href="index.html">Arcade Side B</a>
     <nav class="asb-global-links" aria-label="Archive indexes">
@@ -425,8 +41,7 @@ article{min-width:0}article a{color:#74501e}figure{margin:24px 0}figure img{disp
       <input id="asb-global-search-input" name="q" type="search" placeholder="Search Arcade Side B…" autocomplete="off"><button type="submit">Search</button>
     </form>
   </div>
-</div><header class="mast"><div class="wrap"><div class="topline"><span>Arcade history · Research · Preservation</span><span>A living archive of arcade history</span></div><div class="marquee-photo"><figure class="archive-figure"><button class="enlarge" aria-label="Enlarge surviving Intrepid marquee artwork"><img src="assets/intrepid/marquee_main_hero_1920w.jpg" alt="Surviving Intrepid marquee artwork. Source: LaunchBox Games Database." loading="eager"></button><figcaption>Surviving <em>Intrepid</em> marquee artwork. Source: LaunchBox Games Database. <span>Click to enlarge.</span></figcaption></figure></div><nav class="asb-return-navigation asb-game-navigation" aria-label="Game navigation"><a href="index.html">Back to Arcade Side B</a><a href="games.html">Back to Games</a><a href="exzisus.html" rel="prev" aria-label="Previous game: Exzisus">← Previous Game</a><a href="minky-monkey.html" rel="next" aria-label="Next game: Minky Monkey">Next Game →</a></nav><div class="hero"><div class="crumb"><a href="https://arcadesideb.com/">Arcade Side B</a> › Games › Intrepid</div><h1>Intrepid</h1><p class="deck">Nova Games of Canada, 1983: a spy mission inside a miniature five-story embassy.</p><div class="meta">1983 · Nova Games Ltd. / Nova Games of Canada · Living research</div></div></div></header>
-<main class="page"><div class="shell"><aside class="sidebar"><details class="toc"><summary>Inside the article</summary><nav><a href="#technical">Technical snapshot</a><a href="#overview">Reader snapshot</a><a href="#a-little-embassy-with-much-bigger-ideas">A little embassy with much bigger ideas</a><a href="#the-embassy-as-a-macro-maze">The embassy as a macro-maze</a><a href="#the-elevator-is-a-machine-the-player-must-operate">The elevator is a machine the player must operate</a><a href="#eight-objects-but-not-eight-interchangeable-collectibles">Eight objects, but not eight interchangeable collectibles</a><a href="#a-tool-list-becomes-an-operational-plan">A tool list becomes an operational plan</a><a href="#fixed-locations-turn-discovery-into-route-planning">Fixed locations turn discovery into route planning</a><a href="#rooms-conceal-different-kinds-of-space">Rooms conceal different kinds of space</a><a href="#guards-make-sure-the-player-cannot-think-forever">Guards make sure the player cannot think forever</a><a href="#guards-turn-architecture-into-tactics">Guards turn architecture into tactics</a><a href="#infiltration-and-extraction-are-separately-pressured">Infiltration and extraction are separately pressured</a><a href="#what-the-score-tells-the-player-to-do">What the score tells the player to do</a><a href="#the-embassy-does-not-change-the-pressure-does">The embassy does not change; the pressure does</a><a href="#reusing-the-embassy-without-repeating-the-same-challenge">Reusing the embassy without repeating the same challenge</a><a href="#tiny-sprites-that-communicate-immediately">Tiny sprites that communicate immediately</a><a href="#reading-a-screen-that-gives-almost-nothing-away">Reading a screen that gives almost nothing away</a><a href="#kilobytes-not-gigabytes">Kilobytes, not gigabytes</a><a href="#hardware-modest-ingredients-purposeful-use">Hardware: modest ingredients, purposeful use</a><a href="#physical-survival-is-much-thinner-than-the-design-deserves">Physical survival is much thinner than the design deserves</a><a href="#nova-games-and-the-canadian-context">Nova Games and the Canadian context</a><a href="#a-canadian-product-in-more-than-name">A Canadian product in more than name</a><a href="#music-and-little-bits-of-personality">Music and little bits of personality</a><a href="#following-a-complete-first-mission">Following a complete first mission</a><a href="#what-the-surviving-paper-can-and-cannot-settle">What the surviving paper can and cannot settle</a><a href="#why-a-second-credit-feels-different">Why a second credit feels different</a><a href="#the-smaller-details-make-the-mission-feel-complete">The smaller details make the mission feel complete</a><a href="#why-intrepid-still-works">Why Intrepid still works</a><a href="#game-over-image">Game-over screen</a><a href="#sources">Sources &amp; research notes</a></nav></details><div class="sidebar-note">A five-story embassy, eight useful tools, one button, and a route that gets smarter every time you learn it.</div></aside><article><div id="technical"><section class="technical" aria-label="Technical snapshot"><h2>Technical snapshot</h2><dl>
+</div><header class="mast"><div class="wrap"><div class="topline"><span>Arcade history · Research · Preservation</span><span>A living archive of arcade history</span></div><div class="marquee-photo"><figure class="archive-figure"><button class="enlarge" aria-label="Enlarge surviving Intrepid marquee artwork"><img src="assets/intrepid/marquee_main_hero_1920w.jpg" alt="Surviving Intrepid marquee artwork. Source: LaunchBox Games Database." loading="eager"></button><figcaption>Surviving <em>Intrepid</em> marquee artwork. Source: LaunchBox Games Database. <span>Click to enlarge.</span></figcaption></figure></div><nav class="asb-return-navigation asb-game-navigation" aria-label="Game navigation"><a href="index.html">Back to Arcade Side B</a><a href="games.html">Back to Games</a><a href="exzisus.html" rel="prev" aria-label="Previous game: Exzisus">← Previous Game</a><a href="minky-monkey.html" rel="next" aria-label="Next game: Minky Monkey">Next Game →</a></nav><div class="hero"><div class="crumb"><a href="https://arcadesideb.com/">Arcade Side B</a> › Games › Intrepid</div><h1>Intrepid</h1><p class="deck">Nova Games of Canada, 1983: a spy mission inside a miniature five-story embassy.</p><div class="meta">1983 · Nova Games Ltd. / Nova Games of Canada · Living research</div></div></div></header><main class="page"><div class="shell"><aside class="sidebar"><details class="toc"><summary>Inside the article</summary><nav aria-label="Intrepid article contents"><a href="#technical">Technical snapshot</a><a href="#overview">Reader snapshot</a><a href="#a-little-embassy-with-much-bigger-ideas">A little embassy with much bigger ideas</a><a href="#the-embassy-as-a-macro-maze">The embassy as a macro-maze</a><a href="#the-elevator-is-a-machine-the-player-must-operate">The elevator is a machine the player must operate</a><a href="#eight-objects-but-not-eight-interchangeable-collectibles">Eight objects, but not eight interchangeable collectibles</a><a href="#a-tool-list-becomes-an-operational-plan">A tool list becomes an operational plan</a><a href="#fixed-locations-turn-discovery-into-route-planning">Fixed locations turn discovery into route planning</a><a href="#rooms-conceal-different-kinds-of-space">Rooms conceal different kinds of space</a><a href="#guards-make-sure-the-player-cannot-think-forever">Guards make sure the player cannot think forever</a><a href="#guards-turn-architecture-into-tactics">Guards turn architecture into tactics</a><a href="#infiltration-and-extraction-are-separately-pressured">Infiltration and extraction are separately pressured</a><a href="#what-the-score-tells-the-player-to-do">What the score tells the player to do</a><a href="#the-embassy-does-not-change-the-pressure-does">The embassy does not change; the pressure does</a><a href="#reusing-the-embassy-without-repeating-the-same-challenge">Reusing the embassy without repeating the same challenge</a><a href="#tiny-sprites-that-communicate-immediately">Tiny sprites that communicate immediately</a><a href="#reading-a-screen-that-gives-almost-nothing-away">Reading a screen that gives almost nothing away</a><a href="#kilobytes-not-gigabytes">Kilobytes, not gigabytes</a><a href="#hardware-modest-ingredients-purposeful-use">Hardware: modest ingredients, purposeful use</a><a href="#physical-survival-is-much-thinner-than-the-design-deserves">Physical survival is much thinner than the design deserves</a><a href="#nova-games-and-the-canadian-context">Nova Games and the Canadian context</a><a href="#a-canadian-product-in-more-than-name">A Canadian product in more than name</a><a href="#music-and-little-bits-of-personality">Music and little bits of personality</a><a href="#following-a-complete-first-mission">Following a complete first mission</a><a href="#what-the-surviving-paper-can-and-cannot-settle">What the surviving paper can and cannot settle</a><a href="#why-a-second-credit-feels-different">Why a second credit feels different</a><a href="#the-smaller-details-make-the-mission-feel-complete">The smaller details make the mission feel complete</a><a href="#why-intrepid-still-works">Why Intrepid still works</a><a href="#game-over-image">Game-over screen</a><a href="#sources">Sources &amp; research notes</a></nav></details><div class="sidebar-note">A five-story embassy, eight useful tools, one button, and a route that gets smarter every time you learn it.</div></aside><article class="asb-game-story"><div id="technical"><section class="technical" aria-label="Technical snapshot"><h2>Technical snapshot</h2><dl>
 <div><dt>Company</dt><dd>Nova Games Ltd. / Nova Games of Canada</dd></div>
 <div><dt>Year</dt><dd>1983</dd></div>
 <div><dt>Genre</dt><dd>Arcade espionage adventure built from maze and action mechanics</dd></div>
@@ -597,13 +212,13 @@ article{min-width:0}article a{color:#74501e}figure{margin:24px 0}figure img{disp
 <li>Begin a harder mission with more efficient opposition.</li>
 </ol>
 <h2>The eight-item toolkit</h2>
-<p><strong>Key</strong> — access to the vault floor/locked door.<br />
-<strong>Safe combination</strong> — opens the vault.<br />
-<strong>I.D. card</strong> — bypasses/disables the electrified security floor.<br />
-<strong>Disguise</strong> — avoids detection by the sentry.<br />
-<strong>Running shoes / jet boots</strong> — increases Spy 001's movement speed.<br />
-<strong>Map</strong> — improves room/item information; descriptions vary in wording, but its function is informational.<br />
-<strong>Wrench</strong> — sabotages the elevator and can trap/restrict guards.<br />
+<p><strong>Key</strong> — access to the vault floor/locked door.<br>
+<strong>Safe combination</strong> — opens the vault.<br>
+<strong>I.D. card</strong> — bypasses/disables the electrified security floor.<br>
+<strong>Disguise</strong> — avoids detection by the sentry.<br>
+<strong>Running shoes / jet boots</strong> — increases Spy 001's movement speed.<br>
+<strong>Map</strong> — improves room/item information; descriptions vary in wording, but its function is informational.<br>
+<strong>Wrench</strong> — sabotages the elevator and can trap/restrict guards.<br>
 <strong>Umbrella</strong> — enables a safe rooftop jump and fast extraction.</p>
 <h2>Item placement reported in a detailed full playthrough</h2>
 <ul>
@@ -625,7 +240,7 @@ article{min-width:0}article a{color:#74501e}figure{margin:24px 0}figure img{disp
 <li>Later missions use more efficient/more dangerous opposition.</li>
 </ul>
 <h2>Progression details</h2>
-<p>Factory flyer: each successful mission is followed by a more difficult mission with more efficient guards.<br />
+<p>Factory flyer: each successful mission is followed by a more difficult mission with more efficient guards.<br>
 River's Arcade Review observation: mission 1 ~three guards / 6000 bonus; mission 2 ~four faster guards / 7000; mission 3 ~five guards / 8000; mission 4 reaches 9000 and introduces the lightning cloud. These exact counts/values are useful observational data but were not independently factory-verified.</p>
 <h2>Scoring</h2>
 <ul>
@@ -707,7 +322,7 @@ These are useful gameplay observations, not locked hardware constants.</li>
 </ul>
 <h2>Required versus optional framing</h2>
 <p>MobyGames gives the clearest secondary distinction:
-Required for core vault chain: key, combination, I.D., disguise.<br />
+Required for core vault chain: key, combination, I.D., disguise.<br>
 Helpful/route-shaping: shoes, map, wrench, umbrella.
 Important nuance: umbrella is only “required” for rooftop escape, not universal mission completion.</p>
 <h2>Mission escalation from River</h2>
@@ -760,14 +375,14 @@ The point is not anti-modern-game rhetoric; it is to make the old constraint vis
 <li><strong>MAME-derived metadata</strong> — useful for emulation/hardware context but not accepted automatically as proof of original physical controls.</li>
 </ol>
 <h2>S1 — Nova Games Ltd. 1983 Intrepid sales flyer, two pages</h2>
-<p>International Arcade Museum / Arcade Flyer Archive (Dphower copy):<br />
+<p>International Arcade Museum / Arcade Flyer Archive (Dphower copy):<br>
 https://flyers.arcade-museum.com/videogames/show/2322</p>
 <p><strong>Supports:</strong> Nova Games of Canada branding; 1983; espionage premise; eight named items and their functions; hazards; “secret storm weapon”; escalating missions; availability as complete games or kits; kit component list; period visual cabinet/game presentation.</p>
 <p><strong>Strength:</strong> strongest game-specific primary document in the project.</p>
 <h2>S2 — Nova Games Ltd. Intrepid alternate flyer, 1983</h2>
-<p>International Arcade Museum / Arcade Flyer Archive (TAFA Original):<br />
+<p>International Arcade Museum / Arcade Flyer Archive (TAFA Original):<br>
 https://flyers.arcade-museum.com/videogames/show/5848</p>
-<p><strong>Supports:</strong> alternate period promotion and cabinet/game imagery.<br />
+<p><strong>Supports:</strong> alternate period promotion and cabinet/game imagery.<br>
 <strong>Image status:</strong> distinct yellow-background flyer seen online, but the current research runtime did not expose the underlying original binary for archival handling. Retained as a source reference rather than faking or screen-capturing a substitute.</p>
 <h2>S3 — Museum of the Game: Intrepid</h2>
 <p>https://www.arcade-museum.com/Videogame/intrepid</p>
@@ -793,7 +408,7 @@ https://flyers.arcade-museum.com/videogames/show/5848</p>
 <p><strong>Caution:</strong> narrator calls the controls “eight way,” which is not used as evidence for original cabinet hardware.</p>
 <h2>S9 — Second playthrough summary</h2>
 
-<p><strong>Useful for:</strong> mission sequence and qualitative tool use.<br />
+<p><strong>Useful for:</strong> mission sequence and qualitative tool use.<br>
 <strong>Cautions:</strong> says item distribution is random and conflates the wrench with disabling the electric floor. Both points conflict with the stronger evidence set and are not carried forward as fact.</p>
 <h2>S10 — LaunchBox Games Database: Intrepid images</h2>
 <p>https://gamesdb.launchbox-app.com/games/images/11859-intrepid</p>
@@ -801,9 +416,9 @@ https://flyers.arcade-museum.com/videogames/show/5848</p>
 <h2>S11 — Museum/KLOV alternate marquee image</h2>
 <p>Museum of the Game image page identifies an alternate marquee contributed by Joe Magiera. The accepted profile contains a 1024x374 copy with visible KLOV watermark. It is preserved unaltered and in a lightly contrast-adjusted derivative.</p>
 <h2>S12 — iCollector / Captain's Auction cabinet photo</h2>
-<p>Image-search result: “INTREPID CLASSIC ARCADE GAME,” auctioned July 26, 2014.<br />
+<p>Image-search result: “INTREPID CLASSIC ARCADE GAME,” auctioned July 26, 2014.<br>
 https://www.icollector.com/INTREPID-CLASSIC-ARCADE-GAME_i20177314</p>
-<p><strong>Value:</strong> alternate real-world cabinet photograph and physical-survivor evidence.<br />
+<p><strong>Value:</strong> alternate real-world cabinet photograph and physical-survivor evidence.<br>
 <strong>Package status:</strong> source reference only; image binary was not directly exposed for responsible archival handling in this session.</p>
 <h2>S13 — Nova corporate context from existing Arcade Side B company research</h2>
 <p>Canadian corporate records reviewed for Arcade Side B establish that <strong>Les Jeux Nova Ltée / Nova Games Ltd. was incorporated March 13, 1981</strong>. Founding directors included <strong>Neil Rubin</strong> and <strong>Courtney Lai-Hing</strong>; <strong>Andrée Bertrand</strong> appears in formation/incorporator material and signed the initial director filing as president. <strong>Ed Prest</strong> became a director September 14, 1982. Registered-office material documents a move from 3150 Sartelon to <strong>190 Graveline</strong>. An annual return describes the main business as <strong>“AMUSEMENT GAMES.”</strong></p>
@@ -838,57 +453,57 @@ https://www.icollector.com/INTREPID-CLASSIC-ARCADE-GAME_i20177314</p>
 <p>Historical source images were preserved without generative editing. Where screenshots were enlarged for display, nearest-neighbor scaling was used to retain the original pixel structure.</p>
 <h3>01 — Main marquee</h3>
 <p>
-<strong>Dimensions:</strong> 3840x933.<br />
-<strong>QC:</strong> Excellent resolution; strong color; wide horizontal format; no obvious crop problem; best large-format image in the pack..<br /><strong>Role:</strong> <strong>Primary marquee reference.</strong><br />
-<strong>Source:</strong> LaunchBox image set; historical artwork.<br />
+<strong>Dimensions:</strong> 3840x933.<br>
+<strong>QC:</strong> Excellent resolution; strong color; wide horizontal format; no obvious crop problem; best large-format image in the pack..<br><strong>Role:</strong> <strong>Primary marquee reference.</strong><br>
+<strong>Source:</strong> LaunchBox image set; historical artwork.<br>
 <strong>Rights note:</strong> source/rights should be credited or reviewed before public republication.</p>
 <h3>02 — 1983 Canadian sales flyer front</h3>
 <p>
-<strong>Dimensions:</strong> 850x1104.<br />
-<strong>QC:</strong> Good archival scan; readable at full size; mild aged-paper cast; not large enough for extreme crop enlargement but fully useful as a historical figure. — very light deterministic autocontrast/contrast correction only.<br /><strong>Role:</strong> <strong>Primary historical figure</strong>, portrait sidebar, evidence section.<br />
-<strong>Source:</strong> Dphower / Arcade Flyer Archive / International Arcade Museum.<br />
+<strong>Dimensions:</strong> 850x1104.<br>
+<strong>QC:</strong> Good archival scan; readable at full size; mild aged-paper cast; not large enough for extreme crop enlargement but fully useful as a historical figure. — very light deterministic autocontrast/contrast correction only.<br><strong>Role:</strong> <strong>Primary historical figure</strong>, portrait sidebar, evidence section.<br>
+<strong>Source:</strong> Dphower / Arcade Flyer Archive / International Arcade Museum.<br>
 <strong>Rights:</strong> attribution required; public reuse permissions should be checked against Museum terms.</p>
 <h3>03 — 1983 Canadian sales flyer back</h3>
 <p>
-<strong>Dimensions:</strong> 850x1103.<br />
-<strong>QC:</strong> Good; important because it contains the eight-item descriptions and kit information. Small text is readable when opened full-size but should not be shrunk too far on the website..<br /><strong>Role:</strong> <strong>Essential evidence image</strong>; ideally full-width/lightbox so readers can inspect the item list and kit details.<br />
+<strong>Dimensions:</strong> 850x1103.<br>
+<strong>QC:</strong> Good; important because it contains the eight-item descriptions and kit information. Small text is readable when opened full-size but should not be shrunk too far on the website..<br><strong>Role:</strong> <strong>Essential evidence image</strong>; ideally full-width/lightbox so readers can inspect the item list and kit details.<br>
 <strong>Source/rights:</strong> same as flyer front.</p>
 <h3>04 — Title screen</h3>
 <p>
-<strong>Native dimensions:</strong> 224x256.<br />
-<strong>QC:</strong> Native-resolution game capture; crisp pixel structure; tiny by modern standards but historically correct. (896x1024).<br /><strong>Role:</strong> portrait sidebar/detail; not hero.</p>
+<strong>Native dimensions:</strong> 224x256.<br>
+<strong>QC:</strong> Native-resolution game capture; crisp pixel structure; tiny by modern standards but historically correct. (896x1024).<br><strong>Role:</strong> portrait sidebar/detail; not hero.</p>
 <h3>05 — Embassy overview / “dollhouse” view</h3>
 <p>
-<strong>QC:</strong> Native-size gameplay image; JPEG source has modest compression but remains readable. Subject fills frame well..<br /><strong>Role:</strong> <strong>Key article image.</strong> Place beside or immediately after the “dollhouse view” discussion. This is the image that visually proves the metaphor.</p>
+<strong>QC:</strong> Native-size gameplay image; JPEG source has modest compression but remains readable. Subject fills frame well..<br><strong>Role:</strong> <strong>Key article image.</strong> Place beside or immediately after the “dollhouse view” discussion. This is the image that visually proves the metaphor.</p>
 <h3>06 — First-floor item room</h3>
 <p>
-<strong>QC:</strong> Native gameplay size; readable geometry; mild JPEG compression..<br /><strong>Role:</strong> toolkit/micro-maze section; pair with fifth-floor room if layout allows.</p>
+<strong>QC:</strong> Native gameplay size; readable geometry; mild JPEG compression..<br><strong>Role:</strong> toolkit/micro-maze section; pair with fifth-floor room if layout allows.</p>
 <h3>07 — Fifth-floor safe room</h3>
 <p>
-<strong>QC:</strong> Native gameplay size; maze and safe area legible..<br /><strong>Role:</strong> vault/security discussion; illustrates how room complexity differs from the embassy overview.</p>
+<strong>QC:</strong> Native gameplay size; maze and safe area legible..<br><strong>Role:</strong> vault/security discussion; illustrates how room complexity differs from the embassy overview.</p>
 <h3>08 — Embassy with guards</h3>
 <p>
-<strong>QC:</strong> Native-resolution PNG; better compression quality than JPEG captures; guard positions readable..<br /><strong>Role:</strong> escalating-pressure / guard behavior section.</p>
+<strong>QC:</strong> Native-resolution PNG; better compression quality than JPEG captures; guard positions readable..<br><strong>Role:</strong> escalating-pressure / guard behavior section.</p>
 <h3>09 — Plans recovered</h3>
 <p>
-<strong>QC:</strong> Native gameplay capture; message remains readable at enlarged size; mild JPEG compression..<br /><strong>Role:</strong> infiltration/extraction transition; excellent mid-article visual.</p>
+<strong>QC:</strong> Native gameplay capture; message remains readable at enlarged size; mild JPEG compression..<br><strong>Role:</strong> infiltration/extraction transition; excellent mid-article visual.</p>
 <h3>10 — Game over</h3>
 <p>
-<strong>QC:</strong> Clean native PNG but visually sparse..<br /><strong>Role:</strong> optional; evidence/atmosphere only. It is a secondary atmosphere/evidence image rather than a primary gameplay reference.</p>
+<strong>QC:</strong> Clean native PNG but visually sparse..<br><strong>Role:</strong> optional; evidence/atmosphere only. It is a secondary atmosphere/evidence image rather than a primary gameplay reference.</p>
 <h3>11 — Alternate marquee photo (KLOV watermark)</h3>
 <p>
-<strong>Dimensions:</strong> 1024x374.<br />
-<strong>QC:</strong> Good subject size; visible KLOV watermark/marking; photographic perspective and background remain. Markings are preserved. — contrast only; no watermark removal.<br /><strong>Role:</strong> physical-artifact section, not primary hero because the main marquee file is much cleaner.<br />
-<strong>Attribution:</strong> Museum/KLOV image; contributed by Joe Magiera according to Museum listing.<br />
+<strong>Dimensions:</strong> 1024x374.<br>
+<strong>QC:</strong> Good subject size; visible KLOV watermark/marking; photographic perspective and background remain. Markings are preserved. — contrast only; no watermark removal.<br><strong>Role:</strong> physical-artifact section, not primary hero because the main marquee file is much cleaner.<br>
+<strong>Attribution:</strong> Museum/KLOV image; contributed by Joe Magiera according to Museum listing.<br>
 <strong>Rights:</strong> Attribution and rights remain tied to the original source.</p>
 <h3>12 — Cabinet reference image</h3>
 <p>
-<strong>Dimensions:</strong> 562x1200; transparent background.<br />
-<strong>QC:</strong> Strong portrait subject, full cabinet visible, marquee/control panel/bezel readable enough for context. Perspective is useful for overall cabinet form, though not ideal for close control-layout analysis..<br /><strong>Role:</strong> <strong>Primary portrait cabinet reference</strong>; physical-object sidebar / collector section.<br />
+<strong>Dimensions:</strong> 562x1200; transparent background.<br>
+<strong>QC:</strong> Strong portrait subject, full cabinet visible, marquee/control panel/bezel readable enough for context. Perspective is useful for overall cabinet form, though not ideal for close control-layout analysis..<br><strong>Role:</strong> <strong>Primary portrait cabinet reference</strong>; physical-object sidebar / collector section.<br>
 <strong>Source:</strong> LaunchBox image set; likely sourced from preservation/collector imagery. Rights and attribution remain tied to the original source.</p>
 <h2>Additional image references not reproduced here</h2>
 <h3>A — Yellow-background alternate 1983 Intrepid flyer</h3>
-<p>Arcade Flyer Archive TAFA Original:<br />
+<p>Arcade Flyer Archive TAFA Original:<br>
 https://flyers.arcade-museum.com/videogames/show/5848</p>
 <p>Distinct historical promotional image. The archive reference is retained, but a source-quality original is not reproduced here; a screenshot is not substituted for the archive original.</p>
 <h3>B — 2014 auction cabinet photo</h3>
@@ -907,5 +522,4 @@ https://flyers.arcade-museum.com/videogames/show/5848</p>
 <li>Cabinet portrait in physical survival/collector context.</li>
 <li>Alternate marquee as artifact detail.</li>
 <li>Title screen / game over only if layout needs smaller secondary figures.</li>
-</ol></details></section><section class="section"><h2>Help keep the record open</h2><p>Have original Nova Games paperwork, a documented <em>Intrepid</em> cabinet, period credits, or firsthand development information? <a href="mailto:dde.biz@gmail.com?subject=Arcade%20Side%20B%20-%20Intrepid">Contribute information</a>. Submissions are reviewed before publication; contributors may be credited with permission or remain anonymous.</p></section></article></div></main>
-<footer><div class="footer-inner"><div class="backlinks"><a class="backhome" href="games.html">← Back to Games</a></div><strong>Arcade Side B</strong> · The Overlooked Side of Arcade History<br>Intrepid · Updated October 7, 2026 · <a href="mailto:dde.biz@gmail.com">Contribute a correction or source</a></div><div class="footer-inner rights">Arcade Side B is a noncommercial historical research and preservation project. Historical artwork, screenshots, scans, trademarks and other third-party materials may remain protected by copyright. Arcade Side B does not claim ownership or imply that attribution grants permission. Rights holders may contact us for attribution, correction, restriction or removal.</div></footer><dialog id="viewer"><button id="close-viewer" aria-label="Close enlarged image">Close ✕</button><p id="image-caption"></p><p><a id="image-original" class="lightbox-link" target="_blank" rel="noopener">Open image at full size</a></p><img id="full-image" alt=""></dialog><script>document.querySelectorAll('.enlarge').forEach(b=>b.addEventListener('click',()=>{const i=b.querySelector('img');document.querySelector('#full-image').src=i.src;document.querySelector('#full-image').alt=i.alt;document.querySelector('#image-caption').textContent=i.alt;document.querySelector('#image-original').href=i.src;document.querySelector('#viewer').showModal()}));document.querySelector('#close-viewer').addEventListener('click',()=>document.querySelector('#viewer').close());document.querySelector('.toc').open=matchMedia('(min-width:981px)').matches;</script></body></html>
+</ol></details></section><section class="section"><h2>Help keep the record open</h2><p>Have original Nova Games paperwork, a documented <em>Intrepid</em> cabinet, period credits, or firsthand development information? <a href="mailto:dde.biz@gmail.com?subject=Arcade%20Side%20B%20-%20Intrepid">Contribute information</a>. Submissions are reviewed before publication; contributors may be credited with permission or remain anonymous.</p></section></article></div></main><footer><div class="footer-inner"><div class="backlinks"><a class="backhome" href="games.html">← Back to Games</a></div><strong>Arcade Side B</strong> · The Overlooked Side of Arcade History<br>Intrepid · Updated October 7, 2026 · <a href="mailto:dde.biz@gmail.com">Contribute a correction or source</a></div><div class="footer-inner rights">Arcade Side B is a noncommercial historical research and preservation project. Historical artwork, screenshots, scans, trademarks and other third-party materials may remain protected by copyright. Arcade Side B does not claim ownership or imply that attribution grants permission. Rights holders may contact us for attribution, correction, restriction or removal.</div></footer><dialog id="asb-game-viewer" class="image-dialog"><button type="button" aria-label="Close enlarged image">Close ✕</button><p data-caption=""></p><p><a class="lightbox-link" target="_blank" rel="noopener">Open image at full size</a></p><img alt=""></dialog><script defer src="game-page.js?v=20261119"></script></body></html>
