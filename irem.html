@@ -1,13 +1,910 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Irem — The Arcade Years, 1978–1994 | Arcade Side B</title><meta name="description" content="An evidence-led history of Irem and IPM, from the Play Table years through R-Type and the final M92 games, with 82 distinct arcade-video families."><meta name="robots" content="noindex,nofollow"><link rel="stylesheet" href="site-search.css?v=nav-3"><script defer src="/assets/asb-analytics.js"></script><style>
-:root{--ink:#283139;--paper:#eee7d8;--gold:#bf8a39;--max:1180px}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#0a0f14;color:#dce2e5;font-family:Georgia,'Times New Roman',serif}a{color:#8b5814}.sitehead{border-bottom:4px solid var(--gold);background:linear-gradient(135deg,#10171e,#162634)}.width{width:min(calc(100% - 32px),var(--max));margin:auto}.sitehead .width{padding:22px 0 30px}.brand{color:#fff;text-decoration:none;font-weight:700;font-size:25px}.nav-back{display:flex;gap:9px;flex-wrap:wrap;margin:20px 0}.nav-back a{padding:10px 13px;color:#f0c77b;border:1px solid #977746;background:#17232f;border-radius:4px;font:700 13px Arial,sans-serif;text-decoration:none}.eyebrow{color:#d9a959;font:700 12px Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase}.sitehead h1{font-size:clamp(40px,6vw,68px);margin:12px 0;color:#fff}.deck{font-size:20px;line-height:1.5;max-width:900px;color:#c5cdd3}.shell{width:min(calc(100% - 32px),var(--max));display:grid;grid-template-columns:260px minmax(0,1fr);gap:24px;margin:30px auto 65px}.side{align-self:start;position:sticky;top:12px}.contents{border:1px solid #34404b;background:#121b23}.contents summary{cursor:pointer;padding:15px;color:#f4c57c;font:700 15px Arial,sans-serif}.contents nav{max-height:76vh;overflow:auto}.contents nav a{display:block;color:#bbc6cf;font:13px/1.45 Arial,sans-serif;padding:11px 12px;border-top:1px solid #2d3842;text-decoration:none}.contents nav a:hover{color:#fff}.side-note{margin-top:12px;padding:15px;border:1px solid #394653;color:#b9c4c9;font:13px/1.5 Arial,sans-serif}article{min-width:0;background:var(--paper);color:var(--ink);padding:28px 33px 40px;border:1px solid #b6ab99}article p{font-size:18px;line-height:1.65;margin:14px 0}article h2{font-size:clamp(25px,3vw,31px);border-bottom:2px solid var(--gold);padding-bottom:10px;margin:36px 0 15px}article h3{font-size:22px;margin-top:28px}article li{font-size:17px;line-height:1.55}article a,article code{overflow-wrap:anywhere;word-break:break-word}.snapshot{border:1px solid #c9bba2;background:#f8f1e3;padding:20px;margin-bottom:30px}.snapshot h2{margin:0 0 10px}.snapshot-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.snapshot-grid div{padding:10px;background:#efe4d0}.snapshot-grid strong{display:block;font:700 12px Arial,sans-serif;color:#74614c}.snapshot-grid span{font:17px Georgia,serif}.table-scroll{overflow-x:auto;max-width:100%}.iremtable{width:100%;border-collapse:collapse;font:14px/1.45 Arial,sans-serif}.iremtable td,.iremtable th{border:1px solid #b9ae9a;padding:9px;text-align:left;vertical-align:top}.iremtable th{background:#ded0b9}.prepublication{padding:12px 15px;border-left:5px solid #bd873d;background:#faf2df;font:14px/1.45 Arial,sans-serif;margin:18px 0}.source-note{margin-top:25px;font:13px/1.5 Arial,sans-serif;color:#68717b}footer{border-top:1px solid #303c46;padding:25px;font:13px Arial,sans-serif;color:#aab6bd;text-align:center}@media(max-width:920px){.shell{grid-template-columns:1fr}.side{position:static}.contents:not([open]) nav{display:none}.contents nav{max-height:350px}article{padding:22px 17px}.snapshot-grid{grid-template-columns:1fr}article p{font-size:17px}}@media(min-width:921px){.contents nav{display:block!important}.contents summary{display:none}}
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Irem — The Arcade Years, 1978–1994 | Arcade Side B</title>
+<meta name="description" content="An evidence-led history of IPM and Irem, tracing 82 commercial arcade-video families, R-Type, production partners and the 1994 transition.">
+<meta name="robots" content="noindex,nofollow">
+<link rel="canonical" href="https://arcadesideb.com/irem.html">
+<style>
+:root{
+  --bg:#090d12;--paper:#eee7d8;--paper2:#f5efe3;--ink:#232b30;--muted:#667075;
+  --line:#c8beab;--darkline:#303b45;--gold:#c28a32;--gold2:#d8b36b;
+  --green:#557b63;--cyan:#6f99aa;--max:1180px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:
+  radial-gradient(circle at 82% 10%,rgba(111,153,170,.09),transparent 28%),
+  linear-gradient(rgba(255,255,255,.012) 1px,transparent 1px),#090d12;
+  background-size:auto,100% 4px,auto;color:#dce2e5;font-family:Georgia,"Times New Roman",serif;
+}
+a{color:#a96f21}
+.mast{border-bottom:4px solid var(--gold);background:linear-gradient(135deg,#0a0f14,#13202a)}
+.mast-inner{width:min(calc(100% - 32px),var(--max));margin:auto;padding:17px 0;display:flex;justify-content:space-between;gap:20px;align-items:center}
+.brand{font-size:26px;font-weight:700;color:#f0ece4}
+.motto{font:700 10px Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#9ca8af;text-align:right}
+.crumb,.hero,.rule,.shell{width:min(calc(100% - 32px),var(--max));margin-left:auto;margin-right:auto}
+.crumb{padding-top:18px;color:#93a0a8;font:700 11px Arial,sans-serif}
+.crumb a{color:#d4ad67;text-decoration:none}
+.hero{padding:30px 0 26px}
+.eyebrow{color:var(--gold2);font:800 10px Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase}
+.hero h1{margin:7px 0 10px;font-size:clamp(44px,7vw,78px);line-height:.95;color:#f0ece4}
+.deck{max-width:930px;color:#b9c4ca;font-size:20px;line-height:1.5;margin:0}
+.meta{display:flex;gap:12px;flex-wrap:wrap;margin-top:17px;color:#9aa6ad;font:700 11px Arial,sans-serif}
+.badge{padding:6px 9px;border:1px solid currentColor;border-radius:999px;text-transform:uppercase}
+.living{color:#78a6b8}
+.rule{height:1px;background:#29343e}
+.shell{display:grid;grid-template-columns:275px minmax(0,1fr);gap:22px;padding:26px 0 50px;align-items:start}
+.sidebar{position:sticky;top:10px}
+.toc{border:1px solid #34404b;background:#111820;max-height:82vh;overflow:auto}
+.toc-title{padding:13px 15px;color:#d8dfe2;font:800 11px Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase}
+.toc a{display:block;border-top:1px solid #29343e;padding:9px 13px;color:#aebbc2;text-decoration:none;font:13px/1.35 Arial,sans-serif}
+.toc a:hover{color:#f0c57e}
+.sidebar-note{margin-top:12px;border:1px solid #34404b;background:#111820;padding:13px;color:#94a0a7;font:13px/1.45 Arial,sans-serif}
+article{background:var(--paper);color:var(--ink);border:1px solid #b9ae9a;box-shadow:0 18px 42px rgba(0,0,0,.25);padding:26px 34px 40px;min-width:0}
+.backhome{display:inline-block;margin-bottom:18px;padding:8px 10px;border:1px solid #9e927e;color:#745322;text-decoration:none;font:800 10px Arial,sans-serif;text-transform:uppercase;letter-spacing:.08em}
+.company-identity{margin:0 0 28px;border:1px solid #b8ad98;background:linear-gradient(135deg,rgba(194,138,50,.08),transparent 48%),#f3eddf;overflow:hidden}
+.company-mark{padding:24px 26px 20px;border-bottom:1px solid var(--line);position:relative}
+.company-mark:after{content:"COMPANY PROFILE";position:absolute;right:22px;top:18px;color:#8c8272;font:700 9px Arial,sans-serif;letter-spacing:.16em}
+.legal{color:#746b5f;font:700 10px Arial,sans-serif;letter-spacing:.13em;text-transform:uppercase;margin-bottom:7px}
+.wordmark{font-size:clamp(34px,5vw,58px);line-height:.95;color:#122331}
+.wordmark span{display:block;margin-top:7px;color:#8a6429;font:700 13px Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase}
+.company-snapshot{display:grid;grid-template-columns:repeat(4,1fr)}
+.snapshot-cell{padding:17px 18px;border-right:1px solid var(--line)}
+.snapshot-cell:last-child{border-right:0}
+.snapshot-label{display:block;color:#786f63;font:700 9px Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;margin-bottom:5px}
+.snapshot-value{display:block;color:#1c2d37;font-size:19px;line-height:1.2}
+.snapshot-note{display:block;margin-top:5px;color:#6e726f;font:11px/1.35 Arial,sans-serif}
+.overview-box{padding:18px 20px;background:#f8f2e7;border:1px solid #d2c5af;margin:0 0 26px}
+.overview-box h2{margin-top:0!important}
+article h2{margin:38px 0 13px;color:#172a35;font-size:31px;border-bottom:2px solid #b57f31;padding-bottom:7px}
+article h2:first-of-type{margin-top:0}
+article h3{margin:27px 0 9px;color:#2b3a41;font-size:24px}
+article p{font-size:18px;line-height:1.7;margin:14px 0}
+article li{font-size:17px;line-height:1.6;margin:6px 0}
+article blockquote{margin:18px 0;padding:10px 17px;border-left:4px solid var(--gold);background:#f7f0e3;color:#465156}
+article table{width:100%;border-collapse:collapse;margin:18px 0;font:14px/1.45 Arial,sans-serif}
+article th,article td{border:1px solid #c8beab;padding:8px 9px;vertical-align:top}
+article th{background:#ddd3c1;color:#24323a;text-align:left}
+article code{font-size:.88em}
+.src-tag{display:inline-block;color:#76531e;font:700 10px Arial,sans-serif;white-space:nowrap}
+.public-note{margin:0 0 25px;padding:15px 17px;border-left:5px solid var(--green);background:#e7efe8;color:#33433a;font:15px/1.5 Arial,sans-serif}
+.footer{border-top:1px solid #29343e;background:#07090c}
+.footer-inner{width:min(calc(100% - 32px),var(--max));margin:auto;padding:21px 0 27px;display:flex;justify-content:space-between;align-items:flex-end;gap:20px;color:#7f8b92;font:12px Arial,sans-serif}
+.footer-inner strong{color:#d9dfe2;font-family:Georgia,serif;font-size:15px}
+.site-counter{text-align:right;font:800 9px Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#748089}
+.site-counter img{display:block;margin:5px 0 0 auto;border:1px solid #303944}
+@media(max-width:920px){
+ .shell{grid-template-columns:1fr} .sidebar{position:static} .toc{max-height:none}
+ .company-snapshot{grid-template-columns:1fr 1fr}
+ .snapshot-cell:nth-child(2){border-right:0}
+ .snapshot-cell{border-bottom:1px solid var(--line)}
+ .snapshot-cell:nth-child(3),.snapshot-cell:nth-child(4){border-bottom:0}
+}
+@media(max-width:600px){
+ .mast-inner{align-items:flex-start;flex-direction:column} .motto{text-align:left}
+ .company-snapshot{grid-template-columns:1fr} .snapshot-cell{border-right:0;border-bottom:1px solid var(--line)!important}
+ .snapshot-cell:last-child{border-bottom:0!important}
+ article{padding:20px 16px 28px} article p{font-size:17px} article h2{font-size:27px}
+ .footer-inner{align-items:flex-start;flex-direction:column} .site-counter{text-align:left} .site-counter img{margin-left:0}
+}
 
-/* Authentic archived paper illustrations. No cabinet imagery implied. */
+.elcon-visuals{
+  margin:28px 0 34px;
+}
+.elcon-visuals h2{
+  margin-top:0;
+}
+.flyer-pair{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+  align-items:start;
+}
+.archive-figure{
+  margin:0;
+  padding:10px;
+  border:1px solid #b8ad98;
+  background:#f8f3e8;
+}
+.archive-figure img{
+  width:100%;
+  height:auto;
+  display:block;
+  border:1px solid #c8beab;
+  background:#e9dfce;
+}
+.archive-figure figcaption{
+  padding:9px 4px 2px;
+  color:#5e6668;
+  font:12px/1.5 Arial,Helvetica,sans-serif;
+}
+.rights-hold{
+  margin:24px 0;
+  padding:15px 17px;
+  border:1px dashed #b69d72;
+  background:#f7efe1;
+  color:#5b554c;
+  font:13px/1.55 Arial,Helvetica,sans-serif;
+}
+.rights-hold strong{
+  color:#65471e;
+}
+@media(max-width:700px){
+  .flyer-pair{grid-template-columns:1fr}
+}
+
+
+/* ELCON PUBLICATION VISUALS */
+.visual-section{
+  margin:20px 0 32px;
+}
+.visual-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+  margin:18px 0 24px;
+  align-items:start;
+}
+.visual-grid.brochure{
+  grid-template-columns:1fr 1fr;
+}
+.archive-figure{
+  margin:0;
+  padding:10px;
+  border:1px solid #b8ad98;
+  background:#f8f3e8;
+}
+.archive-figure img{
+  width:100%;
+  height:auto;
+  display:block;
+  border:1px solid #c8beab;
+  background:#e9dfce;
+}
+.archive-figure figcaption{
+  padding:9px 4px 2px;
+  color:#5e6668;
+  font:12px/1.5 Arial,Helvetica,sans-serif;
+}
+.visual-note{
+  margin:18px 0;
+  padding:14px 16px;
+  border-left:4px solid #b57f31;
+  background:#f7efe1;
+  color:#5b554c;
+  font:13px/1.55 Arial,Helvetica,sans-serif;
+}
+@media(max-width:760px){
+  .visual-grid,.visual-grid.brochure{grid-template-columns:1fr}
+}
+
+
+/* CONTEXTUAL ARCHIVAL FIGURES */
+.inline-archive-figure{
+  margin:22px auto 27px;
+  max-width:780px;
+  padding:10px;
+  border:1px solid #b8ad98;
+  background:#f8f3e8;
+  box-shadow:0 8px 18px rgba(64,52,34,.08);
+}
+.inline-archive-figure.narrow{max-width:560px}
+.inline-archive-figure img{
+  width:100%;
+  height:auto;
+  display:block;
+  border:1px solid #c8beab;
+  background:#e9dfce;
+}
+.inline-archive-figure figcaption{
+  padding:9px 4px 2px;
+  color:#5e6668;
+  font:12px/1.55 Arial,Helvetica,sans-serif;
+}
+.inline-archive-figure figcaption strong{color:#334047}
+.derivative-note{
+  display:inline-block;
+  margin-left:5px;
+  padding:2px 5px;
+  border:1px solid #b89a66;
+  color:#76531e;
+  font:700 8px Arial,Helvetica,sans-serif;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.context-note{
+  margin:18px 0 22px;
+  padding:13px 15px;
+  border-left:4px solid #b57f31;
+  background:#f7efe1;
+  color:#5b554c;
+  font:13px/1.55 Arial,Helvetica,sans-serif;
+}
+
+</style>
+<style>
+/* Reader-facing source and table containment */
+article a, .source-list a, .footnotes a { overflow-wrap:anywhere; }
+.research-questions{display:grid;gap:12px;margin:18px 0 24px}.research-question{padding:16px 18px;border:1px solid rgba(181,127,49,.35);background:rgba(181,127,49,.055)}.research-question h4{margin:0 0 7px;color:#2b3a41;font-size:20px}.research-question p{margin:0 0 10px;font-size:16px}.question-action{display:inline-block;color:#76531e;text-decoration:none;font:700 11px Arial,sans-serif;letter-spacing:.06em;text-transform:uppercase}.question-action:hover,.question-action:focus-visible{text-decoration:underline}
+.table-scroll {max-width:100%;overflow-x:auto;}
+.table-scroll:focus-visible {outline:2px solid #d7b56d;outline-offset:3px;}
+</style>
+<style id="ao-company-profile-consistency">
+/* Exact shared company-profile presentation: Elcon is the house pattern. */
+.company-identity.company-profile-standard{
+  margin:0 0 28px!important;
+  padding:0!important;
+  border:1px solid #b8ad98!important;
+  border-radius:0!important;
+  background:linear-gradient(135deg,rgba(194,138,50,.08),transparent 48%),#f3eddf!important;
+  color:#20272c!important;
+  box-shadow:none!important;
+  overflow:hidden!important;
+  font-family:Georgia,"Times New Roman",serif!important;
+  font-size:16px!important;
+  line-height:normal!important;
+}
+.company-profile-standard .company-mark{
+  display:block!important;
+  position:relative!important;
+  padding:24px 26px 20px!important;
+  border:0!important;
+  border-bottom:1px solid #c8beab!important;
+  border-radius:0!important;
+  background:transparent!important;
+  color:#232b30!important;
+  font:400 16px/normal Georgia,"Times New Roman",serif!important;
+}
+.company-profile-standard .company-mark:after{
+  content:"COMPANY PROFILE"!important;
+  position:absolute!important;
+  right:22px!important;
+  top:18px!important;
+  display:block!important;
+  margin:0!important;
+  color:#8c8272!important;
+  font:700 9px/normal Arial,Helvetica,sans-serif!important;
+  letter-spacing:.16em!important;
+  text-transform:uppercase!important;
+}
+.company-profile-standard .legal{
+  display:block!important;
+  margin:0 0 7px!important;
+  padding:0!important;
+  color:#746b5f!important;
+  font:700 10px/11px Arial,Helvetica,sans-serif!important;
+  letter-spacing:.13em!important;
+  text-transform:uppercase!important;
+}
+.company-profile-standard .wordmark{
+  display:block!important;
+  margin:0!important;
+  padding:0!important;
+  color:#122331!important;
+  font:400 clamp(34px,5vw,58px)/.95 Georgia,"Times New Roman",serif!important;
+  letter-spacing:0!important;
+  text-transform:none!important;
+}
+.company-profile-standard .wordmark span{
+  display:block!important;
+  margin:7px 0 0!important;
+  padding:0!important;
+  color:#8a6429!important;
+  font:700 13px/normal Arial,Helvetica,sans-serif!important;
+  letter-spacing:.16em!important;
+  text-transform:uppercase!important;
+}
+.company-profile-standard .company-snapshot{
+  display:grid!important;
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  margin:0!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  color:#232b30!important;
+  font:400 16px/normal Georgia,"Times New Roman",serif!important;
+}
+.company-profile-standard .snapshot-cell{
+  display:block!important;
+  min-width:0!important;
+  margin:0!important;
+  padding:17px 18px!important;
+  border:0!important;
+  border-right:1px solid #c8beab!important;
+  border-radius:0!important;
+  background:transparent!important;
+  color:#232b30!important;
+  font:400 16px/normal Georgia,"Times New Roman",serif!important;
+}
+.company-profile-standard .snapshot-cell:last-child{border-right:0!important}
+.company-profile-standard .snapshot-label{
+  display:block!important;
+  margin:0 0 5px!important;
+  padding:0!important;
+  color:#786f63!important;
+  font:700 9px/10px Arial,Helvetica,sans-serif!important;
+  letter-spacing:.12em!important;
+  text-transform:uppercase!important;
+}
+.company-profile-standard .snapshot-value{
+  display:block!important;
+  margin:0!important;
+  padding:0!important;
+  color:#1c2d37!important;
+  font:400 19px/22.8px Georgia,"Times New Roman",serif!important;
+}
+.company-profile-standard .snapshot-note{
+  display:block!important;
+  margin:5px 0 0!important;
+  padding:0!important;
+  color:#6e726f!important;
+  font:400 11px/14.85px Arial,Helvetica,sans-serif!important;
+}
+.hero .meta{
+  display:flex!important;
+  flex-direction:row!important;
+  flex-wrap:wrap!important;
+  align-items:center!important;
+  gap:10px!important;
+  margin:15px 0 0!important;
+  padding:0!important;
+}
+.hero .meta .badge,
+.hero .meta .updated{
+  display:inline-block!important;
+  position:static!important;
+  margin:0!important;
+  inset:auto!important;
+}
+.hero .meta .badge{
+  padding:6px 9px!important;
+  border:1px solid #78a6b8!important;
+  border-radius:999px!important;
+  background:transparent!important;
+  color:#9fc7d6!important;
+  font:700 11px/normal Arial,Helvetica,sans-serif!important;
+  letter-spacing:0!important;
+  text-transform:uppercase!important;
+}
+.hero .meta .updated{
+  padding:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  color:#9aa6ad!important;
+  font:700 11px/normal Arial,Helvetica,sans-serif!important;
+  letter-spacing:0!important;
+  text-transform:none!important;
+}
+@media(max-width:920px){
+  .company-profile-standard .company-snapshot{grid-template-columns:1fr 1fr!important}
+  .company-profile-standard .snapshot-cell{border-right:1px solid #c8beab!important;border-bottom:1px solid #c8beab!important}
+  .company-profile-standard .snapshot-cell:nth-child(2){border-right:0!important}
+  .company-profile-standard .snapshot-cell:nth-child(3),
+  .company-profile-standard .snapshot-cell:nth-child(4){border-bottom:0!important}
+  .company-profile-standard .snapshot-cell:last-child{border-right:0!important}
+}
+@media(max-width:600px){
+  .company-profile-standard .company-mark{
+    display:flex!important;
+    flex-direction:column!important;
+    padding:20px 18px 17px!important;
+  }
+  .company-profile-standard .company-mark:after{
+    position:static!important;
+    order:-1!important;
+    display:block!important;
+    margin:0 0 9px!important;
+  }
+  .company-profile-standard .wordmark{font-size:34px!important;overflow-wrap:anywhere!important}
+  .company-profile-standard .company-snapshot{grid-template-columns:1fr!important}
+  .company-profile-standard .snapshot-cell{
+    border-right:0!important;
+    border-bottom:1px solid #c8beab!important;
+  }
+  .company-profile-standard .snapshot-cell:nth-child(3){border-bottom:1px solid #c8beab!important}
+  .company-profile-standard .snapshot-cell:last-child{border-bottom:0!important}
+}
+</style>
+<style id="asb-return-navigation-style">
+.asb-return-navigation{width:min(calc(100% - 32px),1180px);margin:16px auto;display:flex;gap:10px;flex-wrap:wrap;font:700 13px/1.4 Arial,Helvetica,sans-serif}
+.asb-return-navigation a{display:inline-block;padding:10px 14px;border:1px solid #9c7c45;border-radius:4px;background:#17222c;color:#f0c77b;text-decoration:none}
+.asb-return-navigation a:hover{background:#263744;color:#fff}.asb-return-navigation a:focus-visible{outline:3px solid #f0c77b;outline-offset:3px}
+.hero .meta .research-status{display:inline!important;border:0!important;border-radius:0!important;padding:0!important;background:none!important;color:#b9c4ca!important;font:700 12px/1.5 Arial,Helvetica,sans-serif!important;text-transform:none!important;cursor:default!important}
+</style>
+<style id="asb-elcon-house-style">
+
+:root{
+  --bg:#090d12;--paper:#eee7d8;--paper2:#f5efe3;--ink:#232b30;--muted:#667075;
+  --line:#c8beab;--darkline:#303b45;--gold:#c28a32;--gold2:#d8b36b;
+  --green:#557b63;--cyan:#6f99aa;--max:1180px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:
+  radial-gradient(circle at 82% 10%,rgba(111,153,170,.09),transparent 28%),
+  linear-gradient(rgba(255,255,255,.012) 1px,transparent 1px),#090d12;
+  background-size:auto,100% 4px,auto;color:#dce2e5;font-family:Georgia,"Times New Roman",serif;
+}
+a{color:#a96f21}
+.mast{border-bottom:4px solid var(--gold);background:linear-gradient(135deg,#0a0f14,#13202a)}
+.mast-inner{width:min(calc(100% - 32px),var(--max));margin:auto;padding:17px 0;display:flex;justify-content:space-between;gap:20px;align-items:center}
+.brand{font-size:26px;font-weight:700;color:#f0ece4}
+.motto{font:700 10px Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#9ca8af;text-align:right}
+.crumb,.hero,.rule,.shell{width:min(calc(100% - 32px),var(--max));margin-left:auto;margin-right:auto}
+.crumb{padding-top:18px;color:#93a0a8;font:700 11px Arial,sans-serif}
+.crumb a{color:#d4ad67;text-decoration:none}
+.hero{padding:30px 0 26px}
+.eyebrow{color:var(--gold2);font:800 10px Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase}
+.hero h1{margin:7px 0 10px;font-size:clamp(44px,7vw,78px);line-height:.95;color:#f0ece4}
+.deck{max-width:930px;color:#b9c4ca;font-size:20px;line-height:1.5;margin:0}
+.meta{display:flex;gap:12px;flex-wrap:wrap;margin-top:17px;color:#9aa6ad;font:700 11px Arial,sans-serif}
+.badge{padding:6px 9px;border:1px solid currentColor;border-radius:999px;text-transform:uppercase}
+.living{color:#78a6b8}
+.rule{height:1px;background:#29343e}
+.shell{display:grid;grid-template-columns:275px minmax(0,1fr);gap:22px;padding:26px 0 50px;align-items:start}
+.sidebar{position:sticky;top:10px}
+.toc{border:1px solid #34404b;background:#111820;max-height:82vh;overflow:auto}
+.toc-title{padding:13px 15px;color:#d8dfe2;font:800 11px Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase}
+.toc a{display:block;border-top:1px solid #29343e;padding:9px 13px;color:#aebbc2;text-decoration:none;font:13px/1.35 Arial,sans-serif}
+.toc a:hover{color:#f0c57e}
+.sidebar-note{margin-top:12px;border:1px solid #34404b;background:#111820;padding:13px;color:#94a0a7;font:13px/1.45 Arial,sans-serif}
+article{background:var(--paper);color:var(--ink);border:1px solid #b9ae9a;box-shadow:0 18px 42px rgba(0,0,0,.25);padding:26px 34px 40px;min-width:0}
+.backhome{display:inline-block;margin-bottom:18px;padding:8px 10px;border:1px solid #9e927e;color:#745322;text-decoration:none;font:800 10px Arial,sans-serif;text-transform:uppercase;letter-spacing:.08em}
+.company-identity{margin:0 0 28px;border:1px solid #b8ad98;background:linear-gradient(135deg,rgba(194,138,50,.08),transparent 48%),#f3eddf;overflow:hidden}
+.company-mark{padding:24px 26px 20px;border-bottom:1px solid var(--line);position:relative}
+.company-mark:after{content:"COMPANY PROFILE";position:absolute;right:22px;top:18px;color:#8c8272;font:700 9px Arial,sans-serif;letter-spacing:.16em}
+.legal{color:#746b5f;font:700 10px Arial,sans-serif;letter-spacing:.13em;text-transform:uppercase;margin-bottom:7px}
+.wordmark{font-size:clamp(34px,5vw,58px);line-height:.95;color:#122331}
+.wordmark span{display:block;margin-top:7px;color:#8a6429;font:700 13px Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase}
+.company-snapshot{display:grid;grid-template-columns:repeat(4,1fr)}
+.snapshot-cell{padding:17px 18px;border-right:1px solid var(--line)}
+.snapshot-cell:last-child{border-right:0}
+.snapshot-label{display:block;color:#786f63;font:700 9px Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;margin-bottom:5px}
+.snapshot-value{display:block;color:#1c2d37;font-size:19px;line-height:1.2}
+.snapshot-note{display:block;margin-top:5px;color:#6e726f;font:11px/1.35 Arial,sans-serif}
+.overview-box{padding:18px 20px;background:#f8f2e7;border:1px solid #d2c5af;margin:0 0 26px}
+.overview-box h2{margin-top:0!important}
+article h2{margin:38px 0 13px;color:#172a35;font-size:31px;border-bottom:2px solid #b57f31;padding-bottom:7px}
+article h2:first-of-type{margin-top:0}
+article h3{margin:27px 0 9px;color:#2b3a41;font-size:24px}
+article p{font-size:18px;line-height:1.7;margin:14px 0}
+article li{font-size:17px;line-height:1.6;margin:6px 0}
+article blockquote{margin:18px 0;padding:10px 17px;border-left:4px solid var(--gold);background:#f7f0e3;color:#465156}
+article table{width:100%;border-collapse:collapse;margin:18px 0;font:14px/1.45 Arial,sans-serif}
+article th,article td{border:1px solid #c8beab;padding:8px 9px;vertical-align:top}
+article th{background:#ddd3c1;color:#24323a;text-align:left}
+article code{font-size:.88em}
+.src-tag{display:inline-block;color:#76531e;font:700 10px Arial,sans-serif;white-space:nowrap}
+.public-note{margin:0 0 25px;padding:15px 17px;border-left:5px solid var(--green);background:#e7efe8;color:#33433a;font:15px/1.5 Arial,sans-serif}
+.footer{border-top:1px solid #29343e;background:#07090c}
+.footer-inner{width:min(calc(100% - 32px),var(--max));margin:auto;padding:21px 0 27px;display:flex;justify-content:space-between;align-items:flex-end;gap:20px;color:#7f8b92;font:12px Arial,sans-serif}
+.footer-inner strong{color:#d9dfe2;font-family:Georgia,serif;font-size:15px}
+.site-counter{text-align:right;font:800 9px Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#748089}
+.site-counter img{display:block;margin:5px 0 0 auto;border:1px solid #303944}
+@media(max-width:920px){
+ .shell{grid-template-columns:1fr} .sidebar{position:static} .toc{max-height:none}
+ .company-snapshot{grid-template-columns:1fr 1fr}
+ .snapshot-cell:nth-child(2){border-right:0}
+ .snapshot-cell{border-bottom:1px solid var(--line)}
+ .snapshot-cell:nth-child(3),.snapshot-cell:nth-child(4){border-bottom:0}
+}
+@media(max-width:600px){
+ .mast-inner{align-items:flex-start;flex-direction:column} .motto{text-align:left}
+ .company-snapshot{grid-template-columns:1fr} .snapshot-cell{border-right:0;border-bottom:1px solid var(--line)!important}
+ .snapshot-cell:last-child{border-bottom:0!important}
+ article{padding:20px 16px 28px} article p{font-size:17px} article h2{font-size:27px}
+ .footer-inner{align-items:flex-start;flex-direction:column} .site-counter{text-align:left} .site-counter img{margin-left:0}
+}
+
+.elcon-visuals{
+  margin:28px 0 34px;
+}
+.elcon-visuals h2{
+  margin-top:0;
+}
+.flyer-pair{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+  align-items:start;
+}
+.archive-figure{
+  margin:0;
+  padding:10px;
+  border:1px solid #b8ad98;
+  background:#f8f3e8;
+}
+.archive-figure img{
+  width:100%;
+  height:auto;
+  display:block;
+  border:1px solid #c8beab;
+  background:#e9dfce;
+}
+.archive-figure figcaption{
+  padding:9px 4px 2px;
+  color:#5e6668;
+  font:12px/1.5 Arial,Helvetica,sans-serif;
+}
+.rights-hold{
+  margin:24px 0;
+  padding:15px 17px;
+  border:1px dashed #b69d72;
+  background:#f7efe1;
+  color:#5b554c;
+  font:13px/1.55 Arial,Helvetica,sans-serif;
+}
+.rights-hold strong{
+  color:#65471e;
+}
+@media(max-width:700px){
+  .flyer-pair{grid-template-columns:1fr}
+}
+
+
+/* ELCON PUBLICATION VISUALS */
+.visual-section{
+  margin:20px 0 32px;
+}
+.visual-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+  margin:18px 0 24px;
+  align-items:start;
+}
+.visual-grid.brochure{
+  grid-template-columns:1fr 1fr;
+}
+.archive-figure{
+  margin:0;
+  padding:10px;
+  border:1px solid #b8ad98;
+  background:#f8f3e8;
+}
+.archive-figure img{
+  width:100%;
+  height:auto;
+  display:block;
+  border:1px solid #c8beab;
+  background:#e9dfce;
+}
+.archive-figure figcaption{
+  padding:9px 4px 2px;
+  color:#5e6668;
+  font:12px/1.5 Arial,Helvetica,sans-serif;
+}
+.visual-note{
+  margin:18px 0;
+  padding:14px 16px;
+  border-left:4px solid #b57f31;
+  background:#f7efe1;
+  color:#5b554c;
+  font:13px/1.55 Arial,Helvetica,sans-serif;
+}
+@media(max-width:760px){
+  .visual-grid,.visual-grid.brochure{grid-template-columns:1fr}
+}
+
+
+/* CONTEXTUAL ARCHIVAL FIGURES */
+.inline-archive-figure{
+  margin:22px auto 27px;
+  max-width:780px;
+  padding:10px;
+  border:1px solid #b8ad98;
+  background:#f8f3e8;
+  box-shadow:0 8px 18px rgba(64,52,34,.08);
+}
+.inline-archive-figure.narrow{max-width:560px}
+.inline-archive-figure img{
+  width:100%;
+  height:auto;
+  display:block;
+  border:1px solid #c8beab;
+  background:#e9dfce;
+}
+.inline-archive-figure figcaption{
+  padding:9px 4px 2px;
+  color:#5e6668;
+  font:12px/1.55 Arial,Helvetica,sans-serif;
+}
+.inline-archive-figure figcaption strong{color:#334047}
+.derivative-note{
+  display:inline-block;
+  margin-left:5px;
+  padding:2px 5px;
+  border:1px solid #b89a66;
+  color:#76531e;
+  font:700 8px Arial,Helvetica,sans-serif;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.context-note{
+  margin:18px 0 22px;
+  padding:13px 15px;
+  border-left:4px solid #b57f31;
+  background:#f7efe1;
+  color:#5b554c;
+  font:13px/1.55 Arial,Helvetica,sans-serif;
+}
+
+
+
+/* Reader-facing source and table containment */
+article a, .source-list a, .footnotes a { overflow-wrap:anywhere; }
+.research-questions{display:grid;gap:12px;margin:18px 0 24px}.research-question{padding:16px 18px;border:1px solid rgba(181,127,49,.35);background:rgba(181,127,49,.055)}.research-question h4{margin:0 0 7px;color:#2b3a41;font-size:20px}.research-question p{margin:0 0 10px;font-size:16px}.question-action{display:inline-block;color:#76531e;text-decoration:none;font:700 11px Arial,sans-serif;letter-spacing:.06em;text-transform:uppercase}.question-action:hover,.question-action:focus-visible{text-decoration:underline}
+.table-scroll {max-width:100%;overflow-x:auto;}
+.table-scroll:focus-visible {outline:2px solid #d7b56d;outline-offset:3px;}
+
+
+/* Exact shared company-profile presentation: Elcon is the house pattern. */
+.company-identity.company-profile-standard{
+  margin:0 0 28px!important;
+  padding:0!important;
+  border:1px solid #b8ad98!important;
+  border-radius:0!important;
+  background:linear-gradient(135deg,rgba(194,138,50,.08),transparent 48%),#f3eddf!important;
+  color:#20272c!important;
+  box-shadow:none!important;
+  overflow:hidden!important;
+  font-family:Georgia,"Times New Roman",serif!important;
+  font-size:16px!important;
+  line-height:normal!important;
+}
+.company-profile-standard .company-mark{
+  display:block!important;
+  position:relative!important;
+  padding:24px 26px 20px!important;
+  border:0!important;
+  border-bottom:1px solid #c8beab!important;
+  border-radius:0!important;
+  background:transparent!important;
+  color:#232b30!important;
+  font:400 16px/normal Georgia,"Times New Roman",serif!important;
+}
+.company-profile-standard .company-mark:after{
+  content:"COMPANY PROFILE"!important;
+  position:absolute!important;
+  right:22px!important;
+  top:18px!important;
+  display:block!important;
+  margin:0!important;
+  color:#8c8272!important;
+  font:700 9px/normal Arial,Helvetica,sans-serif!important;
+  letter-spacing:.16em!important;
+  text-transform:uppercase!important;
+}
+.company-profile-standard .legal{
+  display:block!important;
+  margin:0 0 7px!important;
+  padding:0!important;
+  color:#746b5f!important;
+  font:700 10px/11px Arial,Helvetica,sans-serif!important;
+  letter-spacing:.13em!important;
+  text-transform:uppercase!important;
+}
+.company-profile-standard .wordmark{
+  display:block!important;
+  margin:0!important;
+  padding:0!important;
+  color:#122331!important;
+  font:400 clamp(34px,5vw,58px)/.95 Georgia,"Times New Roman",serif!important;
+  letter-spacing:0!important;
+  text-transform:none!important;
+}
+.company-profile-standard .wordmark span{
+  display:block!important;
+  margin:7px 0 0!important;
+  padding:0!important;
+  color:#8a6429!important;
+  font:700 13px/normal Arial,Helvetica,sans-serif!important;
+  letter-spacing:.16em!important;
+  text-transform:uppercase!important;
+}
+.company-profile-standard .company-snapshot{
+  display:grid!important;
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  margin:0!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  color:#232b30!important;
+  font:400 16px/normal Georgia,"Times New Roman",serif!important;
+}
+.company-profile-standard .snapshot-cell{
+  display:block!important;
+  min-width:0!important;
+  margin:0!important;
+  padding:17px 18px!important;
+  border:0!important;
+  border-right:1px solid #c8beab!important;
+  border-radius:0!important;
+  background:transparent!important;
+  color:#232b30!important;
+  font:400 16px/normal Georgia,"Times New Roman",serif!important;
+}
+.company-profile-standard .snapshot-cell:last-child{border-right:0!important}
+.company-profile-standard .snapshot-label{
+  display:block!important;
+  margin:0 0 5px!important;
+  padding:0!important;
+  color:#786f63!important;
+  font:700 9px/10px Arial,Helvetica,sans-serif!important;
+  letter-spacing:.12em!important;
+  text-transform:uppercase!important;
+}
+.company-profile-standard .snapshot-value{
+  display:block!important;
+  margin:0!important;
+  padding:0!important;
+  color:#1c2d37!important;
+  font:400 19px/22.8px Georgia,"Times New Roman",serif!important;
+}
+.company-profile-standard .snapshot-note{
+  display:block!important;
+  margin:5px 0 0!important;
+  padding:0!important;
+  color:#6e726f!important;
+  font:400 11px/14.85px Arial,Helvetica,sans-serif!important;
+}
+.hero .meta{
+  display:flex!important;
+  flex-direction:row!important;
+  flex-wrap:wrap!important;
+  align-items:center!important;
+  gap:10px!important;
+  margin:15px 0 0!important;
+  padding:0!important;
+}
+.hero .meta .badge,
+.hero .meta .updated{
+  display:inline-block!important;
+  position:static!important;
+  margin:0!important;
+  inset:auto!important;
+}
+.hero .meta .badge{
+  padding:6px 9px!important;
+  border:1px solid #78a6b8!important;
+  border-radius:999px!important;
+  background:transparent!important;
+  color:#9fc7d6!important;
+  font:700 11px/normal Arial,Helvetica,sans-serif!important;
+  letter-spacing:0!important;
+  text-transform:uppercase!important;
+}
+.hero .meta .updated{
+  padding:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  color:#9aa6ad!important;
+  font:700 11px/normal Arial,Helvetica,sans-serif!important;
+  letter-spacing:0!important;
+  text-transform:none!important;
+}
+@media(max-width:920px){
+  .company-profile-standard .company-snapshot{grid-template-columns:1fr 1fr!important}
+  .company-profile-standard .snapshot-cell{border-right:1px solid #c8beab!important;border-bottom:1px solid #c8beab!important}
+  .company-profile-standard .snapshot-cell:nth-child(2){border-right:0!important}
+  .company-profile-standard .snapshot-cell:nth-child(3),
+  .company-profile-standard .snapshot-cell:nth-child(4){border-bottom:0!important}
+  .company-profile-standard .snapshot-cell:last-child{border-right:0!important}
+}
+@media(max-width:600px){
+  .company-profile-standard .company-mark{
+    display:flex!important;
+    flex-direction:column!important;
+    padding:20px 18px 17px!important;
+  }
+  .company-profile-standard .company-mark:after{
+    position:static!important;
+    order:-1!important;
+    display:block!important;
+    margin:0 0 9px!important;
+  }
+  .company-profile-standard .wordmark{font-size:34px!important;overflow-wrap:anywhere!important}
+  .company-profile-standard .company-snapshot{grid-template-columns:1fr!important}
+  .company-profile-standard .snapshot-cell{
+    border-right:0!important;
+    border-bottom:1px solid #c8beab!important;
+  }
+  .company-profile-standard .snapshot-cell:nth-child(3){border-bottom:1px solid #c8beab!important}
+  .company-profile-standard .snapshot-cell:last-child{border-bottom:0!important}
+}
+
+
+.asb-return-navigation{width:min(calc(100% - 32px),1180px);margin:16px auto;display:flex;gap:10px;flex-wrap:wrap;font:700 13px/1.4 Arial,Helvetica,sans-serif}
+.asb-return-navigation a{display:inline-block;padding:10px 14px;border:1px solid #9c7c45;border-radius:4px;background:#17222c;color:#f0c77b;text-decoration:none}
+.asb-return-navigation a:hover{background:#263744;color:#fff}.asb-return-navigation a:focus-visible{outline:3px solid #f0c77b;outline-offset:3px}
+.hero .meta .research-status{display:inline!important;border:0!important;border-radius:0!important;padding:0!important;background:none!important;color:#b9c4ca!important;font:700 12px/1.5 Arial,Helvetica,sans-serif!important;text-transform:none!important;cursor:default!important}
+
+
+/* Explicit donor typography prevents legacy page shorthands leaking into the masthead. */
+.mast .brand{font:700 26px/normal Georgia,"Times New Roman",serif;letter-spacing:normal;text-transform:none}
+.mast .brand a{color:#f0ece4;text-decoration:none;letter-spacing:normal;text-transform:none}
+.hero h1{font-family:Georgia,"Times New Roman",serif;font-weight:700;letter-spacing:normal;text-transform:none}
+
+.article img{max-width:100%;height:auto}
+.mast .motto{display:block}
+</style>
+<style id="irem-canonical-company-overrides">
+/* The published Elcon company template is the canonical foundation; additions are Irem-specific. */
+article .table-scroll{max-width:100%;overflow-x:auto;overscroll-behavior-x:contain}
+article .iremtable{border-collapse:collapse;width:100%;font:13px/1.5 Arial,Helvetica,sans-serif;min-width:520px}
+article .iremtable td,article .iremtable th{border:1px solid #c8beab;padding:8px 10px;text-align:left;vertical-align:top}
+article .iremtable th{background:#ddd3c1;color:#24323a}
+article p,article li{overflow-wrap:anywhere}
 .irem-archive-figure{width:min(100%,780px);margin:24px auto 30px;border:1px solid #bfb09c;padding:14px;background:#f8f2e7}
 .irem-archive-figure img{display:block;width:100%;height:auto;max-width:100%;object-fit:contain;margin:auto}
 .irem-archive-figure figcaption{font:13px/1.55 Arial,sans-serif;color:#58636a;margin:12px 1px 0}
 .irem-archive-figure.irem-title-strip{max-width:380px}
 .irem-archive-figure.irem-title-strip img{width:250px;max-width:100%}
-</style></head><body><header class="sitehead"><div class="width"><a href="index.html" class="brand">Arcade Side B</a><div class="nav-back"><a href="index.html">Back to Arcade Side B</a><a href="companies.html">Back to Companies</a></div><div class="eyebrow">Company history · Japan · archival website draft</div><h1>Irem</h1><p class="deck">Before R-Type came the IPM Play Tables. Follow 82 documented commercial arcade-video families from 1978 to 1994, including licensed titles, outside developers and the complicated story of Irem's final years.</p></div></header><main class="shell"><aside class="side"><details class="contents" open><summary>On this page · jump to a section</summary><nav aria-label="Irem article contents"><a href="#executive-summary">Executive summary</a><a href="#1-before-irem-meant-r-type-ipm-and-the-play-table-years">1. Before “Irem” meant R-Type: IPM and the Play Table years</a><a href="#2-1983-1986-international-games-licensed-properties-and-a-much-wider-company-than-one-hardware-line">2. 1983–1986: international games, licensed properties, and a much wider company than one hardware line</a><a href="#3-1987-1989-r-type-export-strategy-tamtex-and-the-end-of-the-irem-sales-split">3. 1987–1989: R-Type, export strategy, Tamtex, and the end of the Irem Sales split</a><a href="#4-1990-1992-m84-m90-m92-and-the-importance-of-role-separation">4. 1990–1992: M84, M90, M92, and the importance of role separation</a><a href="#5-1993-some-of-irem-s-strongest-work-just-before-the-break">5. 1993: some of Irem’s strongest work just before the break</a><a href="#6-1994-the-last-arcade-year-and-the-danger-of-telling-it-backward">6. 1994: the last arcade year and the danger of telling it backward</a><a href="#7-after-the-arcade-catalog-two-different-kinds-of-continuity">7. After the arcade catalog: two different kinds of continuity</a><a href="#8-the-complete-82-family-arcade-video-register">8. The complete 82-family arcade-video register</a><a href="#9-what-the-count-does-and-does-not-claim">9. What the count does—and does not—claim</a><a href="#10-corrections-that-materially-change-the-history">10. Corrections that materially change the history</a><a href="#11-beyond-the-register">11. Beyond the register</a><a href="#12-what-remains-unresolved">12. What remains unresolved</a><a href="#13-why-irem-belongs-on-arcade-side-b">13. Why Irem belongs on Arcade Side B</a><a href="#contribution-note">Contribution note</a><a href="#sources-and-evidence-map">Sources and evidence map</a></nav></details><div class="side-note">82 distinct commercial arcade-video software families; 83 documented base product/configuration entries. Not all games were developed inside Irem.</div></aside><article><section class="snapshot" aria-label="Company historical snapshot"><h2>Company snapshot</h2><div class="snapshot-grid"><div><strong>Lineage</strong><span>IPM operator activity from 1969</span></div><div><strong>Irem name</strong><span>July 1979</span></div><div><strong>Arcade-video window</strong><span>1978–1994</span></div><div><strong>Commercial software families</strong><span>82 (83 configurations)</span></div></div><div class="prepublication"><strong>Editorial preview — not published.</strong> Original research and the family register are preserved; historical image licensing and the final publication-depth audit are pending. No fabricated or hotlinked photos appear.</div></section><h2 id="executive-summary">Executive summary</h2>
+.irempreview{padding:14px 16px;border-left:5px solid #a9782c;background:#faf2df;margin:0 0 25px;font:14px/1.5 Arial,sans-serif}
+.toc-disclosure .toc{border:0}
+.toc-mobile-summary{display:none;cursor:pointer;padding:14px;color:#f0c77b;font:700 14px Arial,sans-serif}
+@media(max-width:920px){
+  .toc-disclosure{border:1px solid #34404b;background:#111820}
+  .toc-mobile-summary{display:list-item;list-style-position:inside}
+  .toc-disclosure nav.toc{max-height:min(65vh,460px);overflow:auto;border-top:1px solid #34404b}
+  .sidebar-note{margin-top:12px}
+}
+</style>
+<script defer src="/assets/asb-analytics.js"></script><script defer src="assets/asb-counts.js"></script>
+<link rel="stylesheet" href="site-search.css?v=nav-3"></head>
+<body><div class="asb-global-search" aria-label="Arcade Side B site navigation and search">
+  <div class="asb-global-inner">
+    <a class="asb-global-brand" href="index.html">Arcade Side B</a>
+    <nav class="asb-global-links" aria-label="Archive indexes">
+      <a href="companies.html">Companies</a><a href="games.html">Games</a><a href="people.html">People</a>
+    </nav>
+    
+    <form class="asb-global-form" action="search.html" method="get" role="search">
+      <label class="asb-sr-only" for="asb-global-search-input">Search Arcade Side B</label>
+      <input id="asb-global-search-input" name="q" type="search" placeholder="Search Arcade Side B…" autocomplete="off"><button type="submit">Search</button>
+    </form>
+  </div>
+</div><header class="mast"><div class="mast-inner"><div class="brand"><a href="index.html" style="color:inherit;text-decoration:none">Arcade Side B</a></div><div class="motto">Preserve what others overlooked. Follow the evidence. Keep the record open.</div></div></header>
+<nav class="asb-return-navigation" aria-label="Return navigation"><a href="index.html">← Back to Arcade Side B</a><a href="companies.html">← Back to Companies</a></nav>
+<div class="crumb"><a href="index.html">Arcade Side B</a> &rsaquo; <a href="companies.html">Companies</a> &rsaquo; Irem</div>
+<section class="hero"><div class="eyebrow">Company history · Japan</div><h1>Irem</h1>
+<p class="deck">From IPM Play Tables to <em>R-Type</em>, <em>In the Hunt</em> and the last Irem arcade projects: an evidence-led history of 82 commercial arcade-video families, outside developers, hardware and a complicated company transition.</p>
+<div class="meta"><span class="research-status">Research status: open to new evidence</span><span class="updated">Archival preview · Not yet published</span></div></section>
+<div class="rule"></div><div class="shell"><aside class="sidebar"><details class="toc-disclosure" open><summary class="toc-mobile-summary">On this page · Jump to a section</summary><nav aria-label="Irem article contents" class="toc"><div class="toc-title">On this page</div>
+<a href="#executive-summary">Executive summary</a>
+<a href="#1-before-irem-meant-r-type-ipm-and-the-play-table-years">1. Before “Irem” meant R-Type: IPM and the Play Table years</a>
+<a href="#2-1983-1986-international-games-licensed-properties-and-a-much-wider-company-than-one-hardware-line">2. 1983–1986: international games, licensed properties, and a much wider company than one hardware line</a>
+<a href="#3-1987-1989-r-type-export-strategy-tamtex-and-the-end-of-the-irem-sales-split">3. 1987–1989: R-Type, export strategy, Tamtex, and the end of the Irem Sales split</a>
+<a href="#4-1990-1992-m84-m90-m92-and-the-importance-of-role-separation">4. 1990–1992: M84, M90, M92, and the importance of role separation</a>
+<a href="#5-1993-some-of-irem-s-strongest-work-just-before-the-break">5. 1993: some of Irem’s strongest work just before the break</a>
+<a href="#6-1994-the-last-arcade-year-and-the-danger-of-telling-it-backward">6. 1994: the last arcade year and the danger of telling it backward</a>
+<a href="#7-after-the-arcade-catalog-two-different-kinds-of-continuity">7. After the arcade catalog: two different kinds of continuity</a>
+<a href="#8-the-complete-82-family-arcade-video-register">8. The complete 82-family arcade-video register</a>
+<a href="#9-what-the-count-does-and-does-not-claim">9. What the count does—and does not—claim</a>
+<a href="#10-corrections-that-materially-change-the-history">10. Corrections that materially change the history</a>
+<a href="#11-beyond-the-register">11. Beyond the register</a>
+<a href="#12-what-remains-unresolved">12. What remains unresolved</a>
+<a href="#13-why-irem-belongs-on-arcade-side-b">13. Why Irem belongs on Arcade Side B</a>
+<a href="#contribution-note">Contribution note</a>
+<a href="#sources-and-evidence-map">Sources and evidence map</a></nav></details>
+<div class="sidebar-note">82 commercial arcade-video software families, represented by 83 documented base products/configurations. The register tracks what Irem sold or released, not only games developed internally.</div></aside><article><a class="backhome" href="companies.html">← Back to Companies</a>
+<section aria-label="Irem company profile" class="company-identity company-profile-standard"><div class="company-mark">
+<div class="legal">IPM / Irem commercial operating lineage</div><div class="wordmark">Irem<span>Japan · 1978–1994 arcade-video record</span></div></div>
+<div class="company-snapshot">
+<div class="snapshot-cell"><span class="snapshot-label">Early lineage</span><span class="snapshot-value">1969 IPM activity</span><span class="snapshot-note">Operating history predates the documented 1978 commercial arcade-video catalog; exact legal foundation chronology is disputed.</span></div>
+<div class="snapshot-cell"><span class="snapshot-label">Arcade-video era</span><span class="snapshot-value">1978–1994</span><span class="snapshot-note">Scope of this software-family census, not a corporate dissolution date.</span></div>
+<div class="snapshot-cell"><span class="snapshot-label">Arcade Output</span><span class="snapshot-value">82 game families</span><span class="snapshot-note">83 base configurations: Richi Mahjong upright and P.T. Richi Mahjong share one software family.</span></div>
+<div class="snapshot-cell"><span class="snapshot-label">Company Role</span><span class="snapshot-value">Developer + publisher</span><span class="snapshot-note">Also seller, licensee and distributor of outside-developed games; title-specific attribution varies.</span></div>
+</div></section>
+<div class="public-note"><strong>About the evidence:</strong> This account distinguishes software creators, publishers, hardware/platforms and commercial configurations. Unresolved corporate dates and development credits remain marked as such.</div>
+<div class="irempreview"><strong>Publication preview.</strong> This is a nonlive editorial draft, not yet ready for public release. It retains the completed research while image collection and final article audit continue.</div><h2 id="executive-summary">Executive summary</h2>
 <p>Irem’s arcade history is usually remembered from the middle. Start with <strong>R-Type</strong> in 1987, move through <strong>Ninja Spirit</strong>, <strong>Image Fight</strong>, <strong>Undercover Cops</strong>, <strong>In the Hunt</strong>, and the final M92 games, and the company looks like one of the great late-1980s and early-1990s Japanese action-game houses. That description is true, but incomplete. The company’s commercial arcade-video trail reaches backward into the IPM era of the late 1970s, when its catalog was full of Play Table machines, block games, mahjong titles, licensed adaptations and products whose names survive more clearly in trade directories than in modern emulation databases.</p>
 <p>This closeout reconstructs that longer record under a deliberately strict counting rule. The result is <strong>82 unique commercial arcade-video software families</strong> from 1978 through 1994, plus a broader <strong>83-entry base product/configuration register</strong>. The difference is not an extra hidden game: the 1979 period directory separately lists an upright <strong>Richi Mahjong</strong> and <strong>P.T. Richi Mahjong</strong>, which are preserved as two commercial configurations but one underlying software family. The same discipline prevents other familiar inflation errors. <strong>Vs. 10-Yard Fight</strong> was a real 1984 marketed revision, but it remains inside the 10-Yard Fight family. <strong>Shisenshō / Match It</strong> is one 1989 family, and <strong>Shisenshō II / Match It II</strong> is one 1993 sequel family. Regional titles, ordinary ROM sets and cabinet forms are evidence to preserve, not automatic new games.</p>
 <p>The research also changes the shape of Irem’s company story. Period Game Machine reporting states that the operating lineage began as IPM in 1969 and that the company adopted the Irem name in July 1979. The legal-company establishment is commonly placed in 1974, but this closeout does not pretend to have recovered the Japanese registry particulars needed to turn that into an exact day-level legal claim. Nanao’s corporate history shows the relationship deepening around 1980. In 1985 the coin-op development and sales function was separated into <strong>Irem Sales Corp.</strong>, established May 1, and period reporting says it assumed development and sales while Irem Corporation specialized in operation. By March 1989 the split had been reversed publicly and Irem Sales had merged back into Irem, although the exact legal-effective day remains unresolved.</p>
@@ -671,4 +1568,12 @@
 <li><p><a href="https://www.eremeka.com/">S29 — eremeka / Irem machine guide — PK Soccer lead</a> — secondary collector/reference lead</p>
 </li>
 </ul>
-<p class="source-note">Source authority: IREM F01 final handoff A04, September 28, 2026. Historical claims and uncertainties have been retained from the completed publication master.</p></article></main><footer>Arcade Side B — The Overlooked Side of Arcade History</footer><script>(function(){var d=document.querySelector('.contents');var mq=window.matchMedia('(max-width:920px)');function update(){d.open=!mq.matches}update();if(mq.addEventListener)mq.addEventListener('change',update);d.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(){if(mq.matches)d.open=false})})})();</script></body></html>
+<p class="source-note">Source authority: IREM F01 final handoff A04, September 28, 2026. Historical claims and uncertainties have been retained from the completed publication master.</p></article></div><footer class="footer"><div class="footer-inner"><div><strong>Arcade Side B</strong> · The Overlooked Side of Arcade History · Irem · Company history</div>
+<div class="site-counter"><div>Site hits</div><img alt="Arcade Side B site hit counter" src="https://hitscounter.dev/api/hit?color=%23c9973a&amp;icon=123&amp;label=SITE%20HITS&amp;url=https%3A%2F%2Farcadesideb.com%2F"></div></div>
+<p class="last-updated">Research open to correction · Archival editorial preview</p></footer><script>(function(){
+var d=document.querySelector('.toc-disclosure');if(!d)return;
+var mq=window.matchMedia('(max-width:920px)');
+function update(){d.open=!mq.matches}update();
+if(mq.addEventListener)mq.addEventListener('change',update);else if(mq.addListener)mq.addListener(update);
+d.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(){if(mq.matches)d.open=false})});
+})();</script></body></html>
