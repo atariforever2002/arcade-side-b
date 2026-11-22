@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Jeutel — French Arcade Manufacturer, Cabinets and Pinball | Arcade Side B</title>
+<style>
+:root{
+  --bg:#090d12;--paper:#eee7d8;--paper2:#f5efe3;--ink:#232b30;--muted:#667075;
+  --line:#c8beab;--darkline:#303b45;--gold:#c28a32;--gold2:#d8b36b;
+  --green:#557b63;--cyan:#6f99aa;--max:1180px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:
+  radial-gradient(circle at 82% 10%,rgba(111,153,170,.09),transparent 28%),
+  linear-gradient(rgba(255,255,255,.012) 1px,transparent 1px),#090d12;
+  background-size:auto,100% 4px,auto;color:#dce2e5;font-family:Georgia,"Times New Roman",serif;
+}
+a{color:#a96f21}
+.mast{border-bottom:4px solid var(--gold);background:linear-gradient(135deg,#0a0f14,#13202a)}
+.mast-inner{width:min(calc(100% - 32px),var(--max));margin:auto;padding:17px 0;display:flex;justify-content:space-between;gap:20px;align-items:center}
+.brand{font-size:26px;font-weight:700;color:#f0ece4}
+.motto{font:700 10px Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#9ca8af;text-align:right}
+.crumb,.hero,.rule,.shell{width:min(calc(100% - 32px),var(--max));margin-left:auto;margin-right:auto}
+.crumb{padding-top:18px;color:#93a0a8;font:700 11px Arial,sans-serif}
+.crumb a{color:#d4ad67;text-decoration:none}
+.hero{padding:30px 0 26px}
+.eyebrow{color:var(--gold2);font:800 10px Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase}
+.hero h1{margin:7px 0 10px;font-size:clamp(44px,7vw,78px);line-height:.95;color:#f0ece4}
+.deck{max-width:930px;color:#b9c4ca;font-size:20px;line-height:1.5;margin:0}
+.meta{display:flex;gap:12px;flex-wrap:wrap;margin-top:17px;color:#9aa6ad;font:700 11px Arial,sans-serif}
+.badge{padding:6px 9px;border:1px solid currentColor;border-radius:999px;text-transform:uppercase}
+.living{color:#78a6b8}
+.rule{height:1px;background:#29343e}
+.shell{display:grid;grid-template-columns:275px minmax(0,1fr);gap:22px;padding:26px 0 50px;align-items:start}
+.sidebar{position:sticky;top:10px}
+.toc{border:1px solid #34404b;background:#111820;max-height:82vh;overflow:auto}
+.toc-title{padding:13px 15px;color:#d8dfe2;font:800 11px Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase}
+.toc a{display:block;border-top:1px solid #29343e;padding:9px 13px;color:#aebbc2;text-decoration:none;font:13px/1.35 Arial,sans-serif}
+.toc a:hover{color:#f0c57e}
+.sidebar-note{margin-top:12px;border:1px solid #34404b;background:#111820;padding:13px;color:#94a0a7;font:13px/1.45 Arial,sans-serif}
+article{background:var(--paper);color:var(--ink);border:1px solid #b9ae9a;box-shadow:0 18px 42px rgba(0,0,0,.25);padding:26px 34px 40px;min-width:0}
+.backhome{display:inline-block;margin-bottom:18px;padding:8px 10px;border:1px solid #9e927e;color:#745322;text-decoration:none;font:800 10px Arial,sans-serif;text-transform:uppercase;letter-spacing:.08em}
+.company-identity{margin:0 0 28px;border:1px solid #b8ad98;background:linear-gradient(135deg,rgba(194,138,50,.08),transparent 48%),#f3eddf;overflow:hidden}
+.company-mark{padding:24px 26px 20px;border-bottom:1px solid var(--line);position:relative}
+.company-mark:after{content:"COMPANY PROFILE";position:absolute;right:22px;top:18px;color:#8c8272;font:700 9px Arial,sans-serif;letter-spacing:.16em}
+.legal{color:#746b5f;font:700 10px Arial,sans-serif;letter-spacing:.13em;text-transform:uppercase;margin-bottom:7px}
+.wordmark{font-size:clamp(34px,5vw,58px);line-height:.95;color:#122331}
+.wordmark span{display:block;margin-top:7px;color:#8a6429;font:700 13px Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase}
+.company-snapshot{display:grid;grid-template-columns:repeat(4,1fr)}
+.snapshot-cell{padding:17px 18px;border-right:1px solid var(--line)}
+.snapshot-cell:last-child{border-right:0}
+.snapshot-label{display:block;color:#786f63;font:700 9px Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;margin-bottom:5px}
+.snapshot-value{display:block;color:#1c2d37;font-size:19px;line-height:1.2}
+.snapshot-note{display:block;margin-top:5px;color:#6e726f;font:11px/1.35 Arial,sans-serif}
+.overview-box{padding:18px 20px;background:#f8f2e7;border:1px solid #d2c5af;margin:0 0 26px}
+.overview-box h2{margin-top:0!important}
+article h2{margin:38px 0 13px;color:#172a35;font-size:31px;border-bottom:2px solid #b57f31;padding-bottom:7px}
+article h2:first-of-type{margin-top:0}
+article h3{margin:27px 0 9px;color:#2b3a41;font-size:24px}
+article p{font-size:18px;line-height:1.7;margin:14px 0}
+article li{font-size:17px;line-height:1.6;margin:6px 0}
+article blockquote{margin:18px 0;padding:10px 17px;border-left:4px solid var(--gold);background:#f7f0e3;color:#465156}
+article table{width:100%;border-collapse:collapse;margin:18px 0;font:14px/1.45 Arial,sans-serif}
+article th,article td{border:1px solid #c8beab;padding:8px 9px;vertical-align:top}
+article th{background:#ddd3c1;color:#24323a;text-align:left}
+article code{font-size:.88em}
+.src-tag{display:inline-block;color:#76531e;font:700 10px Arial,sans-serif;white-space:nowrap}
+.public-note{margin:0 0 25px;padding:15px 17px;border-left:5px solid var(--green);background:#e7efe8;color:#33433a;font:15px/1.5 Arial,sans-serif}
+.footer{border-top:1px solid #29343e;background:#07090c}
+.footer-inner{width:min(calc(100% - 32px),var(--max));margin:auto;padding:21px 0 27px;display:flex;justify-content:space-between;align-items:flex-end;gap:20px;color:#7f8b92;font:12px Arial,sans-serif}
+.footer-inner strong{color:#d9dfe2;font-family:Georgia,serif;font-size:15px}
+.site-counter{text-align:right;font:800 9px Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#748089}
+.site-counter img{display:block;margin:5px 0 0 auto;border:1px solid #303944}
+@media(max-width:920px){
+ .shell{grid-template-columns:1fr} .sidebar{position:static} .toc{max-height:none}
+ .company-snapshot{grid-template-columns:1fr 1fr}
+ .snapshot-cell:nth-child(2){border-right:0}
+ .snapshot-cell{border-bottom:1px solid var(--line)}
+ .snapshot-cell:nth-child(3),.snapshot-cell:nth-child(4){border-bottom:0}
+}
+@media(max-width:600px){
+ .mast-inner{align-items:flex-start;flex-direction:column} .motto{text-align:left}
+ .company-snapshot{grid-template-columns:1fr} .snapshot-cell{border-right:0;border-bottom:1px solid var(--line)!important}
+ .snapshot-cell:last-child{border-bottom:0!important}
+ article{padding:20px 16px 28px} article p{font-size:17px} article h2{font-size:27px}
+ .footer-inner{align-items:flex-start;flex-direction:column} .site-counter{text-align:left} .site-counter img{margin-left:0}
+}
+
+.elcon-visuals{
+  margin:28px 0 34px;
+}
+.elcon-visuals h2{
+  margin-top:0;
+}
+.flyer-pair{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+  align-items:start;
+}
+.archive-figure{
+  margin:0;
+  padding:10px;
+  border:1px solid #b8ad98;
+  background:#f8f3e8;
+}
+.archive-figure img{
+  width:100%;
+  height:auto;
+  display:block;
+  border:1px solid #c8beab;
+  background:#e9dfce;
+}
+.archive-figure figcaption{
+  padding:9px 4px 2px;
+  color:#5e6668;
+  font:12px/1.5 Arial,Helvetica,sans-serif;
+}
+.rights-hold{
+  margin:24px 0;
+  padding:15px 17px;
+  border:1px dashed #b69d72;
+  background:#f7efe1;
+  color:#5b554c;
+  font:13px/1.55 Arial,Helvetica,sans-serif;
+}
+.rights-hold strong{
+  color:#65471e;
+}
+@media(max-width:700px){
+  .flyer-pair{grid-template-columns:1fr}
+}
+
+
+/* ELCON PUBLICATION VISUALS */
+.visual-section{
+  margin:20px 0 32px;
+}
+.visual-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+  margin:18px 0 24px;
+  align-items:start;
+}
+.visual-grid.brochure{
+  grid-template-columns:1fr 1fr;
+}
+.archive-figure{
+  margin:0;
+  padding:10px;
+  border:1px solid #b8ad98;
+  background:#f8f3e8;
+}
+.archive-figure img{
+  width:100%;
+  height:auto;
+  display:block;
+  border:1px solid #c8beab;
+  background:#e9dfce;
+}
+.archive-figure figcaption{
+  padding:9px 4px 2px;
+  color:#5e6668;
+  font:12px/1.5 Arial,Helvetica,sans-serif;
+}
+.visual-note{
+  margin:18px 0;
+  padding:14px 16px;
+  border-left:4px solid #b57f31;
+  background:#f7efe1;
+  color:#5b554c;
+  font:13px/1.55 Arial,Helvetica,sans-serif;
+}
+@media(max-width:760px){
+  .visual-grid,.visual-grid.brochure{grid-template-columns:1fr}
+}
+
+
+/* CONTEXTUAL ARCHIVAL FIGURES */
+.inline-archive-figure{
+  margin:22px auto 27px;
+  max-width:780px;
+  padding:10px;
+  border:1px solid #b8ad98;
+  background:#f8f3e8;
+  box-shadow:0 8px 18px rgba(64,52,34,.08);
+}
+.inline-archive-figure.narrow{max-width:560px}
+.inline-archive-figure img{
+  width:100%;
+  height:auto;
+  display:block;
+  border:1px solid #c8beab;
+  background:#e9dfce;
+}
+.inline-archive-figure figcaption{
+  padding:9px 4px 2px;
+  color:#5e6668;
+  font:12px/1.55 Arial,Helvetica,sans-serif;
+}
+.inline-archive-figure figcaption strong{color:#334047}
+.derivative-note{
+  display:inline-block;
+  margin-left:5px;
+  padding:2px 5px;
+  border:1px solid #b89a66;
+  color:#76531e;
+  font:700 8px Arial,Helvetica,sans-serif;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.context-note{
+  margin:18px 0 22px;
+  padding:13px 15px;
+  border-left:4px solid #b57f31;
+  background:#f7efe1;
+  color:#5b554c;
+  font:13px/1.55 Arial,Helvetica,sans-serif;
+}
+
+</style>
+<style>
+/* Reader-facing source and table containment */
+article a, .source-list a, .footnotes a { overflow-wrap:anywhere; }
+.research-questions{display:grid;gap:12px;margin:18px 0 24px}.research-question{padding:16px 18px;border:1px solid rgba(181,127,49,.35);background:rgba(181,127,49,.055)}.research-question h4{margin:0 0 7px;color:#2b3a41;font-size:20px}.research-question p{margin:0 0 10px;font-size:16px}.question-action{display:inline-block;color:#76531e;text-decoration:none;font:700 11px Arial,sans-serif;letter-spacing:.06em;text-transform:uppercase}.question-action:hover,.question-action:focus-visible{text-decoration:underline}
+.table-scroll {max-width:100%;overflow-x:auto;}
+.table-scroll:focus-visible {outline:2px solid #d7b56d;outline-offset:3px;}
+</style><style id="ao-company-profile-consistency">
+/* Exact shared company-profile presentation: Elcon is the house pattern. */
+.company-identity.company-profile-standard{
+  margin:0 0 28px!important;
+  padding:0!important;
+  border:1px solid #b8ad98!important;
+  border-radius:0!important;
+  background:linear-gradient(135deg,rgba(194,138,50,.08),transparent 48%),#f3eddf!important;
+  color:#20272c!important;
+  box-shadow:none!important;
+  overflow:hidden!important;
+  font-family:Georgia,"Times New Roman",serif!important;
+  font-size:16px!important;
+  line-height:normal!important;
+}
+.company-profile-standard .company-mark{
+  display:block!important;
+  position:relative!important;
+  padding:24px 26px 20px!important;
+  border:0!important;
+  border-bottom:1px solid #c8beab!important;
+  border-radius:0!important;
+  background:transparent!important;
+  color:#232b30!important;
+  font:400 16px/normal Georgia,"Times New Roman",serif!important;
+}
+.company-profile-standard .company-mark:after{
+  content:"COMPANY PROFILE"!important;
+  position:absolute!important;
+  right:22px!important;
+  top:18px!important;
+  display:block!important;
+  margin:0!important;
+  color:#8c8272!important;
+  font:700 9px/normal Arial,Helvetica,sans-serif!important;
+  letter-spacing:.16em!important;
+  text-transform:uppercase!important;
+}
+.company-profile-standard .legal{
+  display:block!important;
+  margin:0 0 7px!important;
+  padding:0!important;
+  color:#746b5f!important;
+  font:700 10px/11px Arial,Helvetica,sans-serif!important;
+  letter-spacing:.13em!important;
+  text-transform:uppercase!important;
+}
+.company-profile-standard .wordmark{
+  display:block!important;
+  margin:0!important;
+  padding:0!important;
+  color:#122331!important;
+  font:400 clamp(34px,5vw,58px)/.95 Georgia,"Times New Roman",serif!important;
+  letter-spacing:0!important;
+  text-transform:none!important;
+}
+.company-profile-standard .wordmark span{
+  display:block!important;
+  margin:7px 0 0!important;
+  padding:0!important;
+  color:#8a6429!important;
+  font:700 13px/normal Arial,Helvetica,sans-serif!important;
+  letter-spacing:.16em!important;
+  text-transform:uppercase!important;
+}
+.company-profile-standard .company-snapshot{
+  display:grid!important;
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  margin:0!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  color:#232b30!important;
+  font:400 16px/normal Georgia,"Times New Roman",serif!important;
+}
+.company-profile-standard .snapshot-cell{
+  display:block!important;
+  min-width:0!important;
+  margin:0!important;
+  padding:17px 18px!important;
+  border:0!important;
+  border-right:1px solid #c8beab!important;
+  border-radius:0!important;
+  background:transparent!important;
+  color:#232b30!important;
+  font:400 16px/normal Georgia,"Times New Roman",serif!important;
+}
+.company-profile-standard .snapshot-cell:last-child{border-right:0!important}
+.company-profile-standard .snapshot-label{
+  display:block!important;
+  margin:0 0 5px!important;
+  padding:0!important;
+  color:#786f63!important;
+  font:700 9px/10px Arial,Helvetica,sans-serif!important;
+  letter-spacing:.12em!important;
+  text-transform:uppercase!important;
+}
+.company-profile-standard .snapshot-value{
+  display:block!important;
+  margin:0!important;
+  padding:0!important;
+  color:#1c2d37!important;
+  font:400 19px/22.8px Georgia,"Times New Roman",serif!important;
+}
+.company-profile-standard .snapshot-note{
+  display:block!important;
+  margin:5px 0 0!important;
+  padding:0!important;
+  color:#6e726f!important;
+  font:400 11px/14.85px Arial,Helvetica,sans-serif!important;
+}
+.hero .meta{
+  display:flex!important;
+  flex-direction:row!important;
+  flex-wrap:wrap!important;
+  align-items:center!important;
+  gap:10px!important;
+  margin:15px 0 0!important;
+  padding:0!important;
+}
+.hero .meta .badge,
+.hero .meta .updated{
+  display:inline-block!important;
+  position:static!important;
+  margin:0!important;
+  inset:auto!important;
+}
+.hero .meta .badge{
+  padding:6px 9px!important;
+  border:1px solid #78a6b8!important;
+  border-radius:999px!important;
+  background:transparent!important;
+  color:#9fc7d6!important;
+  font:700 11px/normal Arial,Helvetica,sans-serif!important;
+  letter-spacing:0!important;
+  text-transform:uppercase!important;
+}
+.hero .meta .updated{
+  padding:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  color:#9aa6ad!important;
+  font:700 11px/normal Arial,Helvetica,sans-serif!important;
+  letter-spacing:0!important;
+  text-transform:none!important;
+}
+@media(max-width:920px){
+  .company-profile-standard .company-snapshot{grid-template-columns:1fr 1fr!important}
+  .company-profile-standard .snapshot-cell{border-right:1px solid #c8beab!important;border-bottom:1px solid #c8beab!important}
+  .company-profile-standard .snapshot-cell:nth-child(2){border-right:0!important}
+  .company-profile-standard .snapshot-cell:nth-child(3),
+  .company-profile-standard .snapshot-cell:nth-child(4){border-bottom:0!important}
+  .company-profile-standard .snapshot-cell:last-child{border-right:0!important}
+}
+@media(max-width:600px){
+  .company-profile-standard .company-mark{
+    display:flex!important;
+    flex-direction:column!important;
+    padding:20px 18px 17px!important;
+  }
+  .company-profile-standard .company-mark:after{
+    position:static!important;
+    order:-1!important;
+    display:block!important;
+    margin:0 0 9px!important;
+  }
+  .company-profile-standard .wordmark{font-size:34px!important;overflow-wrap:anywhere!important}
+  .company-profile-standard .company-snapshot{grid-template-columns:1fr!important}
+  .company-profile-standard .snapshot-cell{
+    border-right:0!important;
+    border-bottom:1px solid #c8beab!important;
+  }
+  .company-profile-standard .snapshot-cell:nth-child(3){border-bottom:1px solid #c8beab!important}
+  .company-profile-standard .snapshot-cell:last-child{border-bottom:0!important}
+}
+</style><meta name="description" content="A documented history of Jeutel, Pierre Tel’s French coin-op company: arcade copies and licenses, Nemours manufacturing, 22-pin cabinets, System 84 pinball and the later brand revival.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://arcadesideb.com/jeutel.html">
+<meta property="og:title" content="Jeutel — French Arcade Manufacturer, Cabinets and Pinball | Arcade Side B">
+<meta property="og:description" content="Jeutel’s French arcade history: operator origins, copied and licensed games, Nemours factories, 22-pin cabinets, System 84 pinball and later brand continuity.">
+<meta property="og:url" content="https://arcadesideb.com/jeutel.html">
+
+<style id="asb-return-navigation-style">
+.asb-return-navigation{width:min(calc(100% - 32px),1180px);margin:16px auto;display:flex;gap:10px;flex-wrap:wrap;font:700 13px/1.4 Arial,Helvetica,sans-serif}
+.asb-return-navigation a{display:inline-block;padding:10px 14px;border:1px solid #9c7c45;border-radius:4px;background:#17222c;color:#f0c77b;text-decoration:none}
+.asb-return-navigation a:hover{background:#263744;color:#fff}.asb-return-navigation a:focus-visible{outline:3px solid #f0c77b;outline-offset:3px}
+.hero .meta .research-status{display:inline!important;border:0!important;border-radius:0!important;padding:0!important;background:none!important;color:#b9c4ca!important;font:700 12px/1.5 Arial,Helvetica,sans-serif!important;text-transform:none!important;cursor:default!important}
+</style><script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"Jeutel","description":"A documented history of Jeutel, the French coin-op manufacturer and operator associated with arcade copies, licenses, proprietary cabinets and System 84 pinball.","mainEntityOfPage":{"@type":"WebPage","@id":"https://arcadesideb.com/jeutel.html"},"isPartOf":{"@id":"https://arcadesideb.com/#website"},"datePublished":"2026-11-22","dateModified":"2026-11-22"}
+</script>
+<script defer src="/assets/asb-analytics.js"></script>
+<style id="asb-elcon-house-style">
+
+:root{
+  --bg:#090d12;--paper:#eee7d8;--paper2:#f5efe3;--ink:#232b30;--muted:#667075;
+  --line:#c8beab;--darkline:#303b45;--gold:#c28a32;--gold2:#d8b36b;
+  --green:#557b63;--cyan:#6f99aa;--max:1180px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:
+  radial-gradient(circle at 82% 10%,rgba(111,153,170,.09),transparent 28%),
+  linear-gradient(rgba(255,255,255,.012) 1px,transparent 1px),#090d12;
+  background-size:auto,100% 4px,auto;color:#dce2e5;font-family:Georgia,"Times New Roman",serif;
+}
+a{color:#a96f21}
+.mast{border-bottom:4px solid var(--gold);background:linear-gradient(135deg,#0a0f14,#13202a)}
+.mast-inner{width:min(calc(100% - 32px),var(--max));margin:auto;padding:17px 0;display:flex;justify-content:space-between;gap:20px;align-items:center}
+.brand{font-size:26px;font-weight:700;color:#f0ece4}
+.motto{font:700 10px Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#9ca8af;text-align:right}
+.crumb,.hero,.rule,.shell{width:min(calc(100% - 32px),var(--max));margin-left:auto;margin-right:auto}
+.crumb{padding-top:18px;color:#93a0a8;font:700 11px Arial,sans-serif}
+.crumb a{color:#d4ad67;text-decoration:none}
+.hero{padding:30px 0 26px}
+.eyebrow{color:var(--gold2);font:800 10px Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase}
+.hero h1{margin:7px 0 10px;font-size:clamp(44px,7vw,78px);line-height:.95;color:#f0ece4}
+.deck{max-width:930px;color:#b9c4ca;font-size:20px;line-height:1.5;margin:0}
+.meta{display:flex;gap:12px;flex-wrap:wrap;margin-top:17px;color:#9aa6ad;font:700 11px Arial,sans-serif}
+.badge{padding:6px 9px;border:1px solid currentColor;border-radius:999px;text-transform:uppercase}
+.living{color:#78a6b8}
+.rule{height:1px;background:#29343e}
+.shell{display:grid;grid-template-columns:275px minmax(0,1fr);gap:22px;padding:26px 0 50px;align-items:start}
+.sidebar{position:sticky;top:10px}
+.toc{border:1px solid #34404b;background:#111820;max-height:82vh;overflow:auto}
+.toc-title{padding:13px 15px;color:#d8dfe2;font:800 11px Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase}
+.toc a{display:block;border-top:1px solid #29343e;padding:9px 13px;color:#aebbc2;text-decoration:none;font:13px/1.35 Arial,sans-serif}
+.toc a:hover{color:#f0c57e}
+.sidebar-note{margin-top:12px;border:1px solid #34404b;background:#111820;padding:13px;color:#94a0a7;font:13px/1.45 Arial,sans-serif}
+article{background:var(--paper);color:var(--ink);border:1px solid #b9ae9a;box-shadow:0 18px 42px rgba(0,0,0,.25);padding:26px 34px 40px;min-width:0}
+.backhome{display:inline-block;margin-bottom:18px;padding:8px 10px;border:1px solid #9e927e;color:#745322;text-decoration:none;font:800 10px Arial,sans-serif;text-transform:uppercase;letter-spacing:.08em}
+.company-identity{margin:0 0 28px;border:1px solid #b8ad98;background:linear-gradient(135deg,rgba(194,138,50,.08),transparent 48%),#f3eddf;overflow:hidden}
+.company-mark{padding:24px 26px 20px;border-bottom:1px solid var(--line);position:relative}
+.company-mark:after{content:"COMPANY PROFILE";position:absolute;right:22px;top:18px;color:#8c8272;font:700 9px Arial,sans-serif;letter-spacing:.16em}
+.legal{color:#746b5f;font:700 10px Arial,sans-serif;letter-spacing:.13em;text-transform:uppercase;margin-bottom:7px}
+.wordmark{font-size:clamp(34px,5vw,58px);line-height:.95;color:#122331}
+.wordmark span{display:block;margin-top:7px;color:#8a6429;font:700 13px Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase}
+.company-snapshot{display:grid;grid-template-columns:repeat(4,1fr)}
+.snapshot-cell{padding:17px 18px;border-right:1px solid var(--line)}
+.snapshot-cell:last-child{border-right:0}
+.snapshot-label{display:block;color:#786f63;font:700 9px Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;margin-bottom:5px}
+.snapshot-value{display:block;color:#1c2d37;font-size:19px;line-height:1.2}
+.snapshot-note{display:block;margin-top:5px;color:#6e726f;font:11px/1.35 Arial,sans-serif}
+.overview-box{padding:18px 20px;background:#f8f2e7;border:1px solid #d2c5af;margin:0 0 26px}
+.overview-box h2{margin-top:0!important}
+article h2{margin:38px 0 13px;color:#172a35;font-size:31px;border-bottom:2px solid #b57f31;padding-bottom:7px}
+article h2:first-of-type{margin-top:0}
+article h3{margin:27px 0 9px;color:#2b3a41;font-size:24px}
+article p{font-size:18px;line-height:1.7;margin:14px 0}
+article li{font-size:17px;line-height:1.6;margin:6px 0}
+article blockquote{margin:18px 0;padding:10px 17px;border-left:4px solid var(--gold);background:#f7f0e3;color:#465156}
+article table{width:100%;border-collapse:collapse;margin:18px 0;font:14px/1.45 Arial,sans-serif}
+article th,article td{border:1px solid #c8beab;padding:8px 9px;vertical-align:top}
+article th{background:#ddd3c1;color:#24323a;text-align:left}
+article code{font-size:.88em}
+.src-tag{display:inline-block;color:#76531e;font:700 10px Arial,sans-serif;white-space:nowrap}
+.public-note{margin:0 0 25px;padding:15px 17px;border-left:5px solid var(--green);background:#e7efe8;color:#33433a;font:15px/1.5 Arial,sans-serif}
+.footer{border-top:1px solid #29343e;background:#07090c}
+.footer-inner{width:min(calc(100% - 32px),var(--max));margin:auto;padding:21px 0 27px;display:flex;justify-content:space-between;align-items:flex-end;gap:20px;color:#7f8b92;font:12px Arial,sans-serif}
+.footer-inner strong{color:#d9dfe2;font-family:Georgia,serif;font-size:15px}
+.site-counter{text-align:right;font:800 9px Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#748089}
+.site-counter img{display:block;margin:5px 0 0 auto;border:1px solid #303944}
+@media(max-width:920px){
+ .shell{grid-template-columns:1fr} .sidebar{position:static} .toc{max-height:none}
+ .company-snapshot{grid-template-columns:1fr 1fr}
+ .snapshot-cell:nth-child(2){border-right:0}
+ .snapshot-cell{border-bottom:1px solid var(--line)}
+ .snapshot-cell:nth-child(3),.snapshot-cell:nth-child(4){border-bottom:0}
+}
+@media(max-width:600px){
+ .mast-inner{align-items:flex-start;flex-direction:column} .motto{text-align:left}
+ .company-snapshot{grid-template-columns:1fr} .snapshot-cell{border-right:0;border-bottom:1px solid var(--line)!important}
+ .snapshot-cell:last-child{border-bottom:0!important}
+ article{padding:20px 16px 28px} article p{font-size:17px} article h2{font-size:27px}
+ .footer-inner{align-items:flex-start;flex-direction:column} .site-counter{text-align:left} .site-counter img{margin-left:0}
+}
+
+.elcon-visuals{
+  margin:28px 0 34px;
+}
+.elcon-visuals h2{
+  margin-top:0;
+}
+.flyer-pair{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+  align-items:start;
+}
+.archive-figure{
+  margin:0;
+  padding:10px;
+  border:1px solid #b8ad98;
+  background:#f8f3e8;
+}
+.archive-figure img{
+  width:100%;
+  height:auto;
+  display:block;
+  border:1px solid #c8beab;
+  background:#e9dfce;
+}
+.archive-figure figcaption{
+  padding:9px 4px 2px;
+  color:#5e6668;
+  font:12px/1.5 Arial,Helvetica,sans-serif;
+}
+.rights-hold{
+  margin:24px 0;
+  padding:15px 17px;
+  border:1px dashed #b69d72;
+  background:#f7efe1;
+  color:#5b554c;
+  font:13px/1.55 Arial,Helvetica,sans-serif;
+}
+.rights-hold strong{
+  color:#65471e;
+}
+@media(max-width:700px){
+  .flyer-pair{grid-template-columns:1fr}
+}
+
+
+/* ELCON PUBLICATION VISUALS */
+.visual-section{
+  margin:20px 0 32px;
+}
+.visual-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+  margin:18px 0 24px;
+  align-items:start;
+}
+.visual-grid.brochure{
+  grid-template-columns:1fr 1fr;
+}
+.archive-figure{
+  margin:0;
+  padding:10px;
+  border:1px solid #b8ad98;
+  background:#f8f3e8;
+}
+.archive-figure img{
+  width:100%;
+  height:auto;
+  display:block;
+  border:1px solid #c8beab;
+  background:#e9dfce;
+}
+.archive-figure figcaption{
+  padding:9px 4px 2px;
+  color:#5e6668;
+  font:12px/1.5 Arial,Helvetica,sans-serif;
+}
+.visual-note{
+  margin:18px 0;
+  padding:14px 16px;
+  border-left:4px solid #b57f31;
+  background:#f7efe1;
+  color:#5b554c;
+  font:13px/1.55 Arial,Helvetica,sans-serif;
+}
+@media(max-width:760px){
+  .visual-grid,.visual-grid.brochure{grid-template-columns:1fr}
+}
+
+
+/* CONTEXTUAL ARCHIVAL FIGURES */
+.inline-archive-figure{
+  margin:22px auto 27px;
+  max-width:780px;
+  padding:10px;
+  border:1px solid #b8ad98;
+  background:#f8f3e8;
+  box-shadow:0 8px 18px rgba(64,52,34,.08);
+}
+.inline-archive-figure.narrow{max-width:560px}
+.inline-archive-figure img{
+  width:100%;
+  height:auto;
+  display:block;
+  border:1px solid #c8beab;
+  background:#e9dfce;
+}
+.inline-archive-figure figcaption{
+  padding:9px 4px 2px;
+  color:#5e6668;
+  font:12px/1.55 Arial,Helvetica,sans-serif;
+}
+.inline-archive-figure figcaption strong{color:#334047}
+.derivative-note{
+  display:inline-block;
+  margin-left:5px;
+  padding:2px 5px;
+  border:1px solid #b89a66;
+  color:#76531e;
+  font:700 8px Arial,Helvetica,sans-serif;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.context-note{
+  margin:18px 0 22px;
+  padding:13px 15px;
+  border-left:4px solid #b57f31;
+  background:#f7efe1;
+  color:#5b554c;
+  font:13px/1.55 Arial,Helvetica,sans-serif;
+}
+
+
+
+/* Reader-facing source and table containment */
+article a, .source-list a, .footnotes a { overflow-wrap:anywhere; }
+.research-questions{display:grid;gap:12px;margin:18px 0 24px}.research-question{padding:16px 18px;border:1px solid rgba(181,127,49,.35);background:rgba(181,127,49,.055)}.research-question h4{margin:0 0 7px;color:#2b3a41;font-size:20px}.research-question p{margin:0 0 10px;font-size:16px}.question-action{display:inline-block;color:#76531e;text-decoration:none;font:700 11px Arial,sans-serif;letter-spacing:.06em;text-transform:uppercase}.question-action:hover,.question-action:focus-visible{text-decoration:underline}
+.table-scroll {max-width:100%;overflow-x:auto;}
+.table-scroll:focus-visible {outline:2px solid #d7b56d;outline-offset:3px;}
+
+
+/* Exact shared company-profile presentation: Elcon is the house pattern. */
+.company-identity.company-profile-standard{
+  margin:0 0 28px!important;
+  padding:0!important;
+  border:1px solid #b8ad98!important;
+  border-radius:0!important;
+  background:linear-gradient(135deg,rgba(194,138,50,.08),transparent 48%),#f3eddf!important;
+  color:#20272c!important;
+  box-shadow:none!important;
+  overflow:hidden!important;
+  font-family:Georgia,"Times New Roman",serif!important;
+  font-size:16px!important;
+  line-height:normal!important;
+}
+.company-profile-standard .company-mark{
+  display:block!important;
+  position:relative!important;
+  padding:24px 26px 20px!important;
+  border:0!important;
+  border-bottom:1px solid #c8beab!important;
+  border-radius:0!important;
+  background:transparent!important;
+  color:#232b30!important;
+  font:400 16px/normal Georgia,"Times New Roman",serif!important;
+}
+.company-profile-standard .company-mark:after{
+  content:"COMPANY PROFILE"!important;
+  position:absolute!important;
+  right:22px!important;
+  top:18px!important;
+  display:block!important;
+  margin:0!important;
+  color:#8c8272!important;
+  font:700 9px/normal Arial,Helvetica,sans-serif!important;
+  letter-spacing:.16em!important;
+  text-transform:uppercase!important;
+}
+.company-profile-standard .legal{
+  display:block!important;
+  margin:0 0 7px!important;
+  padding:0!important;
+  color:#746b5f!important;
+  font:700 10px/11px Arial,Helvetica,sans-serif!important;
+  letter-spacing:.13em!important;
+  text-transform:uppercase!important;
+}
+.company-profile-standard .wordmark{
+  display:block!important;
+  margin:0!important;
+  padding:0!important;
+  color:#122331!important;
+  font:400 clamp(34px,5vw,58px)/.95 Georgia,"Times New Roman",serif!important;
+  letter-spacing:0!important;
+  text-transform:none!important;
+}
+.company-profile-standard .wordmark span{
+  display:block!important;
+  margin:7px 0 0!important;
+  padding:0!important;
+  color:#8a6429!important;
+  font:700 13px/normal Arial,Helvetica,sans-serif!important;
+  letter-spacing:.16em!important;
+  text-transform:uppercase!important;
+}
+.company-profile-standard .company-snapshot{
+  display:grid!important;
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  margin:0!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  color:#232b30!important;
+  font:400 16px/normal Georgia,"Times New Roman",serif!important;
+}
+.company-profile-standard .snapshot-cell{
+  display:block!important;
+  min-width:0!important;
+  margin:0!important;
+  padding:17px 18px!important;
+  border:0!important;
+  border-right:1px solid #c8beab!important;
+  border-radius:0!important;
+  background:transparent!important;
+  color:#232b30!important;
+  font:400 16px/normal Georgia,"Times New Roman",serif!important;
+}
+.company-profile-standard .snapshot-cell:last-child{border-right:0!important}
+.company-profile-standard .snapshot-label{
+  display:block!important;
+  margin:0 0 5px!important;
+  padding:0!important;
+  color:#786f63!important;
+  font:700 9px/10px Arial,Helvetica,sans-serif!important;
+  letter-spacing:.12em!important;
+  text-transform:uppercase!important;
+}
+.company-profile-standard .snapshot-value{
+  display:block!important;
+  margin:0!important;
+  padding:0!important;
+  color:#1c2d37!important;
+  font:400 19px/22.8px Georgia,"Times New Roman",serif!important;
+}
+.company-profile-standard .snapshot-note{
+  display:block!important;
+  margin:5px 0 0!important;
+  padding:0!important;
+  color:#6e726f!important;
+  font:400 11px/14.85px Arial,Helvetica,sans-serif!important;
+}
+.hero .meta{
+  display:flex!important;
+  flex-direction:row!important;
+  flex-wrap:wrap!important;
+  align-items:center!important;
+  gap:10px!important;
+  margin:15px 0 0!important;
+  padding:0!important;
+}
+.hero .meta .badge,
+.hero .meta .updated{
+  display:inline-block!important;
+  position:static!important;
+  margin:0!important;
+  inset:auto!important;
+}
+.hero .meta .badge{
+  padding:6px 9px!important;
+  border:1px solid #78a6b8!important;
+  border-radius:999px!important;
+  background:transparent!important;
+  color:#9fc7d6!important;
+  font:700 11px/normal Arial,Helvetica,sans-serif!important;
+  letter-spacing:0!important;
+  text-transform:uppercase!important;
+}
+.hero .meta .updated{
+  padding:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  color:#9aa6ad!important;
+  font:700 11px/normal Arial,Helvetica,sans-serif!important;
+  letter-spacing:0!important;
+  text-transform:none!important;
+}
+@media(max-width:920px){
+  .company-profile-standard .company-snapshot{grid-template-columns:1fr 1fr!important}
+  .company-profile-standard .snapshot-cell{border-right:1px solid #c8beab!important;border-bottom:1px solid #c8beab!important}
+  .company-profile-standard .snapshot-cell:nth-child(2){border-right:0!important}
+  .company-profile-standard .snapshot-cell:nth-child(3),
+  .company-profile-standard .snapshot-cell:nth-child(4){border-bottom:0!important}
+  .company-profile-standard .snapshot-cell:last-child{border-right:0!important}
+}
+@media(max-width:600px){
+  .company-profile-standard .company-mark{
+    display:flex!important;
+    flex-direction:column!important;
+    padding:20px 18px 17px!important;
+  }
+  .company-profile-standard .company-mark:after{
+    position:static!important;
+    order:-1!important;
+    display:block!important;
+    margin:0 0 9px!important;
+  }
+  .company-profile-standard .wordmark{font-size:34px!important;overflow-wrap:anywhere!important}
+  .company-profile-standard .company-snapshot{grid-template-columns:1fr!important}
+  .company-profile-standard .snapshot-cell{
+    border-right:0!important;
+    border-bottom:1px solid #c8beab!important;
+  }
+  .company-profile-standard .snapshot-cell:nth-child(3){border-bottom:1px solid #c8beab!important}
+  .company-profile-standard .snapshot-cell:last-child{border-bottom:0!important}
+}
+
+
+.asb-return-navigation{width:min(calc(100% - 32px),1180px);margin:16px auto;display:flex;gap:10px;flex-wrap:wrap;font:700 13px/1.4 Arial,Helvetica,sans-serif}
+.asb-return-navigation a{display:inline-block;padding:10px 14px;border:1px solid #9c7c45;border-radius:4px;background:#17222c;color:#f0c77b;text-decoration:none}
+.asb-return-navigation a:hover{background:#263744;color:#fff}.asb-return-navigation a:focus-visible{outline:3px solid #f0c77b;outline-offset:3px}
+.hero .meta .research-status{display:inline!important;border:0!important;border-radius:0!important;padding:0!important;background:none!important;color:#b9c4ca!important;font:700 12px/1.5 Arial,Helvetica,sans-serif!important;text-transform:none!important;cursor:default!important}
+
+
+/* Explicit donor typography prevents legacy page shorthands leaking into the masthead. */
+.mast .brand{font:700 26px/normal Georgia,"Times New Roman",serif;letter-spacing:normal;text-transform:none}
+.mast .brand a{color:#f0ece4;text-decoration:none;letter-spacing:normal;text-transform:none}
+.hero h1{font-family:Georgia,"Times New Roman",serif;font-weight:700;letter-spacing:normal;text-transform:none}
+
+.article img{max-width:100%;height:auto}
+.mast .motto{display:block}
+</style>
+<script defer src="assets/asb-counts.js"></script>
+<link rel="stylesheet" href="site-search.css?v=nav-3">
+<style id="tecfri-figures-specific">
+.tecfri-figures{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,245px),1fr));gap:18px;margin:24px 0 32px}
+.tecfri-figure{margin:0;padding:10px;border:1px solid #b8ad98;background:#f7f2e8;overflow:hidden;min-width:0}
+.tecfri-figure a{display:block}.tecfri-figure img{display:block;max-width:100%;width:100%;height:auto;max-height:480px;object-fit:contain;object-position:center}
+.tecfri-figure figcaption{padding:10px 3px 2px;color:#5e6668;font:12px/1.5 Arial,Helvetica,sans-serif}
+.table-scroll{max-width:100%;overflow-x:auto;margin:16px 0 28px}.tecfri-data{width:100%;border-collapse:collapse;font-size:15px}.tecfri-data td,.tecfri-data th{border-bottom:1px solid #c8beab;padding:9px 12px;text-align:left;vertical-align:top}.tecfri-data th{background:#172a39;color:#f6f2e8}
+article .section{margin-bottom:32px}article li{margin-bottom:8px}.toc a{overflow-wrap:anywhere}
+@media(max-width:600px){.tecfri-figures{grid-template-columns:1fr}.tecfri-figure img{max-height:540px}}
+</style></head>
+<body>
+<div class="asb-global-search" aria-label="Arcade Side B site navigation and search">
+  <div class="asb-global-inner">
+    <a class="asb-global-brand" href="index.html">Arcade Side B</a>
+    <nav class="asb-global-links" aria-label="Archive indexes"><a href="companies.html">Companies</a><a href="games.html">Games</a><a href="people.html">People</a></nav>
+    <form class="asb-global-form" action="search.html" method="get" role="search">
+      <label class="asb-sr-only" for="asb-global-search-input">Search Arcade Side B</label>
+      <input id="asb-global-search-input" name="q" type="search" placeholder="Search Arcade Side B…" autocomplete="off"><button type="submit">Search</button>
+    </form>
+  </div>
+</div>
+<header class="mast"><div class="mast-inner"><div class="brand"><a href="https://arcadesideb.com/" style="color:inherit;text-decoration:none">Arcade Side B</a></div><div class="motto">Preserve what others overlooked. Follow the evidence. Keep the record open.</div></div></header>
+<nav class="asb-return-navigation" aria-label="Return navigation"><a href="index.html">← Back to Arcade Side B</a><a href="companies.html">← Back to Companies</a></nav>
+<div class="crumb"><a href="index.html">Arcade Side B</a> &nbsp;›&nbsp; <a href="companies.html">Companies</a> &nbsp;›&nbsp; Jeutel</div>
+<section class="hero"><div class="eyebrow">Company history</div><h1>Jeutel</h1>
+<p class="deck">France’s operator-turned-manufacturer of arcade cabinets, copied games, licensed boards, proprietary wiring and System 84 pinball.</p>
+<div class="meta"><span class="research-status">Research status: open to new evidence</span> <span class="updated">Last updated: November 22, 2026</span></div></section>
+<div class="rule"></div>
+<div class="shell">
+<aside class="sidebar"><nav aria-label="Jeutel article contents" class="toc"><div class="toc-title">On this page</div><a href="#company-snapshot">Company snapshot</a><a href="#about-the-count">About the count</a><a href="#from-cafe-routes-to-video-manufacturing">From café routes to video manufacturing</a><a href="#jeutel-at-nemours-by-1978">Jeutel at Nemours by 1978</a><a href="#the-factory-model-cabinets-boards-and-speed">The factory model: cabinets, boards and speed</a><a href="#copying-was-not-a-footnote">Copying was not a footnote</a><a href="#the-twelve-high-confidence-classic-video-identities">The twelve high-confidence classic video identities</a><a href="#defender-mirage-and-the-courtroom">Defender, Mirage and the courtroom</a><a href="#from-copying-to-licensing">From copying to licensing</a><a href="#rally-x-q-bert-and-the-names-left-out">Rally-X, Q*bert and the names left out</a><a href="#the-22-pin-jeutel-standard">The 22-pin Jeutel standard</a><a href="#cabinets-built-for-operators">Cabinets built for operators</a><a href="#the-twin-cabaret-two-games-in-one-machine">The Twin Cabaret: two games in one machine</a><a href="#jeutel-moves-into-pinball">Jeutel moves into pinball</a><a href="#system-84-original-electronics-familiar-mechanics">System 84: original electronics, familiar mechanics</a><a href="#the-people-behind-the-machines">The people behind the machines</a><a href="#a-company-under-stress-in-1986">A company under stress in 1986</a><a href="#finatel-and-the-jeutel-name-in-the-1990s">Finatel and the Jeutel name in the 1990s</a><a href="#the-trademark-1984-1994-and-a-later-revival">The trademark: 1984, 1994 and a later revival</a><a href="#jeutel-after-the-arcade-era">Jeutel after the arcade era</a><a href="#what-survives">What survives</a><a href="#chronology">Chronology</a><a href="#catalog-reference">Catalog reference</a><a href="#sources-and-documentation">Sources and documentation</a><a href="#closing-assessment">Closing assessment</a></nav>
+<div class="sidebar-note">Jeutel is documented as a French game manufacturer by 1978. Its video catalog mixes copies, renamed derivatives, licensed products and cabinet/board manufacture, so the twelve-title working count is deliberately role-aware.</div></aside>
+<article><a class="backhome" href="companies.html">← Back to Companies</a>
+<section class="company-identity company-profile-standard" aria-label="Jeutel company profile">
+<div class="company-mark"><div class="legal">Jeutel / Société Jeutel · France</div><div class="wordmark">Jeutel<span>French coin-op operation · cabinets, electronics, licensed games and pinball</span></div></div>
+<div class="company-snapshot">
+<div class="snapshot-cell"><span class="snapshot-label">Start</span><span class="snapshot-value">Documented by 1978</span><span class="snapshot-note">Seine-et-Marne industrial records place Société Jeutel at Nemours before the commonly repeated 1979 shorthand.</span></div>
+<div class="snapshot-cell"><span class="snapshot-label">Classic phase</span><span class="snapshot-value">Late 1970s–1980s</span><span class="snapshot-note">Later Jeutel trade-name and trademark revivals continued beyond the original arcade manufacturing era.</span></div>
+<div class="snapshot-cell"><span class="snapshot-label">Arcade output</span><span class="snapshot-value">12 video identities</span><span class="snapshot-note">High-confidence Jeutel-facing names/products; copies and renames included, not twelve original designs.</span></div>
+<div class="snapshot-cell"><span class="snapshot-label">Company role</span><span class="snapshot-value">Operator + manufacturer</span><span class="snapshot-note">Route operation, cabinets, PCBs, copied and licensed games, distribution, and six production pinballs.</span></div>
+</div></section>
+<div class="public-note"><strong>About the evidence:</strong> This history separates period legal and archival records from later oral history, technical preservation and collector testimony. Jeutel’s business is better documented than its exact legal succession, so brand continuity is not treated as proof of one uninterrupted corporation.</div>
+<section id="company-snapshot"><h2>Company snapshot</h2>
+<div class="table-scroll"><table><tbody>
+<tr><th>Core locations</th><td>Nemours and Saint-Pierre-lès-Nemours; later Toucy</td></tr>
+<tr><th>Key figure</th><td>Pierre Tel — founder, entrepreneur and operating figure</td></tr>
+<tr><th>Formal 1986 president</th><td>Claudie Tel — identified as president of SA Jeutel in the Williams litigation</td></tr>
+<tr><th>Video record</th><td>12 high-confidence classic Jeutel-facing identities, plus confirmed France-only Pooyan licensing and additional lower-confidence hardware leads</td></tr>
+<tr><th>Pinball record</th><td>Six production titles, 1982–1986, preceded by the Excalibur prototype in 1981</td></tr>
+<tr><th>Distinctive hardware</th><td>Jeutel proprietary 22-pin interchangeable cabinet/board wiring; later Jeutel↔JAMMA adapter use</td></tr>
+</tbody></table></div></section>
+<section id="about-the-count"><h2>About the count</h2>
+<p>Jeutel is exactly the kind of company that becomes misleading when reduced to a single game total. A Jeutel logo on a cabinet or ROM set can mean several different things: an unauthorized copy, a renamed derivative, a licensed game, a Jeutel-built cabinet carrying another company’s game, a collaboration, or a genuinely Jeutel-designed electromechanical product. The twelve classic-video identities used in this history are therefore a conservative count of strongly supported Jeutel-facing names and products, not twelve original Jeutel game designs.</p>
+<p>That distinction is not a technicality. Pierre Tel himself later described a company whose engineers often modified or reproduced existing video games rather than creating wholly original ones. Jeutel’s originality is easier to see in the physical business around the software: the French distribution network, locally produced electronics, interchangeable cabinets, proprietary wiring, rapid adaptation to operator needs, and eventually a genuine pinball platform of its own.</p>
+</section><section id="from-cafe-routes-to-video-manufacturing"><h2>From café routes to video manufacturing</h2>
+<p>Jeutel did not begin as a conventional videogame studio. Its roots were in the older French coin-operated trade.</p>
+<p>In a long 2010 interview with Grospixels, Pierre Tel recalled building a substantial rental and operating business before the Jeutel name became associated with video games. He described a route containing billiards, pinball and other amusement equipment, spread across many French departments through regional agencies. His recollections include striking scale figures — roughly 2,500 games and eleven agencies before video became the focus — but those numbers remain retrospective testimony rather than audited corporate statistics.</p>
+<p>The important part of the story is the operating logic. Tel was already supplying cafés and other amusement locations. He understood what operators wanted, how equipment moved seasonally, and how frustrating dependence on importers could be. He later described a business that shifted machines among cafés, ski resorts, fairs and seaside amusement halls. As Jeutel expanded he remembered the regional network growing to seventeen agencies.</p>
+<p>According to Tel, Breakout was the practical turning point. Demand existed, imported supply was inadequate, and he responded in the most operator-minded way possible: buy machines, open them, find technical help, and build versions locally. The first manufacturing effort was therefore not the result of a design team setting out to invent a new videogame. It was an operator solving a supply problem.</p>
+<p>Tel said the Jeutel name itself was created for video games. That makes the brand’s origin particularly revealing. Jeutel was not a software house that later added distribution. Distribution, operation and field service were the foundation; manufacturing grew out of them.</p>
+</section><section id="jeutel-at-nemours-by-1978"><h2>Jeutel at Nemours by 1978</h2>
+<p>For years, Jeutel was commonly summarized as a company founded in 1979. Surviving French archival evidence now makes that date too simple.</p>
+<p>The Archives départementales de Seine-et-Marne list Société Jeutel in a 1978 classified-establishments file, reference 2875W242/6. The description concerns a game factory, a project for an exhibition building and factory, storage of coin-operated machines, parking and plans. A second file, 2875W301/11, dates from 1979 and describes a Société Jeutel game factory and construction of a repair facility for electronic games at Saint-Pierre-lès-Nemours. A third, 2875W334/6, dates from 1980 and describes a Jeutel game factory and electronic-game assembly workshop.</p>
+<p>Those records are stronger than a modern “founded” date copied from a database. They show a company explicitly called Société Jeutel engaged in game manufacturing infrastructure by 1978.</p>
+<p>The archive material also helps explain why later registry dates must be handled carefully. Modern registry-derived records for SA Jeutel, SIREN 315 981 845, report a 1984 creation date and a Toucy address. That cannot be the birth of the Jeutel business, because the Nemours industrial records already document Société Jeutel six years earlier. The 1984 date may represent a later legal form, registration event, restructuring, or an incomplete modern reconstruction of older company history.</p>
+<p>Other Tel-linked entities complicate the picture further. Toucy Video, SIREN 319 570 040, was created in 1980 at Toucy with Pierre Tel listed as president/director general and an activity related to electronic sound/image equipment. It clearly belongs to the same business world, but the surviving evidence does not justify silently treating Toucy Video and Jeutel as the same legal company.</p>
+<p>A French Senate debate of June 30, 1983 provides another independent period anchor. During discussion of the French amusement-machine industry, Jeutel at Nemours was named among French manufacturers. By that point Jeutel was not merely a local cabinet label remembered by collectors; it was visible to national policymakers as part of France’s domestic coin-op manufacturing base.</p>
+</section><section id="the-factory-model-cabinets-boards-and-speed"><h2>The factory model: cabinets, boards and speed</h2>
+<p>Pierre Tel’s memories of the manufacturing operation fit the archival picture of an increasingly industrial company. He described Nemours as an operational center with multiple buildings, electronics work and printed-circuit-board production. He also recalled a production line in which a large group of women manually inserted PCB components before wave soldering. His remembered figure — around fifty women — is useful oral history but should not be mistaken for a payroll count.</p>
+<p>The design office was smaller. Tel recalled seven engineers and described their work in terms that help explain the surviving videogame catalog: modifying, reproducing and adapting games rather than building an American- or Japanese-style original-development pipeline. Cabinet woodworking, he said, was subcontracted in Italy while Jeutel handled the electronics and final product process.</p>
+<p>This was an effective model for a fast-moving operator market. A café owner did not necessarily care whether a board represented a prestigious original development. He cared whether the machine earned money, could be serviced, and could be changed when its appeal faded. Jeutel’s business was built around those practical needs.</p>
+<p>Secondary histories sometimes repeat claims of roughly 200 employees or an enormous share of the French arcade market. Those figures are plausible enough to keep investigating, but they are not treated here as established facts. What is independently secure is the broader conclusion: academic work on the French coin-op industry identifies Jeutel as one of the domestic firms with logic-board assembly capability, and contemporary or near-contemporary sources place it among the significant French competitors of the early videogame boom.</p>
+</section><section id="copying-was-not-a-footnote"><h2>Copying was not a footnote</h2>
+<p>The most difficult part of telling Jeutel’s history is also one of the most historically important: copying was central to the company’s early videogame business.</p>
+<p>Modern preservation sources retain a series of Jeutel-attributed ROM sets and boards derived from well-known foreign games. The list includes Galaxian-family material, Moon Cresta, Phoenix, Spectar, Defender and Crazy Kong Part II. Surviving cabinets and technical documentation add titles that do not appear neatly in a modern manufacturer filter.</p>
+<p>Calling every one of these a “Jeutel game” without explanation produces a false catalog. Calling them irrelevant bootlegs and moving on would be equally misleading. They were part of a real French manufacturing and operating system. They show how quickly popular arcade concepts were localized, copied, renamed and placed into domestic cabinets during a period when international videogame licensing and copyright enforcement were still developing.</p>
+<p>Pierre Tel was unusually candid about this later in life. He did not present Jeutel as a hidden French equivalent of Nintendo or Namco. He described engineers who could reproduce and modify boards and acknowledged that legal pressure eventually pushed the company toward formal licenses.</p>
+<p>That transition — from copying what operators wanted to negotiating licenses with the companies that owned the games — is one of the central arcs of the Jeutel story.</p>
+</section><section id="the-twelve-high-confidence-classic-video-identities"><h2>The twelve high-confidence classic video identities</h2>
+<p>The following names have enough technical, physical, legal or period-document evidence to be treated as high-confidence Jeutel-facing classic-video identities. Again, this is a catalog of Jeutel-associated commercial names and products, not a claim of twelve original designs.</p>
+<h3>Star Fighter / Galaktron</h3>
+<p>Current MAME preservation identifies a Jeutel Galaxian-family set under the short title Star Fighter, while preservation history and title-screen evidence use Galaktron. The exact period commercial naming remains unsettled, so both names are retained. Whatever the label, the underlying design belongs to the Galaxian family.</p>
+<h3>Moon Cresta</h3>
+<p>A Jeutel-attributed Moon Cresta bootleg survives in current technical preservation. This is a direct example of Jeutel supplying a French-market version of a popular Japanese shooter rather than developing a new game concept.</p>
+<h3>Moune Creste</h3>
+<p>MAME also preserves Moune Creste as a Jeutel French bootleg of Moon Cresta. It is a distinct Jeutel-facing title label but not a distinct underlying game family. Counting Moon Cresta and Moune Creste as two “original Jeutel games” would be plainly wrong.</p>
+<h3>Phantomas</h3>
+<p>Phantomas is preserved as a Jeutel bootleg in the Exidy Spectar family. Current technical metadata places it around 1980, although a clean period commercial date would still be preferable to emulator metadata alone.</p>
+<h3>Vautour</h3>
+<p>Vautour is Jeutel’s Phoenix-family product. Multiple hardware/ROM forms survive, but they represent one title identity. The French title — “vulture” — is a good example of Jeutel creating its own market-facing identity around copied software.</p>
+<h3>Defender</h3>
+<p>A Jeutel Defender copy survives in technical preservation, and the name is also connected directly to the most important legal record in the company’s videogame history.</p>
+<h3>Tornado</h3>
+<p>Two preserved Jeutel Tornado sets belong to the Defender family. They are technical variants, not two separate game designs.</p>
+<h3>Zero</h3>
+<p>Zero is another Jeutel-facing Defender-family name. Its existence alongside Defender, Tornado and Mirage shows why counting ROM labels tells only part of the story.</p>
+<h3>Crazy Kong Part II</h3>
+<p>A Jeutel bootleg of Crazy Kong Part II survives in current MAME source. Historical changes in MAME set naming once made the Jeutel catalog appear larger than it is; the present preserved entry replaces an older set rather than documenting an extra Jeutel title.</p>
+<h3>Mirage</h3>
+<p>Mirage is documentary-secure even though it does not sit neatly inside the current Jeutel manufacturer filter. French litigation states that Jeutel’s game was first exploited under the Defender name and then under the substituted name Mirage. Pierre Tel separately remembered exhibiting Mirage in Britain. Mirage is therefore a genuine Jeutel commercial identity, but it remains part of the Defender source family.</p>
+<h3>Super Invaders</h3>
+<p>Super Invaders is one of the most useful reminders that emulator databases do not equal company catalogs. Surviving Jeutel machines, boards and an original manual establish a physical Jeutel product in the Space Invaders family. Restoration work has also tied surviving examples to Visionor-related cabinet/monitor history. Its exact release year remains open.</p>
+<h3>Le Grand Crash</h3>
+<p>A surviving Jeutel sales flyer preserved by the Arcade Flyer Archive confirms Le Grand Crash as a real Jeutel-marketed videogame title in France. The underlying game, year and exact technical origin remain unresolved. It belongs in the catalog because the period sales evidence is secure, not because anyone has proved it was an original Jeutel design.</p>
+<p>Taken together, these twelve names collapse into fewer underlying videogame families. Defender, Mirage, Tornado and Zero are all Defender-related. Moon Cresta and Moune Creste share a source. Star Fighter/Galaktron may be two names for one Jeutel product. Vautour’s multiple technical forms are still one title. The most useful way to read the list is therefore as evidence of Jeutel’s commercial adaptation strategy.</p>
+</section><section id="defender-mirage-and-the-courtroom"><h2>Defender, Mirage and the courtroom</h2>
+<p>The Williams Electronics dispute is the clearest primary-source window into Jeutel’s copying practices.</p>
+<p>Williams’ Defender was one of the landmark arcade releases of 1980–81. In France, Williams pursued Jeutel over a game it said was identical to Defender. The case record states that the Jeutel product was initially exploited under the Defender name and was later renamed Mirage.</p>
+<p>The litigation reached the Cour de cassation, France’s highest court for judicial matters, in a decision delivered March 7, 1986. The case became important beyond Jeutel because it addressed copyright protection for the audiovisual expression of a videogame. The court record also supplies corporate information: the defendants included SA Jeutel and Madame Claudie Tel, who is identified in the factual history as president of Société Jeutel.</p>
+<p>That matters because Pierre Tel is often treated as if every formal corporate title belonged to him. He was unquestionably the founder, entrepreneur, negotiator and public face whose recollections preserve much of the company’s history. But the legal record says Claudie Tel was the formal president of SA Jeutel in this 1986 proceeding.</p>
+<p>Pierre Tel later remembered the Defender episode more colorfully. He recalled showing Mirage at a British trade exhibition while Williams was present. Contemporary Amusement Trades Exhibition exhibitor lists do place Jeutel in Britain during the early 1980s, making the broad setting credible. Later reconstructions add a confrontation with a Williams representative, but without a period report or direct document that detail is best left as a lead rather than a settled fact.</p>
+<p>The larger lesson is not merely that Jeutel copied Defender. It is that by the mid-1980s the international arcade industry had become less tolerant of the kind of copying that had flourished during the first explosive years of videogame growth. Jeutel had to change with it.</p>
+</section><section id="from-copying-to-licensing"><h2>From copying to licensing</h2>
+<p>Tel’s 2010 account describes the shift openly. As legal pressure increased, Jeutel began purchasing licenses and negotiating with major overseas manufacturers. He remembered dealings with Sega, Nintendo and Taito and described travel to Japan, the United States and Korea.</p>
+<p>Title-by-title paperwork for many of those relationships has not yet surfaced, so the article does not convert a founder’s memory into an imaginary list of contracts. One license, however, is independently documented in contemporary trade press.</p>
+<p>In its February 15, 1983 issue, Japan’s Game Machine reported Konami’s recent licensing moves for Pooyan. Stern Electronics had North America. Jeutel of France was licensed “only for France.”</p>
+<p>That phrase is valuable because it removes ambiguity. Pooyan is not a later collector attribution or a Jeutel-branded bootleg inferred from a PCB. It is a period-reported legitimate Konami-to-Jeutel licensing relationship, with the French territory specifically stated.</p>
+<p>The exact physical form of Jeutel’s Pooyan activity remains open. The surviving research has not yet produced a Jeutel Pooyan cabinet, manual or marked board that proves whether Jeutel manufactured full machines, assembled licensed boards and cabinets, distributed imported hardware, or combined those roles. The license itself, though, is secure.</p>
+<p>Tel also gave a revealing recollection concerning Pac-Man. He said Jeutel had a limited license but manufactured far more Pac-Man and Ms. Pac-Man material than the agreement allowed. No precise production figure is used here because the story is retrospective and the contract has not been recovered. What it demonstrates is the blurred boundary between legitimate licensing and overproduction in a rapidly expanding market.</p>
+<p>Jeutel’s history therefore resists a simple moral category. The company did not move cleanly from “bootlegger” to “licensed manufacturer” overnight. Authorized and unauthorized practices could overlap. That messy reality is more historically useful than a sanitized catalog.</p>
+</section><section id="rally-x-q-bert-and-the-names-left-out"><h2>Rally-X, Q*bert and the names left out</h2>
+<p>A conservative catalog is valuable only if it is willing to leave plausible material outside the headline count.</p>
+<p>Rally-X is supported by strong physical evidence. Collectors have documented a Jeutel bootleg Rally-X-family PCB with Jeutel-specific replacement logic. What remains unclear is the exact Jeutel commercial title, title-screen wording and release context. It is therefore treated as a hardware lead rather than promoted into the twelve-name marketed-title list.</p>
+<p>Q*bert is similar. Preservation sources report French Jeutel Q*bert bootleg boards, and International Arcade Museum material describes Q*bert as having been sold in France as a Jeutel bootleg. The present research has not produced a direct Jeutel manual, flyer, clearly marked board photograph or period trade record that locks the commercial identity. It remains a strong secondary lead.</p>
+<p>Super Draw Poker also sits outside the conventional-video count. Current preservation credits one set to Valadon Automation / Jeutel but leaves Jeutel’s exact role uncertain. Jeutel’s later poker and gambling-machine work belongs in its own category rather than being used to inflate the classic videogame total.</p>
+<p>In the 1990s, Jeutel’s name also appears in connection with French Goldart variants in Gaelco/Covielsa lineage. That is historically relevant to brand continuity, but it belongs to the later Jeutel story rather than the initial early-1980s catalog.</p>
+</section><section id="the-22-pin-jeutel-standard"><h2>The 22-pin Jeutel standard</h2>
+<p>Jeutel’s most distinctive videogame contribution may not have been a game at all. It was the cabinet ecosystem.</p>
+<p>Surviving French cabinets repeatedly preserve a Jeutel-specific 22-position edge-connector wiring system. Restoration records show original Jeutel harnesses, later JAMMA conversions, and adapters built to connect Jeutel-wired cabinets to the international JAMMA standard.</p>
+<p>Pierre Tel remembered this as a deliberate interchangeable system. The idea was straightforward and commercially powerful: an operator should be able to change a game board without rebuilding the cabinet. Tel said Jeutel continued using its own connection after JAMMA appeared, sold Jeutel/JAMMA adapters, and eventually produced hardware directly in JAMMA format.</p>
+<p>The physical evidence supports the existence and practical importance of the Jeutel standard. It does not support every later claim made about its influence.</p>
+<p>Tel went further, saying Jeutel had been first and that JAMMA was roughly “80 percent” based on the Jeutel system. No contemporary engineering record has been found to demonstrate that percentage or direct design transfer.</p>
+<p>Independent research into JAMMA’s formation points to a formal Japanese standardization process in late 1985. Kieran Nolan’s doctoral work reconstructs meetings on October 15 and November 21, 1985, followed by official establishment of the PCB standard at a JAMMA board meeting on November 26, with implementation planned for January 1, 1986. Nolan also reports Namco programmer Koichi Tashiro recalling Atari hardware as one influence on the connector standard.</p>
+<p>The defensible conclusion is therefore narrower and stronger: Jeutel genuinely had its own interchangeable arcade-board standard before or outside widespread JAMMA adoption, and the format was important enough in France for adapters to remain useful for years. Claims that JAMMA directly copied Jeutel remain unproved.</p>
+</section><section id="cabinets-built-for-operators"><h2>Cabinets built for operators</h2>
+<p>Jeutel cabinets survive in a surprising variety of forms. There is no single “Jeutel cabinet” that defines the company.</p>
+<p>Restoration records show conventional uprights, smaller cabinets, cocktail forms, title-specific machines and generic cabinets designed for board swaps. Some surviving examples use Philips/La Radiotechnique-derived monitor hardware; Hantarex monitors also appear repeatedly across later machines. The mix reflects a company that built around availability, serviceability and operator needs rather than one rigid industrial design.</p>
+<p>Dedicated or unusually title-specific survivors include Super Invaders and Le Grand Crash. Mirage is secure as a commercial title through the legal record. Many other Jeutel-branded cabinets are better understood as platforms whose installed board could change during their working lives.</p>
+<p>That creates a warning for collectors and historians. A Jeutel cabinet containing a certain PCB today does not automatically prove Jeutel originally sold that exact combination. French cabinets often lived long lives, were rewired for JAMMA, had monitors changed and received replacement boards. Cabinet brand, installed software, monitor, wiring and later conversion history must be evaluated separately.</p>
+</section><section id="the-twin-cabaret-two-games-in-one-machine"><h2>The Twin Cabaret: two games in one machine</h2>
+<p>One of the strangest surviving Jeutel forms is a wide dual-monitor cabinet generally described by French collectors as a Twin Cabaret.</p>
+<p>A recovered photograph shows two CRT positions side by side, two independent control stations, four coin-entry/selection positions, a doubled JEUTEL marquee divided by a colorful central starburst, and distinctive green alien and space-themed artwork. The original social-media post disappeared, so the photograph is retained as research evidence rather than presented here as a cleared publication image.</p>
+<p>A comparable surviving double Jeutel appeared in a 2017 Neo-Arcadia discussion, where collectors explicitly called it a “Twin Cabaret.” That wording is useful, but no Jeutel factory catalog or manual has yet been found to prove it was the official model name.</p>
+<p>The same discussion preserves a plausible explanation for the format. A French collector said operators wanted double cabinets so that two games could occupy one physical machine and potentially incur one automatic-game tax vignette instead of two. The contributor also suggested that many double cabinets later disappeared because their size made them awkward to move and resell.</p>
+<p>That explanation fits the operator economics of the period, but it remains collector testimony. No Jeutel factory document or French tax instruction has yet been found saying tax reduction was the design purpose.</p>
+<p>The alien artwork is another small mystery. A separate 2018 Gamoover restoration discussion recalls rare Jeutel alien imagery from early-1980s, Phoenix-era experience. That supports the possibility that Jeutel offered unusual space/alien decorative packages, but it does not identify an artist, date the artwork, or prove that every surviving example is factory-original.</p>
+<p>Even with those questions open, the Twin Cabaret belongs in Jeutel’s history because it embodies the company’s core instinct: build physical systems around operators.</p>
+</section><section id="jeutel-moves-into-pinball"><h2>Jeutel moves into pinball</h2>
+<p>If Jeutel’s videogame history is dominated by copying, adaptation and licensing, its pinball line shows a different kind of ambition.</p>
+<p>The safest current catalog consists of six production titles plus one prototype:</p>
+<p>1981 — Excalibur, prototype</p>
+<p>1982 — Valkyrie</p>
+<p>1983 — Le King</p>
+<p>1984 — Olympic Games</p>
+<p>1984 — Papillon</p>
+<p>1985 — Apocalypse Now</p>
+<p>1986 — Evolution</p>
+<p>Modern specialist databases circulate production quantities for these machines, but surviving factory ledgers or sufficiently complete serial-number ranges have not been recovered. Those totals are therefore not treated as hard facts.</p>
+<p>Contemporary evidence does show that pinball was not a trivial experiment. TILT’s coverage of Amusexpo 1983 described a prominent Jeutel display containing roughly twenty Valkyrie and Le King machines and reported that four additional models were planned for 1984.</p>
+<p>The line also produced one of the best surviving technical windows into Jeutel: the 1984 System 84 service manual.</p>
+</section><section id="system-84-original-electronics-familiar-mechanics"><h2>System 84: original electronics, familiar mechanics</h2>
+<p>The System 84 documentation covers tests, game adjustments, electronics, connectors, schematics, after-sales service, spare parts and troubleshooting. Its table of contents includes a particularly revealing item: Jeutel/Gottlieb coil equivalence.</p>
+<p>That one reference helps explain the physical character of Jeutel pinball. Specialist documentation and surviving machines show substantial use of Gottlieb-compatible mechanical concepts and parts. At the same time, current MAME preservation reconstructs a distinctly Jeutel electronic architecture using multiple Z80 processors, Intel 8255 interfaces, AY-3-8910 sound, TMS5110A speech and DAC audio.</p>
+<p>The best description is therefore hybrid, not dismissive. Jeutel did not simply put its name on a complete Gottlieb electronic design. It created its own control/electronics platform while borrowing, reproducing or maintaining compatibility with proven mechanical conventions.</p>
+<p>French-market details reinforce the company’s domestic focus. Specialist references describe 220-volt machines and French speech. Individual models still need to be checked before treating every specification as universal, but the overall pattern is clear: Jeutel was building a pinball system for the market it knew.</p>
+<p>Later databases credit Italian artist Michele “Mike” Martinelli with artwork for Papillon and Evolution. His broader European pinball career makes those credits plausible, but no factory credit sheet or signed original has yet been located. The attribution is best stated as a modern specialist credit rather than a confirmed period Jeutel credit.</p>
+</section><section id="the-people-behind-the-machines"><h2>The people behind the machines</h2>
+<p>Pierre Tel dominates the surviving narrative because he gave the long interview that preserved so much operational detail. That should not erase the people who actually engineered, assembled and serviced Jeutel equipment.</p>
+<h3>Claudie Tel</h3>
+<p>The 1986 Williams litigation identifies Claudie Tel as president of SA Jeutel. Her formal role is primary-source evidence and deserves to sit beside Pierre Tel’s entrepreneurial role rather than beneath it.</p>
+<h3>The seven-engineer design office</h3>
+<p>Pierre Tel remembered a bureau d’études of seven engineers. Their names are mostly missing. That absence matters because the surviving videogame catalog is often described as if “Jeutel” were a single designer. In reality, board modifications, reverse engineering, service changes and pinball development were team activities.</p>
+<h3>The PCB assembly workforce</h3>
+<p>Tel recalled roughly fifty women manually inserting components before boards moved through soldering. Even if the exact headcount remains unverified, the description restores an otherwise invisible production workforce to the history. Jeutel’s cabinets did not emerge only from executive decisions and engineering diagrams; they depended on repetitive skilled assembly labor.</p>
+<h3>Philippe Joigneau</h3>
+<p>One of the strongest personnel discoveries comes from the 1984 System 84 manual, which names Pierre Tel and Philippe Joigneau under “Département Flipper.” The document does not supply a precise job title, but it places Joigneau directly inside the pinball department during the System 84 period.</p>
+<p>Joigneau later operated Dépann’Jeux, a specialist game-electronics repair business established in the Toucy industrial zone in 1996 and later moved to Bonnard near Auxerre. That later career makes him a strong candidate for the unnamed former Jeutel technician whom Pierre Tel remembered as one of the few people still capable of repairing decades-old boards. The match is compelling but not yet proven by direct testimony.</p>
+<h3>Visionor</h3>
+<p>Visionor, founded by Georges Bellais, appears in the surviving Jeutel hardware story as a cabinet/monitor supplier connection. Collector-restoration accounts preserve later memories attributed to Frédéric Bellais concerning work with Pierre Tel and Jeutel. These supplier-side recollections are valuable, but the exact scope of the relationship still deserves factory or participant documentation.</p>
+</section><section id="a-company-under-stress-in-1986"><h2>A company under stress in 1986</h2>
+<p>The middle of the 1980s brought a corporate crisis, but it is important not to simplify that crisis into a sentence that says “Jeutel went bankrupt in 1986.”</p>
+<p>No direct, reliable SA Jeutel liquidation notice has been recovered that supports that statement.</p>
+<p>What is documented is a wider Tel-family business network under severe pressure. Toucy Video entered judicial reorganization in 1986 and was liquidated later that year. RDL / Renaud Distribution Aquitaine, another Tel-linked company, followed a similar path. Around the same time, Jeumagic appears with Pierre Tel as president and Claudie Tel and Sophie Lasseron Tel as administrators.</p>
+<p>Modern registry chronology for Jeumagic is awkward because it shows a later legal-unit creation date, but primary tax litigation proves that SA Jeumagic had taxable activity in 1987 and 1988 at Toucy. SA Jeutel’s visible Toucy establishment record is shown as closed by May 1988, though the surviving modern metadata are incomplete.</p>
+<p>The safest reconstruction is therefore a multi-company restructuring rather than a neat succession. The business system around Pierre Tel was being reorganized across several entities as the classic videogame and pinball period ended.</p>
+<p>Gestel, a shared support-services GIE, was created in 1989. Jeutel Loisirs also appeared that year in a different property/infrastructure context. None of those facts proves that Jeutel’s arcade assets moved wholesale into a single successor.</p>
+</section><section id="finatel-and-the-jeutel-name-in-the-1990s"><h2>Finatel and the Jeutel name in the 1990s</h2>
+<p>The Jeutel name did not vanish when the classic manufacturing period faded.</p>
+<p>Official French business-directory data show a Finatel France establishment at Toucy using JEUTEL as its registered trade name from 1993 until 1996, in a game/toy manufacturing classification. That is clean evidence for 1990s brand continuity.</p>
+<p>It is not clean evidence for uninterrupted corporate continuity.</p>
+<p>The distinction is essential. A brand can continue through a founder, a family, a trade name or a new entity without the original company surviving unchanged. Jeutel’s later history is best understood in exactly that way.</p>
+</section><section id="the-trademark-1984-1994-and-a-later-revival"><h2>The trademark: 1984, 1994 and a later revival</h2>
+<p>A separate French trademark case adds another solid date to the Jeutel chronology. The Cour de cassation record for pourvoi 93-81.330 states that Société Jeutel had deposited the JEUTEL mark on March 17, 1984.</p>
+<p>Another company later deposited the same word mark in 1987 and used “3615 Jeutel” for a Minitel games/contest service. The courts found that confusion was possible between the games offered under the two marks even though the delivery methods differed.</p>
+<p>The 1984 registration must not be mistaken for the founding of Jeutel. The industrial archive already proves Société Jeutel activity by 1978. It is a trademark milestone, not a birth certificate.</p>
+<p>Pierre Tel said in 2010 that he had gone many years without using the Jeutel name and had begun applying the logo again roughly one or two years before the interview. Official trademark evidence fits that recollection. A later French JEUTEL registration, no. 09 3 700 875, was filed December 23, 2009 in classes including electronics, games and entertainment-related services. Its 2019 renewal declaration names Pierre Tel.</p>
+<p>Company materials also report a Benelux JEUTEL registration from October 2009.</p>
+</section><section id="jeutel-after-the-arcade-era"><h2>Jeutel after the arcade era</h2>
+<p>The revived name was not limited to nostalgia.</p>
+<p>Later EURO-DS material promoted Bornes Internet Jeutel — Jeutel-branded internet terminals — and cited intellectual-property filings for terminal designs. A 2017 Luxembourg commercial judgment confirms that EURO-DS was actively marketing Jeutel internet terminals and litigating over copied terminal designs.</p>
+<p>The same judgment is a useful warning against assuming corporate ownership from branding. It found that EURO-DS owned certain registered designs, while the JEUTEL Benelux trademark itself was registered to the company’s anonymized administrator-delegate rather than to EURO-DS. No license agreement from that individual had been produced in the case.</p>
+<p>The owner is anonymized in the judgment, so it would be improper to identify that person from the decision alone.</p>
+<p>The later story is therefore one of brand continuity through changing legal structures. Pierre Tel and the Jeutel name continued to have commercial life. That does not mean the original 1970s Société Jeutel simply “moved to Luxembourg.”</p>
+</section><section id="what-survives"><h2>What survives</h2>
+<p>Jeutel survives in fragments that complement one another.</p>
+<p>The software survives in MAME and other preservation projects. Cabinets survive in French collections and restoration threads. Boards preserve the proprietary connector system. Pinball machines preserve System 84. Manuals retain technical language and names such as Philippe Joigneau. Court decisions preserve the Defender/Mirage dispute and corporate offices. Trade press preserves the Pooyan license and exhibition activity. Government and industrial archives preserve the physical fact of Jeutel’s factories.</p>
+<p>The Archives départementales de Seine-et-Marne hold three particularly important early industrial dossiers from 1978, 1979 and 1980. The archive has confirmed that the files are communicable. The 1978 and 1980 dossiers contain plans; the 1979 file concerns the Saint-Pierre-lès-Nemours repair facility.</p>
+<p>Those plans and document copies have been requested for further study. Their eventual arrival can refine the factory story without changing the central conclusion already supported by the public finding aids: Société Jeutel was a real manufacturing operation around Nemours before the commonly repeated later corporate dates.</p>
+<p>The surviving evidence is also uneven. Period company photographs remain scarce. Cabinet combinations have often changed over decades. Some flyers are known only through archives or collectors. Production quantities remain uncertain. The original legal chain linking every Tel-associated company has not been reconstructed.</p>
+<p>That is not a reason to postpone the history indefinitely. It is a reason to mark uncertainty honestly and update the record when better evidence appears.</p>
+</section><section id="chronology"><h2>Chronology</h2>
+<p>Before the Jeutel video brand</p>
+<p>Pierre Tel builds a French coin-operated rental/operator network around billiards, pinball and amusement equipment.</p>
+<h3>1978</h3>
+<p>Société Jeutel is documented in Seine-et-Marne industrial records for a game factory and exhibition/factory project at Nemours.</p>
+<h3>1979</h3>
+<p>A Société Jeutel file documents a game factory and electronic-game repair facility at Saint-Pierre-lès-Nemours. Jeutel-associated Galaxian-family material is also dated to the late 1970s in preservation records.</p>
+<h3>1980</h3>
+<p>Another industrial file documents a Jeutel game factory and electronic-game assembly workshop. Toucy Video is created with Pierre Tel as president/director general.</p>
+<h3>1980–1982</h3>
+<p>Jeutel copies, modifies and markets a growing range of popular video games, including Moon Cresta-, Phoenix-, Spectar-, Defender- and Crazy Kong-related material. Jeutel appears at British Amusement Trades Exhibition events.</p>
+<h3>1981</h3>
+<p>Excalibur prototype pinball.</p>
+<h3>1982</h3>
+<p>Valkyrie begins Jeutel’s documented production pinball line.</p>
+<p>February 1983</p>
+<p>Game Machine reports Konami licensed Pooyan to Jeutel only for France.</p>
+<h3>1983</h3>
+<p>Le King pinball. French Senate debate names Jeutel at Nemours among French amusement-machine manufacturers. Amusexpo coverage shows a substantial Jeutel pinball display.</p>
+<h3>1984</h3>
+<p>Olympic Games and Papillon pinballs. System 84 documentation names Pierre Tel and Philippe Joigneau in the pinball department. Société Jeutel deposits the JEUTEL trademark on March 17.</p>
+<h3>1985</h3>
+<p>Apocalypse Now pinball. Japanese industry standardization work creates the JAMMA PCB standard late in the year; Jeutel continues to have its own established 22-pin cabinet ecosystem.</p>
+<p>March 1986</p>
+<p>The Cour de cassation issues the Williams/Jeutel Defender-Mirage decision. Claudie Tel is identified as president of SA Jeutel.</p>
+<h3>1986</h3>
+<p>Evolution, the last currently documented Jeutel production pinball. Toucy Video and RDL encounter judicial reorganization/liquidation, while other Tel-linked structures remain active.</p>
+<h3>1987–1988</h3>
+<p>Jeumagic has documented taxable activity at Toucy. The visible modern SA Jeutel Toucy establishment record ends in 1988, though the precise asset and corporate succession remains unresolved.</p>
+<h3>1989</h3>
+<p>Gestel and Jeutel Loisirs appear in the broader Tel-company network.</p>
+<h3>1993–1996</h3>
+<p>A Finatel France establishment at Toucy officially uses JEUTEL as a trade name.</p>
+<h3>1994</h3>
+<p>The Cour de cassation upholds Jeutel’s earlier trademark priority against the later “3615 Jeutel” Minitel mark.</p>
+<h3>2009</h3>
+<p>Later JEUTEL trademark registrations appear in France and the Benelux.</p>
+<h3>2010</h3>
+<p>Pierre Tel gives the extensive Grospixels interview and describes reviving use of the Jeutel name after years of dormancy.</p>
+<h3>2013–2017</h3>
+<p>EURO-DS develops and litigates over Jeutel-branded internet terminal designs.</p>
+<h3>2019</h3>
+<p>The later French JEUTEL registration is renewed with Pierre Tel named as declarant.</p>
+</section><section id="catalog-reference"><h2>Catalog reference</h2>
+<h3>Classic video — high-confidence Jeutel-facing identities</h3>
+<p>Star Fighter / Galaktron — Galaxian family — copied/Jeutel version; exact naming unresolved.</p>
+<p>Moon Cresta — Moon Cresta family — Jeutel bootleg.</p>
+<p>Moune Creste — Moon Cresta family — French Jeutel bootleg label.</p>
+<p>Phantomas — Spectar family — Jeutel bootleg.</p>
+<p>Vautour — Phoenix family — Jeutel version, multiple hardware forms.</p>
+<p>Defender — Defender family — Jeutel copy.</p>
+<p>Tornado — Defender family — Jeutel derivative/title.</p>
+<p>Zero — Defender family — Jeutel derivative/title.</p>
+<p>Crazy Kong Part II — Crazy Kong Part II family — Jeutel bootleg.</p>
+<p>Mirage — Defender family — court-documented Jeutel rename/commercial identity.</p>
+<p>Super Invaders — Space Invaders family — surviving Jeutel physical product.</p>
+<p>Le Grand Crash — underlying game unresolved — period Jeutel sales literature confirms product.</p>
+<h3>Confirmed licensed relationship</h3>
+<p>Pooyan — Konami — Jeutel licensed only for France by contemporary 1983 trade reporting; exact physical implementation open.</p>
+<h3>Strong leads not included in the twelve</h3>
+<p>Rally-X family — surviving Jeutel bootleg hardware, commercial title identity unresolved.</p>
+<p>Q*bert — strong preservation testimony for French Jeutel bootleg boards, direct period Jeutel product documentation still incomplete.</p>
+<p>Super Draw Poker set 2 — Valadon Automation / Jeutel preservation attribution, exact Jeutel role unclear.</p>
+<h3>Pinball</h3>
+<p>Excalibur — 1981 prototype.</p>
+<p>Valkyrie — 1982.</p>
+<p>Le King — 1983.</p>
+<p>Olympic Games — 1984.</p>
+<p>Papillon — 1984.</p>
+<p>Apocalypse Now — 1985.</p>
+<p>Evolution — 1986.</p>
+<h3>Later continuity</h3>
+<p>Goldart French variants — later Gaelco/Covielsa/Jeutel lineage, treated separately from the classic period.</p>
+<p>Jeutel/Finatel and EURO-DS products — later trade-name and brand revival, not part of the classic videogame count.</p>
+</section><section id="sources-and-documentation"><h2>Sources and documentation</h2>
+<h3>Pierre Tel oral history</h3>
+<p>Grospixels, “Jeutel” interview with Pierre Tel, 2010:</p>
+<p><a href="https://www.grospixels.com/site/jeutel_01.php" rel="noopener noreferrer">https://www.grospixels.com/site/jeutel_01.php</a></p>
+<p>Used for route-business origins, Breakout-era manufacturing, agency/factory recollections, copying/licensing practices, workforce, connector history and later brand reuse. Numeric recollections are treated as oral history unless independently corroborated.</p>
+<h3>Williams Electronics v. Jeutel</h3>
+<p>Cour de cassation, Assemblée plénière, March 7, 1986, pourvoi 85-91.465:</p>
+<p><a href="https://www.legifrance.gouv.fr/juri/id/JURITEXT000007016536/" rel="noopener noreferrer">https://www.legifrance.gouv.fr/juri/id/JURITEXT000007016536/</a></p>
+<p>Primary legal record for Defender/Mirage and for Claudie Tel’s formal presidency of SA Jeutel during the litigation.</p>
+<h3>Seine-et-Marne industrial archives</h3>
+<p>Archives départementales de Seine-et-Marne, classified-establishment finding aids:</p>
+<p><a href="https://archives.seine-et-marne.fr/" rel="noopener noreferrer">https://archives.seine-et-marne.fr/</a></p>
+<p>Key references: 2875W242/6 (1978), 2875W301/11 (1979), 2875W334/6 (1980). The finding aids establish Jeutel factory, repair and assembly activity before the later SA registry date.</p>
+<p>1979 Saint-Pierre-lès-Nemours Jeutel entry:</p>
+<p><a href="https://archives.seine-et-marne.fr/sites/archives.seine-et-marne.fr/files/media/downloads/icpe_communes-en-s.pdf" rel="noopener noreferrer">https://archives.seine-et-marne.fr/sites/archives.seine-et-marne.fr/files/media/downloads/icpe_communes-en-s.pdf</a></p>
+<h3>1983 French Senate debate</h3>
+<p>French Senate, June 30, 1983:</p>
+<p><a href="https://www.senat.fr/comptes-rendus-seances/5eme/pdf/1983/06/s19830630_2111_2174.pdf" rel="noopener noreferrer">https://www.senat.fr/comptes-rendus-seances/5eme/pdf/1983/06/s19830630_2111_2174.pdf</a></p>
+<p>Period government context naming Jeutel at Nemours among French manufacturers.</p>
+<h3>Konami / Pooyan license</h3>
+<p>Game Machine no. 206, February 15, 1983:</p>
+<p><a href="https://onitama.tv/gamemachine/pdf/19830215p.pdf" rel="noopener noreferrer">https://onitama.tv/gamemachine/pdf/19830215p.pdf</a></p>
+<p>Contemporary trade report confirming Jeutel’s Pooyan license only for France.</p>
+<h3>Le Grand Crash</h3>
+<p>Arcade Flyer Archive / International Arcade Museum, surviving French Jeutel sales flyer. The archive identifies Jeutel as manufacturer and France as region; no release year is supplied.</p>
+<h3>Current technical preservation</h3>
+<p>MAME source and preservation records for Jeutel-attributed Galaxian/Moon Cresta, Defender, Spectar, Phoenix, Crazy Kong, poker and System 84 pinball material. These are used as technical preservation evidence rather than as proof that every label was an original Jeutel design.</p>
+<h3>System 84 manual</h3>
+<p>Surviving Jeutel technical manual scan:</p>
+<p><a href="https://database.gamoover.net/20181115153356-SCAN0005-petit.pdf" rel="noopener noreferrer">https://database.gamoover.net/20181115153356-SCAN0005-petit.pdf</a></p>
+<p>Used for System 84 service architecture, Gottlieb coil equivalence and the Pierre Tel / Philippe Joigneau pinball-department identification.</p>
+<h3>Pinball technical references</h3>
+<p>PinWiki, Jeutel:</p>
+<p><a href="https://pinwiki.com/wiki/index.php/Jeutel" rel="noopener noreferrer">https://pinwiki.com/wiki/index.php/Jeutel</a></p>
+<p>Kineticist, Jeutel manufacturer reference:</p>
+<p><a href="https://www.kineticist.com/manufacturers/jeutel" rel="noopener noreferrer">https://www.kineticist.com/manufacturers/jeutel</a></p>
+<p>Used cautiously for specialist technical context and modern catalog/credit leads; factory production quantities remain unverified.</p>
+<h3>JAMMA context</h3>
+<p>Kieran Nolan, Trinity College Dublin doctoral research, The Art, Aesthetics, and Materiality of the Arcade Videogame Interface (2019). Used for the documented 1985 JAMMA standardization sequence and the reported Atari-influence recollection. Pierre Tel’s stronger claim that JAMMA was “80 percent” Jeutel remains uncorroborated.</p>
+<h3>Jeumagic</h3>
+<p>Cour administrative d’appel de Lyon, June 9, 1999, 95LY21482:</p>
+<p><a href="https://www.legifrance.gouv.fr/ceta/id/CETATEXT000007461601" rel="noopener noreferrer">https://www.legifrance.gouv.fr/ceta/id/CETATEXT000007461601</a></p>
+<p>Primary legal evidence for Jeumagic business tax activity in 1987–1988 at Toucy.</p>
+<h3>JEUTEL trademark dispute</h3>
+<p>Cour de cassation, Chambre criminelle, February 2, 1994, pourvoi 93-81.330:</p>
+<p><a href="https://www.courdecassation.fr/decision/6079a8519ba5988459c4ca64" rel="noopener noreferrer">https://www.courdecassation.fr/decision/6079a8519ba5988459c4ca64</a></p>
+<p>Primary record establishing Société Jeutel’s March 17, 1984 trademark deposit and the later dispute over “3615 Jeutel.”</p>
+<h3>Twin Cabaret collector record</h3>
+<p>Neo-Arcadia, 2017:</p>
+<p><a href="https://www.neo-arcadia.com/forum/viewtopic.php?start=200&amp;t=50701" rel="noopener noreferrer">https://www.neo-arcadia.com/forum/viewtopic.php?start=200&amp;t=50701</a></p>
+<p>Used for collector nomenclature “Twin Cabaret” and the reported tax-vignette explanation, which remains unconfirmed by factory or government documentation.</p>
+<h3>Alien-art restoration testimony</h3>
+<p>Gamoover, 2018:</p>
+<p><a href="https://www.gamoover.net/Forums/index.php?topic=40452.0" rel="noopener noreferrer">https://www.gamoover.net/Forums/index.php?topic=40452.0</a></p>
+<p>Used as collector/restoration testimony concerning uncommon Jeutel alien imagery.</p>
+<h3>French corporate and registry evidence</h3>
+<p>French official business-directory and registry-derived records for SA Jeutel, Toucy Video, RDL/Renaud Distribution Aquitaine, Jeumagic, Gestel and Finatel France. These records are kept entity-specific; they do not establish a single uninterrupted corporation.</p>
+<h3>Later trademark and EURO-DS evidence</h3>
+<p>INPI/BOPI trademark renewal material for French JEUTEL registration 09 3 700 875; EURO-DS product/legal materials; and the 2017 Luxembourg commercial judgment concerning Jeutel-branded internet terminals and registered designs. These sources support later brand revival while leaving exact corporate continuity qualified.</p>
+</section><section id="closing-assessment"><h2>Closing assessment</h2>
+<p>Jeutel matters because it exposes the arcade industry as operators actually experienced it, not only as software historians later cataloged it.</p>
+<p>In the American and Japanese narratives, arcade history is often organized around original titles and famous developers. Jeutel’s history is organized around something more practical: getting earning equipment into cafés, keeping it working, changing it when necessary, manufacturing locally when imports were scarce, copying what the market demanded, negotiating licenses when enforcement tightened, and building cabinets that could outlive the boards inside them.</p>
+<p>That business produced uncomfortable evidence as well as admirable engineering. Defender became Mirage because Williams challenged Jeutel. Other copied games survive under French names. Tel later admitted practices that do not fit a polished corporate legend.</p>
+<p>But Jeutel was more than its bootlegs. It built a significant French manufacturing operation documented by 1978. It maintained a proprietary interchangeable cabinet system. It developed a substantial domestic distribution network. It negotiated legitimate international licenses. It entered pinball with a real electronic platform of its own. And decades after the classic arcade period, the Jeutel name was valuable enough to be revived and defended again.</p>
+<p>The remaining gaps — factory plans, exact corporate transfers, missing engineers, game-by-game licensing paperwork, photographs and surviving hardware — can refine this history. They do not erase the story already visible.</p>
+<p>Jeutel was one of the companies that made the French arcade market physically possible. Its history belongs not only in lists of bootlegs, but in the larger story of how coin-operated videogames were manufactured, distributed, localized, repaired and kept earning money far from the companies that originally designed them.</p>
+</section>
+<section class="contribute" id="contribute"><h2>Have Jeutel material or corrections?</h2><p>Factory photographs, catalogs, manuals, cabinet plates, PCB photographs, employee memories and better documentation for the unresolved titles are especially useful. Evidence-backed corrections are welcome.</p><p><a href="mailto:dde.biz@gmail.com?subject=Arcade%20Side%20B%20Jeutel%20research%20lead">Contribute Jeutel evidence →</a></p></section>
+</article></div>
+<footer class="footer"><div class="footer-inner"><div><strong>Arcade Side B</strong> · The Overlooked Side of Arcade History · Jeutel · Company history</div><div class="site-counter"><div>Site hits</div><img alt="Arcade Side B site hit counter" src="https://hitscounter.dev/api/hit?color=%23c9973a&amp;icon=123&amp;label=SITE%20HITS&amp;url=https%3A%2F%2Farcadesideb.com%2F"/></div></div><p class="last-updated">Last updated November 22, 2026 · Open to new evidence</p></footer>
+</body>
+</html>
