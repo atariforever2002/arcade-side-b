@@ -409,3 +409,7 @@ footer .footer-inner p{font:14px/1.6 Arial}footer .footer-inner .wrap{width:100%
 .meta>*+*{margin-left:10px}
 
 .asb-game-story .marquee-photo figcaption{color:#566167}
+
+/* Uniform small marquee captions; game images display inline without enlargement. */
+.mast .marquee-photo figcaption{font-size:7px;line-height:1.5}
+.mast .marquee-photo img,.asb-game-story img{cursor:default}
