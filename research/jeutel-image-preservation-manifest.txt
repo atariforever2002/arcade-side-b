@@ -1,0 +1,17 @@
+JEUTEL IMAGE PRESERVATION MANIFEST — 2026-11-22
+Status: 10 historical external image references committed; binary archival copies NOT yet preserved. Live HTTP checks unavailable from current runtime. Do not mark fully archived.
+GitHub branch: arcade-side-b-conversion
+Page: jeutel.html
+
+1. https://flyers.arcade-museum.com/videogame-flyers/2/super-invaders-02758-01.jpg
+2. https://flyers.arcade-museum.com/videogame-flyers/3/le-grand-crash-03198-01.jpg
+3. https://www.gaspachi.fr/wp-content/uploads/2025/01/site_borne13.jpg
+4. https://www.gaspachi.fr/wp-content/uploads/2025/01/site_borne1.jpg
+5. https://www.wda-fr.org/forum/images/uploads/Casio/jeutel.jpg
+6. https://gamoovernet.pixhotel.fr/pics/20180827095229-globuleblanche-thumb-IMG-2806-1024.jpg
+7. https://gamoovernet.pixhotel.fr/pics/v2/2022/08/04/20220804124703-titi0017-22A35F63-B031-4B8C-BAC3-DC5F51C1C9C9.jpeg
+8. https://imgproxy.pinside.com/YN_wD7kCtFZqyWzFSvmSx2Q0J-ZEF0oIxlFr6rag2WQ/rs:fit:2048/fn:pinside_archive_835_8a03fd6aec28/enc/Rz-HPcV1MgTp8F18zpX7J7VgMXyKIGSfo6aFanmwe9OzBOFdY67Os0ZymCSSL4_3r1dTIfyqgXvJcnrqp1u5TJQX5j5Nw0atCvp82NxiEnt8VAgLpYT7VWrfvr0CqMIp.jpg
+9. https://imgproxy.pinside.com/5UZwEiz0cjW3Q32BzV2boJql6h5eYHlNr9zxe8HHLNI/rs:fill:360:360/fn:pinside_market_174231_041c957851e9/enc/11VLTMbC_OT2LdwNz1W8w5dzuI700MapaDRqaUMkI6FdsjiKdYJOgsyvB369p2EJk5COB4VwChqf_XiICJqd2G4t6fL2uO1v28bXLeY7l7nr73O4Dn4uo1ixg7A4UrZc.jpeg
+10. https://www.gaspachi.fr/wp-content/uploads/2025/01/site_borne12.jpg
+
+Required completion: download each original with provenance and checksums into Jeutel Drive archive; commit self-hosted images into site repository; update HTML paths; verify all ten in browser on mobile and desktop. Keep approved historical prose unchanged.
