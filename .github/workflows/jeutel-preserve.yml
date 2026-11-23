@@ -1,0 +1,56 @@
+name: Preserve Jeutel historical images
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - .github/workflows/jeutel-preserve.yml
+permissions:
+  contents: write
+jobs:
+  preserve:
+    if: github.ref == 'refs/heads/arcade-side-b-conversion'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Download, validate, and localize available Jeutel images
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import pathlib, urllib.request, time, hashlib, json
+          page = pathlib.Path("jeutel.html")
+          html = page.read_text(encoding="utf-8")
+          dest = pathlib.Path("images/jeutel")
+          dest.mkdir(parents=True, exist_ok=True)
+          items = [["super-invaders.jpg","https://flyers.arcade-museum.com/videogame-flyers/2/super-invaders-02758-01.jpg"],["le-grand-crash.jpg","https://flyers.arcade-museum.com/videogame-flyers/3/le-grand-crash-03198-01.jpg"],["jeutel-promo.jpg","https://www.wda-fr.org/forum/images/uploads/Casio/jeutel.jpg"],["jeutel-upright.jpg","https://www.gaspachi.fr/wp-content/uploads/2025/01/site_borne1.jpg"],["jeutel-restoration.jpg","https://gamoovernet.pixhotel.fr/pics/20180827095229-globuleblanche-thumb-IMG-2806-1024.jpg"],["jeutel-cocktail.jpeg","https://gamoovernet.pixhotel.fr/pics/v2/2022/08/04/20220804124703-titi0017-22A35F63-B031-4B8C-BAC3-DC5F51C1C9C9.jpeg"],["jeutel-wiring.jpg","https://www.gaspachi.fr/wp-content/uploads/2025/01/site_borne13.jpg"],["jeutel-valkyrie.jpg","https://imgproxy.pinside.com/YN_wD7kCtFZqyWzFSvmSx2Q0J-ZEF0oIxlFr6rag2WQ/rs:fit:2048/fn:pinside_archive_835_8a03fd6aec28/enc/Rz-HPcV1MgTp8F18zpX7J7VgMXyKIGSfo6aFanmwe9OzBOFdY67Os0ZymCSSL4_3r1dTIfyqgXvJcnrqp1u5TJQX5j5Nw0atCvp82NxiEnt8VAgLpYT7VWrfvr0CqMIp.jpg"],["jeutel-le-king.jpeg","https://imgproxy.pinside.com/5UZwEiz0cjW3Q32BzV2boJql6h5eYHlNr9zxe8HHLNI/rs:fill:360:360/fn:pinside_market_174231_041c957851e9/enc/11VLTMbC_OT2LdwNz1W8w5dzuI700MapaDRqaUMkI6FdsjiKdYJOgsyvB369p2EJk5COB4VwChqf_XiICJqd2G4t6fL2uO1v28bXLeY7l7nr73O4Dn4uo1ixg7A4UrZc.jpeg"],["jeutel-coin-mechs.jpg","https://www.gaspachi.fr/wp-content/uploads/2025/01/site_borne12.jpg"]]
+          results = []
+          for filename, url in items:
+              local = dest / filename
+              try:
+                  request = urllib.request.Request(url, headers={"User-Agent":"Mozilla/5.0 (compatible; ArcadeSideBArchive/1.0)", "Accept":"image/avif,image/webp,image/*,*/*;q=0.8"})
+                  with urllib.request.urlopen(request, timeout=30) as response:
+                      payload = response.read(15_000_001)
+                  if len(payload) > 15_000_000 or len(payload) < 1000 or not (payload.startswith(bytes.fromhex("ffd8ff")) or payload.startswith(bytes.fromhex("89504e470d0a1a0a")) or payload.startswith(b"RIFF")):
+                      raise ValueError("Not a valid supported image or unexpected size")
+                  local.write_bytes(payload)
+                  html = html.replace('src="'+url+'"', 'src="'+str(local)+'"')
+                  results.append({"file":filename,"status":"saved","bytes":len(payload),"sha256":hashlib.sha256(payload).hexdigest(),"source":url})
+              except Exception as exc:
+                  results.append({"file":filename,"status":"failed","reason":str(exc),"source":url})
+                  print("FAILED:", filename, exc)
+          page.write_text(html, encoding="utf-8")
+          (dest / "download-report.json").write_text(json.dumps(results, indent=2)+"\n", encoding="utf-8")
+          print("Saved",sum(x["status"]=="saved" for x in results),"of",len(results))
+          
+          PY
+      - name: Commit validated files and source manifest
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add jeutel.html images/jeutel/
+          if ! git diff --cached --quiet; then
+            git commit -m "Jeutel: self-host validated archival images and record sources"
+            git push
+          fi
